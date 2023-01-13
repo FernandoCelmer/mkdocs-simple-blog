@@ -1,1 +1,1 @@
-# mkdocs-simple-theme
+# mkdocs-blog-theme
