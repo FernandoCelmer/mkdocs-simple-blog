@@ -8,11 +8,11 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="mkdocs-simple-blog",
-    version=__version__,
+    fullname='mkdocs-simple-blog',
     author='Fernando Celmer',
+    version=__version__,
     author_email='email@fernandocelmer.com',
     url='https://github.com/FernandoCelmer/mkdocs-simple-blog',
-    include_package_data=True,
     description="Mkdocs Blog Theme",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -29,11 +29,13 @@ setup(
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
     ],
-    zip_safe=False,
-    python_requires=">=3.6",
     install_requires=[
         'mkdocs>=1.4.2'
     ],
+    include_package_data=True,
+    python_requires=">=3.6",
+    zip_safe=True,
+    fullname='mkdocs-simple-blog',
     entry_points={
         'mkdocs.themes': [
             'simple-blog = mkdocs_simple_blog',
