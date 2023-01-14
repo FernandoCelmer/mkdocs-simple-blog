@@ -1,7 +1,5 @@
-import simple_blog
-
 from setuptools import setup
-from simple_blog import __version__
+from mkdocs_simple_blog import __version__
 
 
 with open("README.md", "r", encoding="utf-8") as fh:
@@ -34,7 +32,8 @@ setup(
     install_requires=[
         'mkdocs>=1.4.2'
     ],
-    packages=["simple_blog"],
+    packages=["mkdocs_simple_blog"],
+    package_data={'mkdocs_simple_blog': ['*','*/*','*/*/*']},
     include_package_data=True,
     python_requires=">=3.6",
     zip_safe=True,
