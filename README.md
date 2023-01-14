@@ -1,6 +1,6 @@
 # MkDocs Simple Blog
 
-![Image](/docs/assets/simple-blog.png)
+![Image](https://raw.githubusercontent.com/FernandoCelmer/mkdocs-simple-blog/develop/docs/assets/simple-blog.png)
 
 ![GitHub forks](https://img.shields.io/github/forks/FernandoCelmer/mkdocs-simple-blog?label=Forks&style=flat-square)
 ![GitHub Repo stars](https://img.shields.io/github/stars/FernandoCelmer/mkdocs-simple-blog?label=Stars&style=flat-square)
