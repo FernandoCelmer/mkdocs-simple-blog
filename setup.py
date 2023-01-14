@@ -32,12 +32,12 @@ setup(
     install_requires=[
         'mkdocs>=1.4.2'
     ],
-    include_package_data=True,
-    python_requires=">=3.6",
-    zip_safe=True,
     packages=[
         'simple_blog',
     ],
+    include_package_data=True,
+    python_requires=">=3.6",
+    zip_safe=False,
     entry_points={
         'mkdocs.themes': [
             'simple-blog = mkdocs_simple_blog',
