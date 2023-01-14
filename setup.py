@@ -29,7 +29,7 @@ setup(
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
     ],
-    zip_safe=True,
+    zip_safe=False,
     python_requires=">=3.6",
     install_requires=[
         'mkdocs>=1.4.2'
