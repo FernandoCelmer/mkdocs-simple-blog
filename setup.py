@@ -35,6 +35,7 @@ setup(
     include_package_data=True,
     python_requires=">=3.6",
     zip_safe=True,
+    fullname='simple_blog',
     entry_points={
         'mkdocs.themes': [
             'simple-blog = mkdocs_simple_blog',
