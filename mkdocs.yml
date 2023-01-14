@@ -1,4 +1,12 @@
 site_name: MkDocs Simple Blog
+repo_name: FernandoCelmer/mkdocs-basic-theme
+site_url: https://github.com/mkdocs/mkdocs-basic-theme
+repo_url: https://github.com/mkdocs/mkdocs-basic-theme
+copyright: Fernando Celmer
+
+nav:
+    - Home: index.md
+    - Getting Started: getting-started.md
 
 theme:
   name: simple-blog
