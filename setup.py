@@ -31,12 +31,6 @@ setup(
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
     ],
-    install_requires=[
-        'mkdocs>=1.4.2'
-    ],
-    packages=[
-        'simple_blog',
-    ],
     include_package_data=True,
     python_requires=">=3.6",
     zip_safe=False,
