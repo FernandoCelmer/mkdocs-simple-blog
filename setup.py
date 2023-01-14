@@ -1,6 +1,6 @@
 import simple_blog
 
-from setuptools import setup
+from setuptools import setup, find_packages
 from simple_blog import __version__
 
 
@@ -31,9 +31,13 @@ setup(
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
     ],
+    install_requires=[
+        'mkdocs>=1.4.2'
+    ],
+    packages=find_packages(),
     include_package_data=True,
     python_requires=">=3.6",
-    zip_safe=False,
+    zip_safe=True,
     entry_points={
         'mkdocs.themes': [
             'simple-blog = mkdocs_simple_blog',
