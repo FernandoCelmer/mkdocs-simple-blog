@@ -1,6 +1,6 @@
 import simple_blog
 
-from setuptools import setup, find_packages
+from setuptools import setup
 from simple_blog import __version__
 
 
@@ -34,7 +34,7 @@ setup(
     install_requires=[
         'mkdocs>=1.4.2'
     ],
-    packages=find_packages(),
+    packages=["simple_blog"],
     include_package_data=True,
     python_requires=">=3.6",
     zip_safe=True,
