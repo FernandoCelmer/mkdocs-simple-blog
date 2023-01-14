@@ -1,3 +1,5 @@
+import simple_blog
+
 from setuptools import setup
 from simple_blog import __version__
 
