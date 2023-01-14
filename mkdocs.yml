@@ -1,0 +1,4 @@
+site_name: MkDocs Simple Blog
+
+theme:
+  name: simple-blog
