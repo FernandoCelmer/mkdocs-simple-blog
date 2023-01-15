@@ -7,6 +7,7 @@ copyright: Fernando Celmer
 nav:
     - Home: index.md
     - Getting Started: getting-started.md
+    - Development: development.md
 
 theme:
   name: simple-blog
