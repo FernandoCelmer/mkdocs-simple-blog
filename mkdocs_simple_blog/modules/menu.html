@@ -1,11 +1,26 @@
 <!-- block menu -->
-<ul class="navbar-nav">
-    {%- block site_nav %}
-        {%- if nav|length>1 %}
-            {%- for nav_item in nav %}
-            <li><a href="{{ nav_item.url|url }}" class="me-3 py-2 text-dark text-decoration-none">[{{ nav_item.title }}]</a></li>
-            {%- endfor %}
-        {%- endif %}
-    {%- endblock %}
-</ul>
+{%- if nav|length>1 %}
+<li class="nav-item">
+    <ul class="navbar-nav">
+        {%- for nav_item in nav %}
+            {%- if nav_item.children %}
+                <li class="nav-item dropdown">
+                    <a class="{% if nav_item.active %} text-dark {% else %} text-gray {% endif %}
+                    nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Development]</a>
+                    <ul class="dropdown-menu">
+                        {%- for nav_item in nav_item.children %}
+                            {% include "modules/dropdown-menu.html" %}
+                        {%- endfor %}
+                    </ul>
+                </li>
+            {%- else %}
+                <li class="nav-item">
+                    <a class="{% if nav_item.active %} text-dark {% else %} text-gray {% endif %}
+                    nav-link text-gray text-decoration-none" href="{{ nav_item.url|url }}">[{{ nav_item.title }}]</a>
+                </li>
+            {%- endif %}
+        {%- endfor %}
+    </ul>
+</li>
+{%- endif %}
 <!-- endblock -->
