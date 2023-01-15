@@ -7,7 +7,7 @@ copyright: Fernando Celmer
 nav:
     - Home: index.md
     - Getting Started: getting-started.md
-    - Development: 
+    - Development:
       - development.md
       - release-notes.md
 

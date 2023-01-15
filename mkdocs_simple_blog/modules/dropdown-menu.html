@@ -1,14 +1,16 @@
+<!-- block dropdown-menu -->
 {%- if not nav_item.children %}
-<li>
-    <a href="{{ nav_item.url|url }}" class="dropdown-item {% if nav_item.active %} text-dark {% else %} text-gray {% endif %}">{{ nav_item.title }}</a>
-</li>
+    <li>
+        <a href="{{ nav_item.url|url }}" class="dropdown-item text-decoration-none {% if nav_item.active %} text-dark {% else %} text-gray {% endif %}">{{ nav_item.title }}</a>
+    </li>
 {%- else %}
-  <li class="dropdown-submenu">
-    <a href="#" class="dropdown-item">{{ nav_item.title }}</a>
-    <ul class="dropdown-menu">
-        {%- for nav_item in nav_item.children %}
-            {% include "modules/dropdown-menu.html" %}
-        {%- endfor %}
-    </ul>
-  </li>
+    <li>
+        <a class="dropdown-item text-decoration-none" href="#">{{ nav_item.title }} &raquo;</a>
+        <ul class="submenu dropdown-menu">
+            {%- for nav_item in nav_item.children %}
+                {% include "modules/dropdown-menu.html" %}
+            {%- endfor %}
+        </ul>
+    </li>
 {%- endif %}
+<!-- endblock -->
