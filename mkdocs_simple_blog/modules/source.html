@@ -1,0 +1,34 @@
+<!-- block source -->
+<div class="md-source source-detail">
+  <div class="md-source-repo-icon">
+    <i class="fa fa-github-alt" aria-hidden="true"></i>
+  </div>
+
+  <div class="md-source-repo-url">
+    <a href="{{ config.repo_url }}" class="md-source">
+      {{ config.repo_name }}
+    </a>
+
+    <ul class="md-source-repo-text">
+      <li>
+        <i class="fa fa-tag" aria-hidden="true"></i>
+        <img alt="GitHub tag (latest by date)"
+          src="https://img.shields.io/github/v/tag/{{ config.repo_name }}?color=white&label=%20&style=flat-square">
+      </li>
+
+      <li>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <img alt="GitHub Repo stars"
+          src="https://img.shields.io/github/stars/{{ config.repo_name }}?color=white&label=%20&style=flat-square">
+      </li>
+
+      <li>
+        <i class="fa fa-code-fork" aria-hidden="true"></i>
+        <img alt="GitHub forks"
+          src="https://img.shields.io/github/forks/{{ config.repo_name }}?color=white&label=%20&style=flat-square">
+      </li>
+    </ul>
+  </div>
+
+</div>
+<!--  endblock -->

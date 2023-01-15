@@ -1,9 +1,11 @@
+<!-- block footer -->
 <footer class="pt-4 my-md-5 pt-md-5 border-top">
     <div class="row">
         <div class="col-12 col-md">
-            {%- if config.copyright %}
-                <small class="d-block mb-3 text-muted">{{ config.copyright }}</small>
-            {%- endif %}
+            {%- block footer %}
+                {% include "/modules/copyright.html" %}
+            {%- endblock %}
         </div>
     </div>
 </footer>
+<!-- endblock -->

@@ -1,0 +1,13 @@
+<!-- block copyright -->
+{%- if config.copyright %}
+    <small class="d-block mb-3 text-muted">{{ config.copyright }}</small>
+{%- endif %}
+{% if not config.extra.generator == false %}
+<small class="d-block mb-3 text-muted">
+    Made with
+    <a href="https://github.com/FernandoCelmer/mkdocs-simple-blog" target="_blank" rel="noopener">
+        Simple Blog for MkDocs
+    </a>
+</small>
+{% endif %}
+<!-- endblock -->

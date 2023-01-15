@@ -1,0 +1,11 @@
+<!-- block menu -->
+<ul class="navbar-nav">
+    {%- block site_nav %}
+        {%- if nav|length>1 %}
+            {%- for nav_item in nav %}
+            <li><a href="{{ nav_item.url|url }}" class="me-3 py-2 text-dark text-decoration-none">[{{ nav_item.title }}]</a></li>
+            {%- endfor %}
+        {%- endif %}
+    {%- endblock %}
+</ul>
+<!-- endblock -->

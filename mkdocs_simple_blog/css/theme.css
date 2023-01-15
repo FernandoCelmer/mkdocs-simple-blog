@@ -515,3 +515,58 @@ pre {
     font-size: .775em;
     line-height: 30px;
 }
+
+.navbar-collapse {
+    align-items: end;
+}
+
+.md-source {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: block;
+    font-size: 18px;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+@media only screen and (max-width: 1200px) {
+    .source-detail {
+        margin-top: 10px;
+        padding: 15px;
+        border-top: solid;
+        border-color: #e8e8e8;
+    }
+}
+
+.md-source-repo-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: xx-large;
+}
+
+.md-source-repo-text {
+    display: flex;
+    font-size: 14px;
+    text-align: left;
+    gap: 0.4rem;
+    list-style-type: none;
+    margin: 0.1rem 0 0;
+    opacity: .75;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+}
+
+.md-source-repo-url {
+    display: inline-block;
+    max-width: calc(100% - 1.2rem);
+    white-space: nowrap;
+    width: 15em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    text-align: left;
+    vertical-align: middle;
+}

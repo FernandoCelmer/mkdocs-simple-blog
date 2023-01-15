@@ -1,0 +1,32 @@
+<!-- block header -->
+<nav class="navbar navbar-expand-xl border-bottom">
+    <div class="container-fluid">
+        <span class="fs-4">{{ config.site_name }}</span>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
+            aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
+            <ul class="navbar-nav">
+                <!-- block menu -->
+                <li class="nav-item">
+                    {% include "modules/menu.html" %}
+                </li>
+                <!-- endblock -->
+
+                <!-- block source -->
+                <li class="nav-item">
+                    {% if config.repo_url %}
+                        {% if config.repo_name != 'GitHub' %}
+                            {% include "modules/source.html" %}
+                        {% endif %}
+                    {% endif %}
+                </li>
+                <!--  endblock -->
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--  endblock -->

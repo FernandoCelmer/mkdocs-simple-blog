@@ -1,15 +1,21 @@
 <!doctype html>
-<html lang="en">
+<html>
     <head>
         {%- block site_meta %}
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
             {% if page and page.is_homepage %}<meta name="description" content="{{ config['site_description'] }}">{% endif %}
             {% if config.site_author %}<meta name="author" content="{{ config.site_author }}">{% endif %}
             {% if page and page.canonical_url %}<link rel="canonical" href="{{ page.canonical_url }}">{% endif %}
-            {% if config.site_favicon %}<link rel="shortcut icon" href="{{ config.site_favicon|url }}">
-            {% else %}<link rel="shortcut icon" href="{{ 'img/favicon.ico'|url }}">{% endif %}
+
+            {% if config.site_favicon %}
+                <link  rel="icon" type="image/x-icon" href="{{ config.site_favicon|url }}">
+            {% else %}
+                <link  rel="icon" type="image/x-icon" href="{{ 'img/favicon.ico'|url }}">
+            {% endif %}
+
         {%- endblock %}
 
         {%- block htmltitle %}
@@ -18,11 +24,9 @@
 
         {%- block styles %}
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
-            <link rel="stylesheet" href="{{ 'css/normalize.css'|url }}">
-
-            <link href="{{ 'css/bootstrap.min.css'|url }}" rel="stylesheet" crossorigin="anonymous">
-            <link href="{{ 'css/font-awesome.min.css'|url }}" rel="stylesheet">
-            <link href="{{ 'css/theme.css'|url }}" rel="stylesheet">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="{{ 'css/bootstrap.min.css'|url }}">
+            <link rel="stylesheet" href="{{ 'css/theme.css'|url }}">
 
             {%- for path in extra_css %}
                 <link href="{{ path }}" rel="stylesheet">
@@ -33,34 +37,21 @@
 
     <body>
         <div class="container py-3">
-        <header>
-            <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
-            <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
-                <span class="fs-4">{{ config.site_name }}</span>
-            </a>
+            <header>
+                {%- block header %}
+                    {% include "/modules/header.html" %}
+                {%- endblock %}
+            </header>
 
-                <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-                    {%- block site_nav %}
-                        {%- if nav|length>1 %}
-                            {%- for nav_item in nav %}
-                                <a href="{{ nav_item.url|url }}" class="me-3 py-2 text-dark text-decoration-none">[{{ nav_item.title }}]</a>
-                            {%- endfor %}
-                        {%- endif %}
-                    {%- endblock %}
-                </nav>
-            </div>
+            <main>
+                {%- block content %}
+                    {% include "/modules/content.html" %}
+                {%- endblock %}
+            </main>
 
-        </header>
-
-        <main>
-            {%- block content %}
-                {% include "/modules/content.html" %}
+            {%- block footer %}
+                {% include "/modules/footer.html" %}
             {%- endblock %}
-        </main>
-
-        {%- block footer %}
-            {% include "/modules/footer.html" %}
-        {%- endblock %}
 
         </div>
     
