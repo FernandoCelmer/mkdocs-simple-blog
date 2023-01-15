@@ -23,7 +23,7 @@ img {
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-    filter: grayscale(100%);
+    /* filter: grayscale(100%); */
 }
 
 figcaption {
