@@ -19,6 +19,40 @@ main {
     margin-right: 10%;
 }
 
+img {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    filter: grayscale(100%);
+}
+
+figcaption {
+    font-size: 75%;
+    font-weight: bold;
+    text-align: center;
+}
+
+code {
+    background-color: #000;
+    color: #fefefe;
+    padding: .4rem .8rem .4rem .8rem;
+}
+
+pre {
+    margin: 1.6rem 0 1rem 0;
+    padding: 1.6rem;
+    overflow-x: auto;
+    color:#e5e5e5;
+    background-color:#000;
+    tab-size: 2;
+    font-size: .775em;
+    line-height: 30px;
+}
+
+*,*:after,*:before {
+    box-sizing: inherit;
+}
+
 .container {
     max-width: 960px;
 }
@@ -26,11 +60,6 @@ main {
 .blog-header {
     max-width: 700px;
 }
-
-*,*:after,*:before {
-    box-sizing: inherit;
-}
-
 
 .title {
     font-weight: bold;
@@ -40,7 +69,6 @@ main {
     margin-top: 5px;
 }
 
-
 @media only screen and (min-device-width:320px) and (max-device-width:480px) {
 body {
     font-size: 1.4em;
@@ -49,11 +77,12 @@ body {
 }
 
 a {
-    color: #000;
+    color: #000000;
     text-decoration: underline;
 }
 
 a:focus,a:hover {
+    color: #5c5c5c;
     text-decoration: underline;
 }
 
@@ -74,7 +103,6 @@ p a:focus,p a:hover {
 
 h1,h2,h3,h4,h5,h6 {
     color: #000;
-    text-transform: uppercase;
     letter-spacing: .0625em;
     margin: 3.2rem 0 1.6rem 0;
 }
@@ -82,6 +110,11 @@ h1,h2,h3,h4,h5,h6 {
 h1 {
     font-size: 3.2rem;
     line-height: 3.2rem;
+    text-transform: uppercase;
+}
+
+h2 {
+    text-transform: uppercase;
 }
 
 @media only screen and (min-device-width:320px) and (max-device-width:480px) {
@@ -151,7 +184,7 @@ blockquote {
 }
 
 th,td {
-    padding: 1.6rem;
+    padding: 1.0rem;
 }
 
 table {
@@ -159,7 +192,7 @@ table {
 }
 
 table td,table th {
-    border: 2px solid #000;
+    border: 2px solid #000000;
 }
 
 table tr:first-child th {
@@ -292,8 +325,8 @@ table tr td:last-child,table tr th:last-child {
 }
 
 .pagination {
-margin-top: 6rem;
-text-align: center;
+    margin-top: 6rem;
+    text-align: center;
 }
 
 .pagination li {
@@ -302,9 +335,9 @@ text-align: center;
 }
 
 .pagination li span {
-margin: 0;
-text-align: center;
-width: 3.2rem;
+    margin: 0;
+    text-align: center;
+    width: 3.2rem;
 }
 
 .pagination li a span {
@@ -459,61 +492,8 @@ width: 3.2rem;
     -webkit-overflow-scrolling: touch;
 }
 
-.home {
-    color: #ffffff !important;
-    text-align: center;
-}
-
-.home-icon {
-    width: 35px;
-    height: 35px;
-    opacity: 1.0;
-}
-
-.post-img {
-    max-width: 100%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    filter: grayscale(100%);
-}
-
-.post-list {
-    font-size: 80%;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.post-date-list {
-    font-size: 80%;
-    text-decoration: none;
-}
-
-.home-icon:hover {
+.fa:hover {
     opacity: 0.5;
-}
-
-figcaption {
-    font-size: 75%;
-    font-weight: bold;
-    text-align: center;
-}
-
-code {
-    background-color: #000;
-    color: #fefefe;
-    padding: .4rem .8rem .4rem .8rem;
-}
-
-pre {
-    margin: 1.6rem 0 1rem 0;
-    padding: 1.6rem;
-    overflow-x: auto;
-    color:#e5e5e5;
-    background-color:#000;
-    tab-size: 2;
-    font-size: .775em;
-    line-height: 30px;
 }
 
 .navbar-collapse {
