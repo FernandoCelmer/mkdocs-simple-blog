@@ -23,7 +23,7 @@ img {
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-    filter: grayscale(100%);
+    /* filter: grayscale(100%); */
 }
 
 figcaption {
@@ -549,4 +549,25 @@ table tr td:last-child,table tr th:last-child {
     font-size: 16px;
     text-align: left;
     vertical-align: middle;
+}
+
+
+@media all and (min-width: 992px) {
+	.dropdown-menu li{ position: relative; 	}
+	.nav-item .submenu{ 
+		display: none;
+		position: absolute;
+		left:100%; top:-7px;
+	}
+	.nav-item .submenu-left{ 
+		right:100%; left:auto;
+	}
+	.dropdown-menu > li:hover{ background-color: #f1f1f1 }
+	.dropdown-menu > li:hover > .submenu{ display: block; }
+}	
+
+@media (max-width: 991px) {
+  .dropdown-menu .dropdown-menu{
+      margin-left:0.7rem; margin-right:0.7rem; margin-bottom: .5rem;
+  }
 }

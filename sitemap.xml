@@ -2,17 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://www.fernandocelmer.com/</loc>
-         <lastmod>2023-01-15</lastmod>
+         <lastmod>2023-01-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.fernandocelmer.com/development/</loc>
-         <lastmod>2023-01-15</lastmod>
+         <lastmod>2023-01-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.fernandocelmer.com/getting-started/</loc>
-         <lastmod>2023-01-15</lastmod>
+         <lastmod>2023-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.fernandocelmer.com/release-notes/</loc>
+         <lastmod>2023-01-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
