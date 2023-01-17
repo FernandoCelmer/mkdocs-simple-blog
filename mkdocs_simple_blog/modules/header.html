@@ -1,7 +1,10 @@
 <!-- block header -->
 <nav class="navbar navbar-expand-xl border-bottom">
     <div class="container-fluid">
-        <span class="fs-4" style="text-transform: uppercase;">{{ config.site_name }}</span>
+        {% if config.theme.logo %}
+            <img class="logo" src="{{ config.theme.logo|url }}">
+        {% endif %}
+        <span class="fs-4 {{ config.theme.title_style|url }} title-color" style="text-transform: uppercase;">{{ config.site_name }}</span>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
             aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">

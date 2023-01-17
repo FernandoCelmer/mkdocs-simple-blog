@@ -65,6 +65,10 @@ pre {
     font-weight: bold;
 }
 
+.title-color {
+    color: black;
+}
+
 .date {
     margin-top: 5px;
 }
@@ -551,7 +555,6 @@ table tr td:last-child,table tr th:last-child {
     vertical-align: middle;
 }
 
-
 @media all and (min-width: 992px) {
 	.dropdown-menu li{ position: relative; 	}
 	.nav-item .submenu{ 
@@ -570,4 +573,25 @@ table tr td:last-child,table tr th:last-child {
   .dropdown-menu .dropdown-menu{
       margin-left:0.7rem; margin-right:0.7rem; margin-bottom: .5rem;
   }
+}
+
+.logo {
+    width: 50px;
+    margin: 10px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.scratched {
+    text-decoration: line-through;
+}
+
+.underline {
+    text-decoration: underline;
 }
