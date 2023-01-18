@@ -1,3 +1,7 @@
+January 17, 2023
+
+---
+
 ## v0.0.4
 
 - [📦 PyPI - Build 0.0.4](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.0.4)
