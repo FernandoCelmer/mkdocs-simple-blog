@@ -6,10 +6,24 @@ copyright: Fernando Celmer
 
 nav:
     - Home: index.md
-    - Getting Started: getting-started.md
+    - Getting Started: nav/getting-started.md
+    - Setup:
+      - nav/setup/colors.md
+      - nav/setup/fonts.md
+      - nav/setup/logo.md
+      - nav/setup/favicon.md
     - Development:
-      - development.md
-      - release-notes.md
+      - nav/development/development-guide.md
+      - nav/development/release-notes.md
 
 theme:
   name: simple-blog
+  theme_style: light
+  title_style: normal
+  favicon: assets/favicon.ico
+  logo: assets/logo.png
+  # colors:
+  #   text: black
+  #   title: black
+  #   primary: black
+  #   background: white
