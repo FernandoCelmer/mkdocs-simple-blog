@@ -10,10 +10,10 @@
             {% if config.site_author %}<meta name="author" content="{{ config.site_author }}">{% endif %}
             {% if page and page.canonical_url %}<link rel="canonical" href="{{ page.canonical_url }}">{% endif %}
 
-            {% if config.site_favicon %}
-                <link  rel="icon" type="image/x-icon" href="{{ config.site_favicon|url }}">
+            {% if config.theme.favicon %}
+                <link  rel="icon" type="image/x-icon" href="{{ config.theme.favicon|url }}">
             {% else %}
-                <link  rel="icon" type="image/x-icon" href="{{ 'img/favicon.ico'|url }}">
+                <link  rel="icon" type="image/x-icon" href="{{ 'assets/img/favicon.ico'|url }}">
             {% endif %}
 
         {%- endblock %}
@@ -25,12 +25,31 @@
         {%- block styles %}
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <link rel="stylesheet" href="{{ 'css/bootstrap.min.css'|url }}">
-            <link rel="stylesheet" href="{{ 'css/theme.css'|url }}">
+            <link rel="stylesheet" href="{{ 'assets/css/bootstrap.min.css'|url }}">
+            <link rel="stylesheet" href="{{ 'assets/stylesheets/theme.css'|url }}">
+            <link rel="stylesheet" href="{{ 'assets/stylesheets/styles.css'|url }}">
 
             {%- for path in extra_css %}
                 <link href="{{ path }}" rel="stylesheet">
             {%- endfor %}
+            
+            {% if config.theme.theme_style %}
+                {% if config.theme.theme_style == 'dark' %}
+                    <style>
+                        :root {
+                            --text: white;
+                            --title: white;
+                            --primary: gray;
+                            --background: black;
+                        }
+                    </style>
+                {% endif %}
+            {% else %}
+                {% if config.theme.colors.text %} <style>:root {--text: {{ config.theme.colors.text }};}</style> {% endif %}
+                {% if config.theme.colors.title %} <style>:root {--title: {{ config.theme.colors.title }};}</style> {% endif %}
+                {% if config.theme.colors.primary %} <style>:root {--primary: {{ config.theme.colors.primary }};}</style> {% endif %}
+                {% if config.theme.colors.background %} <style>:root {--background: {{ config.theme.colors.background }};}</style> {% endif %}
+            {% endif %}
 
         {%- endblock %}
     </head>
@@ -52,12 +71,11 @@
             {%- block footer %}
                 {% include "/modules/footer.html" %}
             {%- endblock %}
-
         </div>
     
-        <script src="{{ 'js/jquery-3.3.1.slim.min.js"'|url }}"></script>
-        <script src="{{ 'js/bootstrap.bundle.min.js"'|url }}"></script>
-        <script src="{{ 'js/theme.js"'|url }}"></script>
+        <script src="{{ 'assets/js/jquery-3.3.1.slim.min.js"'|url }}"></script>
+        <script src="{{ 'assets/js/bootstrap.bundle.min.js"'|url }}"></script>
+        <script src="{{ 'assets/js/theme.js"'|url }}"></script>
     </body>
 
 </html>
