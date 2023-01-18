@@ -580,6 +580,13 @@ table tr td:last-child,table tr th:last-child {
     margin: 10px;
 }
 
+
+.normal {
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+}
+
 .bold {
     font-weight: bold;
 }
@@ -594,4 +601,8 @@ table tr td:last-child,table tr th:last-child {
 
 .underline {
     text-decoration: underline;
+}
+
+.overline {
+    text-decoration: overline;
 }

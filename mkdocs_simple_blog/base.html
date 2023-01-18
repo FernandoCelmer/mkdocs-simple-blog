@@ -39,16 +39,16 @@
                         :root {
                             --text: white;
                             --title: white;
-                            --primary: gray;
+                            --primary: white;
                             --background: black;
                         }
                     </style>
                 {% endif %}
             {% else %}
-                {% if config.theme.colors.text %} <style>:root {--text: {{ config.theme.colors.text }};}</style> {% endif %}
-                {% if config.theme.colors.title %} <style>:root {--title: {{ config.theme.colors.title }};}</style> {% endif %}
-                {% if config.theme.colors.primary %} <style>:root {--primary: {{ config.theme.colors.primary }};}</style> {% endif %}
-                {% if config.theme.colors.background %} <style>:root {--background: {{ config.theme.colors.background }};}</style> {% endif %}
+                {% if config.theme.colors.text %} <style>:root {--text: var(--color-{{ config.theme.colors.text }});}</style> {% endif %}
+                {% if config.theme.colors.title %} <style>:root {--title: var(--color-{{ config.theme.colors.title }});}</style> {% endif %}
+                {% if config.theme.colors.primary %} <style>:root {--primary: var(--color-{{ config.theme.colors.primary }});}</style> {% endif %}
+                {% if config.theme.colors.background %} <style>:root {--background: var(--color-{{ config.theme.colors.background }});}</style> {% endif %}
             {% endif %}
 
         {%- endblock %}

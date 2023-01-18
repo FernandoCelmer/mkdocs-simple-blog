@@ -1,8 +1,16 @@
 :root {
-    --text: gray;
+    --text: black;
     --title: black;
     --primary: black;
     --background: white;
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-blue: #4051b5;
+    --color-green: #4cae4f;
+    --color-yellow: #f1dc15;
+    --color-orange: #ffa724;
+    --color-purple: #ab47bd;
+    --color-red: #ff2c06;
 }
 
 body {
@@ -10,9 +18,13 @@ body {
     background-color: var(--background);
 }
 
+small {
+    color: var(--text);
+}
+
 code {
     background-color: var(--primary);
-    color: #fefefe;
+    color: var(--background) !important;
 }
 
 pre {
