@@ -1,7 +1,7 @@
 <!-- block dropdown-menu -->
 {%- if not nav_item.children %}
     <li>
-        <a href="{{ nav_item.url|url }}" class="dropdown-item text-decoration-none {% if nav_item.active %} text-dark {% else %} text-gray {% endif %}">{{ nav_item.title }}</a>
+        <a href="{{ nav_item.url|url }}" class="dropdown-item text-decoration-none {% if nav_item.active %} active {% endif %}">{{ nav_item.title }}</a>
     </li>
 {%- else %}
     <li>
