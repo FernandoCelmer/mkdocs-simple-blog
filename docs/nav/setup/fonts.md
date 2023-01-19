@@ -13,6 +13,9 @@ theme:
   title_style: normal
 ```
 
+<button format-text="normal">
+    <code class="normal" style="background: var(--color-white); color: #000000 !important;">normal</code>
+</button>
 <button format-text="bold">
     <code class="bold" style="background: var(--color-white); color: #000000 !important;">bold</code>
 </button>
