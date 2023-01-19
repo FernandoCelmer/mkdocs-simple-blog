@@ -65,13 +65,17 @@ pre {
     font-weight: bold;
 }
 
+.title-color {
+    color: black;
+}
+
 .date {
     margin-top: 5px;
 }
 
 @media only screen and (min-device-width:320px) and (max-device-width:480px) {
 body {
-    font-size: 1.4em;
+    font-size: 1.0em;
     line-height: 1.6em;
 }   
 }
@@ -551,7 +555,6 @@ table tr td:last-child,table tr th:last-child {
     vertical-align: middle;
 }
 
-
 @media all and (min-width: 992px) {
 	.dropdown-menu li{ position: relative; 	}
 	.nav-item .submenu{ 
@@ -571,3 +574,69 @@ table tr td:last-child,table tr th:last-child {
       margin-left:0.7rem; margin-right:0.7rem; margin-bottom: .5rem;
   }
 }
+
+.logo {
+    width: 50px;
+    margin: 10px;
+}
+
+
+.normal {
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.scratched {
+    text-decoration: line-through;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.overline {
+    text-decoration: overline;
+}
+
+@media only screen and (max-width: 780px) {
+    .site-name {
+        font-size: 14px !important;
+    }
+
+    .title {
+        font-size: 18px !important;
+    }
+
+    .container {
+        padding-left: 5% !important;
+        padding-right: 5% !important;
+    }
+
+    main {
+        margin-left: 0% !important;
+        margin-right: 0% !important;
+        line-height: 1.8 !important
+    }
+
+    h1,h2,h3,h4,h5,h6 {
+        font-size: 18px !important;
+        margin-top: 1.0rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    p, a, li, code, small {
+        font-size: 12px !important;
+        margin-top: 1.0rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+  }

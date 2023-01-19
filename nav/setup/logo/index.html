@@ -7,16 +7,26 @@
 
             
             
-            <link rel="canonical" href="https://www.fernandocelmer.com/development/">
+            <link rel="canonical" href="https://www.fernandocelmer.com/nav/setup/logo/">
 
             
-                <link  rel="icon" type="image/x-icon" href="../img/favicon.ico">
+                <link  rel="icon" type="image/x-icon" href="../../../assets/favicon.ico">
             
-            <title>Development - MkDocs Simple Blog</title>
+            <title>Logo - MkDocs Simple Blog</title>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <link rel="stylesheet" href="../css/bootstrap.min.css">
-            <link rel="stylesheet" href="../css/theme.css">
+            <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="../../../assets/stylesheets/theme.css">
+            <link rel="stylesheet" href="../../../assets/stylesheets/styles.css">
+            
+            
+                
+                     <style>:root {--text: var(--color-black);}</style> 
+                     <style>:root {--title: var(--color-black);}</style> 
+                     <style>:root {--primary: var(--color-black);}</style> 
+                     <style>:root {--background: var(--color-white);}</style> 
+                
+            
     </head>
 
     <body>
@@ -25,7 +35,10 @@
                     <!-- block header -->
 <nav class="navbar navbar-expand-xl border-bottom">
     <div class="container-fluid">
-        <span class="fs-4" style="text-transform: uppercase;">MkDocs Simple Blog</span>
+        
+            <img class="logo" src="../../../assets/logo.png">
+        
+        <span class="fs-4 normal title-color site-name" id="title" style="text-transform: uppercase;">MkDocs Simple Blog</span>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
             aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,25 +53,51 @@
 <li class="nav-item">
     <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class=" text-gray 
-                    nav-link text-gray text-decoration-none" href="..">[Home]</a>
+                    <a class="
+                    nav-link text-gray text-decoration-none" href="../../..">[Home]</a>
                 </li>
                 <li class="nav-item">
-                    <a class=" text-gray 
-                    nav-link text-gray text-decoration-none" href="../getting-started/">[Getting Started]</a>
+                    <a class="
+                    nav-link text-gray text-decoration-none" href="../../getting-started/">[Getting Started]</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class=" text-dark 
-                    nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Development]</a>
+                    <a class=" active 
+                    nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Setup]</a>
                     <ul class="dropdown-menu">
                             <!-- block dropdown-menu -->
     <li>
-        <a href="./" class="dropdown-item text-decoration-none  text-dark ">Development</a>
+        <a href="../colors/" class="dropdown-item text-decoration-none ">Colors</a>
     </li>
 <!-- endblock -->
                             <!-- block dropdown-menu -->
     <li>
-        <a href="../release-notes/" class="dropdown-item text-decoration-none  text-gray ">Release notes</a>
+        <a href="../fonts/" class="dropdown-item text-decoration-none ">Fonts</a>
+    </li>
+<!-- endblock -->
+                            <!-- block dropdown-menu -->
+    <li>
+        <a href="./" class="dropdown-item text-decoration-none  active ">Logo</a>
+    </li>
+<!-- endblock -->
+                            <!-- block dropdown-menu -->
+    <li>
+        <a href="../favicon/" class="dropdown-item text-decoration-none ">Favicon</a>
+    </li>
+<!-- endblock -->
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="
+                    nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Development]</a>
+                    <ul class="dropdown-menu">
+                            <!-- block dropdown-menu -->
+    <li>
+        <a href="../../development/development-guide/" class="dropdown-item text-decoration-none ">Development guide</a>
+    </li>
+<!-- endblock -->
+                            <!-- block dropdown-menu -->
+    <li>
+        <a href="../../development/release-notes/" class="dropdown-item text-decoration-none ">Release notes</a>
     </li>
 <!-- endblock -->
                     </ul>
@@ -123,35 +162,41 @@
 <section class="container post">
     <article>
         <header>
-            <h1 class="title">Development</h1>
+            <h1 class="title">Logo</h1>
         </header>
-        <p><p>January 15, 2023</p>
+        <p><p>January 17, 2023</p>
 <hr />
-<h2 id="commit-style">Commit Style</h2>
-<ul>
-<li>⚙️ NO-TASK</li>
-<li>📝 PEP8</li>
-<li>📌 ISSUE</li>
-<li>🪲 BUG</li>
-<li>📘 DOCS</li>
-<li>📦 PyPI</li>
-<li>❤️️ TEST</li>
-</ul>
-<h2 id="license">License</h2>
-<p><img alt="GitHub" src="https://img.shields.io/github/license/FernandoCelmer/mkdocs-simple-blog?style=flat-square" /></p>
-<p>This project is licensed under the terms of the MIT license.</p></p>
+<h2 id="changing-the-logo">Changing the logo</h2>
+<pre><code>theme:
+  logo: assets/logo.png
+</code></pre></p>
     </article>
 </section>
 <!-- endblock -->
             </main>
+                <!-- block preview -->
+        <div class="row row-cols-md-3 text-center pt-md-3">
+            <div class="col themed-grid-col">
+                <a rel="prev" href="../fonts/" class="nav-link">
+                    <i class="fa fa-arrow-left"></i> Previous
+                </a>
+            </div>
+            <div class="col themed-grid-col"></div>
+            <div class="col themed-grid-col">
+                <a rel="next" href="../favicon/" class="nav-link">
+                    Next <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+<!-- endblock -->
                 <!-- block footer -->
 <footer class="pt-4 my-md-5 pt-md-5 border-top">
     <div class="row">
         <div class="col-12 col-md">
                 <!-- block copyright -->
-    <small class="d-block mb-3 text-muted">Fernando Celmer</small>
+    <small class="d-block mb-3">Fernando Celmer</small>
 
-    <small class="d-block mb-3 text-muted">
+    <small class="d-block mb-3">
         Made with
         <a href="https://github.com/FernandoCelmer/mkdocs-simple-blog" target="_blank" rel="noopener">
             Simple Blog for MkDocs
@@ -163,12 +208,11 @@
     </div>
 </footer>
 <!-- endblock -->
-
         </div>
     
-        <script src="../js/jquery-3.3.1.slim.min.js""></script>
-        <script src="../js/bootstrap.bundle.min.js""></script>
-        <script src="../js/theme.js""></script>
+        <script src="../../../assets/js/jquery-3.3.1.slim.min.js""></script>
+        <script src="../../../assets/js/bootstrap.bundle.min.js""></script>
+        <script src="../../../assets/js/theme.js""></script>
     </body>
 
 </html>

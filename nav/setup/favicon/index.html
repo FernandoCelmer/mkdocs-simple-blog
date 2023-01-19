@@ -5,19 +5,19 @@
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-            <meta name="description" content="None">
             
-            <link rel="canonical" href="https://www.fernandocelmer.com/">
+            
+            <link rel="canonical" href="https://www.fernandocelmer.com/nav/setup/favicon/">
 
             
-                <link  rel="icon" type="image/x-icon" href="assets/favicon.ico">
+                <link  rel="icon" type="image/x-icon" href="../../../assets/favicon.ico">
             
-            <title>MkDocs Simple Blog</title>
+            <title>Favicon - MkDocs Simple Blog</title>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-            <link rel="stylesheet" href="assets/stylesheets/theme.css">
-            <link rel="stylesheet" href="assets/stylesheets/styles.css">
+            <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="../../../assets/stylesheets/theme.css">
+            <link rel="stylesheet" href="../../../assets/stylesheets/styles.css">
             
             
                 
@@ -36,7 +36,7 @@
 <nav class="navbar navbar-expand-xl border-bottom">
     <div class="container-fluid">
         
-            <img class="logo" src="assets/logo.png">
+            <img class="logo" src="../../../assets/logo.png">
         
         <span class="fs-4 normal title-color site-name" id="title" style="text-transform: uppercase;">MkDocs Simple Blog</span>
 
@@ -53,35 +53,35 @@
 <li class="nav-item">
     <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class=" active 
-                    nav-link text-gray text-decoration-none" href=".">[Home]</a>
+                    <a class="
+                    nav-link text-gray text-decoration-none" href="../../..">[Home]</a>
                 </li>
                 <li class="nav-item">
                     <a class="
-                    nav-link text-gray text-decoration-none" href="nav/getting-started/">[Getting Started]</a>
+                    nav-link text-gray text-decoration-none" href="../../getting-started/">[Getting Started]</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="
+                    <a class=" active 
                     nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Setup]</a>
                     <ul class="dropdown-menu">
                             <!-- block dropdown-menu -->
     <li>
-        <a href="nav/setup/colors/" class="dropdown-item text-decoration-none ">Colors</a>
+        <a href="../colors/" class="dropdown-item text-decoration-none ">Colors</a>
     </li>
 <!-- endblock -->
                             <!-- block dropdown-menu -->
     <li>
-        <a href="nav/setup/fonts/" class="dropdown-item text-decoration-none ">Fonts</a>
+        <a href="../fonts/" class="dropdown-item text-decoration-none ">Fonts</a>
     </li>
 <!-- endblock -->
                             <!-- block dropdown-menu -->
     <li>
-        <a href="nav/setup/logo/" class="dropdown-item text-decoration-none ">Logo</a>
+        <a href="../logo/" class="dropdown-item text-decoration-none ">Logo</a>
     </li>
 <!-- endblock -->
                             <!-- block dropdown-menu -->
     <li>
-        <a href="nav/setup/favicon/" class="dropdown-item text-decoration-none ">Favicon</a>
+        <a href="./" class="dropdown-item text-decoration-none  active ">Favicon</a>
     </li>
 <!-- endblock -->
                     </ul>
@@ -92,12 +92,12 @@
                     <ul class="dropdown-menu">
                             <!-- block dropdown-menu -->
     <li>
-        <a href="nav/development/development-guide/" class="dropdown-item text-decoration-none ">Development guide</a>
+        <a href="../../development/development-guide/" class="dropdown-item text-decoration-none ">Development guide</a>
     </li>
 <!-- endblock -->
                             <!-- block dropdown-menu -->
     <li>
-        <a href="nav/development/release-notes/" class="dropdown-item text-decoration-none ">Release notes</a>
+        <a href="../../development/release-notes/" class="dropdown-item text-decoration-none ">Release notes</a>
     </li>
 <!-- endblock -->
                     </ul>
@@ -162,23 +162,13 @@
 <section class="container post">
     <article>
         <header>
-            <h1 class="title">Home</h1>
+            <h1 class="title">Favicon</h1>
         </header>
-        <p><p>January 14, 2023</p>
+        <p><p>January 17, 2023</p>
 <hr />
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
-</ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
+<h2 id="changing-the-favicon">Changing the favicon</h2>
+<pre><code>theme:
+  favicon: assets/favicon.ico
 </code></pre></p>
     </article>
 </section>
@@ -187,13 +177,13 @@ docs/
                 <!-- block preview -->
         <div class="row row-cols-md-3 text-center pt-md-3">
             <div class="col themed-grid-col">
-                <a rel="prev" class="nav-link disabled">
+                <a rel="prev" href="../logo/" class="nav-link">
                     <i class="fa fa-arrow-left"></i> Previous
                 </a>
             </div>
             <div class="col themed-grid-col"></div>
             <div class="col themed-grid-col">
-                <a rel="next" href="nav/getting-started/" class="nav-link">
+                <a rel="next" href="../../development/development-guide/" class="nav-link">
                     Next <i class="fa fa-arrow-right"></i>
                 </a>
             </div>
@@ -220,9 +210,9 @@ docs/
 <!-- endblock -->
         </div>
     
-        <script src="assets/js/jquery-3.3.1.slim.min.js""></script>
-        <script src="assets/js/bootstrap.bundle.min.js""></script>
-        <script src="assets/js/theme.js""></script>
+        <script src="../../../assets/js/jquery-3.3.1.slim.min.js""></script>
+        <script src="../../../assets/js/bootstrap.bundle.min.js""></script>
+        <script src="../../../assets/js/theme.js""></script>
     </body>
 
 </html>
