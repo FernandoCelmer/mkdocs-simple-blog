@@ -3,8 +3,6 @@
     <div class="container-fluid">
         {% if config.theme.logo %}
             <img class="logo" src="{{ config.theme.logo|url }}">
-        {% else %}
-            <img class="logo" src="{{ 'assets/img/logo.png'|url }}">
         {% endif %}
         <span class="fs-4 {{ config.theme.title_style }} title-color" id="title" style="text-transform: uppercase;">{{ config.site_name }}</span>
 
