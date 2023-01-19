@@ -75,21 +75,19 @@ table td,table th {
 }
 
 .dropdown-menu {
-    background: var(--background);
+    color: var(--background);
+    background-color: var(--background);
     border-color: var(--primary);
 }
+
+.dropdown-item.active, .dropdown-item:active, .dropdown-item:hover {
+    color: var(--background) !important;
+    background-color: var(--primary) !important;
+}
+
 
 @media only screen and (max-width: 1200px) {
     .source-detail {
         border-color: var(--primary);
     }
-}
-
-@media all and (min-width: 992px) {
-	.dropdown-menu > li:hover{ background-color: var(--primary) }
-}
-
-.dropdown-item.active, .dropdown-item:active {
-    color: var(--background) !important;
-    background-color: var(--primary) !important;
 }
