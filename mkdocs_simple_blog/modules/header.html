@@ -3,10 +3,8 @@
     <div class="container-fluid">
         {% if config.theme.logo %}
             <img class="logo" src="{{ config.theme.logo|url }}">
-        {% else %}
-            <img class="logo" src="{{ 'assets/img/logo.png'|url }}">
         {% endif %}
-        <span class="fs-4 {{ config.theme.title_style }} title-color" id="title" style="text-transform: uppercase;">{{ config.site_name }}</span>
+        <span class="fs-4 {{ config.theme.title_style }} title-color site-name" id="title" style="text-transform: uppercase;">{{ config.site_name }}</span>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
             aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">

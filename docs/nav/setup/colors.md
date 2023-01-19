@@ -6,7 +6,7 @@ January 17, 2023
 
 ### Color scheme
 
-- Default: white
+- Default: light
 
 ```
 theme:
@@ -127,7 +127,7 @@ theme:
 
 ### Background color
 
-- Default: black
+- Default: white
 
 ```
 theme:
