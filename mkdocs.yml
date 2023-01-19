@@ -18,12 +18,12 @@ nav:
 
 theme:
   name: simple-blog
-  theme_style: light
   title_style: normal
   favicon: assets/favicon.ico
   logo: assets/logo.png
-  # colors:
-  #   text: black
-  #   title: black
-  #   primary: black
-  #   background: white
+  # theme_style: light
+  colors:
+    text: black
+    title: black
+    primary: black
+    background: white
