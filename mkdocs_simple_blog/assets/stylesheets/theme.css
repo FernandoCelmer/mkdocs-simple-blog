@@ -607,7 +607,7 @@ table tr td:last-child,table tr th:last-child {
     text-decoration: overline;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 780px) {
     .site-name {
         font-size: 14px !important;
     }
