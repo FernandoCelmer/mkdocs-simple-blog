@@ -81,10 +81,24 @@ document.addEventListener("DOMContentLoaded", function(){
       })
     })
 
-    var buttons = document.querySelectorAll("button[format-text]")
+    var buttons = document.querySelectorAll("button[style-site-name]")
     buttons.forEach(function(button) {
       button.addEventListener("click", function() {
-          var attr = this.getAttribute("format-text")
+          var attr = this.getAttribute("style-site-name")
+          title = document.getElementById("component-site-name").classList;
+          title.remove("bold")
+          title.remove("italic")
+          title.remove("scratched")
+          title.remove("underline")
+          title.remove("overline")
+          title.add(attr);
+      })
+    })
+
+    var buttons = document.querySelectorAll("button[style-title]")
+    buttons.forEach(function(button) {
+      button.addEventListener("click", function() {
+          var attr = this.getAttribute("style-title")
           title = document.getElementById("title").classList;
           title.remove("bold")
           title.remove("italic")
@@ -95,9 +109,15 @@ document.addEventListener("DOMContentLoaded", function(){
       })
     })
 
+    var buttons = document.querySelectorAll("button[component-id]")
+    buttons.forEach(function(button) {
+      button.addEventListener("click", function() {
+          var component = this.getAttribute("component-id")
+          var status = this.getAttribute("status")
+          document.getElementById(component).hidden = JSON.parse(status);
+      })
+    })
 
-
-    
 });
 
 
