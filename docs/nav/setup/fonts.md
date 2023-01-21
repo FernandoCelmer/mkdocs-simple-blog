@@ -4,30 +4,59 @@ January 17, 2023
 
 ## Changing the fonts
 
-### Title font format
+### Site name style
 
 - Default: normal
 
 ```
 theme:
-  title_style: normal
+  site_name_style: normal
 ```
 
-<button format-text="normal">
+<button style-site-name="normal">
     <code class="normal" style="background: var(--color-white); color: #000000 !important;">normal</code>
 </button>
-<button format-text="bold">
+<button style-site-name="bold">
     <code class="bold" style="background: var(--color-white); color: #000000 !important;">bold</code>
 </button>
-<button format-text="italic">
+<button style-site-name="italic">
     <code class="italic" style="background: var(--color-white); color: #000000 !important;">italic</code>
 </button>
-<button format-text="scratched">
+<button style-site-name="scratched">
     <code class="scratched" style="background: var(--color-white); color: #000000 !important;">scratched</code>
 </button>
-<button format-text="underline">
+<button style-site-name="underline">
     <code class="underline" style="background: var(--color-white); color: #000000 !important;">underline</code>
 </button>
-<button format-text="overline">
+<button style-site-name="overline">
+    <code class="overline" style="background: var(--color-white); color: #000000 !important;">overline</code>
+</button>
+
+
+### Title style
+
+- Default: bold
+
+```
+theme:
+  title_style: bold
+```
+
+<button style-title="normal">
+    <code class="normal" style="background: var(--color-white); color: #000000 !important;">normal</code>
+</button>
+<button style-title="bold">
+    <code class="bold" style="background: var(--color-white); color: #000000 !important;">bold</code>
+</button>
+<button style-title="italic">
+    <code class="italic" style="background: var(--color-white); color: #000000 !important;">italic</code>
+</button>
+<button style-title="scratched">
+    <code class="scratched" style="background: var(--color-white); color: #000000 !important;">scratched</code>
+</button>
+<button style-title="underline">
+    <code class="underline" style="background: var(--color-white); color: #000000 !important;">underline</code>
+</button>
+<button style-title="overline">
     <code class="overline" style="background: var(--color-white); color: #000000 !important;">overline</code>
 </button>

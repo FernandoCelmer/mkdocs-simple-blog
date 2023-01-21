@@ -8,6 +8,7 @@ nav:
     - Home: index.md
     - Getting Started: nav/getting-started.md
     - Setup:
+      - nav/setup/components.md
       - nav/setup/colors.md
       - nav/setup/fonts.md
       - nav/setup/logo.md
@@ -18,12 +19,19 @@ nav:
 
 theme:
   name: simple-blog
-  title_style: normal
   favicon: assets/favicon.ico
   logo: assets/logo.png
-  # theme_style: light
+  theme_style: light
+  site_name_style: normal
+  title_style: bold
   colors:
     text: black
     title: black
     primary: black
     background: white
+  components:
+    site_name: true
+    title: true
+    menu: true
+    preview: true
+    footer: true
