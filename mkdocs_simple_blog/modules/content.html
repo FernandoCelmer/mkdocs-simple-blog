@@ -2,7 +2,10 @@
 <section class="container post">
     <article>
         <header>
-            <h1 class="title">{{ page.title }}</h1>
+            {% if config.theme.components and config.theme.components.title == False %}
+            {% else %}
+                <h1 class="{{ config.theme.title_style }} title" id="component-title">{{ page.title }}</h1>
+            {% endif %}
         </header>
         <p>{{ page.content }}</p>
     </article>

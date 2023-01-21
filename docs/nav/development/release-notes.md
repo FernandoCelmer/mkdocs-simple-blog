@@ -2,6 +2,12 @@ January 17, 2023
 
 ---
 
+## v0.0.6
+
+- [📦 PyPI - Build 0.0.6](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.0.6)
+- [📌 ISSUE-16 - Include option to add and remove components](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/16)
+
+
 ## v0.0.5
 
 - [📦 PyPI - Build 0.0.5](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.0.5)

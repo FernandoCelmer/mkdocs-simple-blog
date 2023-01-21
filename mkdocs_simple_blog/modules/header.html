@@ -4,7 +4,11 @@
         {% if config.theme.logo %}
             <img class="logo" src="{{ config.theme.logo|url }}">
         {% endif %}
-        <span class="fs-4 {{ config.theme.title_style }} title-color site-name" id="title" style="text-transform: uppercase;">{{ config.site_name }}</span>
+
+        {% if config.theme.components and config.theme.components.site_name == False %}
+        {% else %}
+            <span class="{{ config.theme.site_name_style }} fs-4 title-color site-name" id="component-site-name" style="text-transform: uppercase;">{{ config.site_name }}</span>
+        {% endif %}
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
             aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
