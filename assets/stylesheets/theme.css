@@ -61,10 +61,6 @@ pre {
     max-width: 700px;
 }
 
-.title {
-    font-weight: bold;
-}
-
 .title-color {
     color: black;
 }
@@ -109,16 +105,12 @@ h1,h2,h3,h4,h5,h6 {
     color: #000;
     letter-spacing: .0625em;
     margin: 3.2rem 0 1.6rem 0;
+    text-transform: uppercase;
 }
 
 h1 {
     font-size: 3.2rem;
     line-height: 3.2rem;
-    text-transform: uppercase;
-}
-
-h2 {
-    text-transform: uppercase;
 }
 
 @media only screen and (min-device-width:320px) and (max-device-width:480px) {

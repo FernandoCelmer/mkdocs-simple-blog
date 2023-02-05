@@ -7,12 +7,12 @@
 
             
             
-            <link rel="canonical" href="https://www.fernandocelmer.com/nav/development/development-guide/">
+            <link rel="canonical" href="https://www.fernandocelmer.com/nav/setup/components/">
 
             
                 <link  rel="icon" type="image/x-icon" href="../../../assets/favicon.ico">
             
-            <title>Development guide - MkDocs Simple Blog</title>
+            <title>Components - MkDocs Simple Blog</title>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
@@ -60,48 +60,48 @@
                             nav-link text-gray text-decoration-none" href="../../getting-started/">[Getting Started]</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="
+                            <a class=" active 
                             nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Setup]</a>
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../../setup/components/" class="dropdown-item text-decoration-none ">Components</a>
+        <a href="./" class="dropdown-item text-decoration-none  active ">Components</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../../setup/colors/" class="dropdown-item text-decoration-none ">Colors</a>
+        <a href="../colors/" class="dropdown-item text-decoration-none ">Colors</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../../setup/fonts/" class="dropdown-item text-decoration-none ">Fonts</a>
+        <a href="../fonts/" class="dropdown-item text-decoration-none ">Fonts</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../../setup/logo/" class="dropdown-item text-decoration-none ">Logo</a>
+        <a href="../logo/" class="dropdown-item text-decoration-none ">Logo</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../../setup/favicon/" class="dropdown-item text-decoration-none ">Favicon</a>
+        <a href="../favicon/" class="dropdown-item text-decoration-none ">Favicon</a>
     </li>
 <!-- endblock -->
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class=" active 
+                            <a class="
                             nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Development]</a>
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="./" class="dropdown-item text-decoration-none  active ">Development guide</a>
+        <a href="../../development/development-guide/" class="dropdown-item text-decoration-none ">Development guide</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../release-notes/" class="dropdown-item text-decoration-none ">Release notes</a>
+        <a href="../../development/release-notes/" class="dropdown-item text-decoration-none ">Release notes</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -167,24 +167,62 @@
     <article>
         <header>
             
-                <h1 class="bold title" id="component-title">Development guide</h1>
+                <h1 class="bold title" id="component-title">Components</h1>
             
         </header>
-        <p><p>January 15, 2023</p>
+        <p><p>January 21, 2023</p>
 <hr />
-<h2 id="commit-style">Commit Style</h2>
+<h2 id="enable-and-disable-components">Enable and Disable Components</h2>
+<h3 id="site-name">Site Name</h3>
 <ul>
-<li>⚙️ NO-TASK</li>
-<li>📝 PEP8</li>
-<li>📌 ISSUE</li>
-<li>🪲 BUG</li>
-<li>📘 DOCS</li>
-<li>📦 PyPI</li>
-<li>❤️️ TEST</li>
+<li>Default: true</li>
 </ul>
-<h2 id="license">License</h2>
-<p><img alt="GitHub" src="https://img.shields.io/github/license/FernandoCelmer/mkdocs-simple-blog?style=flat-square" /></p>
-<p>This project is licensed under the terms of the MIT license.</p></p>
+<pre><code>theme:
+  components:
+    site_name: true
+</code></pre>
+<p><button component-id="component-site-name" status="false"><code>true</code></button>
+<button component-id="component-site-name" status="true"><code>false</code></button></p>
+<h3 id="title">Title</h3>
+<ul>
+<li>Default: true</li>
+</ul>
+<pre><code>theme:
+  components:
+    title: true
+</code></pre>
+<p><button component-id="component-title" status="false"><code>true</code></button>
+<button component-id="component-title" status="true"><code>false</code></button></p>
+<h3 id="menu">Menu</h3>
+<ul>
+<li>Default: true</li>
+</ul>
+<pre><code>theme:
+  components:
+    menu: true
+</code></pre>
+<p><button component-id="component-menu" status="false"><code>true</code></button>
+<button component-id="component-menu" status="true"><code>false</code></button></p>
+<h3 id="preview">Preview</h3>
+<ul>
+<li>Default: true</li>
+</ul>
+<pre><code>theme:
+  components:
+    preview: true
+</code></pre>
+<p><button component-id="component-preview" status="false"><code>true</code></button>
+<button component-id="component-preview" status="true"><code>false</code></button></p>
+<h3 id="footer">Footer</h3>
+<ul>
+<li>Default: true</li>
+</ul>
+<pre><code>theme:
+  components:
+    footer: true
+</code></pre>
+<p><button component-id="component-footer" status="false"><code>true</code></button>
+<button component-id="component-footer" status="true"><code>false</code></button></p></p>
     </article>
 </section>
 <!-- endblock -->
@@ -194,13 +232,13 @@
                     <!-- block preview -->
         <div class="row row-cols-md-3 text-center pt-md-3" id="component-preview">
             <div class="col themed-grid-col">
-                <a rel="prev" href="../../setup/favicon/" class="nav-link">
+                <a rel="prev" href="../../getting-started/" class="nav-link">
                     <i class="fa fa-arrow-left"></i> Previous
                 </a>
             </div>
             <div class="col themed-grid-col"></div>
             <div class="col themed-grid-col">
-                <a rel="next" href="../release-notes/" class="nav-link">
+                <a rel="next" href="../colors/" class="nav-link">
                     Next <i class="fa fa-arrow-right"></i>
                 </a>
             </div>

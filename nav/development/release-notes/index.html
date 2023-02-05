@@ -21,11 +21,6 @@
             
             
                 
-                     <style>:root {--text: var(--color-black);}</style> 
-                     <style>:root {--title: var(--color-black);}</style> 
-                     <style>:root {--primary: var(--color-black);}</style> 
-                     <style>:root {--background: var(--color-white);}</style> 
-                
             
     </head>
 
@@ -38,7 +33,10 @@
         
             <img class="logo" src="../../../assets/logo.png">
         
-        <span class="fs-4 normal title-color site-name" id="title" style="text-transform: uppercase;">MkDocs Simple Blog</span>
+
+        
+            <span class="normal fs-4 title-color site-name" id="component-site-name" style="text-transform: uppercase;">MkDocs Simple Blog</span>
+        
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
             aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,60 +48,66 @@
                 <!-- block menu -->
                 <li class="nav-item">
                     <!-- block menu -->
-<li class="nav-item">
-    <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="
-                    nav-link text-gray text-decoration-none" href="../../..">[Home]</a>
-                </li>
-                <li class="nav-item">
-                    <a class="
-                    nav-link text-gray text-decoration-none" href="../../getting-started/">[Getting Started]</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="
-                    nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Setup]</a>
-                    <ul class="dropdown-menu">
-                            <!-- block dropdown-menu -->
+    
+        <li class="nav-item" id="component-menu">
+            <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="
+                            nav-link text-gray text-decoration-none" href="../../..">[Home]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="
+                            nav-link text-gray text-decoration-none" href="../../getting-started/">[Getting Started]</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="
+                            nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Setup]</a>
+                            <ul class="dropdown-menu">
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../../setup/components/" class="dropdown-item text-decoration-none ">Components</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
     <li>
         <a href="../../setup/colors/" class="dropdown-item text-decoration-none ">Colors</a>
     </li>
 <!-- endblock -->
-                            <!-- block dropdown-menu -->
+                                    <!-- block dropdown-menu -->
     <li>
         <a href="../../setup/fonts/" class="dropdown-item text-decoration-none ">Fonts</a>
     </li>
 <!-- endblock -->
-                            <!-- block dropdown-menu -->
+                                    <!-- block dropdown-menu -->
     <li>
         <a href="../../setup/logo/" class="dropdown-item text-decoration-none ">Logo</a>
     </li>
 <!-- endblock -->
-                            <!-- block dropdown-menu -->
+                                    <!-- block dropdown-menu -->
     <li>
         <a href="../../setup/favicon/" class="dropdown-item text-decoration-none ">Favicon</a>
     </li>
 <!-- endblock -->
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class=" active 
-                    nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Development]</a>
-                    <ul class="dropdown-menu">
-                            <!-- block dropdown-menu -->
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class=" active 
+                            nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Development]</a>
+                            <ul class="dropdown-menu">
+                                    <!-- block dropdown-menu -->
     <li>
         <a href="../development-guide/" class="dropdown-item text-decoration-none ">Development guide</a>
     </li>
 <!-- endblock -->
-                            <!-- block dropdown-menu -->
+                                    <!-- block dropdown-menu -->
     <li>
         <a href="./" class="dropdown-item text-decoration-none  active ">Release notes</a>
     </li>
 <!-- endblock -->
-                    </ul>
-                </li>
-    </ul>
-</li>
+                            </ul>
+                        </li>
+            </ul>
+        </li>
 <!-- endblock -->
                 </li>
                 <!-- endblock -->
@@ -162,10 +166,17 @@
 <section class="container post">
     <article>
         <header>
-            <h1 class="title">Release notes</h1>
+            
+                <h1 class="bold title" id="component-title">Release notes</h1>
+            
         </header>
         <p><p>January 17, 2023</p>
 <hr />
+<h2 id="v006">v0.0.6</h2>
+<ul>
+<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.0.6">📦 PyPI - Build 0.0.6</a></li>
+<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/16">📌 ISSUE-16 - Include option to add and remove components</a></li>
+</ul>
 <h2 id="v005">v0.0.5</h2>
 <ul>
 <li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.0.5">📦 PyPI - Build 0.0.5</a></li>
@@ -195,8 +206,10 @@
 </section>
 <!-- endblock -->
             </main>
-                <!-- block preview -->
-        <div class="row row-cols-md-3 text-center pt-md-3">
+
+            
+                    <!-- block preview -->
+        <div class="row row-cols-md-3 text-center pt-md-3" id="component-preview">
             <div class="col themed-grid-col">
                 <a rel="prev" href="../development-guide/" class="nav-link">
                     <i class="fa fa-arrow-left"></i> Previous
@@ -210,8 +223,11 @@
             </div>
         </div>
 <!-- endblock -->
-                <!-- block footer -->
-<footer class="pt-4 my-md-5 pt-md-5 border-top">
+            
+
+            
+                    <!-- block footer -->
+<footer class="pt-4 my-md-5 pt-md-5 border-top" id="component-footer">
     <div class="row">
         <div class="col-12 col-md">
                 <!-- block copyright -->
@@ -229,6 +245,7 @@
     </div>
 </footer>
 <!-- endblock -->
+            
         </div>
     
         <script src="../../../assets/js/jquery-3.3.1.slim.min.js""></script>
