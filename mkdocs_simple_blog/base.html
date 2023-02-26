@@ -33,6 +33,10 @@
                 <link href="{{ path }}" rel="stylesheet">
             {%- endfor %}
             
+            {%- for path in extra_javascript %}
+                <script src="{{ path }}"></script>
+            {%- endfor %}
+
             {% if config.theme.theme_style %}
                 {% if config.theme.theme_style == 'dark' %}
                     <style>
