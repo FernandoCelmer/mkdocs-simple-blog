@@ -2,6 +2,12 @@ January 17, 2023
 
 ---
 
+## v0.0.7
+
+- [📦 PyPI - Build 0.0.7](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.0.7)
+- [📌 ISSUE-21 - Fix the extra_javascript include in base.html](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/21)
+
+
 ## v0.0.6
 
 - [📦 PyPI - Build 0.0.6](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.0.6)
