@@ -7,17 +7,29 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/FernandoCelmer/mkdocs-simple-blog?style=flat-square)
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/FernandoCelmer/mkdocs-simple-blog/python-publish-pypi-test.yml?label=%F0%9F%93%A6%20Package%20PyPI-Test&style=flat-square)
 
-## Installation
+## Install
 
-- Install the theme with pip:
+### Installation MkDocs
 
+To install MkDocs, run the following command from the command line:
+
+```bash
+pip install mkdocs
 ```
-pip install -U mkdocs-simple-blog
+
+### Installation theme
+
+Install the theme using PIP:
+
+```bash
+pip install mkdocs-simple-blog
 ```
 
-- After the theme is installed, edit your `mkdocs.yml` file and set the theme name to `simple-blog`:
+### Activating theme
 
-```
+After the theme is installed, edit your `mkdocs.yml` file and set the theme name to `simple-blog`:
+
+```yml
 theme:
     name: simple-blog
 ```
