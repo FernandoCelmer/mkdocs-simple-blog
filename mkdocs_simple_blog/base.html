@@ -2,13 +2,17 @@
 <html>
     <head>
         {%- block site_meta %}
+            {%- block htmltitle %}
+                <title>{% if page and page.title and not page.is_homepage %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
+            {%- endblock %}
+
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
             {% if page and page.is_homepage %}<meta name="description" content="{{ config['site_description'] }}">{% endif %}
-            {% if config.site_author %}<meta name="author" content="{{ config.site_author }}">{% endif %}
             {% if page and page.canonical_url %}<link rel="canonical" href="{{ page.canonical_url }}">{% endif %}
+            {% if config.site_author %}<meta name="author" content="{{ config.site_author }}">{% endif %}
 
             {% if config.theme.favicon %}
                 <link  rel="icon" type="image/x-icon" href="{{ config.theme.favicon|url }}">
@@ -16,10 +20,17 @@
                 <link  rel="icon" type="image/x-icon" href="{{ 'assets/img/favicon.ico'|url }}">
             {% endif %}
 
-        {%- endblock %}
+            {%- block libs %}
+                {%- if config.theme.highlightjs %}
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        
+                    {%- for lang in config.theme.hljs_languages %}
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/{{lang}}.min.js"></script>
+                    {%- endfor %}
+                        <script>hljs.initHighlightingOnLoad();</script>
+                {%- endif %}
+            {%- endblock %}
 
-        {%- block htmltitle %}
-            <title>{% if page and page.title and not page.is_homepage %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
         {%- endblock %}
 
         {%- block styles %}
@@ -69,6 +80,10 @@
             </header>
 
             <main>
+                {%- block search_button %}
+                    {%- if 'search' in config['plugins'] %}{%- include "searchbox.html" %}{%- endif %}
+                {%- endblock %}
+
                 {%- block content %}
                     {% include "/modules/content.html" %}
                 {%- endblock %}
@@ -89,9 +104,19 @@
             {% endif %}
         </div>
     
-        <script src="{{ 'assets/js/jquery-3.3.1.slim.min.js"'|url }}"></script>
-        <script src="{{ 'assets/js/bootstrap.bundle.min.js"'|url }}"></script>
-        <script src="{{ 'assets/js/theme.js"'|url }}"></script>
+        {%- block scripts %}
+
+            <script>var base_url = '{{ base_url }}';</script>
+            <script src="{{ 'assets/js/jquery-3.3.1.slim.min.js"'|url }}"></script>
+            <script src="{{ 'assets/js/bootstrap.bundle.min.js"'|url }}"></script>
+            <script src="{{ 'assets/js/theme.js"'|url }}"></script>
+
+            {%- for path in extra_javascript %}
+                <script src="{{ path }}" defer></script>
+            {%- endfor %}
+
+        {%- endblock %}
+
     </body>
 
 </html>

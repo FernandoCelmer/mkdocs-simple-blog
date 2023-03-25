@@ -17,11 +17,22 @@
 
         <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
             <ul class="navbar-nav">
+
                 <!-- block menu -->
                 <li class="nav-item">
                     {% include "modules/menu.html" %}
                 </li>
                 <!-- endblock -->
+
+                <!-- block search -->
+                <li class="nav-item">
+                    <a class="collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <div class="md-search-icon">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                </li>
+                <!--  endblock -->
 
                 <!-- block source -->
                 <li class="nav-item">
