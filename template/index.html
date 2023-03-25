@@ -2,19 +2,22 @@
 <html>
 
 <head>
+    <title>MkDocs Simple Blog</title>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Template MkDocs">
     <meta name="author" content="FernandoCelmer">
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-    <title>MkDocs Simple Blog</title>
+
+    <link rel="icon" type="image/x-icon" href="/template/assets/img/favicon.ico">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/stylesheets/theme.css">
-
+    <link rel="stylesheet" href="assets/stylesheets/styles.css">
 </head>
 
 <body>
@@ -23,6 +26,8 @@
             <!-- block header -->
             <nav class="navbar navbar-expand-xl border-bottom">
                 <div class="container-fluid">
+
+                    <img class="logo" src="/template/assets/img/logo.png">
                     <span class="fs-4" style="text-transform: uppercase;">MkDocs Simple Blog</span>
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
@@ -43,9 +48,19 @@
                                       <a class="nav-link py-2 text-dark text-decoration-none" href="#">[Getting Started]</a>
                                     </li>
                                     <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle text-dark text-decoration-none" href="#" data-bs-toggle="dropdown">[Setup]</a>
+                                        <ul class="dropdown-menu">
+                                          <li><a class="dropdown-item" href="#">Components</a></li>
+                                          <li><a class="dropdown-item" href="#">Colors</a></li>
+                                          <li><a class="dropdown-item" href="#">Fonts</a></li>
+                                          <li><a class="dropdown-item" href="#">Logo</a></li>
+                                          <li><a class="dropdown-item" href="#">Favicon</a></li>
+                                        </ul>
+                                      </li>
+                                    <li class="nav-item dropdown">
                                       <a class="nav-link dropdown-toggle text-dark text-decoration-none" href="#" data-bs-toggle="dropdown">[Development]</a>
                                       <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item " href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
                                         <li><a class="dropdown-item" href="#">Another action</a></li>
                                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                                       </ul>
@@ -53,6 +68,14 @@
                                 </ul>
                             </li>
                             <!-- endblock -->
+
+                            <li class="nav-item">
+                                <a class="collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                    <div class="md-search-icon">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </div>
+                                </a>
+                            </li>
 
                             <!-- block source -->
                             <li class="nav-item">
@@ -101,11 +124,21 @@
         </header>
 
         <main>
+
+            <div class="collapse" id="collapseExample" style="">
+                <div role="search" class="search-box">
+                    <form id="rtd-search-form" class="wy-form">
+                        <input type="text" name="q" class="search-query"
+                        placeholder="Search docs" title="Type search term here" />
+                    </form>
+                </div>
+            </div>
+
             <!-- block content -->
             <section class="container post">
                 <article>
                     <header>
-                        <h1 class="title">Home</h1>
+                        <h1 class="bold title">Home</h1>
                     </header>
                     <p><p>January 14, 2023</p>
                     <hr/>
@@ -131,8 +164,24 @@ docs/
             <!-- endblock -->
         </main>
 
+        <!-- block preview -->
+        <div class="row row-cols-md-3 text-center pt-md-3" id="component-preview">
+            <div class="col themed-grid-col">
+                <a rel="prev" href="#" class="nav-link">
+                    <i class="fa fa-arrow-left"></i> Previous
+                </a>
+            </div>
+            <div class="col themed-grid-col"></div>
+            <div class="col themed-grid-col">
+                <a rel="next" href="#" class="nav-link">
+                    Next <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        <!-- endblock -->
+
         <!-- block footer -->
-        <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <footer class="pt-4 my-md-5 pt-md-5 border-top" id="component-footer">
             <div class="row">
                 <div class="col-12 col-md">
                     <small class="d-block mb-3 text-muted">Fernando Celmer</small>
@@ -151,6 +200,7 @@ docs/
     <script src="assets/js/jquery-3.3.1.slim.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/theme.js"></script>
+
 </body>
 
 </html>

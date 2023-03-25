@@ -1,6 +1,12 @@
-January 17, 2023
+March 25, 2023
 
 ---
+
+## v0.0.8
+
+- [📦 PyPI - Build 0.0.8](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.0.8)
+- [📌 ISSUE-22 - FEATURE - Search](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/22)
+
 
 ## v0.0.7
 

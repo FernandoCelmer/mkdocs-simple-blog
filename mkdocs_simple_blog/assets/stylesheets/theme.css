@@ -514,6 +514,20 @@ table tr td:last-child,table tr th:last-child {
     }
 }
 
+.search-query {
+    margin-top: 2%;
+    width: 100%;
+    text-align: center;
+}
+
+.md-search-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: xx-large;
+}
+
 .md-source-repo-icon {
     display: inline-block;
     vertical-align: middle;
