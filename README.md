@@ -1,4 +1,5 @@
-# MkDocs Simple Blog
+# [MkDocs Simple Blog](https://fernandocelmer.github.io/mkdocs-simple-blog/)
+>  Theme for [MkDocs](https://www.mkdocs.org/)
 
 ![Image](https://raw.githubusercontent.com/FernandoCelmer/mkdocs-simple-blog/develop/docs/assets/simple-blog.png)
 
