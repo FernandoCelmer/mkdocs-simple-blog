@@ -1,26 +1,26 @@
 <!doctype html>
 <html>
     <head>
-                <title>Components - MkDocs Simple Blog</title>
+                <title>MkDocs Simple Blog</title>
 
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
             
-            <link rel="canonical" href="https://www.fernandocelmer.com/nav/setup/components/">
+            
             
 
             
-                <link  rel="icon" type="image/x-icon" href="../../../assets/favicon.ico">
+                <link  rel="icon" type="image/x-icon" href="./assets/favicon.ico">
             
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
                         <script>hljs.initHighlightingOnLoad();</script>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
-            <link rel="stylesheet" href="../../../assets/stylesheets/theme.css">
-            <link rel="stylesheet" href="../../../assets/stylesheets/styles.css">
+            <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="./assets/stylesheets/theme.css">
+            <link rel="stylesheet" href="./assets/stylesheets/styles.css">
 
             
                 
@@ -34,7 +34,7 @@
 <nav class="navbar navbar-expand-xl border-bottom">
     <div class="container-fluid">
         
-            <img class="logo" src="../../../assets/logo.png">
+            <img class="logo" src="./assets/logo.png">
         
 
         
@@ -57,39 +57,39 @@
             <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="
-                            nav-link text-gray text-decoration-none" href="../../..">[Home]</a>
+                            nav-link text-gray text-decoration-none" href="./.">[Home]</a>
                         </li>
                         <li class="nav-item">
                             <a class="
-                            nav-link text-gray text-decoration-none" href="../../getting-started/">[Getting Started]</a>
+                            nav-link text-gray text-decoration-none" href="./nav/getting-started/">[Getting Started]</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class=" active 
+                            <a class="
                             nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Setup]</a>
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="./" class="dropdown-item text-decoration-none  active ">Components</a>
+        <a href="./nav/setup/components/" class="dropdown-item text-decoration-none ">Components</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../colors/" class="dropdown-item text-decoration-none ">Colors</a>
+        <a href="./nav/setup/colors/" class="dropdown-item text-decoration-none ">Colors</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../fonts/" class="dropdown-item text-decoration-none ">Fonts</a>
+        <a href="./nav/setup/fonts/" class="dropdown-item text-decoration-none ">Fonts</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../logo/" class="dropdown-item text-decoration-none ">Logo</a>
+        <a href="./nav/setup/logo/" class="dropdown-item text-decoration-none ">Logo</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../favicon/" class="dropdown-item text-decoration-none ">Favicon</a>
+        <a href="./nav/setup/favicon/" class="dropdown-item text-decoration-none ">Favicon</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -100,12 +100,12 @@
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../../development/development-guide/" class="dropdown-item text-decoration-none ">Development guide</a>
+        <a href="./nav/development/development-guide/" class="dropdown-item text-decoration-none ">Development guide</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../../development/release-notes/" class="dropdown-item text-decoration-none ">Release notes</a>
+        <a href="./nav/development/release-notes/" class="dropdown-item text-decoration-none ">Release notes</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -178,94 +178,38 @@
             <main><!-- block search -->
 <div class="collapse" id="collapseExample">
     <div role="search" class="search-box">
-        <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+        <form id="rtd-search-form" class="wy-form" action="./search.html" method="get">
             <input type="text" name="q" class="search-query"
             placeholder="Search docs" title="Type search term here" />
         </form>
     </div>
 </div>
 <!-- endblock -->
-                    <!-- block content -->
-<section class="container post">
-    <article>
-        <header>
-            
-                <h1 class="bold title" id="component-title">Components</h1>
-            
-        </header>
-        <p><p>January 21, 2023</p>
-<hr />
-<h2 id="enable-and-disable-components">Enable and Disable Components</h2>
-<h3 id="site-name">Site Name</h3>
-<ul>
-<li>Default: true</li>
-</ul>
-<pre><code>theme:
-  components:
-    site_name: true
-</code></pre>
-<p><button component-id="component-site-name" status="false"><code>true</code></button>
-<button component-id="component-site-name" status="true"><code>false</code></button></p>
-<h3 id="title">Title</h3>
-<ul>
-<li>Default: true</li>
-</ul>
-<pre><code>theme:
-  components:
-    title: true
-</code></pre>
-<p><button component-id="component-title" status="false"><code>true</code></button>
-<button component-id="component-title" status="true"><code>false</code></button></p>
-<h3 id="menu">Menu</h3>
-<ul>
-<li>Default: true</li>
-</ul>
-<pre><code>theme:
-  components:
-    menu: true
-</code></pre>
-<p><button component-id="component-menu" status="false"><code>true</code></button>
-<button component-id="component-menu" status="true"><code>false</code></button></p>
-<h3 id="preview">Preview</h3>
-<ul>
-<li>Default: true</li>
-</ul>
-<pre><code>theme:
-  components:
-    preview: true
-</code></pre>
-<p><button component-id="component-preview" status="false"><code>true</code></button>
-<button component-id="component-preview" status="true"><code>false</code></button></p>
-<h3 id="footer">Footer</h3>
-<ul>
-<li>Default: true</li>
-</ul>
-<pre><code>theme:
-  components:
-    footer: true
-</code></pre>
-<p><button component-id="component-footer" status="false"><code>true</code></button>
-<button component-id="component-footer" status="true"><code>false</code></button></p></p>
-    </article>
-</section>
-<!-- endblock -->
+    <!-- block search -->
+	<section class="p-md-5 content-search">
+		<article class="search-box">
+			<p></p>
+			<h1 id="search">Search Results</h1>
+			<hr>
+
+			<form id="content_search" action="search.html">
+				<span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+				<input name="q" id="mkdocs-search-query" type="text" class="search-query search_input search-query ui-autocomplete-input"
+					placeholder="Search the Docs" autocomplete="off" autofocus title="Type search term here">
+			</form>
+
+			<div id="mkdocs-search-results" class="search-results" data-no-results-text="No results found">
+				Searching...
+			</div>
+
+		</article>
+	</section>
+    <!-- endblock -->
+
             </main>
 
             
                     <!-- block preview -->
-        <div class="row row-cols-md-3 text-center pt-md-3" id="component-preview">
-            <div class="col themed-grid-col">
-                <a rel="prev" href="../../getting-started/" class="nav-link">
-                    <i class="fa fa-arrow-left"></i> Previous
-                </a>
-            </div>
-            <div class="col themed-grid-col"></div>
-            <div class="col themed-grid-col">
-                <a rel="next" href="../colors/" class="nav-link">
-                    Next <i class="fa fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
 <!-- endblock -->
             
 
@@ -292,11 +236,11 @@
             
         </div>
 
-            <script>var base_url = '../../..';</script>
-            <script src="../../../assets/js/jquery-3.3.1.slim.min.js""></script>
-            <script src="../../../assets/js/bootstrap.bundle.min.js""></script>
-            <script src="../../../assets/js/theme.js""></script>
-                <script src="../../../search/main.js" defer></script>
+            <script>var base_url = '.';</script>
+            <script src="./assets/js/jquery-3.3.1.slim.min.js""></script>
+            <script src="./assets/js/bootstrap.bundle.min.js""></script>
+            <script src="./assets/js/theme.js""></script>
+                <script src="./search/main.js" defer></script>
 
     </body>
 

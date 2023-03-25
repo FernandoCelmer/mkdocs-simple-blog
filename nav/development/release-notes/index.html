@@ -1,24 +1,26 @@
 <!doctype html>
 <html>
     <head>
+                <title>Release notes - MkDocs Simple Blog</title>
+
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
             
-            
             <link rel="canonical" href="https://www.fernandocelmer.com/nav/development/release-notes/">
+            
 
             
                 <link  rel="icon" type="image/x-icon" href="../../../assets/favicon.ico">
             
-            <title>Release notes - MkDocs Simple Blog</title>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+                        <script>hljs.initHighlightingOnLoad();</script>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
             <link rel="stylesheet" href="../../../assets/stylesheets/theme.css">
             <link rel="stylesheet" href="../../../assets/stylesheets/styles.css">
-                <script src="../../../search/main.js"></script>
 
             
                 
@@ -46,6 +48,7 @@
 
         <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
             <ul class="navbar-nav">
+
                 <!-- block menu -->
                 <li class="nav-item">
                     <!-- block menu -->
@@ -113,6 +116,16 @@
                 </li>
                 <!-- endblock -->
 
+                <!-- block search -->
+                <li class="nav-item">
+                    <a class="collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <div class="md-search-icon">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                </li>
+                <!--  endblock -->
+
                 <!-- block source -->
                 <li class="nav-item">
                     
@@ -162,7 +175,16 @@
 <!--  endblock -->
             </header>
 
-            <main>
+            <main><!-- block search -->
+<div class="collapse" id="collapseExample">
+    <div role="search" class="search-box">
+        <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+            <input type="text" name="q" class="search-query"
+            placeholder="Search docs" title="Type search term here" />
+        </form>
+    </div>
+</div>
+<!-- endblock -->
                     <!-- block content -->
 <section class="container post">
     <article>
@@ -171,8 +193,13 @@
                 <h1 class="bold title" id="component-title">Release notes</h1>
             
         </header>
-        <p><p>January 17, 2023</p>
+        <p><p>March 25, 2023</p>
 <hr />
+<h2 id="v008">v0.0.8</h2>
+<ul>
+<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.0.8">📦 PyPI - Build 0.0.8</a></li>
+<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/22">📌 ISSUE-22 - FEATURE - Search</a></li>
+</ul>
 <h2 id="v007">v0.0.7</h2>
 <ul>
 <li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.0.7">📦 PyPI - Build 0.0.7</a></li>
@@ -253,10 +280,13 @@
 <!-- endblock -->
             
         </div>
-    
-        <script src="../../../assets/js/jquery-3.3.1.slim.min.js""></script>
-        <script src="../../../assets/js/bootstrap.bundle.min.js""></script>
-        <script src="../../../assets/js/theme.js""></script>
+
+            <script>var base_url = '../../..';</script>
+            <script src="../../../assets/js/jquery-3.3.1.slim.min.js""></script>
+            <script src="../../../assets/js/bootstrap.bundle.min.js""></script>
+            <script src="../../../assets/js/theme.js""></script>
+                <script src="../../../search/main.js" defer></script>
+
     </body>
 
 </html>
