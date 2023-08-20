@@ -13,16 +13,42 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: ⚙️ Set up Python 3.10
+    - name: ⚙️ Set up Python 3.11
       uses: actions/setup-python@v3
       with:
-        python-version: "3.10"
+        python-version: "3.11"
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+
     - name: ⚙️ Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install build --no-cache-dir
+
+    - name: ✅ Run Script
+      run: |
+        python .github/minify.py
+
+    - name: 📝 Git Config
+      run: |
+        git config --global user.email ${{secrets.EMAIL}}
+        git config --global user.name ${{secrets.USERNAME}}
+      shell: bash
+
+    - name: 📝 Git Process
+      run: |
+        if [[ `git status --porcelain` ]]; then
+          git add --all
+          git commit -a -m "🤖 BOOT: Update"
+          git push origin HEAD:master --force
+        else
+          echo "WARNING: No changes were detected. git commit push action aborted."
+        fi
+      shell: bash
+      continue-on-error: true
+
     - name: 📦 Build Package
       run: python -m build
+
     - name: 📦 Publish Package to Test PyPI
       uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
       with:
