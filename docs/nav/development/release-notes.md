@@ -6,6 +6,7 @@ March 25, 2023
 
 - [📦 PyPI - Build 0.0.9](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.0.9)
 - [📌 ISSUE-27 - Minify CSS and JS](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/27)
+- [📌 ISSUE-26 - Code indentation error](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/26)
 
 ## v0.0.8
 
