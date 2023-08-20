@@ -1,2 +1,2 @@
-mkdocs==1.4.2
-mkdocs-simple-blog==0.0.3
+mkdocs==1.5.2
+mkdocs-simple-blog==0.0.8

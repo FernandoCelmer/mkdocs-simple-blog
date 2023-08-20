@@ -30,7 +30,7 @@ setup(
         "Programming Language :: Python :: 3.11",
     ],
     install_requires=[
-        'mkdocs>=1.4.2'
+        'mkdocs>=1.5.2'
     ],
     packages=["mkdocs_simple_blog"],
     package_data={'mkdocs_simple_blog': ['*','*/*','*/*/*']},
