@@ -63,6 +63,10 @@ pre {
     line-height: 30px;
 }
 
+pre code {
+    padding: 0;
+}
+
 small {
     color: var(--text);
 }
