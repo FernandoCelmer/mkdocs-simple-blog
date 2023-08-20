@@ -26,28 +26,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install build --no-cache-dir
 
-    # - name: ✅ Run Script
-    #   run: |
-    #     python .github/minify.py
-
-    # - name: 📝 Git Config
-    #   run: |
-    #     git config --global user.email ${{secrets.EMAIL}}
-    #     git config --global user.name ${{secrets.USERNAME}}
-    #   shell: bash
-
-    # - name: 📝 Git Process
-    #   run: |
-    #     if [[ `git status --porcelain` ]]; then
-    #       git add --all
-    #       git commit -a -m "🤖 BOOT: Update"
-    #       git push origin HEAD:pypi --force
-    #     else
-    #       echo "WARNING: No changes were detected. git commit push action aborted."
-    #     fi
-    #   shell: bash
-    #   continue-on-error: true
-
     - name: 📦 Build Package
       run: python -m build
 
