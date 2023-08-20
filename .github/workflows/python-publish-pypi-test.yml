@@ -5,7 +5,7 @@ on:
     branches: [ "pypi" ]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   deploy:
@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      with:
+      with: 
         repo-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: ⚙️ Set up Python 3.11
