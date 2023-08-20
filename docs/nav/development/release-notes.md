@@ -2,10 +2,15 @@ March 25, 2023
 
 ---
 
+## v0.0.9
+
+- [📦 PyPI - Build 0.0.9](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.0.9)
+- [📌 ISSUE-27 - Minify CSS and JS](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/27)
+
 ## v0.0.8
 
 - [📦 PyPI - Build 0.0.8](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.0.8)
-- [📌 ISSUE-22 - FEATURE - Search](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/22)
+- [📌 ISSUE-22 - Search](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/22)
 
 
 ## v0.0.7
