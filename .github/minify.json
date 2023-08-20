@@ -3,7 +3,7 @@
         "files": [
             {
                 "from": [
-                    "mkdocs_simple_blog/assets/js/theme.js"
+                    "mkdocs_simple_blog/assets/js/main.js"
                 ],
                 "to": "mkdocs_simple_blog/assets/js/main.min.js"
             }
@@ -13,10 +13,9 @@
         "files": [
             {
                 "from": [
-                    "mkdocs_simple_blog/assets/stylesheets/styles.css",
-                    "mkdocs_simple_blog/assets/stylesheets/theme.css"
+                    "mkdocs_simple_blog/assets/css/main.css"
                 ],
-                "to": "mkdocs_simple_blog/assets/stylesheets/main.min.css"
+                "to": "mkdocs_simple_blog/assets/css/main.min.css"
             }
         ]
     }
