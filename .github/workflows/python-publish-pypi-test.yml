@@ -41,7 +41,7 @@ jobs:
         if [[ `git status --porcelain` ]]; then
           git add --all
           git commit -a -m "🤖 BOOT: Update"
-          git push origin HEAD:master --force
+          git push origin HEAD:pypi --force
         else
           echo "WARNING: No changes were detected. git commit push action aborted."
         fi
