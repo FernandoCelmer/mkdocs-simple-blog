@@ -1,17 +1,32 @@
+:root {
+    --text: #000;
+    --title: #000;
+    --primary: #000;
+    --background: #fff;
+    --color-black: #000;
+    --color-white: #fff;
+    --color-blue: #4051b5;
+    --color-green: #4cae4f;
+    --color-yellow: #f1dc15;
+    --color-orange: #ffa724;
+    --color-purple: #ab47bd;
+    --color-red: #ff2c06;
+}
+
 html {
     box-sizing: border-box;
     font-size: 80%;
 }
 
 body {
+    color: var(--text);
+    background-color: var(--background);
     display: flex;
-    color: #323232;
-    background-color: #fefefe;
-    font-family: 'Fira Mono',monospace;
+    font-family: "Fira Mono",monospace;
     font-size: 1.6em;
     font-weight: 400;
-    letter-spacing: .0625em;
     line-height: 1.8em;
+    letter-spacing: 0.0625em;
 }
 
 main {
@@ -23,46 +38,55 @@ img {
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-    /* filter: grayscale(100%); */
 }
 
 figcaption {
     font-size: 75%;
-    font-weight: bold;
+    font-weight: 700;
     text-align: center;
 }
 
 code {
-    background-color: #000;
-    color: #fefefe;
-    padding: .4rem .8rem .4rem .8rem;
+    background-color: var(--primary);
+    color: var(--background)!important;
+    padding: 0.4rem 0.8rem;
 }
 
 pre {
-    margin: 1.6rem 0 1rem 0;
+    margin: 1.6rem 0 1rem;
     padding: 1.6rem;
     overflow-x: auto;
-    color:#e5e5e5;
-    background-color:#000;
+    color: #e5e5e5;
+    background-color: var(--primary);
     tab-size: 2;
-    font-size: .775em;
+    font-size: 0.775em;
     line-height: 30px;
 }
 
-*,*:after,*:before {
+pre code {
+    padding: 0;
+}
+
+small {
+    color: var(--text);
+}
+
+*,
+*:after,
+*:before {
     box-sizing: inherit;
 }
 
 .container {
     max-width: 960px;
 }
-  
+
 .blog-header {
     max-width: 700px;
 }
 
 .title-color {
-    color: black;
+    color: var(--title);
 }
 
 .date {
@@ -70,41 +94,50 @@ pre {
 }
 
 @media only screen and (min-device-width:320px) and (max-device-width:480px) {
-body {
-    font-size: 1.0em;
-    line-height: 1.6em;
-}   
+    body {
+        font-size: 1em;
+        line-height: 1.6em;
+    }
 }
 
 a {
-    color: #000000;
+    color: var(--text)!important;
     text-decoration: underline;
 }
 
-a:focus,a:hover {
+a:focus,
+a:hover {
     color: #5c5c5c;
     text-decoration: underline;
 }
 
 p {
-    margin: 1.6rem 0 1.6rem 0;
+    margin: 1.6rem 0;
+    color: var(--text);
 }
 
 p a {
     font-weight: 400;
-    color: #000;
+    color: var(--primary);
     text-decoration: underline;
     text-underline-position: under;
 }
 
-p a:focus,p a:hover {
-    color: #000000;
+a:focus,
+a:hover {
+    color: var(--primary)!important;
+    text-decoration: underline;
 }
 
-h1,h2,h3,h4,h5,h6 {
-    color: #000;
-    letter-spacing: .0625em;
-    margin: 3.2rem 0 1.6rem 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--title);
+    letter-spacing: 0.0625em;
+    margin: 3.2rem 0 1.6rem;
     text-transform: uppercase;
 }
 
@@ -114,10 +147,10 @@ h1 {
 }
 
 @media only screen and (min-device-width:320px) and (max-device-width:480px) {
-h1 {
-    font-size: 2.8rem;
-    line-height: 2.8rem;
-}
+    h1 {
+        font-size: 2.8rem;
+        line-height: 2.8rem;
+    }
 }
 
 h2 {
@@ -126,34 +159,32 @@ h2 {
 }
 
 @media only screen and (min-device-width:320px) and (max-device-width:480px) {
-h2 {
-    font-size: 2.4rem;
-    line-height: 2.4rem;
+    h2 {
+        font-size: 2.4rem;
+        line-height: 2.4rem;
+    }
 }
-}
-
 h3 {
     font-size: 2.4rem;
     line-height: 2.4rem;
 }
 
 @media only screen and (min-device-width:320px) and (max-device-width:480px) {
-h3 {
-    font-size: 2rem;
-    line-height: 2rem;
+    h3 {
+        font-size: 2rem;
+        line-height: 2rem;
+    }
 }
-}
-
 h4 {
     font-size: 2.2rem;
     line-height: 2.2rem;
 }
 
 @media only screen and (min-device-width:320px) and (max-device-width:480px) {
-h4 {
-    font-size: 1.8rem;
-    line-height: 1.8rem;
-}
+    h4 {
+        font-size: 1.8rem;
+        line-height: 1.8rem;
+    }
 }
 
 h5 {
@@ -162,10 +193,10 @@ h5 {
 }
 
 @media only screen and (min-device-width:320px) and (max-device-width:480px) {
-h5 {
-    font-size: 1.6rem;
-    line-height: 1.6rem;
-}
+    h5 {
+        font-size: 1.6rem;
+        line-height: 1.6rem;
+    }
 }
 
 h6 {
@@ -179,16 +210,18 @@ blockquote {
     font-style: italic;
 }
 
-th,td {
-    padding: 1.0rem;
+td,
+th {
+    padding: 1rem;
 }
 
 table {
     border-collapse: collapse;
 }
 
-table td,table th {
-    border: 2px solid #000000;
+table td,
+table th {
+    border: 2px solid var(--primary);
 }
 
 table tr:first-child th {
@@ -199,11 +232,13 @@ table tr:last-child td {
     border-bottom: 0;
 }
 
-table tr td:first-child,table tr th:first-child {
+table tr td:first-child,
+table tr th:first-child {
     border-left: 0;
 }
 
-table tr td:last-child,table tr th:last-child {
+table tr td:last-child,
+table tr th:last-child {
     border-right: 0;
 }
 
@@ -232,13 +267,13 @@ table tr td:last-child,table tr th:last-child {
     font-size: 1.6rem;
     text-transform: uppercase;
     line-height: 6rem;
-    letter-spacing: .1rem;
+    letter-spacing: 0.1rem;
 }
 
 @media only screen and (min-device-width:320px) and (max-device-width:480px) {
-.navigation a {
-    font-size: 1.4rem;
-}
+    .navigation a {
+        font-size: 1.4rem;
+    }
 }
 
 .navigation ul {
@@ -269,7 +304,8 @@ table tr td:last-child,table tr th:last-child {
     margin-bottom: 3.2rem;
 }
 
-.content article header h1,.content article header h2 {
+.content article header h1,
+.content article header h2 {
     margin: 0;
 }
 
@@ -280,13 +316,13 @@ table tr td:last-child,table tr th:last-child {
 }
 
 @media only screen and (min-device-width:320px) and (max-device-width:480px) {
-.content article header h2 {
-    font-size: 1.6rem;
-}
+    .content article header h2 {
+        font-size: 1.6rem;
+    }
 }
 
 .list ul {
-    margin: 3.2rem 0 3.2rem 0;
+    margin: 3.2rem 0;
     list-style: none;
     padding: 0;
 }
@@ -296,10 +332,10 @@ table tr td:last-child,table tr th:last-child {
 }
 
 @media only screen and (min-device-width:320px) and (max-device-width:480px) {
-.list ul li {
-    font-size: 1.4rem;
-    margin: 1.6rem 0 1.6rem 0;
-}
+    .list ul li {
+        font-size: 1.4rem;
+        margin: 1.6rem 0;
+    }
 }
 
 .list ul li span {
@@ -310,10 +346,10 @@ table tr td:last-child,table tr th:last-child {
 }
 
 @media only screen and (min-device-width:320px) and (max-device-width:480px) {
-.list ul li span {
-    display: block;
-    text-align: left;
-}
+    .list ul li span {
+        display: block;
+        text-align: left;
+    }
 }
 
 .list ul li a {
@@ -355,24 +391,24 @@ table tr td:last-child,table tr th:last-child {
 
 .centered .about h1 {
     margin-top: 2rem;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
 }
 
 .centered .about h2 {
     margin-top: 1rem;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
     font-size: 2.4rem;
 }
 
 @media only screen and (min-device-width:320px) and (max-device-width:480px) {
-.centered .about h2 {
-    font-size: 2rem;
-}
+    .centered .about h2 {
+        font-size: 2rem;
+    }
 }
 
 .centered .about ul {
     list-style: none;
-    margin: 3rem 0 1rem 0;
+    margin: 3rem 0 1rem;
     padding: 0;
 }
 
@@ -389,9 +425,9 @@ table tr td:last-child,table tr th:last-child {
 }
 
 @media only screen and (min-device-width:320px) and (max-device-width:480px) {
-.centered .about ul li a {
-    font-size: 1.4rem;
-}
+    .centered .about ul li a {
+        font-size: 1.4rem;
+    }
 }
 
 .centered .error {
@@ -400,14 +436,14 @@ table tr td:last-child,table tr th:last-child {
 
 .centered .error h1 {
     margin-top: 2rem;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
     font-size: 4.6rem;
 }
 
 @media only screen and (min-device-width:320px) and (max-device-width:480px) {
-.centered .error h1 {
-    font-size: 3.2rem;
-}
+    .centered .error h1 {
+        font-size: 3.2rem;
+    }
 }
 
 .centered .error h2 {
@@ -417,9 +453,9 @@ table tr td:last-child,table tr th:last-child {
 }
 
 @media only screen and (min-device-width:320px) and (max-device-width:480px) {
-.centered .error h2 {
-    font-size: 2.8rem;
-}
+    .centered .error h2 {
+        font-size: 2.8rem;
+    }
 }
 
 .footer {
@@ -445,18 +481,18 @@ table tr td:last-child,table tr th:last-child {
     user-select: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width:768px) {
     .bd-placeholder-img-lg {
-    font-size: 3.5rem;
+        font-size: 3.5rem;
     }
 }
 
 .b-example-divider {
     height: 3rem;
-    background-color: rgba(0, 0, 0, .1);
-    border: solid rgba(0, 0, 0, .15);
+    background-color: rgba(0,0,0,.1);
+    border: solid rgba(0,0,0,.15);
     border-width: 1px 0;
-    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    box-shadow: inset 0 0.5em 1.5em rgba(0,0,0,.1),inset 0 0.125em 0.5em rgba(0,0,0,.15);
 }
 
 .b-example-vr {
@@ -505,7 +541,7 @@ table tr td:last-child,table tr th:last-child {
     white-space: nowrap;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width:1200px) {
     .source-detail {
         margin-top: 10px;
         padding: 15px;
@@ -543,7 +579,7 @@ table tr td:last-child,table tr th:last-child {
     gap: 0.4rem;
     list-style-type: none;
     margin: 0.1rem 0 0;
-    opacity: .75;
+    opacity: 0.75;
     overflow: hidden;
     padding: 0;
     width: 100%;
@@ -561,24 +597,34 @@ table tr td:last-child,table tr th:last-child {
     vertical-align: middle;
 }
 
-@media all and (min-width: 992px) {
-	.dropdown-menu li{ position: relative; 	}
-	.nav-item .submenu{ 
-		display: none;
-		position: absolute;
-		left:100%; top:-7px;
-	}
-	.nav-item .submenu-left{ 
-		right:100%; left:auto;
-	}
-	.dropdown-menu > li:hover{ background-color: #f1f1f1 }
-	.dropdown-menu > li:hover > .submenu{ display: block; }
-}	
+@media all and (min-width:992px) {
+    .dropdown-menu li {
+        position: relative;
+    }
+    .nav-item .submenu {
+        display: none;
+        position: absolute;
+        left: 100%;
+        top: -7px;
+    }
+    .nav-item .submenu-left {
+        right: 100%;
+        left: auto;
+    }
+    .dropdown-menu > li:hover {
+        background-color: #f1f1f1;
+    }
+    .dropdown-menu > li:hover > .submenu {
+        display: block;
+    }
+}
 
-@media (max-width: 991px) {
-  .dropdown-menu .dropdown-menu{
-      margin-left:0.7rem; margin-right:0.7rem; margin-bottom: .5rem;
-  }
+@media (max-width:991px) {
+    .dropdown-menu .dropdown-menu {
+        margin-left: 0.7rem;
+        margin-right: 0.7rem;
+        margin-bottom: 0.5rem;
+    }
 }
 
 .logo {
@@ -586,15 +632,14 @@ table tr td:last-child,table tr th:last-child {
     margin: 10px;
 }
 
-
 .normal {
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
     text-decoration: none;
 }
 
 .bold {
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .italic {
@@ -613,36 +658,58 @@ table tr td:last-child,table tr th:last-child {
     text-decoration: overline;
 }
 
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width:780px) {
     .site-name {
-        font-size: 14px !important;
+        font-size: 14px!important;
     }
-
     .title {
-        font-size: 18px !important;
+        font-size: 18px!important;
     }
-
     .container {
-        padding-left: 5% !important;
-        padding-right: 5% !important;
+        padding-left: 5%!important;
+        padding-right: 5%!important;
     }
-
     main {
-        margin-left: 0% !important;
-        margin-right: 0% !important;
-        line-height: 1.8 !important
+        margin-left: 0%!important;
+        margin-right: 0%!important;
+        line-height: 1.8!important;
     }
-
-    h1,h2,h3,h4,h5,h6 {
-        font-size: 18px !important;
-        margin-top: 1.0rem !important;
-        margin-bottom: 1rem !important;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: 18px!important;
+        margin-top: 1rem!important;
+        margin-bottom: 1rem!important;
     }
-
-    p, a, li, code, small {
-        font-size: 12px !important;
-        margin-top: 1.0rem !important;
-        margin-bottom: 1rem !important;
+    a,
+    code,
+    li,
+    p,
+    small {
+        font-size: 12px!important;
+        margin-top: 1rem!important;
+        margin-bottom: 1rem!important;
     }
+}
 
-  }
+.dropdown-menu {
+    color: var(--background);
+    background-color: var(--background);
+    border-color: var(--primary);
+}
+
+.dropdown-item.active,
+.dropdown-item:active,
+.dropdown-item:hover {
+    color: var(--background)!important;
+    background-color: var(--primary)!important;
+}
+
+@media only screen and (max-width:1200px) {
+    .source-detail {
+        border-color: var(--primary);
+    }
+}
