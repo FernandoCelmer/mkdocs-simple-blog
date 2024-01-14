@@ -6,7 +6,8 @@
 ![GitHub forks](https://img.shields.io/github/forks/FernandoCelmer/mkdocs-simple-blog?label=Forks&style=flat-square)
 ![GitHub Repo stars](https://img.shields.io/github/stars/FernandoCelmer/mkdocs-simple-blog?label=Stars&style=flat-square)
 ![GitHub last commit](https://img.shields.io/github/last-commit/FernandoCelmer/mkdocs-simple-blog?style=flat-square)
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/FernandoCelmer/mkdocs-simple-blog/python-publish-pypi-test.yml?label=%F0%9F%93%A6%20Package%20PyPI-Test&style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/FernandoCelmer/mkdocs-simple-blog/python-publish-pypi-test.yml?label=%F0%9F%93%A6%20PyPI-Test&style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/FernandoCelmer/mkdocs-simple-blog/python-publish-pypi.yml?label=%F0%9F%93%A6%20PyPI&style=flat-square)
 
 ## Install
 
