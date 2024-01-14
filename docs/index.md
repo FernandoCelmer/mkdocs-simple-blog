@@ -2,15 +2,23 @@ Jan 15, 2024
 
 ---
 
-# [MkDocs Simple Blog](https://fernandocelmer.github.io/mkdocs-simple-blog/)
->  Theme for [MkDocs](https://www.mkdocs.org/)
+For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
-![GitHub forks](https://img.shields.io/github/forks/FernandoCelmer/mkdocs-simple-blog?label=Forks&style=flat-square)
-![GitHub Repo stars](https://img.shields.io/github/stars/FernandoCelmer/mkdocs-simple-blog?label=Stars&style=flat-square)
-![GitHub last commit](https://img.shields.io/github/last-commit/FernandoCelmer/mkdocs-simple-blog?style=flat-square)
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/FernandoCelmer/mkdocs-simple-blog/python-publish-pypi-test.yml?label=%F0%9F%93%A6%20Package%20PyPI-Test&style=flat-square)
+## Commands
 
-## Install
+* `mkdocs new [dir-name]` - Create a new project.
+* `mkdocs serve` - Start the live-reloading docs server.
+* `mkdocs build` - Build the documentation site.
+* `mkdocs -h` - Print help message and exit.
+
+## Project layout
+
+```bash
+mkdocs.yml    # The configuration file.
+docs/
+    index.md  # The documentation homepage.
+    ...       # Other markdown pages, images and other files.
+```
 
 ### Installation MkDocs
 
