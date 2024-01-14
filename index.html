@@ -19,7 +19,8 @@
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-            <link rel="stylesheet" href="assets/css/main.min.css">
+            <link rel="stylesheet" href="assets/stylesheets/theme.css">
+            <link rel="stylesheet" href="assets/stylesheets/styles.css">
                 <script src="search/main.js"></script>
 
             
@@ -193,7 +194,7 @@
                 <h1 class="bold title" id="component-title">Home</h1>
             
         </header>
-        <p><p>March 25, 2023</p>
+        <p><p>Jan 15, 2024</p>
 <hr />
 <p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
 <h2 id="commands">Commands</h2>
@@ -208,7 +209,43 @@
 docs/
     index.md  # The documentation homepage.
     ...       # Other markdown pages, images and other files.
-</code></pre></p>
+</code></pre>
+<h3 id="installation-mkdocs">Installation MkDocs</h3>
+<p>To install MkDocs, run the following command from the command line:</p>
+<pre><code class="language-bash">pip install mkdocs
+</code></pre>
+<h3 id="installation-theme">Installation theme</h3>
+<p>Install the theme using PIP:</p>
+<pre><code class="language-bash">pip install mkdocs-simple-blog
+</code></pre>
+<h3 id="activating-theme">Activating theme</h3>
+<p>After the theme is installed, edit your <code>mkdocs.yml</code> file and set the theme name to <code>simple-blog</code>:</p>
+<pre><code class="language-yml">theme:
+    name: simple-blog
+</code></pre>
+<h2 id="getting-help">Getting Help</h2>
+<p>We use GitHub issues for tracking bugs and feature requests and have limited bandwidth to address them. If you need anything, I ask you to please follow our templates for opening issues or discussions.</p>
+<ul>
+<li>🐛 <a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/new">Bug Report</a></li>
+<li>📕 <a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/new">Documentation Issue</a></li>
+<li>🚀 <a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/new">Feature Request</a></li>
+<li>💬 <a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/new">General Question</a></li>
+</ul>
+<h2 id="commit-style">Commit Style</h2>
+<ul>
+<li>⚙️ FEATURE</li>
+<li>📝 PEP8</li>
+<li>📌 ISSUE</li>
+<li>🪲 BUG</li>
+<li>📘 DOCS</li>
+<li>📦 PyPI</li>
+<li>❤️️ TEST</li>
+<li>⬆️ CI/CD</li>
+<li>⚠️ SECURITY</li>
+</ul>
+<h2 id="license">License</h2>
+<p><img alt="GitHub" src="https://img.shields.io/github/license/FernandoCelmer/mkdocs-simple-blog?style=flat-square" /></p>
+<p>This project is licensed under the terms of the MIT license.</p></p>
     </article>
 </section>
 <!-- endblock -->
@@ -258,7 +295,7 @@ docs/
             <script>var base_url = '.';</script>
             <script src="assets/js/jquery-3.3.1.slim.min.js""></script>
             <script src="assets/js/bootstrap.bundle.min.js""></script>
-            <script src="assets/js/main.min.js""></script>
+            <script src="assets/js/theme.js""></script>
                 <script src="search/main.js" defer></script>
 
     </body>
