@@ -19,8 +19,7 @@
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
-            <link rel="stylesheet" href="../../../assets/stylesheets/theme.css">
-            <link rel="stylesheet" href="../../../assets/stylesheets/styles.css">
+            <link rel="stylesheet" href="../../../assets/css/main.min.css">
                 <script src="../../../search/main.js"></script>
 
             
@@ -194,7 +193,49 @@
                 <h1 class="bold title" id="component-title">Development guide</h1>
             
         </header>
-        <p><p>March 25, 2023</p>
+        <p><p>Last updated January 28, 2024</p>
+<hr />
+<h2 id="how-to-test-the-local-package">How to test the local package?</h2>
+<h4 id="virtual-environment">Virtual environment</h4>
+<ul>
+<li>Create your virtual environment.</li>
+</ul>
+<pre><code class="language-bash">python -m venv venv
+</code></pre>
+<h4 id="environment-activation">Environment activation</h4>
+<ul>
+<li>Activate the virtual environment.</li>
+</ul>
+<pre><code class="language-bash">source venv/bin/activate
+</code></pre>
+<h4 id="install-the-requirements">Install the requirements</h4>
+<ul>
+<li>Install the necessary requirements to be able to test the application.</li>
+</ul>
+<pre><code class="language-bash">pip install -r requirements.txt --no-cache-dir
+</code></pre>
+<h4 id="development">Development</h4>
+<ul>
+<li>Make your changes as desired in the <code>./mkdocs_simple_blog</code> folder. You can enjoy and change whatever you want, please have fun.</li>
+</ul>
+<pre><code class="language-bash">ls mkdocs_simple_blog
+</code></pre>
+<h4 id="build-and-install">Build and Install</h4>
+<ul>
+<li>Run the script that creates and installs the local package.</li>
+</ul>
+<pre><code class="language-bash">python scripts/install_local.py
+</code></pre>
+<h4 id="test">Test</h4>
+<ul>
+<li>Run the following command to run the server.</li>
+</ul>
+<pre><code class="language-bash">mkdocs serve
+</code></pre>
+<h4 id="view-template">View Template</h4>
+<ul>
+<li>Now you can access the <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a></li>
+</ul>
 <hr />
 <h2 id="commit-style">Commit Style</h2>
 <ul>
@@ -260,7 +301,7 @@
             <script>var base_url = '../../..';</script>
             <script src="../../../assets/js/jquery-3.3.1.slim.min.js""></script>
             <script src="../../../assets/js/bootstrap.bundle.min.js""></script>
-            <script src="../../../assets/js/theme.js""></script>
+            <script src="../../../assets/js/main.min.js""></script>
                 <script src="../../../search/main.js" defer></script>
 
     </body>
