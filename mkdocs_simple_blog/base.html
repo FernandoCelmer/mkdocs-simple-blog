@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html data-bs-theme="{{ config.theme.theme_style }}">
     <head>
         {%- block site_meta %}
             {%- block htmltitle %}
@@ -22,12 +22,13 @@
 
             {%- block libs %}
                 {%- if config.theme.highlightjs %}
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-        
+                    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/base16/grayscale-dark.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
                     {%- for lang in config.theme.hljs_languages %}
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/{{lang}}.min.js"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/{{lang}}.min.js"></script>
                     {%- endfor %}
-                        <script>hljs.initHighlightingOnLoad();</script>
+                    <script>hljs.highlightAll();</script>
                 {%- endif %}
             {%- endblock %}
 
