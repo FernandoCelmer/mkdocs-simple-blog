@@ -60,4 +60,4 @@ We use GitHub issues for tracking bugs and feature requests and have limited ban
 ## License
 ![GitHub](https://img.shields.io/github/license/FernandoCelmer/mkdocs-simple-blog?style=flat-square)
 
-This project is licensed under the terms of the MIT license.
+This project is licensed under the terms of the GNU General Public License v3.0 license.
