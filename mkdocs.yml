@@ -1,7 +1,7 @@
 site_name: MkDocs Simple Blog
 repo_name: FernandoCelmer/mkdocs-simple-blog
 repo_url: https://github.com/FernandoCelmer/mkdocs-simple-blog
-site_url: https://www.fernandocelmer.com/
+site_url: https://www.fernandocelmer.com
 copyright: Fernando Celmer
 
 nav:
@@ -24,6 +24,9 @@ theme:
   theme_style: light
   site_name_style: normal
   title_style: bold
+  highlightjs: true
+    - yaml
+    - python
   colors:
     text: black
     title: black
