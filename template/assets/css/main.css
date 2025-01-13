@@ -48,7 +48,7 @@ figcaption {
 
 code {
     background-color: var(--primary);
-    color: var(--background)!important;
+    /* color: var(--background) !important; */
     padding: 0.4rem 0.8rem;
 }
 
@@ -57,7 +57,7 @@ pre {
     padding: 1.6rem;
     overflow-x: auto;
     color: #e5e5e5;
-    background-color: var(--primary);
+    /* background-color: var(--primary); */
     tab-size: 2;
     font-size: 0.775em;
     line-height: 30px;
