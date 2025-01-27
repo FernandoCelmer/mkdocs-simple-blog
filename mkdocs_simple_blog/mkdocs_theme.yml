@@ -3,5 +3,8 @@ language: en
 include_search_page: true
 search_index_only: false
 
-highlightjs: true
-hljs_languages: []
+theme:
+  sidebar: false
+  navigation_depth: 4
+  highlightjs: false
+  hljs_languages: []
