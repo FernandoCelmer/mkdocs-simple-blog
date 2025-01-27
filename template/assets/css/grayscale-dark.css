@@ -1,3 +1,5 @@
+@import url("root.min.css");
+
 /*!
   Theme: Grayscale Dark
   Author: Alexandre Gavioli (https://github.com/Alexx2/)
@@ -15,7 +17,7 @@ code.hljs {
 }
 .hljs {
   color: #b9b9b9;
-  background: #101010;
+  background: var(--primary);
 }
 .hljs ::selection,
 .hljs::selection {

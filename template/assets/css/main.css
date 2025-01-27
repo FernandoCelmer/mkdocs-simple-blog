@@ -1,5 +1,64 @@
+<<<<<<< HEAD
 body,
 p,
+=======
+@import url("root.min.css");
+
+html {
+    box-sizing: border-box;
+    font-size: 80%;
+}
+
+body {
+    color: var(--text);
+    background-color: var(--background);
+    display: flex;
+    font-family: "Fira Mono",monospace;
+    font-size: 1.6em;
+    font-weight: 400;
+    line-height: 1.8em;
+    letter-spacing: 0.0625em;
+}
+
+main {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+img {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+figcaption {
+    font-size: 75%;
+    font-weight: 700;
+    text-align: center;
+}
+
+code {
+    background-color: var(--primary);
+    /* color: var(--background) !important; */
+    padding: 0.4rem 0.8rem;
+}
+
+pre {
+    margin: 1.6rem 0 1rem;
+    padding: 1.6rem;
+    overflow-x: auto;
+    color: #e5e5e5;
+    /* background-color: var(--primary); */
+    tab-size: 2;
+    font-size: 0.775em;
+    line-height: 30px;
+}
+
+pre code {
+    padding: 0;
+}
+
+>>>>>>> develop
 small {
   color: var(--text);
 }

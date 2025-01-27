@@ -6,14 +6,14 @@ copyright: Fernando Celmer
 
 nav:
     - Home: index.md
-    - Getting Started: nav/getting-started.md
-    - Setup:
+    - Start: nav/getting-started.md
+    - Styles:
       - nav/setup/sidebar.md
-      - nav/setup/components.md
-      - nav/setup/colors.md
-      - nav/setup/fonts.md
-      - nav/setup/logo.md
-      - nav/setup/favicon.md
+      - nav/styles/components.md
+      - nav/styles/favicon.md
+      - nav/styles/colors.md
+      - nav/styles/fonts.md
+      - nav/styles/logo.md
     - Development:
       - nav/development/development-guide.md
       - nav/development/release-notes.md
