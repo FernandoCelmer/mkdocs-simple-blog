@@ -8,7 +8,7 @@ nav:
     - Home: index.md
     - Start: nav/getting-started.md
     - Styles:
-      - nav/setup/sidebar.md
+      - nav/styles/sidebar.md
       - nav/styles/components.md
       - nav/styles/favicon.md
       - nav/styles/colors.md
