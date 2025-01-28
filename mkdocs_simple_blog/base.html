@@ -86,12 +86,12 @@
                 {% if config.theme.sidebar %}
                     <div class="container">
                         <div class="row">
-                            <div class="col-3">
+                            <div class="col-3" id="component-sidebar">
                                 {%- block sidebar %}
                                     {% include "/modules/sidebar.html" %}
                                 {%- endblock %}
                             </div>
-                            <div class="col-9">
+                            <div class="col-9" id="component-content">
                                 {%- block content_with_sidebar %}
                                     {% include "/modules/content.html" %}
                                 {%- endblock %}
