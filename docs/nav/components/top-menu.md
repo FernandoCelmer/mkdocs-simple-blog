@@ -7,7 +7,7 @@ January 28, 2025
 
 - Default: true
 
-```
+```yml
 theme:
   components:
     menu: true

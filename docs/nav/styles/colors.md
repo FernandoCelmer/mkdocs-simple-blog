@@ -10,7 +10,7 @@ January 17, 2023
 
 - Default: light
 
-```
+```yml
 theme:
   theme_style: light
 ```
@@ -26,7 +26,7 @@ theme:
 
 - Default: black
 
-```
+```yml
 theme:
   colors:
     primary: black
@@ -61,7 +61,7 @@ theme:
 
 - Default: black
 
-```
+```yml
 theme:
   colors:
     text: black
@@ -96,7 +96,7 @@ theme:
 
 - Default: black
 
-```
+```yml
 theme:
   colors:
     title: black
@@ -131,7 +131,7 @@ theme:
 
 - Default: white
 
-```
+```yml
 theme:
   colors:
     background: white

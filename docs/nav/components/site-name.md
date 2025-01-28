@@ -7,7 +7,7 @@ January 28, 2025
 
 - Default: true
 
-```
+```yml
 theme:
   components:
     site_name: true
@@ -20,7 +20,7 @@ theme:
 
 - Default: normal
 
-```
+```yml
 theme:
   site_name_style: normal
 ```

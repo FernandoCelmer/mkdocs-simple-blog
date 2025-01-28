@@ -10,7 +10,7 @@ January 17, 2023
 
 - Default: normal
 
-```
+```yml
 theme:
   site_name_style: normal
 ```
@@ -39,7 +39,7 @@ theme:
 
 - Default: bold
 
-```
+```yml
 theme:
   title_style: bold
 ```

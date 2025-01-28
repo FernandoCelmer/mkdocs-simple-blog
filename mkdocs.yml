@@ -15,6 +15,7 @@ nav:
       - nav/components/site-name.md
       - nav/components/standard-title.md
     - Styles:
+      - nav/styles/highlightjs.md
       - nav/styles/favicon.md
       - nav/styles/colors.md
       - nav/styles/logo.md

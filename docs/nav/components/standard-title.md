@@ -10,7 +10,7 @@ January 28, 2025
 
 - Default: false
 
-```
+```yml
 theme:
   components:
     title: false
@@ -23,7 +23,7 @@ theme:
 
 - Default: bold
 
-```
+```yml
 theme:
   title_style: bold
 ```
