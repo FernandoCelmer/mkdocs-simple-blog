@@ -1,4 +1,6 @@
-Jan 1, 2025
+# Favicon
+
+January 17, 2023
 
 ---
 

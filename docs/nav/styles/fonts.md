@@ -1,4 +1,6 @@
-Jan 1, 2025
+# Fonts
+
+January 17, 2023
 
 ---
 
@@ -14,22 +16,22 @@ theme:
 ```
 
 <button style-site-name="normal">
-    <code class="normal" style="background: var(--color-white); color: #000000 !important;">normal</code>
+    <code class="normal" style="background: var(--color-white) !important; color: #000000 !important;">normal</code>
 </button>
 <button style-site-name="bold">
-    <code class="bold" style="background: var(--color-white); color: #000000 !important;">bold</code>
+    <code class="bold" style="background: var(--color-white) !important; color: #000000 !important;">bold</code>
 </button>
 <button style-site-name="italic">
-    <code class="italic" style="background: var(--color-white); color: #000000 !important;">italic</code>
+    <code class="italic" style="background: var(--color-white) !important; color: #000000 !important;">italic</code>
 </button>
 <button style-site-name="scratched">
-    <code class="scratched" style="background: var(--color-white); color: #000000 !important;">scratched</code>
+    <code class="scratched" style="background: var(--color-white) !important; color: #000000 !important;">scratched</code>
 </button>
 <button style-site-name="underline">
-    <code class="underline" style="background: var(--color-white); color: #000000 !important;">underline</code>
+    <code class="underline" style="background: var(--color-white) !important; color: #000000 !important;">underline</code>
 </button>
 <button style-site-name="overline">
-    <code class="overline" style="background: var(--color-white); color: #000000 !important;">overline</code>
+    <code class="overline" style="background: var(--color-white) !important; color: #000000 !important;">overline</code>
 </button>
 
 
@@ -43,20 +45,20 @@ theme:
 ```
 
 <button style-title="normal">
-    <code class="normal" style="background: var(--color-white); color: #000000 !important;">normal</code>
+    <code class="normal" style="background: var(--color-white) !important; color: #000000 !important;">normal</code>
 </button>
 <button style-title="bold">
-    <code class="bold" style="background: var(--color-white); color: #000000 !important;">bold</code>
+    <code class="bold" style="background: var(--color-white) !important; color: #000000 !important;">bold</code>
 </button>
 <button style-title="italic">
-    <code class="italic" style="background: var(--color-white); color: #000000 !important;">italic</code>
+    <code class="italic" style="background: var(--color-white) !important; color: #000000 !important;">italic</code>
 </button>
 <button style-title="scratched">
-    <code class="scratched" style="background: var(--color-white); color: #000000 !important;">scratched</code>
+    <code class="scratched" style="background: var(--color-white) !important; color: #000000 !important;">scratched</code>
 </button>
 <button style-title="underline">
-    <code class="underline" style="background: var(--color-white); color: #000000 !important;">underline</code>
+    <code class="underline" style="background: var(--color-white) !important; color: #000000 !important;">underline</code>
 </button>
 <button style-title="overline">
-    <code class="overline" style="background: var(--color-white); color: #000000 !important;">overline</code>
+    <code class="overline" style="background: var(--color-white) !important; color: #000000 !important;">overline</code>
 </button>

@@ -1,19 +1,17 @@
 <!-- block preview -->
-{%- block next_prev %}
-    {%- if page and (page.next_page or page.previous_page) %}
-        <div class="row row-cols-md-3 text-center pt-md-3" id="component-preview">
-            <div class="col themed-grid-col">
-                <a rel="prev" {% if page.previous_page %}href="{{ page.previous_page.url|url }}" class="nav-link"{% else %}class="nav-link disabled"{% endif %}>
-                    <i class="fa fa-arrow-left"></i> Previous
-                </a>
-            </div>
-            <div class="col themed-grid-col"></div>
-            <div class="col themed-grid-col">
-                <a rel="next" {% if page.next_page %}href="{{ page.next_page.url|url }}" class="nav-link"{% else %}class="nav-link disabled"{% endif %}>
-                    Next <i class="fa fa-arrow-right"></i>
-                </a>
-            </div>
+{%- if page and (page.next_page or page.previous_page) %}
+    <div class="preview row row-cols-md-3 text-center pt-md-3" id="component-preview">
+        <div class="col themed-grid-col">
+            <a rel="prev" {% if page.previous_page %}href="{{ page.previous_page.url|url }}" class="nav-link"{% else %}class="nav-link disabled"{% endif %}>
+                <i class="fa fa-arrow-left"></i> Previous
+            </a>
         </div>
-    {%- endif %}
-{%- endblock %}
+        <div class="col themed-grid-col"></div>
+        <div class="col themed-grid-col">
+            <a rel="next" {% if page.next_page %}href="{{ page.next_page.url|url }}" class="nav-link"{% else %}class="nav-link disabled"{% endif %}>
+                Next <i class="fa fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+{%- endif %}
 <!-- endblock -->

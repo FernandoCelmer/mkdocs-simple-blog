@@ -20,17 +20,15 @@
                 <link  rel="icon" type="image/x-icon" href="{{ 'assets/img/favicon.ico'|url }}">
             {% endif %}
 
-            {%- block libs %}
-                {%- if config.theme.highlightjs %}
-                    <link rel="stylesheet" href="{{ 'assets/css/grayscale-dark.min.css'|url }}">
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+            {%- if config.theme.highlightjs %}
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+                <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/base16/grayscale-dark.min.css">
 
-                    {%- for lang in config.theme.hljs_languages %}
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/{{lang}}.min.js"></script>
-                    {%- endfor %}
-                    <script>hljs.highlightAll();</script>
-                {%- endif %}
-            {%- endblock %}
+                {%- for lang in config.hljs_languages %}
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/{{lang}}.min.js"></script>
+                {%- endfor %}
+                <script>hljs.highlightAll();</script>
+            {%- endif %}
 
         {%- endblock %}
 
@@ -85,9 +83,27 @@
                     {%- if 'search' in config['plugins'] %}{%- include "searchbox.html" %}{%- endif %}
                 {%- endblock %}
 
-                {%- block content %}
-                    {% include "/modules/content.html" %}
-                {%- endblock %}
+                {% if config.theme.sidebar %}
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-3">
+                                {%- block sidebar %}
+                                    {% include "/modules/sidebar.html" %}
+                                {%- endblock %}
+                            </div>
+                            <div class="col-9">
+                                {%- block content_with_sidebar %}
+                                    {% include "/modules/content.html" %}
+                                {%- endblock %}
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    {%- block content %}
+                        {% include "/modules/content.html" %}
+                    {%- endblock %}
+                {% endif %}
+                
             </main>
 
             {% if config.theme.components and config.theme.components.preview == False %}

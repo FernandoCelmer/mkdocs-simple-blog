@@ -29,6 +29,8 @@ theme:
   theme_style: light
   site_name_style: normal
   title_style: bold
+  sidebar: true
+  navigation_depth: 5
   highlightjs: true
     - yaml
     - python
@@ -39,7 +41,7 @@ theme:
     background: white
   components:
     site_name: true
-    title: true
+    title: false
     menu: true
     preview: true
     footer: true
