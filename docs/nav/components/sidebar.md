@@ -10,5 +10,8 @@ January 28, 2025
 
 ```
 theme:
-  sidebar: true
+  sidebar: false
 ```
+
+<button id="sidebar-true"><code>true</code></button>
+<button id="sidebar-false"><code>false</code></button>
