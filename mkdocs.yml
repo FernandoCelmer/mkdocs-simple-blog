@@ -30,7 +30,7 @@ theme:
   site_name_style: normal
   title_style: bold
   sidebar: true
-  navigation_depth: 5
+  navigation_depth: 2
   highlightjs: true
     - yaml
     - python
@@ -45,3 +45,6 @@ theme:
     menu: true
     preview: true
     footer: true
+
+extra_javascript:
+ - assets/custom.js
