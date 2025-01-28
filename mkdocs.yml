@@ -6,12 +6,21 @@ copyright: Fernando Celmer
 
 nav:
     - Home: index.md
-    - Start: nav/getting-started.md
+    - Getting Started: nav/getting-started.md
+    - Components:
+      - nav/components/sidebar.md
+      - nav/components/top-menu.md
+      - nav/components/preview.md
+      - nav/components/footer.md
+      - nav/components/site-name.md
+      - nav/components/standard-title.md
     - Styles:
+<<<<<<< Updated upstream
       - nav/styles/components.md
+=======
+>>>>>>> Stashed changes
       - nav/styles/favicon.md
       - nav/styles/colors.md
-      - nav/styles/fonts.md
       - nav/styles/logo.md
     - Development:
       - nav/development/development-guide.md
