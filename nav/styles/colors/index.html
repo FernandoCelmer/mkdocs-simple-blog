@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html data-bs-theme="light">
     <head>
                 <title>Colors - MkDocs Simple Blog</title>
 
@@ -8,18 +8,21 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
             
-            <link rel="canonical" href="https://www.fernandocelmer.com/nav/setup/colors/">
+            <link rel="canonical" href="https://www.fernandocelmer.com/nav/styles/colors/">
             
 
             
                 <link  rel="icon" type="image/x-icon" href="../../../assets/favicon.ico">
             
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-                        <script>hljs.initHighlightingOnLoad();</script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+                <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/base16/grayscale-dark.min.css">
+                <script>hljs.highlightAll();</script>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="../../../assets/css/root.min.css">
             <link rel="stylesheet" href="../../../assets/css/main.min.css">
+                <script src="../../../assets/custom.js"></script>
                 <script src="../../../search/main.js"></script>
 
             
@@ -38,7 +41,7 @@
         
 
         
-            <span class="normal fs-4 title-color site-name" id="component-site-name" style="text-transform: uppercase;">MkDocs Simple Blog</span>
+            <span class="bold fs-4 title-color site-name" id="component-site-name" style="text-transform: uppercase;">MkDocs Simple Blog</span>
         
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
@@ -64,12 +67,53 @@
                             nav-link text-gray text-decoration-none" href="../../getting-started/">[Getting Started]</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class=" active 
-                            nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Setup]</a>
+                            <a class="
+                            nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Components]</a>
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../components/" class="dropdown-item text-decoration-none ">Components</a>
+        <a href="../../components/sidebar/" class="dropdown-item text-decoration-none ">Sidebar</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../../components/top-menu/" class="dropdown-item text-decoration-none ">Top Menu</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../../components/preview/" class="dropdown-item text-decoration-none ">Preview</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../../components/footer/" class="dropdown-item text-decoration-none ">Footer</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../../components/site-name/" class="dropdown-item text-decoration-none ">Site Name</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../../components/standard-title/" class="dropdown-item text-decoration-none ">Standard title</a>
+    </li>
+<!-- endblock -->
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class=" active 
+                            nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Styles]</a>
+                            <ul class="dropdown-menu">
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../highlightjs/" class="dropdown-item text-decoration-none ">Highlightjs</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../favicon/" class="dropdown-item text-decoration-none ">Favicon</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
@@ -79,17 +123,7 @@
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../fonts/" class="dropdown-item text-decoration-none ">Fonts</a>
-    </li>
-<!-- endblock -->
-                                    <!-- block dropdown-menu -->
-    <li>
         <a href="../logo/" class="dropdown-item text-decoration-none ">Logo</a>
-    </li>
-<!-- endblock -->
-                                    <!-- block dropdown-menu -->
-    <li>
-        <a href="../favicon/" class="dropdown-item text-decoration-none ">Favicon</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -105,7 +139,7 @@
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../../development/release-notes/" class="dropdown-item text-decoration-none ">Release notes</a>
+        <a href="../../development/release-notes/" class="dropdown-item text-decoration-none ">Release</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -138,30 +172,35 @@
 
   <div class="md-source-repo-url">
     <a href="https://github.com/FernandoCelmer/mkdocs-simple-blog" class="md-source">
-      FernandoCelmer/mkdocs-simple-blog
+        FernandoCelmer/mkdocs-simple-blog
     </a>
 
     <ul class="md-source-repo-text">
       <li>
         <i class="fa fa-tag" aria-hidden="true"></i>
-        <img alt="GitHub tag (latest by date)"
-          src="https://img.shields.io/github/v/tag/FernandoCelmer/mkdocs-simple-blog?color=white&label=%20&style=flat-square">
+        <img
+          alt="GitHub tag (latest by date)"
+          src="https://img.shields.io/github/v/tag/FernandoCelmer/mkdocs-simple-blog?color=white&label=%20&style=flat-square"
+        />
       </li>
 
       <li>
         <i class="fa fa-star" aria-hidden="true"></i>
-        <img alt="GitHub Repo stars"
-          src="https://img.shields.io/github/stars/FernandoCelmer/mkdocs-simple-blog?color=white&label=%20&style=flat-square">
+        <img
+          alt="GitHub Repo stars"
+          src="https://img.shields.io/github/stars/FernandoCelmer/mkdocs-simple-blog?color=white&label=%20&style=flat-square"
+        />
       </li>
 
       <li>
         <i class="fa fa-code-fork" aria-hidden="true"></i>
-        <img alt="GitHub forks"
-          src="https://img.shields.io/github/forks/FernandoCelmer/mkdocs-simple-blog?color=white&label=%20&style=flat-square">
+        <img
+          alt="GitHub forks"
+          src="https://img.shields.io/github/forks/FernandoCelmer/mkdocs-simple-blog?color=white&label=%20&style=flat-square"
+        />
       </li>
     </ul>
   </div>
-
 </div>
 <!--  endblock -->
                         
@@ -185,26 +224,51 @@
     </div>
 </div>
 <!-- endblock -->
-                    <!-- block content -->
-<section class="container post">
+
+                
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-3" id="component-sidebar">
+                                    <!-- block sidebar -->
+<div class="navbar-expand-md" role="complementary">
+    
+    <div class="sidebar navbar-collapse collapse card">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#colors" class="nav-link">Colors</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#changing-the-colors" class="nav-link">Changing the colors</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- endblock -->
+                            </div>
+                            <div class="col-9" id="component-content">
+                                    <!-- block content -->
+<section class="container post" id="component-content">
     <article>
         <header>
             
-                <h1 class="bold title" id="component-title">Colors</h1>
             
         </header>
-        <p><p>January 17, 2023</p>
+        <p><h1 id="colors">Colors</h1>
+<p>January 17, 2023</p>
 <hr />
 <h2 id="changing-the-colors">Changing the colors</h2>
 <h3 id="color-scheme">Color scheme</h3>
 <ul>
 <li>Default: light</li>
 </ul>
-<pre><code>theme:
+<pre><code class="language-yml">theme:
   theme_style: light
 </code></pre>
 <p><button class="color-button" data-theme="light">
-    <code style="background: #ffffff; color: #000000 !important">light</code>
+    <code style="background: #ffffff !important; color: #000000 !important">light</code>
 </button>
 <button class="color-button" data-theme="dark">
     <code style="background: #000000; color: #ffffff !important">dark</code>
@@ -213,150 +277,155 @@
 <ul>
 <li>Default: black</li>
 </ul>
-<pre><code>theme:
+<pre><code class="language-yml">theme:
   colors:
     primary: black
 </code></pre>
 <p><button color-primary="#000000">
-    <code style="background: var(--color-black); color: #ffffff !important;">black</code>
+    <code style="background: var(--color-black) !important; color: #ffffff !important;">black</code>
 </button>
 <button color-primary="#4051b5">
-    <code style="background: var(--color-blue); color: #ffffff !important;">blue</code>
+    <code style="background: var(--color-blue) !important; color: #ffffff !important;">blue</code>
 </button>
 <button color-primary="#4cae4f">
-    <code style="background: var(--color-green); color: #ffffff !important;">green</code>
+    <code style="background: var(--color-green) !important; color: #ffffff !important;">green</code>
 </button>
 <button color-primary="#f1dc15">
-    <code style="background: var(--color-yellow); color: #000000 !important;">yellow</code>
+    <code style="background: var(--color-yellow) !important; color: #000000 !important;">yellow</code>
 </button>
 <button color-primary="#ffa724">
-    <code style="background: var(--color-orange); color: #000000 !important;">orange</code>
+    <code style="background: var(--color-orange) !important; color: #000000 !important;">orange</code>
 </button>
 <button color-primary="#ab47bd">
-    <code style="background: var(--color-purple); color: #ffffff !important;">purple</code>
+    <code style="background: var(--color-purple) !important; color: #ffffff !important;">purple</code>
 </button>
 <button color-primary="#ff2c06">
-    <code style="background: var(--color-red); color: #ffffff !important;">red</code>
+    <code style="background: var(--color-red) !important; color: #ffffff !important;">red</code>
 </button>
 <button color-primary="#ffffff">
-    <code style="background: var(--color-white); color: #000000 !important;">white</code>
+    <code style="background: var(--color-white) !important; color: #000000 !important;">white</code>
 </button></p>
 <h3 id="text-color">Text color</h3>
 <ul>
 <li>Default: black</li>
 </ul>
-<pre><code>theme:
+<pre><code class="language-yml">theme:
   colors:
     text: black
 </code></pre>
 <p><button color-text="#000000">
-    <code style="background: var(--color-white); color: var(--color-black) !important;">black</code>
+    <code style="background: var(--color-white) !important; color: var(--color-black) !important;">black</code>
 </button>
 <button color-text="#4051b5">
-    <code style="background: var(--color-white); color: var(--color-blue) !important;">blue</code>
+    <code style="background: var(--color-white) !important; color: var(--color-blue) !important;">blue</code>
 </button>
 <button color-text="#4cae4f">
-    <code style="background: var(--color-white); color: var(--color-green) !important;">green</code>
+    <code style="background: var(--color-white) !important; color: var(--color-green) !important;">green</code>
 </button>
 <button color-text="#f1dc15">
-    <code style="background: var(--color-white); color: var(--color-yellow) !important;">yellow</code>
+    <code style="background: var(--color-white) !important; color: var(--color-yellow) !important;">yellow</code>
 </button>
 <button color-text="#ffa724">
-    <code style="background: var(--color-white); color: var(--color-orange) !important;">orange</code>
+    <code style="background: var(--color-white) !important; color: var(--color-orange) !important;">orange</code>
 </button>
 <button color-text="#ab47bd">
-    <code style="background: var(--color-white); color: var(--color-purple) !important;">purple</code>
+    <code style="background: var(--color-white) !important; color: var(--color-purple) !important;">purple</code>
 </button>
 <button color-text="#ff2c06">
-    <code style="background: var(--color-white); color: var(--color-red) !important;">red</code>
+    <code style="background: var(--color-white) !important; color: var(--color-red) !important;">red</code>
 </button>
 <button color-text="#ffffff">
-    <code style="background: var(--color-white); color: #000000 !important;">white</code>
+    <code style="background: var(--color-white) !important; color: #000000 !important;">white</code>
 </button></p>
 <h3 id="title-color">Title color</h3>
 <ul>
 <li>Default: black</li>
 </ul>
-<pre><code>theme:
+<pre><code class="language-yml">theme:
   colors:
     title: black
 </code></pre>
 <p><button color-title="#000000">
-    <code style="background: var(--color-white); color: var(--color-black) !important;">black</code>
+    <code style="background: var(--color-white) !important; color: var(--color-black) !important;">black</code>
 </button>
 <button color-title="#4051b5">
-    <code style="background: var(--color-white); color: var(--color-blue) !important;">blue</code>
+    <code style="background: var(--color-white) !important; color: var(--color-blue) !important;">blue</code>
 </button>
 <button color-title="#4cae4f">
-    <code style="background: var(--color-white); color: var(--color-green) !important;">green</code>
+    <code style="background: var(--color-white) !important; color: var(--color-green) !important;">green</code>
 </button>
 <button color-title="#f1dc15">
-    <code style="background: var(--color-white); color: var(--color-yellow) !important;">yellow</code>
+    <code style="background: var(--color-white) !important; color: var(--color-yellow) !important;">yellow</code>
 </button>
 <button color-title="#ffa724">
-    <code style="background: var(--color-white); color: var(--color-orange) !important;">orange</code>
+    <code style="background: var(--color-white) !important; color: var(--color-orange) !important;">orange</code>
 </button>
 <button color-title="#ab47bd">
-    <code style="background: var(--color-white); color: var(--color-purple) !important;">purple</code>
+    <code style="background: var(--color-white) !important; color: var(--color-purple) !important;">purple</code>
 </button>
 <button color-title="#ff2c06">
-    <code style="background: var(--color-white); color: var(--color-red) !important;">red</code>
+    <code style="background: var(--color-white) !important; color: var(--color-red) !important;">red</code>
 </button>
 <button color-title="#ffffff">
-    <code style="background: var(--color-white); color: #000000 !important;">white</code>
+    <code style="background: var(--color-white) !important; color: #000000 !important;">white</code>
 </button></p>
 <h3 id="background-color">Background color</h3>
 <ul>
 <li>Default: white</li>
 </ul>
-<pre><code>theme:
+<pre><code class="language-yml">theme:
   colors:
     background: white
 </code></pre>
 <p><button color-background="#000000">
-    <code style="background: var(--color-black); color: #ffffff !important;">black</code>
+    <code style="background: var(--color-black) !important; color: #ffffff !important;">black</code>
 </button>
 <button color-background="#4051b5">
-    <code style="background: var(--color-blue); color: #ffffff !important;">blue</code>
+    <code style="background: var(--color-blue) !important; color: #ffffff !important;">blue</code>
 </button>
 <button color-background="#4cae4f">
-    <code style="background: var(--color-green); color: #ffffff !important;">green</code>
+    <code style="background: var(--color-green) !important; color: #ffffff !important;">green</code>
 </button>
 <button color-background="#f1dc15">
-    <code style="background: var(--color-yellow); color: #000000 !important;">yellow</code>
+    <code style="background: var(--color-yellow) !important; color: #000000 !important;">yellow</code>
 </button>
 <button color-background="#ffa724">
-    <code style="background: var(--color-orange); color: #000000 !important;">orange</code>
+    <code style="background: var(--color-orange) !important; color: #000000 !important;">orange</code>
 </button>
 <button color-background="#ab47bd">
-    <code style="background: var(--color-purple); color: #ffffff !important;">purple</code>
+    <code style="background: var(--color-purple) !important; color: #ffffff !important;">purple</code>
 </button>
 <button color-background="#ff2c06">
-    <code style="background: var(--color-red); color: #ffffff !important;">red</code>
+    <code style="background: var(--color-red) !important; color: #ffffff !important;">red</code>
 </button>
 <button color-background="#ffffff">
-    <code style="background: var(--color-white); color: #000000 !important;">white</code>
+    <code style="background: var(--color-white) !important; color: #000000 !important;">white</code>
 </button></p></p>
     </article>
 </section>
 <!-- endblock -->
+                            </div>
+                        </div>
+                    </div>
+                
+                
             </main>
 
             
                     <!-- block preview -->
-        <div class="row row-cols-md-3 text-center pt-md-3" id="component-preview">
-            <div class="col themed-grid-col">
-                <a rel="prev" href="../components/" class="nav-link">
-                    <i class="fa fa-arrow-left"></i> Previous
-                </a>
-            </div>
-            <div class="col themed-grid-col"></div>
-            <div class="col themed-grid-col">
-                <a rel="next" href="../fonts/" class="nav-link">
-                    Next <i class="fa fa-arrow-right"></i>
-                </a>
-            </div>
+    <div class="preview row row-cols-md-3 text-center pt-md-3" id="component-preview">
+        <div class="col themed-grid-col">
+            <a rel="prev" href="../favicon/" class="nav-link">
+                <i class="fa fa-arrow-left"></i> Previous
+            </a>
         </div>
+        <div class="col themed-grid-col"></div>
+        <div class="col themed-grid-col">
+            <a rel="next" href="../logo/" class="nav-link">
+                Next <i class="fa fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
 <!-- endblock -->
             
 
@@ -387,6 +456,7 @@
             <script src="../../../assets/js/jquery-3.3.1.slim.min.js""></script>
             <script src="../../../assets/js/bootstrap.bundle.min.js""></script>
             <script src="../../../assets/js/main.min.js""></script>
+                <script src="../../../assets/custom.js" defer></script>
                 <script src="../../../search/main.js" defer></script>
 
     </body>

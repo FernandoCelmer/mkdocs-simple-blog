@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html data-bs-theme="light">
     <head>
                 <title>Getting Started - MkDocs Simple Blog</title>
 
@@ -14,12 +14,15 @@
             
                 <link  rel="icon" type="image/x-icon" href="../../assets/favicon.ico">
             
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-                        <script>hljs.initHighlightingOnLoad();</script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+                <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/base16/grayscale-dark.min.css">
+                <script>hljs.highlightAll();</script>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="../../assets/css/root.min.css">
             <link rel="stylesheet" href="../../assets/css/main.min.css">
+                <script src="../../assets/custom.js"></script>
                 <script src="../../search/main.js"></script>
 
             
@@ -38,7 +41,7 @@
         
 
         
-            <span class="normal fs-4 title-color site-name" id="component-site-name" style="text-transform: uppercase;">MkDocs Simple Blog</span>
+            <span class="bold fs-4 title-color site-name" id="component-site-name" style="text-transform: uppercase;">MkDocs Simple Blog</span>
         
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
@@ -65,31 +68,62 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="
-                            nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Setup]</a>
+                            nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Components]</a>
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../setup/components/" class="dropdown-item text-decoration-none ">Components</a>
+        <a href="../components/sidebar/" class="dropdown-item text-decoration-none ">Sidebar</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../setup/colors/" class="dropdown-item text-decoration-none ">Colors</a>
+        <a href="../components/top-menu/" class="dropdown-item text-decoration-none ">Top Menu</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../setup/fonts/" class="dropdown-item text-decoration-none ">Fonts</a>
+        <a href="../components/preview/" class="dropdown-item text-decoration-none ">Preview</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../setup/logo/" class="dropdown-item text-decoration-none ">Logo</a>
+        <a href="../components/footer/" class="dropdown-item text-decoration-none ">Footer</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../setup/favicon/" class="dropdown-item text-decoration-none ">Favicon</a>
+        <a href="../components/site-name/" class="dropdown-item text-decoration-none ">Site Name</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../components/standard-title/" class="dropdown-item text-decoration-none ">Standard title</a>
+    </li>
+<!-- endblock -->
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="
+                            nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Styles]</a>
+                            <ul class="dropdown-menu">
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../styles/highlightjs/" class="dropdown-item text-decoration-none ">Highlightjs</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../styles/favicon/" class="dropdown-item text-decoration-none ">Favicon</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../styles/colors/" class="dropdown-item text-decoration-none ">Colors</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../styles/logo/" class="dropdown-item text-decoration-none ">Logo</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -105,7 +139,7 @@
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../development/release-notes/" class="dropdown-item text-decoration-none ">Release notes</a>
+        <a href="../development/release-notes/" class="dropdown-item text-decoration-none ">Release</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -138,30 +172,35 @@
 
   <div class="md-source-repo-url">
     <a href="https://github.com/FernandoCelmer/mkdocs-simple-blog" class="md-source">
-      FernandoCelmer/mkdocs-simple-blog
+        FernandoCelmer/mkdocs-simple-blog
     </a>
 
     <ul class="md-source-repo-text">
       <li>
         <i class="fa fa-tag" aria-hidden="true"></i>
-        <img alt="GitHub tag (latest by date)"
-          src="https://img.shields.io/github/v/tag/FernandoCelmer/mkdocs-simple-blog?color=white&label=%20&style=flat-square">
+        <img
+          alt="GitHub tag (latest by date)"
+          src="https://img.shields.io/github/v/tag/FernandoCelmer/mkdocs-simple-blog?color=white&label=%20&style=flat-square"
+        />
       </li>
 
       <li>
         <i class="fa fa-star" aria-hidden="true"></i>
-        <img alt="GitHub Repo stars"
-          src="https://img.shields.io/github/stars/FernandoCelmer/mkdocs-simple-blog?color=white&label=%20&style=flat-square">
+        <img
+          alt="GitHub Repo stars"
+          src="https://img.shields.io/github/stars/FernandoCelmer/mkdocs-simple-blog?color=white&label=%20&style=flat-square"
+        />
       </li>
 
       <li>
         <i class="fa fa-code-fork" aria-hidden="true"></i>
-        <img alt="GitHub forks"
-          src="https://img.shields.io/github/forks/FernandoCelmer/mkdocs-simple-blog?color=white&label=%20&style=flat-square">
+        <img
+          alt="GitHub forks"
+          src="https://img.shields.io/github/forks/FernandoCelmer/mkdocs-simple-blog?color=white&label=%20&style=flat-square"
+        />
       </li>
     </ul>
   </div>
-
 </div>
 <!--  endblock -->
                         
@@ -185,26 +224,58 @@
     </div>
 </div>
 <!-- endblock -->
-                    <!-- block content -->
-<section class="container post">
+
+                
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-3" id="component-sidebar">
+                                    <!-- block sidebar -->
+<div class="navbar-expand-md" role="complementary">
+    
+    <div class="sidebar navbar-collapse collapse card">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#getting-started" class="nav-link">Getting Started</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#installation-mkdocs" class="nav-link">Installation MkDocs</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#installation-theme" class="nav-link">Installation theme</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#activating-theme" class="nav-link">Activating theme</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- endblock -->
+                            </div>
+                            <div class="col-9" id="component-content">
+                                    <!-- block content -->
+<section class="container post" id="component-content">
     <article>
         <header>
             
-                <h1 class="bold title" id="component-title">Getting Started</h1>
             
         </header>
-        <p><p>March 25, 2023</p>
+        <p><h1 id="getting-started">Getting Started</h1>
+<p>March 25, 2023</p>
 <hr />
-<h2 id="install">Install</h2>
-<h3 id="installation-mkdocs">Installation MkDocs</h3>
+<h2 id="installation-mkdocs">Installation MkDocs</h2>
 <p>To install MkDocs, run the following command from the command line:</p>
 <pre><code class="language-bash">pip install mkdocs
 </code></pre>
-<h3 id="installation-theme">Installation theme</h3>
+<h2 id="installation-theme">Installation theme</h2>
 <p>Install the theme using PIP:</p>
 <pre><code class="language-bash">pip install mkdocs-simple-blog
 </code></pre>
-<h3 id="activating-theme">Activating theme</h3>
+<h2 id="activating-theme">Activating theme</h2>
 <p>After the theme is installed, edit your <code>mkdocs.yml</code> file and set the theme name to <code>simple-blog</code>:</p>
 <pre><code class="language-yml">theme:
     name: simple-blog
@@ -212,23 +283,28 @@
     </article>
 </section>
 <!-- endblock -->
+                            </div>
+                        </div>
+                    </div>
+                
+                
             </main>
 
             
                     <!-- block preview -->
-        <div class="row row-cols-md-3 text-center pt-md-3" id="component-preview">
-            <div class="col themed-grid-col">
-                <a rel="prev" href="../.." class="nav-link">
-                    <i class="fa fa-arrow-left"></i> Previous
-                </a>
-            </div>
-            <div class="col themed-grid-col"></div>
-            <div class="col themed-grid-col">
-                <a rel="next" href="../setup/components/" class="nav-link">
-                    Next <i class="fa fa-arrow-right"></i>
-                </a>
-            </div>
+    <div class="preview row row-cols-md-3 text-center pt-md-3" id="component-preview">
+        <div class="col themed-grid-col">
+            <a rel="prev" href="../.." class="nav-link">
+                <i class="fa fa-arrow-left"></i> Previous
+            </a>
         </div>
+        <div class="col themed-grid-col"></div>
+        <div class="col themed-grid-col">
+            <a rel="next" href="../components/sidebar/" class="nav-link">
+                Next <i class="fa fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
 <!-- endblock -->
             
 
@@ -259,6 +335,7 @@
             <script src="../../assets/js/jquery-3.3.1.slim.min.js""></script>
             <script src="../../assets/js/bootstrap.bundle.min.js""></script>
             <script src="../../assets/js/main.min.js""></script>
+                <script src="../../assets/custom.js" defer></script>
                 <script src="../../search/main.js" defer></script>
 
     </body>

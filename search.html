@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html data-bs-theme="light">
     <head>
                 <title>MkDocs Simple Blog</title>
 
@@ -14,12 +14,15 @@
             
                 <link  rel="icon" type="image/x-icon" href="./assets/favicon.ico">
             
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-                        <script>hljs.initHighlightingOnLoad();</script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+                <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/base16/grayscale-dark.min.css">
+                <script>hljs.highlightAll();</script>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="./assets/css/root.min.css">
             <link rel="stylesheet" href="./assets/css/main.min.css">
+                <script src="./assets/custom.js"></script>
                 <script src="./search/main.js"></script>
 
             
@@ -38,7 +41,7 @@
         
 
         
-            <span class="normal fs-4 title-color site-name" id="component-site-name" style="text-transform: uppercase;">MkDocs Simple Blog</span>
+            <span class="bold fs-4 title-color site-name" id="component-site-name" style="text-transform: uppercase;">MkDocs Simple Blog</span>
         
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
@@ -65,31 +68,62 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="
-                            nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Setup]</a>
+                            nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Components]</a>
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="./nav/setup/components/" class="dropdown-item text-decoration-none ">Components</a>
+        <a href="./nav/components/sidebar/" class="dropdown-item text-decoration-none ">Sidebar</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="./nav/setup/colors/" class="dropdown-item text-decoration-none ">Colors</a>
+        <a href="./nav/components/top-menu/" class="dropdown-item text-decoration-none ">Top Menu</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="./nav/setup/fonts/" class="dropdown-item text-decoration-none ">Fonts</a>
+        <a href="./nav/components/preview/" class="dropdown-item text-decoration-none ">Preview</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="./nav/setup/logo/" class="dropdown-item text-decoration-none ">Logo</a>
+        <a href="./nav/components/footer/" class="dropdown-item text-decoration-none ">Footer</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="./nav/setup/favicon/" class="dropdown-item text-decoration-none ">Favicon</a>
+        <a href="./nav/components/site-name/" class="dropdown-item text-decoration-none ">Site Name</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="./nav/components/standard-title/" class="dropdown-item text-decoration-none ">Standard title</a>
+    </li>
+<!-- endblock -->
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="
+                            nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Styles]</a>
+                            <ul class="dropdown-menu">
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="./nav/styles/highlightjs/" class="dropdown-item text-decoration-none ">Highlightjs</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="./nav/styles/favicon/" class="dropdown-item text-decoration-none ">Favicon</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="./nav/styles/colors/" class="dropdown-item text-decoration-none ">Colors</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="./nav/styles/logo/" class="dropdown-item text-decoration-none ">Logo</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -105,7 +139,7 @@
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="./nav/development/release-notes/" class="dropdown-item text-decoration-none ">Release notes</a>
+        <a href="./nav/development/release-notes/" class="dropdown-item text-decoration-none ">Release</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -138,30 +172,35 @@
 
   <div class="md-source-repo-url">
     <a href="https://github.com/FernandoCelmer/mkdocs-simple-blog" class="md-source">
-      FernandoCelmer/mkdocs-simple-blog
+        FernandoCelmer/mkdocs-simple-blog
     </a>
 
     <ul class="md-source-repo-text">
       <li>
         <i class="fa fa-tag" aria-hidden="true"></i>
-        <img alt="GitHub tag (latest by date)"
-          src="https://img.shields.io/github/v/tag/FernandoCelmer/mkdocs-simple-blog?color=white&label=%20&style=flat-square">
+        <img
+          alt="GitHub tag (latest by date)"
+          src="https://img.shields.io/github/v/tag/FernandoCelmer/mkdocs-simple-blog?color=white&label=%20&style=flat-square"
+        />
       </li>
 
       <li>
         <i class="fa fa-star" aria-hidden="true"></i>
-        <img alt="GitHub Repo stars"
-          src="https://img.shields.io/github/stars/FernandoCelmer/mkdocs-simple-blog?color=white&label=%20&style=flat-square">
+        <img
+          alt="GitHub Repo stars"
+          src="https://img.shields.io/github/stars/FernandoCelmer/mkdocs-simple-blog?color=white&label=%20&style=flat-square"
+        />
       </li>
 
       <li>
         <i class="fa fa-code-fork" aria-hidden="true"></i>
-        <img alt="GitHub forks"
-          src="https://img.shields.io/github/forks/FernandoCelmer/mkdocs-simple-blog?color=white&label=%20&style=flat-square">
+        <img
+          alt="GitHub forks"
+          src="https://img.shields.io/github/forks/FernandoCelmer/mkdocs-simple-blog?color=white&label=%20&style=flat-square"
+        />
       </li>
     </ul>
   </div>
-
 </div>
 <!--  endblock -->
                         
@@ -185,27 +224,50 @@
     </div>
 </div>
 <!-- endblock -->
-    <!-- block search -->
-	<section class="p-md-5 content-search">
-		<article class="search-box">
-			<p></p>
-			<h1 id="search">Search Results</h1>
-			<hr>
 
-			<form id="content_search" action="search.html">
-				<span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
-				<input name="q" id="mkdocs-search-query" type="text" class="search-query search_input search-query ui-autocomplete-input"
-					placeholder="Search the Docs" autocomplete="off" autofocus title="Type search term here">
-			</form>
+                
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-3" id="component-sidebar">
+                                    <!-- block sidebar -->
+<div class="navbar-expand-md" role="complementary">
+    
+    <div class="sidebar navbar-collapse collapse card">
+        <ul class="nav flex-column">
+        </ul>
+    </div>
+</div>
+<!-- endblock -->
+                            </div>
+                            <div class="col-9" id="component-content">
+				
+<!-- block search -->
+<section class="p-md-5 content-search">
+	<article class="search-box">
+		<p></p>
+		<h1 id="search">Search Results</h1>
+		<hr>
 
-			<div id="mkdocs-search-results" class="search-results" data-no-results-text="No results found">
-				Searching...
-			</div>
+		<form id="content_search" action="./search.html">
+			<span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+			<input name="q" id="mkdocs-search-query" type="text" class="search-query search_input search-query ui-autocomplete-input"
+				placeholder="Search the Docs" autocomplete="off" autofocus title="Type search term here">
+		</form>
 
-		</article>
-	</section>
-    <!-- endblock -->
+		<div id="mkdocs-search-results" class="search-results" data-no-results-text="No results found">
+			Searching...
+		</div>
 
+	</article>
+</section>
+<!-- endblock -->
+
+
+                            </div>
+                        </div>
+                    </div>
+                
+                
             </main>
 
             
@@ -240,6 +302,7 @@
             <script src="./assets/js/jquery-3.3.1.slim.min.js""></script>
             <script src="./assets/js/bootstrap.bundle.min.js""></script>
             <script src="./assets/js/main.min.js""></script>
+                <script src="./assets/custom.js" defer></script>
                 <script src="./search/main.js" defer></script>
 
     </body>
