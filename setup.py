@@ -29,12 +29,12 @@ setup(
         "Programming Language :: Python :: 3.12",
     ],
     install_requires=[
-        'mkdocs>=1.5.2'
+        'mkdocs>=1.6.1'
     ],
     packages=["mkdocs_simple_blog"],
     package_data={'mkdocs_simple_blog': ['*','*/*','*/*/*']},
     include_package_data=True,
-    python_requires=">=3.6",
+    python_requires=">=3.8",
     zip_safe=True,
     entry_points={
         'mkdocs.themes': [
