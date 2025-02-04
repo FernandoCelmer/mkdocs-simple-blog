@@ -80,7 +80,7 @@
 
             <main>
                 {%- block search_button %}
-                    {%- if 'search' in config['plugins'] %}{%- include "searchbox.html" %}{%- endif %}
+                    {%- if 'search' in config['plugins'] %}{%- include "modules/searchbox.html" %}{%- endif %}
                 {%- endblock %}
 
                 {% if config.theme.sidebar %}
