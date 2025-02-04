@@ -28,7 +28,7 @@ theme:
   favicon: assets/favicon.ico
   logo: assets/logo.png
   theme_style: light
-  site_name_style: normal
+  site_name_style: bold
   title_style: bold
   sidebar: true
   navigation_depth: 2
