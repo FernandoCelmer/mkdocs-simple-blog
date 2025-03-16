@@ -1,18 +1,24 @@
 site_name: MkDocs Simple Blog
 repo_name: FernandoCelmer/mkdocs-simple-blog
 repo_url: https://github.com/FernandoCelmer/mkdocs-simple-blog
-site_url: https://www.fernandocelmer.com/
+site_url: https://www.fernandocelmer.com
 copyright: Fernando Celmer
 
 nav:
     - Home: index.md
     - Getting Started: nav/getting-started.md
-    - Setup:
-      - nav/setup/components.md
-      - nav/setup/colors.md
-      - nav/setup/fonts.md
-      - nav/setup/logo.md
-      - nav/setup/favicon.md
+    - Components:
+      - nav/components/sidebar.md
+      - nav/components/top-menu.md
+      - nav/components/preview.md
+      - nav/components/footer.md
+      - nav/components/site-name.md
+      - nav/components/standard-title.md
+    - Styles:
+      - nav/styles/highlightjs.md
+      - nav/styles/favicon.md
+      - nav/styles/colors.md
+      - nav/styles/logo.md
     - Development:
       - nav/development/development-guide.md
       - nav/development/release-notes.md
@@ -22,8 +28,13 @@ theme:
   favicon: assets/favicon.ico
   logo: assets/logo.png
   theme_style: light
-  site_name_style: normal
+  site_name_style: bold
   title_style: bold
+  sidebar: true
+  navigation_depth: 2
+  highlightjs: true
+    - yaml
+    - python
   colors:
     text: black
     title: black
@@ -31,7 +42,10 @@ theme:
     background: white
   components:
     site_name: true
-    title: true
+    title: false
     menu: true
     preview: true
     footer: true
+
+extra_javascript:
+ - assets/custom.js

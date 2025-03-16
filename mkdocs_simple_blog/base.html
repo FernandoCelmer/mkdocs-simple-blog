@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html data-bs-theme="{{ config.theme.theme_style }}">
     <head>
         {%- block site_meta %}
             {%- block htmltitle %}
@@ -20,16 +20,15 @@
                 <link  rel="icon" type="image/x-icon" href="{{ 'assets/img/favicon.ico'|url }}">
             {% endif %}
 
-            {%- block libs %}
-                {%- if config.theme.highlightjs %}
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-        
-                    {%- for lang in config.theme.hljs_languages %}
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/{{lang}}.min.js"></script>
-                    {%- endfor %}
-                        <script>hljs.initHighlightingOnLoad();</script>
-                {%- endif %}
-            {%- endblock %}
+            {%- if config.theme.highlightjs %}
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+                <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/base16/grayscale-dark.min.css">
+
+                {%- for lang in config.hljs_languages %}
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/{{lang}}.min.js"></script>
+                {%- endfor %}
+                <script>hljs.highlightAll();</script>
+            {%- endif %}
 
         {%- endblock %}
 
@@ -37,6 +36,7 @@
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <link rel="stylesheet" href="{{ 'assets/css/bootstrap.min.css'|url }}">
+            <link rel="stylesheet" href="{{ 'assets/css/root.min.css'|url }}">
             <link rel="stylesheet" href="{{ 'assets/css/main.min.css'|url }}">
 
             {%- for path in extra_css %}
@@ -80,12 +80,30 @@
 
             <main>
                 {%- block search_button %}
-                    {%- if 'search' in config['plugins'] %}{%- include "searchbox.html" %}{%- endif %}
+                    {%- if 'search' in config['plugins'] %}{%- include "modules/searchbox.html" %}{%- endif %}
                 {%- endblock %}
 
-                {%- block content %}
-                    {% include "/modules/content.html" %}
-                {%- endblock %}
+                {% if config.theme.sidebar %}
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-3" id="component-sidebar">
+                                {%- block sidebar %}
+                                    {% include "/modules/sidebar.html" %}
+                                {%- endblock %}
+                            </div>
+                            <div class="col-9" id="component-content">
+                                {%- block content_with_sidebar %}
+                                    {% include "/modules/content.html" %}
+                                {%- endblock %}
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    {%- block content %}
+                        {% include "/modules/content.html" %}
+                    {%- endblock %}
+                {% endif %}
+                
             </main>
 
             {% if config.theme.components and config.theme.components.preview == False %}

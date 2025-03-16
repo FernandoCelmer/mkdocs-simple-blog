@@ -1,4 +1,6 @@
-Jan 15, 2024
+# Home
+
+February 4, 2025
 
 ---
 
@@ -20,7 +22,7 @@ docs/
     ...       # Other markdown pages, images and other files.
 ```
 
-### Installation MkDocs
+## Installation MkDocs
 
 To install MkDocs, run the following command from the command line:
 
@@ -28,7 +30,7 @@ To install MkDocs, run the following command from the command line:
 pip install mkdocs
 ```
 
-### Installation theme
+## Installation theme
 
 Install the theme using PIP:
 
@@ -36,7 +38,7 @@ Install the theme using PIP:
 pip install mkdocs-simple-blog
 ```
 
-### Activating theme
+## Activating theme
 
 After the theme is installed, edit your `mkdocs.yml` file and set the theme name to `simple-blog`:
 
@@ -67,6 +69,6 @@ We use GitHub issues for tracking bugs and feature requests and have limited ban
 - ⚠️ SECURITY
 
 ## License
-![GitHub](https://img.shields.io/github/license/FernandoCelmer/mkdocs-simple-blog?style=flat-square)
+![GitHub License](https://img.shields.io/github/license/FernandoCelmer/mkdocs-simple-blog)
 
-This project is licensed under the terms of the MIT license.
+This project is licensed under the terms of the GNU General Public License v3.0.

@@ -1,10 +1,10 @@
+# Getting Started
+
 March 25, 2023
 
 ---
 
-## Install
-
-### Installation MkDocs
+## Installation MkDocs
 
 To install MkDocs, run the following command from the command line:
 
@@ -12,7 +12,7 @@ To install MkDocs, run the following command from the command line:
 pip install mkdocs
 ```
 
-### Installation theme
+## Installation theme
 
 Install the theme using PIP:
 
@@ -20,7 +20,7 @@ Install the theme using PIP:
 pip install mkdocs-simple-blog
 ```
 
-### Activating theme
+## Activating theme
 
 After the theme is installed, edit your `mkdocs.yml` file and set the theme name to `simple-blog`:
 

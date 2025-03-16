@@ -11,7 +11,7 @@ def install_package() -> None:
     version = open(file='LAST_VERSION').read().replace('-', '.')
 
     main(['uninstall', 'mkdocs-simple-blog', '-y'])
-    main(['install', f'dist/mkdocs-simple-blog-{version}.tar.gz', '--no-cache-dir'])
+    main(['install', f'dist/mkdocs_simple_blog-{version}.tar.gz', '--no-cache-dir'])
 
 
 def build_package() -> None:
