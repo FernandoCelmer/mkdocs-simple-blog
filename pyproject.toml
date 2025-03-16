@@ -1,19 +1,21 @@
 [project]
 name = "mkdocs_simple_blog"
-version = "0.0.10"
+version = "0.1.0"
 authors = [
   { name="Fernando Celmer", email="email@fernandocelmer.com" },
 ]
 license = {file = "LICENSE"}
 description = "Mkdocs Blog Theme"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
+dependencies = [
+	"mkdocs"
+]
 classifiers = [
   'Development Status :: 4 - Beta',
   "Operating System :: OS Independent",
   'Intended Audience :: Developers',
   'Natural Language :: English',
-  "Programming Language :: Python :: 3.8",
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
@@ -24,38 +26,41 @@ classifiers = [
 Homepage = "https://github.com/FernandoCelmer/mkdocs-simple-blog"
 Issues = "https://github.com/FernandoCelmer/mkdocs-simple-blog/issues"
 Repository = "https://github.com/FernandoCelmer/mkdocs-simple-blog"
-Documentation = "https://fernandocelmer.github.io/mkdocs-simple-blog"
+Documentation = "https://github.com/FernandoCelmer/mkdocs-simple-blog/blob/master/README.md"
 
 [tool.poetry]
 name = "mkdocs_simple_blog"
-version = "0.0.10"
+version = "0.1.0"
 description = "Mkdocs Blog Theme"
 authors = ["Fernando Celmer <email@fernandocelmer.com>"]
 readme = "README.md"
-license = "GPL-3.0-only"
+license = "MIT"
 package-mode = true
 homepage = "https://github.com/FernandoCelmer/mkdocs-simple-blog"
-documentation = "https://fernandocelmer.github.io/mkdocs-simple-blog"
+documentation = "https://fernandocelmer.github.io/mkdocs-simple-blog/"
 repository = "https://github.com/FernandoCelmer/mkdocs-simple-blog"
 classifiers = [
-  'Development Status :: 4 - Beta',
+  'Development Status :: 5 - Production/Stable',
   "Operating System :: OS Independent",
   'Intended Audience :: Developers',
   'Natural Language :: English',
-  "Programming Language :: Python :: 3.8",
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
 ]
 
-[tool.poetry.scripts]
-flow = 'dotflow.main:main'
-
 [tool.poetry.dependencies]
-python = ">=3.8.1"
+python = ">=3.9.0"
 mkdocs = "^1.6.1"
+
+[tool.poetry.group.dev.dependencies]
 build = "^1.2.2.post1"
+
+[[tool.poetry.source]]
+name = "test"
+url = "https://test.pypi.org/simple/"
+priority = "supplemental"
 
 [build-system]
 requires = ["poetry-core"]
