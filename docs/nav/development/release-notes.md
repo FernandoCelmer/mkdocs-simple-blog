@@ -1,8 +1,21 @@
 # Release
 
-March 25, 2023
+March 16, 2025
 
 ---
+
+## v0.2.0
+
+- [📦 PyPI - Build 0.2.0](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.2.0)
+- [📌 great product love it but](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/47)
+- [📌 Mobile First Sidebar](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/45)
+
+## v0.1.0
+
+- [📦 PyPI - Build 0.1.0](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.0.1)
+- [📌 [Feature Request] Simple code syntax highlighting](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/35)
+- [📌 Software license update](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/39)
+- [📌 Is there a sidebar in this theme?](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/23)
 
 ## v0.0.9
 
