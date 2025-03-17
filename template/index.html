@@ -1,426 +1,350 @@
 <!DOCTYPE html>
 <html data-bs-theme="light">
-  <head>
+
+<head>
     <title>MkDocs Simple Blog</title>
 
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <meta name="description" content="Template MkDocs" />
+    <link rel="canonical" href="https://www.fernandocelmer.com/">
     <meta name="author" content="FernandoCelmer" />
 
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="/template/assets/img/favicon.ico"
-    />
-
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link rel="stylesheet" href="assets/css/bootstrap.css" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="icon" type="image/x-icon" href="/template/assets/img/favicon.ico" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/base16/grayscale-dark.min.css"
-    />
-    <script>
-      hljs.highlightAll();
-    </script>
-  </head>
+    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/base16/grayscale-dark.min.css" />
 
-  <body>
+    <script>hljs.highlightAll();</script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/media.css" />
+    <link rel="stylesheet" href="assets/css/mkdocstrings.css" />
+</head>
+
+<body>
     <div class="container py-3">
-      <header>
-        <!-- block header -->
-        <nav class="navbar navbar-expand-xl border-bottom">
-          <div class="container-fluid">
-            <img class="logo" src="/template/assets/img/logo.png" />
-            <span class="fs-4" style="text-transform: uppercase"
-              >MkDocs Simple Blog</span
-            >
+        <header>
+            <!-- block header -->
+            <nav class="navbar navbar-expand-xl border-bottom">
+                <div class="container-fluid">
+                    <img class="logo" src="/template/assets/img/logo.png" />
+                    <span class="bold fs-4 title-color site-name" id="component-site-name" style="text-transform: uppercase;">MkDocs Simple Blog</span>
 
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarsMenu"
-              aria-controls="navbarsMenu"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
+                        aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-            <div
-              class="collapse navbar-collapse flex-column ml-auto"
-              id="navbarsMenu"
-            >
-              <ul class="navbar-nav">
-                <!-- block menu -->
-                <li class="nav-item">
-                  <ul class="navbar-nav">
-                    <li class="nav-item">
-                      <a
-                        class="nav-link py-2 text-dark text-decoration-none"
-                        href="#"
-                        >[Home]</a
-                      >
-                    </li>
-                    <li class="nav-item">
-                      <a
-                        class="nav-link py-2 text-dark text-decoration-none"
-                        href="#"
-                        >[Getting Started]</a
-                      >
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a
-                        class="nav-link dropdown-toggle text-dark text-decoration-none"
-                        href="#"
-                        data-bs-toggle="dropdown"
-                        >[Setup]</a
-                      >
-                      <ul class="dropdown-menu">
-                        <li>
-                          <a class="dropdown-item" href="#">Components</a>
-                        </li>
-                        <li><a class="dropdown-item" href="#">Colors</a></li>
-                        <li><a class="dropdown-item" href="#">Fonts</a></li>
-                        <li><a class="dropdown-item" href="#">Logo</a></li>
-                        <li><a class="dropdown-item" href="#">Favicon</a></li>
-                      </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a
-                        class="nav-link dropdown-toggle text-dark text-decoration-none"
-                        href="#"
-                        data-bs-toggle="dropdown"
-                        >[Development]</a
-                      >
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Development guide</a></li>
-                        <li>
-                          <a class="dropdown-item" href="#">Release</a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <!-- endblock -->
+                    <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
+                        <ul class="navbar-nav">
+                            <!-- block menu -->
+                            <li class="nav-item">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link py-2 text-dark text-decoration-none" href="#">[Home]</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link py-2 text-dark text-decoration-none" href="#">[Getting
+                                            Started]</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle text-dark text-decoration-none" href="#"
+                                            data-bs-toggle="dropdown">[Setup]</a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item" href="#">Components</a>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Colors</a></li>
+                                            <li><a class="dropdown-item" href="#">Fonts</a></li>
+                                            <li><a class="dropdown-item" href="#">Logo</a></li>
+                                            <li><a class="dropdown-item" href="#">Favicon</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle text-dark text-decoration-none" href="#"
+                                            data-bs-toggle="dropdown">[Development]</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Development guide</a></li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Release</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- endblock -->
 
-                <li class="nav-item">
-                  <a
-                    class="collapsed"
-                    data-bs-toggle="collapse"
-                    href="#collapseExample"
-                    role="button"
-                    aria-expanded="false"
-                    aria-controls="collapseExample"
-                  >
-                    <div class="md-search-icon">
-                      <i class="fa fa-search" aria-hidden="true"></i>
+                            <li class="nav-item">
+                                <a class="collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button"
+                                    aria-expanded="false" aria-controls="collapseExample">
+                                    <div class="md-search-icon">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <!-- block source -->
+                            <li class="nav-item">
+                                <div class="md-source source-detail">
+                                    <div class="md-source-repo-icon">
+                                        <i class="fa fa-github-alt" aria-hidden="true"></i>
+                                    </div>
+
+                                    <div class="md-source-repo-url">
+                                        <a href="https://github.com/mkdocs/mkdocs-basic-theme" class="md-source">
+                                            FernandoCelmer/mkdocs-simple-blog
+                                        </a>
+
+                                        <ul class="md-source-repo-text">
+                                            <li>
+                                                <i class="fa fa-tag" aria-hidden="true"></i>
+                                                <img alt="GitHub tag (latest by date)"
+                                                    src="https://img.shields.io/github/v/tag/FernandoCelmer/mkdocs-simple-blog?color=white&label=%20&style=flat-square" />
+                                            </li>
+
+                                            <li>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <img alt="GitHub Repo stars"
+                                                    src="https://img.shields.io/github/stars/FernandoCelmer/mkdocs-simple-blog?color=white&label=%20&style=flat-square" />
+                                            </li>
+
+                                            <li>
+                                                <i class="fa fa-code-fork" aria-hidden="true"></i>
+                                                <img alt="GitHub forks"
+                                                    src="https://img.shields.io/github/forks/FernandoCelmer/mkdocs-simple-blog?color=white&label=%20&style=flat-square" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <!--  endblock -->
+                        </ul>
                     </div>
-                  </a>
-                </li>
-
-                <!-- block source -->
-                <li class="nav-item">
-                  <div class="md-source source-detail">
-                    <div class="md-source-repo-icon">
-                      <i class="fa fa-github-alt" aria-hidden="true"></i>
-                    </div>
-
-                    <div class="md-source-repo-url">
-                      <a
-                        href="https://github.com/mkdocs/mkdocs-basic-theme"
-                        class="md-source"
-                      >
-                        FernandoCelmer/mkdocs-simple-blog
-                      </a>
-
-                      <ul class="md-source-repo-text">
-                        <li>
-                          <i class="fa fa-tag" aria-hidden="true"></i>
-                          <img
-                            alt="GitHub tag (latest by date)"
-                            src="https://img.shields.io/github/v/tag/FernandoCelmer/mkdocs-simple-blog?color=white&label=%20&style=flat-square"
-                          />
-                        </li>
-
-                        <li>
-                          <i class="fa fa-star" aria-hidden="true"></i>
-                          <img
-                            alt="GitHub Repo stars"
-                            src="https://img.shields.io/github/stars/FernandoCelmer/mkdocs-simple-blog?color=white&label=%20&style=flat-square"
-                          />
-                        </li>
-
-                        <li>
-                          <i class="fa fa-code-fork" aria-hidden="true"></i>
-                          <img
-                            alt="GitHub forks"
-                            src="https://img.shields.io/github/forks/FernandoCelmer/mkdocs-simple-blog?color=white&label=%20&style=flat-square"
-                          />
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <!--  endblock -->
-              </ul>
-            </div>
-          </div>
-        </nav>
-        <!--  endblock -->
-      </header>
-
-      <!-- block main -->
-      <main>
-        <div class="collapse" id="collapseExample">
-          <div role="search" class="search-box">
-            <form id="rtd-search-form" class="wy-form">
-              <input
-                type="text"
-                name="q"
-                class="search-query"
-                placeholder="Search docs"
-                title="Type search term here"
-              />
-            </form>
-          </div>
-        </div>
-
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-3">
-              <!-- Sidebar -->
-              <div class="navbar-expand-md" role="complementary">
-                <div class="sidebar navbar-collapse collapse card">
-                  <ul class="nav flex-column">
-                    <li class="nav-item" data-bs-level="2">
-                      <a href="#commands" class="nav-link">Commands</a>
-                      <ul class="nav flex-column"></ul>
-                    </li>
-
-                    <li class="nav-item" data-bs-level="2">
-                      <a href="#project-layout" class="nav-link"
-                        >Project layout</a
-                      >
-                      <ul class="nav flex-column">
-                        <li class="nav-item" data-bs-level="3">
-                          <a href="#installation-mkdocs" class="nav-link"
-                            >Installation MkDocs</a
-                          >
-                          <ul class="nav flex-column"></ul>
-                        </li>
-                        <li class="nav-item" data-bs-level="3">
-                          <a href="#installation-theme" class="nav-link"
-                            >Installation theme</a
-                          >
-                          <ul class="nav flex-column"></ul>
-                        </li>
-                        <li class="nav-item" data-bs-level="3">
-                          <a href="#activating-theme" class="nav-link"
-                            >Activating theme</a
-                          >
-                          <ul class="nav flex-column"></ul>
-                        </li>
-                      </ul>
-                    </li>
-
-                    <li class="nav-item" data-bs-level="2">
-                      <a href="#getting-help" class="nav-link">Getting Help</a>
-                      <ul class="nav flex-column"></ul>
-                    </li>
-
-                    <li class="nav-item" data-bs-level="2">
-                      <a href="#commit-style" class="nav-link">Commit Style</a>
-                      <ul class="nav flex-column"></ul>
-                    </li>
-
-                    <li class="nav-item" data-bs-level="2">
-                      <a href="#license" class="nav-link">License</a>
-                      <ul class="nav flex-column"></ul>
-                    </li>
-                  </ul>
                 </div>
-              </div>
-            </div>
-            <div class="col-sm-9">
-              <!-- block content -->
-              <section class="container post">
-                <article>
-                  <header>
-                    <h1 class="bold title" id="component-title">Home</h1>
-                  </header>
-                  <p></p>
-                  <p>January 1, 2025</p>
-                  <hr />
-                  <p>
-                    For full documentation visit
-                    <a href="https://www.mkdocs.org">mkdocs.org</a>.
-                  </p>
-                  <h2 id="commands">Commands</h2>
-                  <ul>
-                    <li>
-                      <code>mkdocs new [dir-name]</code> - Create a new project.
-                    </li>
-                    <li>
-                      <code>mkdocs serve</code> - Start the live-reloading docs
-                      server.
-                    </li>
-                    <li>
-                      <code>mkdocs build</code> - Build the documentation site.
-                    </li>
-                    <li>
-                      <code>mkdocs -h</code> - Print help message and exit.
-                    </li>
-                  </ul>
-                  <h2 id="project-layout">Project layout</h2>
-<pre><code class="language-bash hljs" data-highlighted="yes">mkdocs.yml    <span class="hljs-comment"># The configuration file.</span>
-docs/
-    index.md  <span class="hljs-comment"># The documentation homepage.</span>
-    ...       <span class="hljs-comment"># Other markdown pages, images and other files.</span>
-</code></pre>
-                  <h3 id="installation-mkdocs">Installation MkDocs</h3>
-                  <p>
-                    To install MkDocs, run the following command from the
-                    command line:
-                  </p>
-                  <pre><code class="language-bash hljs" data-highlighted="yes">pip install mkdocs
-</code></pre>
-                  <h3 id="installation-theme">Installation theme</h3>
-                  <p>Install the theme using PIP:</p>
-                  <pre><code class="language-bash hljs" data-highlighted="yes">pip install mkdocs-simple-blog
-</code></pre>
-                  <h3 id="activating-theme">Activating theme</h3>
-                  <p>
-                    After the theme is installed, edit your
-                    <code>mkdocs.yml</code> file and set the theme name to
-                    <code>simple-blog</code>:
-                  </p>
-                  <pre><code class="language-yml hljs language-yaml" data-highlighted="yes"><span class="hljs-attr">theme:</span>
-    <span class="hljs-attr">name:</span> <span class="hljs-string">simple-blog</span>
-</code></pre>
-                  <h2 id="getting-help">Getting Help</h2>
-                  <p>
-                    We use GitHub issues for tracking bugs and feature requests
-                    and have limited bandwidth to address them. If you need
-                    anything, I ask you to please follow our templates for
-                    opening issues or discussions.
-                  </p>
-                  <ul>
-                    <li>
-                      🐛
-                      <a
-                        href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/new/choose"
-                        >Bug Report</a
-                      >
-                    </li>
-                    <li>
-                      📕
-                      <a
-                        href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/new/choose"
-                        >Documentation Issue</a
-                      >
-                    </li>
-                    <li>
-                      🚀
-                      <a
-                        href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/new/choose"
-                        >Feature Request</a
-                      >
-                    </li>
-                    <li>
-                      💬
-                      <a
-                        href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/new/choose"
-                        >General Question</a
-                      >
-                    </li>
-                  </ul>
-                  <h2 id="commit-style">Commit Style</h2>
-                  <ul>
-                    <li>⚙️ FEATURE</li>
-                    <li>📝 PEP8</li>
-                    <li>📌 ISSUE</li>
-                    <li>🪲 BUG</li>
-                    <li>📘 DOCS</li>
-                    <li>📦 PyPI</li>
-                    <li>❤️️ TEST</li>
-                    <li>⬆️ CI/CD</li>
-                    <li>⚠️ SECURITY</li>
-                  </ul>
-                  <h2 id="license">License</h2>
-                  <p>
-                    <img
-                      alt="GitHub"
-                      src="https://img.shields.io/github/license/FernandoCelmer/mkdocs-simple-blog?style=flat-square"
-                    />
-                  </p>
-                  <p>
-                    This project is licensed under the terms of the GNU General
-                    Public License v3.0 license.
-                  </p>
-                  <p></p>
-                </article>
-              </section>
-              <!-- endblock -->
-            </div>
-          </div>
-        </div>
-      </main>
+            </nav>
+            <!--  endblock -->
+        </header>
 
-      <!-- block preview -->
-      <div
-        class="preview row row-cols-md-3 text-center pt-md-3"
-        id="component-preview"
-      >
-        <div class="col themed-grid-col">
-          <a rel="prev" href="#" class="nav-link">
-            <i class="fa fa-arrow-left"></i> Previous
-          </a>
-        </div>
-        <div class="col themed-grid-col"></div>
-        <div class="col themed-grid-col">
-          <a rel="next" href="#" class="nav-link">
-            Next <i class="fa fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-      <!-- endblock -->
+        <!-- block main -->
+        <main>
+            <div class="collapse" id="collapseExample">
+                <div role="search" class="search-box">
+                    <form id="rtd-search-form" class="wy-form">
+                        <input type="text" name="q" class="search-query" placeholder="Search docs"
+                            title="Type search term here">
+                    </form>
+                </div>
+            </div>
 
-      <!-- block footer -->
-      <footer class="pt-4 my-md-5 pt-md-5 border-top" id="component-footer">
-        <div class="row">
-          <div class="col-12 col-md">
-            <small class="d-block mb-3 text-muted">Fernando Celmer</small>
-            <small class="d-block mb-3 text-muted">
-              <a
-                href="https://github.com/FernandoCelmer/mkdocs-simple-blog"
-                target="_blank"
-                rel="noopener"
-              >
-                Simple Blog for MkDocs
-              </a>
-            </small>
-          </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 d-none d-md-block" id="component-sidebar">
+                        <!-- Sidebar -->
+                        <div class="navbar-expand-md" role="complementary">
+                            <div class="sidebar navbar-collapse collapse card">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item" data-bs-level="2">
+                                        <a href="#commands" class="nav-link">Commands</a>
+                                        <ul class="nav flex-column"></ul>
+                                    </li>
+
+                                    <li class="nav-item" data-bs-level="2">
+                                        <a href="#project-layout" class="nav-link">Project layout</a>
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item" data-bs-level="3">
+                                                <a href="#installation-mkdocs" class="nav-link">Installation MkDocs</a>
+                                                <ul class="nav flex-column"></ul>
+                                            </li>
+                                            <li class="nav-item" data-bs-level="3">
+                                                <a href="#installation-theme" class="nav-link">Installation theme</a>
+                                                <ul class="nav flex-column"></ul>
+                                            </li>
+                                            <li class="nav-item" data-bs-level="3">
+                                                <a href="#activating-theme" class="nav-link">Activating theme</a>
+                                                <ul class="nav flex-column"></ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="nav-item" data-bs-level="2">
+                                        <a href="#getting-help" class="nav-link">Getting Help</a>
+                                        <ul class="nav flex-column"></ul>
+                                    </li>
+
+                                    <li class="nav-item" data-bs-level="2">
+                                        <a href="#commit-style" class="nav-link">Commit Style</a>
+                                        <ul class="nav flex-column"></ul>
+                                    </li>
+
+                                    <li class="nav-item" data-bs-level="2">
+                                        <a href="#license" class="nav-link">License</a>
+                                        <ul class="nav flex-column"></ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-12" id="component-content">
+                        <!-- block content -->
+                        <section class="container post">
+                            <article>
+                                <header>
+                                    <h1 class="title" id="component-title">Home</h1>
+                                </header>
+                                <p></p>
+                                <p>January 1, 2025</p>
+                                <hr>
+                                <p>
+                                    For full documentation visit
+                                    <a href="https://www.mkdocs.org">mkdocs.org</a>.
+                                </p>
+                                <h2 id="commands">Commands</h2>
+                                <ul>
+                                    <li>
+                                        <code>mkdocs new [dir-name]</code> - Create a new project.
+                                    </li>
+                                    <li>
+                                        <code>mkdocs serve</code> - Start the live-reloading docs
+                                        server.
+                                    </li>
+                                    <li>
+                                        <code>mkdocs build</code> - Build the documentation site.
+                                    </li>
+                                    <li>
+                                        <code>mkdocs -h</code> - Print help message and exit.
+                                    </li>
+                                </ul>
+                                <h2 id="project-layout">Project layout</h2>
+                                <pre><code class="language-bash hljs" data-highlighted="yes">mkdocs.yml    <span class="hljs-comment"># The configuration file.</span>
+            docs/
+            index.md  <span class="hljs-comment"># The documentation homepage.</span>
+            ...       <span class="hljs-comment"># Other markdown pages, images and other files.</span>
+            </code></pre>
+                                <h3 id="installation-mkdocs">Installation MkDocs</h3>
+                                <p>
+                                    To install MkDocs, run the following command from the
+                                    command line:
+                                </p>
+                                <pre><code class="language-bash hljs" data-highlighted="yes">pip install mkdocs
+            </code></pre>
+                                <h3 id="installation-theme">Installation theme</h3>
+                                <p>Install the theme using PIP:</p>
+                                <pre><code class="language-bash hljs" data-highlighted="yes">pip install mkdocs-simple-blog
+            </code></pre>
+                                <h3 id="activating-theme">Activating theme</h3>
+                                <p>
+                                    After the theme is installed, edit your
+                                    <code>mkdocs.yml</code> file and set the theme name to
+                                    <code>simple-blog</code>:
+                                </p>
+                                <pre><code class="language-yml hljs language-yaml" data-highlighted="yes"><span class="hljs-attr">theme:</span>
+            <span class="hljs-attr">name:</span> <span class="hljs-string">simple-blog</span>
+            </code></pre>
+                                <h2 id="getting-help">Getting Help</h2>
+                                <p>
+                                    We use GitHub issues for tracking bugs and feature requests
+                                    and have limited bandwidth to address them. If you need
+                                    anything, I ask you to please follow our templates for
+                                    opening issues or discussions.
+                                </p>
+                                <ul>
+                                    <li>
+                                        🐛
+                                        <a
+                                            href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/new/choose">Bug
+                                            Report</a>
+                                    </li>
+                                    <li>
+                                        📕
+                                        <a
+                                            href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/new/choose">Documentation
+                                            Issue</a>
+                                    </li>
+                                    <li>
+                                        🚀
+                                        <a
+                                            href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/new/choose">Feature
+                                            Request</a>
+                                    </li>
+                                    <li>
+                                        💬
+                                        <a
+                                            href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/new/choose">General
+                                            Question</a>
+                                    </li>
+                                </ul>
+                                <h2 id="commit-style">Commit Style</h2>
+                                <ul>
+                                    <li>⚙️ FEATURE</li>
+                                    <li>📝 PEP8</li>
+                                    <li>📌 ISSUE</li>
+                                    <li>🪲 BUG</li>
+                                    <li>📘 DOCS</li>
+                                    <li>📦 PyPI</li>
+                                    <li>❤️️ TEST</li>
+                                    <li>⬆️ CI/CD</li>
+                                    <li>⚠️ SECURITY</li>
+                                </ul>
+                                <h2 id="license">License</h2>
+                                <p>
+                                    <img alt="GitHub"
+                                        src="https://img.shields.io/github/license/FernandoCelmer/mkdocs-simple-blog?style=flat-square">
+                                </p>
+                                <p>
+                                    This project is licensed under the terms of the GNU General
+                                    Public License v3.0 license.
+                                </p>
+                                <p></p>
+                            </article>
+                        </section>
+                        <!-- endblock -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- block preview -->
+        <div class="preview row row-cols-md-3 text-center pt-md-3" id="component-preview">
+            <div class="col themed-grid-col">
+                <a rel="prev" href="#" class="nav-link">
+                    <i class="fa fa-arrow-left"></i> Previous
+                </a>
+            </div>
+            <div class="col themed-grid-col"></div>
+            <div class="col themed-grid-col">
+                <a rel="next" href="#" class="nav-link">
+                    Next <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
         </div>
-      </footer>
-      <!-- endblock -->
+        <!-- endblock -->
+
+        <!-- block footer -->
+        <footer class="pt-4 my-md-5 pt-md-5 border-top" id="component-footer">
+            <div class="row">
+                <div class="col-12 col-md">
+                    <small class="d-block mb-3 text-muted">Fernando Celmer</small>
+                    <small class="d-block mb-3 text-muted">
+                        <a href="https://github.com/FernandoCelmer/mkdocs-simple-blog" target="_blank" rel="noopener">
+                            Simple Blog for MkDocs
+                        </a>
+                    </small>
+                </div>
+            </div>
+        </footer>
+        <!-- endblock -->
     </div>
 
     <script src="assets/js/jquery-3.3.1.slim.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/theme.js"></script>
-  </body>
+</body>
+
 </html>

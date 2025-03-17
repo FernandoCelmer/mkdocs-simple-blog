@@ -1,6 +1,6 @@
 [project]
 name = "mkdocs_simple_blog"
-version = "0.1.0"
+version = "0.2.0.dev2"
 authors = [
   { name="Fernando Celmer", email="email@fernandocelmer.com" },
 ]
@@ -30,7 +30,7 @@ Documentation = "https://github.com/FernandoCelmer/mkdocs-simple-blog/blob/maste
 
 [tool.poetry]
 name = "mkdocs_simple_blog"
-version = "0.1.0"
+version = "0.2.0.dev2"
 description = "Mkdocs Blog Theme"
 authors = ["Fernando Celmer <email@fernandocelmer.com>"]
 readme = "README.md"
