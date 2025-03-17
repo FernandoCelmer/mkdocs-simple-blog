@@ -254,7 +254,7 @@ th {
 }
 
 table {
-  border-collapse: collapse;
+  overflow-x: auto !important;
   border-collapse: collapse;
   width: -webkit-fill-available !important;
 }
@@ -644,4 +644,8 @@ table tr th:last-child {
 
 .quote::open {
   width: fit-content;
+}
+
+.highlight {
+  overflow-x: auto;
 }
