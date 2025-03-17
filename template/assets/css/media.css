@@ -120,6 +120,17 @@
     margin-bottom: 0rem !important;
   }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+
   .site-name {
     font-size: 14px !important;
   }
