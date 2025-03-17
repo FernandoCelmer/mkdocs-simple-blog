@@ -38,6 +38,16 @@ code {
   padding: 0.4rem 0.8rem;
 }
 
+code a {
+  color: var(--color-gray) !important;
+  text-underline-position: under;
+}
+
+code a:focus,
+code a:hover {
+  color: var(--color-gray) !important;
+}
+
 pre {
   margin: 1.6rem 0 1rem;
   padding: 1.6rem;
@@ -61,6 +71,11 @@ a:focus,
 a:hover,
 p a {
   text-decoration: underline;
+}
+
+p a:focus,
+p a:hover {
+  color: gray !important;
 }
 
 .title-color,
@@ -184,7 +199,7 @@ p {
 }
 
 p a {
-  color: var(--primary);
+  color: var(--color-gray) !important;
   text-underline-position: under;
 }
 
@@ -240,6 +255,8 @@ th {
 
 table {
   border-collapse: collapse;
+  border-collapse: collapse;
+  width: -webkit-fill-available !important;
 }
 
 table td,
@@ -615,4 +632,16 @@ table tr th:last-child {
 .sidebar .nav .nav>li>a {
   font-weight: normal;
   font-size: medium;
+}
+
+.quote {
+  margin-top: 2rem !important;
+  margin-bottom: 2rem !important;
+  border: .075rem solid #9e9e9e;
+  padding: 1rem;
+  background-color: #9e9e9e1a;
+}
+
+.quote::open {
+  width: fit-content;
 }
