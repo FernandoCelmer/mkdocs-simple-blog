@@ -35,9 +35,11 @@
         {%- block styles %}
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
             <link rel="stylesheet" href="{{ 'assets/css/bootstrap.min.css'|url }}">
             <link rel="stylesheet" href="{{ 'assets/css/root.min.css'|url }}">
             <link rel="stylesheet" href="{{ 'assets/css/main.min.css'|url }}">
+            <link rel="stylesheet" href="{{ 'assets/css/media.min.css'|url }}">
 
             {%- for path in extra_css %}
                 <link href="{{ path }}" rel="stylesheet">
@@ -86,12 +88,12 @@
                 {% if config.theme.sidebar %}
                     <div class="container">
                         <div class="row">
-                            <div class="col-3" id="component-sidebar">
+                            <div class="col-md-3 d-none d-md-block" id="component-sidebar">
                                 {%- block sidebar %}
                                     {% include "/modules/sidebar.html" %}
                                 {%- endblock %}
                             </div>
-                            <div class="col-9" id="component-content">
+                            <div class="col-md-9 col-12" id="component-content">
                                 {%- block content_with_sidebar %}
                                     {% include "/modules/content.html" %}
                                 {%- endblock %}
