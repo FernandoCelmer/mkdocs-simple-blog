@@ -423,6 +423,10 @@ table tr th:last-child {
   line-height: 6rem;
 }
 
+footer {
+  padding: 1rem !important;
+}
+
 .float-right {
   float: right;
 }
