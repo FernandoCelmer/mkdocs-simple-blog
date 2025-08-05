@@ -1,0 +1,56 @@
+[project]
+name = "mkdocs-simple-blog"
+version = "0.3.0"
+authors = [
+  { name="Fernando Celmer", email="email@fernandocelmer.com" },
+]
+maintainers = [
+  { name="Fernando Celmer", email="email@fernandocelmer.com" }
+]
+license = {file = "LICENSE"}
+description = "Mkdocs Blog Theme"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["mkdocs (>=1.6.1,<2.0.0)"]
+keywords = ["mkdocs", "blog", "theme", "documentation"]
+classifiers = [
+  'Development Status :: 4 - Beta',
+  "Operating System :: OS Independent",
+  'Intended Audience :: Developers',
+  'Natural Language :: English',
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+
+[project.urls]
+Homepage = "ttps://github.com/FernandoCelmer/mkdocs-simple-blog"
+Issues = "https://github.com/FernandoCelmer/mkdocs-simple-blog/issues"
+Repository = "https://github.com/FernandoCelmer/mkdocs-simple-blog"
+Documentation = "https://fernandocelmer.github.io/mkdocs-simple-blog"
+Changelog = "https://fernandocelmer.github.io/mkdocs-simple-blog/nav/development/release-notes/"
+
+
+[tool.poetry]
+name = "mkdocs-simple-blog"
+version = "0.3.0"
+description = "Mkdocs Blog Theme"
+authors = ["Fernando Celmer <email@fernandocelmer.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9.0"
+mkdocs = { version = ">=1.6.1,<2.0.0" }
+
+[tool.poetry.group.dev.dependencies]
+build = "^1.3.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.plugins."mkdocs.themes"]
+simple-blog = "mkdocs_simple_blog"
