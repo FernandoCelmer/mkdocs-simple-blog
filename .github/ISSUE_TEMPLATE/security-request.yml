@@ -1,0 +1,40 @@
+name: ⚠️ Security Request
+description: Suggest an idea for this project
+title: "(short issue description)"
+labels: [security, needs-triage]
+assignees: [FernandoCelmer]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the security issue
+      description: A clear and concise description of the security issue you are proposing.
+    validations:
+      required: false
+  - type: checkboxes
+    id: ack
+    attributes:
+      label: Acknowledgements
+      options:
+        - label: I may be able to implement this feature request
+          required: false
+        - label: This feature might incur a breaking change
+          required: false
+  - type: input
+    id: sdk-version
+    attributes:
+      label: Library name
+    validations:
+      required: true  
+  - type: input
+    id: sdk-current
+    attributes:
+      label: Current library version
+    validations:
+      required: true
+  - type: input
+    id: sdk-update
+    attributes:
+      label: Library version to update
+    validations:
+      required: true
