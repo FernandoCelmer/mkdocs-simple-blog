@@ -54,6 +54,7 @@ We use GitHub issues for tracking bugs and feature requests and have limited ban
 - 🐛 [Bug Report](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/new/choose)
 - 📕 [Documentation Issue](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/new/choose)
 - 🚀 [Feature Request](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/new/choose)
+- ⚠️ [Security Request](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/new/choose)
 - 💬 [General Question](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/new/choose)
 
 ## Commit Style
