@@ -11,7 +11,6 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: pypi-test  # Opcional, mas recomendado para segurança
 
     steps:
     - uses: actions/checkout@v4
