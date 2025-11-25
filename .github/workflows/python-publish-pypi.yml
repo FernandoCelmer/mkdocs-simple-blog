@@ -6,15 +6,17 @@ on:
 
 permissions:
   contents: read
+  id-token: write  # Necessário para OIDC
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: pypi  # Opcional, mas recomendado para segurança
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: ⚙️ Set up Python 3.10
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v5
       with:
         python-version: "3.10"
     - name: ⚙️ Install dependencies
@@ -24,7 +26,4 @@ jobs:
     - name: 📦 Build Package
       run: python -m build
     - name: 📦 Publish Package to PyPI
-      uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
-      with:
-        user: __token__
-        password: ${{ secrets.PYPI_API_TOKEN }}
+      uses: pypa/gh-action-pypi-publish@release/v1
