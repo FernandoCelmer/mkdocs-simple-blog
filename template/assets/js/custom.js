@@ -91,9 +91,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  var e = document
-    .getElementById("sidebar-true")
-    .addEventListener("click", function () {
+  var sidebarTrue = document.getElementById("sidebar-true");
+  if (sidebarTrue) {
+    sidebarTrue.addEventListener("click", function () {
       document.getElementById("component-sidebar").style.display = null;
       document
         .getElementById("component-sidebar")
@@ -102,10 +102,11 @@ document.addEventListener("DOMContentLoaded", function () {
         .getElementById("component-content")
         .classList.replace("col-12", "col-9");
     });
+  }
 
-  var e = document
-    .getElementById("sidebar-false")
-    .addEventListener("click", function () {
+  var sidebarFalse = document.getElementById("sidebar-false");
+  if (sidebarFalse) {
+    sidebarFalse.addEventListener("click", function () {
       document.getElementById("component-sidebar").style.display = "none";
       document
         .getElementById("component-sidebar")
@@ -114,4 +115,5 @@ document.addEventListener("DOMContentLoaded", function () {
         .getElementById("component-content")
         .classList.replace("col-9", "col-12");
     });
+  }
 });
