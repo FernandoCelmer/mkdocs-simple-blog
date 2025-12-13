@@ -1,0 +1,30 @@
+name: Commit and Push
+description: Commit and push changes to repository
+
+inputs:
+  message:
+    description: Commit message
+    required: true
+  files:
+    description: Files to commit (space-separated)
+    required: true
+  branch:
+    description: Branch to push to
+    required: false
+    default: ""
+
+runs:
+  using: composite
+  steps:
+    - name: 💾 Commit and push changes
+      shell: bash
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add ${{ inputs.files }}
+        git commit -m "${{ inputs.message }}"
+        if [ -z "${{ inputs.branch }}" ]; then
+          git push
+        else
+          git push origin HEAD:${{ inputs.branch }}
+        fi
