@@ -20,6 +20,29 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
+      - name: 🔍 Determine branch
+        id: get_branch
+        run: |
+          TARGET="${{ github.event.release.target_commitish }}"
+          # Remove refs/heads/ or refs/tags/ prefix if present
+          BRANCH="${TARGET#refs/heads/}"
+          BRANCH="${BRANCH#refs/tags/}"
+
+          # If it's still a tag, try to find the branch
+          if git rev-parse --verify "$BRANCH"^{tag} >/dev/null 2>&1; then
+            # Find branch containing this tag
+            BRANCH=$(git branch -r --contains "$BRANCH" | grep -E "(main|master)" | head -1 | sed 's|origin/||' | xargs || \
+                     git branch -r --contains "$BRANCH" | head -1 | sed 's|origin/||' | xargs || \
+                     echo "master")
+          fi
+
+          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+          echo "Using branch: $BRANCH"
+
+      - name: 🔄 Checkout branch
+        run: |
+          git checkout ${{ steps.get_branch.outputs.branch }} || git checkout -b ${{ steps.get_branch.outputs.branch }}
+
       - name: 🔍 Extract version from tag
         id: extract_version
         run: |
@@ -49,8 +72,12 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add LAST_VERSION pyproject.toml mkdocs_simple_blog/__init__.py
-          git commit -m "📦 PyPI: Update version to ${{ steps.extract_version.outputs.version }}" || exit 0
-          git push
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "📦 PyPI: Update version to ${{ steps.extract_version.outputs.version }}"
+            git push origin ${{ steps.get_branch.outputs.branch }}
+          fi
 
   test:
     name: Run Tests
