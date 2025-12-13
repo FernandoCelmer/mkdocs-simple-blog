@@ -3,8 +3,6 @@ name: 🧪 Tests
 on:
   pull_request:
     branches: ["main", "develop", "master", "pypi"]
-  push:
-    branches: ["main", "develop", "master", "pypi"]
   workflow_dispatch:
   workflow_call:
 
