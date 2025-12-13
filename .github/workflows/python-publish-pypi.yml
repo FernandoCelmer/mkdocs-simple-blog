@@ -14,12 +14,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout code
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
-
       - name: 🔍 Determine branch
         id: get_branch
         run: |
@@ -27,18 +21,23 @@ jobs:
           BRANCH="${TARGET#refs/heads/}"
           BRANCH="${BRANCH#refs/tags/}"
 
-          if git rev-parse --verify "$BRANCH"^{tag} >/dev/null 2>&1; then
-            BRANCH=$(git branch -r --contains "$BRANCH" | grep -E "(main|master)" | head -1 | sed 's|origin/||' | xargs || \
-                     git branch -r --contains "$BRANCH" | head -1 | sed 's|origin/||' | xargs || \
+          if git rev-parse --verify "$BRANCH"^{tag} >/dev/null 2>&1 2>&1 || [[ "$TARGET" == refs/tags/* ]]; then
+            git fetch --all --tags
+            TAG_NAME="${TARGET#refs/tags/}"
+            BRANCH=$(git branch -r --contains "$TAG_NAME" | grep -E "(main|master)" | head -1 | sed 's|origin/||' | xargs || \
+                     git branch -r --contains "$TAG_NAME" | head -1 | sed 's|origin/||' | xargs || \
                      echo "master")
           fi
 
           echo "branch=$BRANCH" >> $GITHUB_OUTPUT
           echo "Using branch: $BRANCH"
 
-      - name: 🔄 Checkout branch
-        run: |
-          git checkout ${{ steps.get_branch.outputs.branch }} || git checkout -b ${{ steps.get_branch.outputs.branch }}
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ steps.get_branch.outputs.branch }}
+          fetch-depth: 0
 
       - name: 🔍 Extract version from tag
         id: extract_version
@@ -99,12 +98,41 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: 🔍 Determine branch
+        id: get_branch_deploy
+        run: |
+          TARGET="${{ github.event.release.target_commitish }}"
+          BRANCH="${TARGET#refs/heads/}"
+          BRANCH="${BRANCH#refs/tags/}"
+
+          if [[ "$TARGET" == refs/tags/* ]] || git rev-parse --verify "$BRANCH"^{tag} >/dev/null 2>&1; then
+            TAG_NAME="${TARGET#refs/tags/}"
+            BRANCH=$(git branch -r --contains "$TAG_NAME" | grep -E "(main|master)" | head -1 | sed 's|origin/||' | xargs || \
+                     git branch -r --contains "$TAG_NAME" | head -1 | sed 's|origin/||' | xargs || \
+                     echo "master")
+          fi
+
+          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+          echo "Using branch: $BRANCH"
+
+      - name: 🔄 Checkout branch and pull latest
+        run: |
+          git checkout ${{ steps.get_branch_deploy.outputs.branch }}
+          git pull origin ${{ steps.get_branch_deploy.outputs.branch }}
+
       - name: 🔍 Verify version
         run: |
-          echo "Expected: ${{ github.event.release.tag_name }}"
+          EXPECTED="${{ github.event.release.tag_name }}"
+          EXPECTED="${EXPECTED#v}"
+          echo "Expected version: $EXPECTED"
           echo "LAST_VERSION: $(cat LAST_VERSION)"
           echo "pyproject.toml: $(grep '^version = ' pyproject.toml | head -1)"
           echo "__init__.py: $(grep '^__version__ = ' mkdocs_simple_blog/__init__.py)"
+
+          if [ "$(cat LAST_VERSION)" != "$EXPECTED" ]; then
+            echo "ERROR: Version mismatch!"
+            exit 1
+          fi
 
       - name: 📦 Build Package
         uses: ./.github/actions/build-package
