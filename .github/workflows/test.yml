@@ -1,0 +1,39 @@
+name: 🧪 Tests
+
+on:
+  pull_request:
+    branches: ["main", "develop", "master"]
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.14"]
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          allow-prereleases: true
+
+      - name: 📦 Setup Poetry
+        uses: ./.github/actions/setup-poetry
+        with:
+          install-dependencies: 'testing'
+
+      - name: 🧪 Run tests with unittest
+        run: |
+          poetry run python -m unittest discover -s tests -p "test_*.py" -v
+
+      - name: ✅ Test Summary
+        if: always()
+        run: |
+          echo "### Tests Completed ✅" >> $GITHUB_STEP_SUMMARY
