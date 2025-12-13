@@ -38,6 +38,16 @@ Install the theme using PIP:
 pip install mkdocs-simple-blog
 ```
 
+Or install from source for development:
+
+```bash
+git clone https://github.com/FernandoCelmer/mkdocs-simple-blog.git
+cd mkdocs-simple-blog
+pip install -e ".[dev]"
+```
+
+> **Note**: The `[dev]` extra includes development dependencies like pytest for running tests.
+
 ## Activating theme
 
 After the theme is installed, edit your `mkdocs.yml` file and set the theme name to `simple-blog`:

@@ -1,6 +1,6 @@
 # Development guide
 
-Last updated January 28, 2024
+Last updated December 13, 2024
 
 ---
 
@@ -58,6 +58,81 @@ mkdocs serve
 #### View Template
 
 - Now you can access the [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+
+---
+
+## Running Unit Tests
+
+The project includes a comprehensive test suite to ensure code quality and functionality.
+
+### Install Test Dependencies
+
+First, install the development dependencies:
+
+```bash
+pip install -e ".[dev]"
+```
+
+Or using poetry:
+
+```bash
+poetry install
+```
+
+### Run All Tests
+
+Execute all tests with:
+
+```bash
+pytest
+```
+
+### Run Tests with Coverage
+
+Generate a coverage report:
+
+```bash
+pytest --cov=mkdocs_simple_blog --cov-report=html
+```
+
+The HTML coverage report will be available in `htmlcov/index.html`.
+
+### Run Specific Tests
+
+You can run specific test files or individual tests:
+
+```bash
+# Run only template tests
+pytest tests/test_templates.py
+
+# Run only configuration tests
+pytest tests/test_theme_config.py
+
+# Run a specific test
+pytest tests/test_templates.py::test_base_template_renders
+```
+
+### Test Structure
+
+The test suite is organized into the following modules:
+
+- **test_theme_config.py**: Tests for theme configuration and YAML files
+- **test_templates.py**: Tests for Jinja2 template rendering
+- **test_modules.py**: Tests for theme module files
+- **test_assets.py**: Tests for CSS, JS, and image assets
+- **test_package.py**: Tests for package structure and metadata
+
+### Verbose Output
+
+For more detailed output, use the `-v` flag:
+
+```bash
+pytest -v
+```
+
+### Continuous Integration
+
+Tests are automatically run on every push and pull request via GitHub Actions. See `.github/workflows/test.yml` for the CI configuration.
 
 ---
 
