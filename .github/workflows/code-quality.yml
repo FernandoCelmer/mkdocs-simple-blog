@@ -1,4 +1,4 @@
-name: 🧪 Tests
+name: 🔍 Code Quality
 
 on:
   pull_request:
@@ -9,8 +9,8 @@ on:
   workflow_call:
 
 jobs:
-  test:
-    name: Run Tests
+  code-quality:
+    name: Code Quality Checks
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -45,14 +45,28 @@ jobs:
 
       - name: ⚙️ Install dependencies
         run: |
-          poetry install --with dev --no-interaction --no-ansi
+          poetry install --with dev,code-quality --no-interaction --no-ansi
 
-      - name: 🧪 Run tests with pytest and coverage
+      - name: 🔍 Ruff (Linting)
         run: |
-          poetry run pytest tests/ -v --tb=short --cov=mkdocs_simple_blog --cov-report=xml --cov-report=term-missing
+          poetry run ruff check --config=.code_quality/ruff.toml mkdocs_simple_blog/ tests/
 
-      - name: ✅ Test Summary
+      - name: 🎨 Ruff (Format Check)
+        run: |
+          poetry run ruff format --check --config=.code_quality/ruff.toml mkdocs_simple_blog/ tests/
+
+      - name: 🔍 Flake8
+        run: |
+          poetry run flake8 --config=.code_quality/.flake8 mkdocs_simple_blog/ tests/ || true
+
+      - name: 🔍 MyPy (Type Checking)
+        run: |
+          poetry run mypy --config-file=.code_quality/mypy.ini mkdocs_simple_blog/ tests/ || true
+
+      - name: ✅ Code Quality Summary
         if: always()
         run: |
-          echo "### Tests Completed ✅" >> $GITHUB_STEP_SUMMARY
+          echo "### Code Quality Checks Completed ✅" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
           echo "Python Version: ${{ matrix.python-version }}" >> $GITHUB_STEP_SUMMARY
+          echo "All code quality tools have been executed." >> $GITHUB_STEP_SUMMARY

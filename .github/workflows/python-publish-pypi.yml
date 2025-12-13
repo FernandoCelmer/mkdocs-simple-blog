@@ -6,10 +6,21 @@ on:
 
 permissions:
   contents: read
-  id-token: write  # Necessário para OIDC
+  id-token: write
 
 jobs:
+  test:
+    name: Run Tests
+    uses: ./.github/workflows/test.yml
+    secrets: inherit
+
+  code-quality:
+    name: Code Quality Checks
+    uses: ./.github/workflows/code-quality.yml
+    secrets: inherit
+
   deploy:
+    needs: [test, code-quality]
     runs-on: ubuntu-latest
 
     steps:
