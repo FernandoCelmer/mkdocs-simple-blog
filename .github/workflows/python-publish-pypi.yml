@@ -24,13 +24,10 @@ jobs:
         id: get_branch
         run: |
           TARGET="${{ github.event.release.target_commitish }}"
-          # Remove refs/heads/ or refs/tags/ prefix if present
           BRANCH="${TARGET#refs/heads/}"
           BRANCH="${BRANCH#refs/tags/}"
 
-          # If it's still a tag, try to find the branch
           if git rev-parse --verify "$BRANCH"^{tag} >/dev/null 2>&1; then
-            # Find branch containing this tag
             BRANCH=$(git branch -r --contains "$BRANCH" | grep -E "(main|master)" | head -1 | sed 's|origin/||' | xargs || \
                      git branch -r --contains "$BRANCH" | head -1 | sed 's|origin/||' | xargs || \
                      echo "master")
