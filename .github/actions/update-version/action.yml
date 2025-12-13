@@ -18,9 +18,7 @@ runs:
       shell: bash
       run: |
         VERSION="${{ inputs.version }}"
-        # Update [project] version
         sed -i '/^\[project\]/,/^\[/s/^version = ".*"/version = "'"$VERSION"'"/' pyproject.toml
-        # Update [tool.poetry] version
         sed -i '/^\[tool\.poetry\]/,/^\[/s/^version = ".*"/version = "'"$VERSION"'"/' pyproject.toml
 
     - name: 📝 Update __init__.py

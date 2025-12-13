@@ -19,7 +19,6 @@ runs:
       shell: bash
       run: |
         VERSION="${{ inputs.tag }}"
-        # Remove 'v' prefix if present
         VERSION="${VERSION#v}"
         echo "version=$VERSION" >> $GITHUB_OUTPUT
         echo "Extracted version: $VERSION"

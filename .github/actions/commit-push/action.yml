@@ -23,7 +23,6 @@ runs:
         git config --local user.name "GitHub Action"
         git add ${{ inputs.files }}
 
-        # Check if there are changes to commit
         if git diff --staged --quiet; then
           echo "No changes to commit"
           exit 0
@@ -34,16 +33,10 @@ runs:
         if [ -z "${{ inputs.branch }}" ]; then
           git push
         else
-          # Get current branch name
           CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-          echo "Current branch: $CURRENT_BRANCH"
-          echo "Target branch: ${{ inputs.branch }}"
-
-          # If target is same as current, just push
           if [ "$CURRENT_BRANCH" = "${{ inputs.branch }}" ]; then
             git push origin "$CURRENT_BRANCH"
           else
-            # Push to target branch
             git push origin HEAD:${{ inputs.branch }}
           fi
         fi
