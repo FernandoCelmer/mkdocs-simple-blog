@@ -36,9 +36,9 @@ def test_theme_default_config():
     theme = config.get("theme", {})
 
     assert "sidebar" in theme, "theme should have 'sidebar' key"
-    assert "navigation_depth" in theme, (
-        "theme should have 'navigation_depth' key"
-    )
+    assert (
+        "navigation_depth" in theme
+    ), "theme should have 'navigation_depth' key"
     assert "highlightjs" in theme, "theme should have 'highlightjs' key"
     assert "hljs_languages" in theme, "theme should have 'hljs_languages' key"
 
@@ -52,12 +52,12 @@ def test_theme_plugin_registration():
     with open(pyproject) as f:
         content = f.read()
 
-    assert "mkdocs.themes" in content, (
-        "Should have mkdocs.themes plugin configuration"
-    )
-    assert "simple-blog" in content, (
-        "Theme should be registered as 'simple-blog'"
-    )
-    assert "mkdocs_simple_blog" in content, (
-        "Theme should point to 'mkdocs_simple_blog' package"
-    )
+    assert (
+        "mkdocs.themes" in content
+    ), "Should have mkdocs.themes plugin configuration"
+    assert (
+        "simple-blog" in content
+    ), "Theme should be registered as 'simple-blog'"
+    assert (
+        "mkdocs_simple_blog" in content
+    ), "Theme should point to 'mkdocs_simple_blog' package"

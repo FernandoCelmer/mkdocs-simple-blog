@@ -85,9 +85,9 @@ def test_css_files_not_empty(assets_dir):
     css_files = list(css_dir.glob("*.css"))
 
     for css_file in css_files:
-        assert css_file.stat().st_size > 0, (
-            f"{css_file.name} should not be empty"
-        )
+        assert (
+            css_file.stat().st_size > 0
+        ), f"{css_file.name} should not be empty"
 
 
 def test_js_files_not_empty(assets_dir):
@@ -96,6 +96,6 @@ def test_js_files_not_empty(assets_dir):
     js_files = list(js_dir.glob("*.js"))
 
     for js_file in js_files:
-        assert js_file.stat().st_size > 0, (
-            f"{js_file.name} should not be empty"
-        )
+        assert (
+            js_file.stat().st_size > 0
+        ), f"{js_file.name} should not be empty"

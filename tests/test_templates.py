@@ -85,9 +85,7 @@ def test_main_template_extends_base(template_env):
         pytest.skip("Template file not found")
 
 
-def test_search_template_renders(
-    template_env, mkdocs_config, mock_page
-):
+def test_search_template_renders(template_env, mkdocs_config, mock_page):
     """Test that search.html template can be rendered."""
     try:
         template = template_env.get_template("search.html")
@@ -142,9 +140,9 @@ def test_base_template_includes_highlightjs(template_env, mkdocs_config):
 
         html = template.render(**context)
 
-        assert "highlight.js" in html, (
-            "Should include highlight.js when enabled"
-        )
+        assert (
+            "highlight.js" in html
+        ), "Should include highlight.js when enabled"
         assert "hljs.highlightAll()" in html, "Should call hljs.highlightAll()"
     except TemplateNotFound:
         pytest.skip("Template not found")
@@ -170,8 +168,8 @@ def test_base_template_bootstrap_included(template_env, mkdocs_config):
         html = template.render(**context)
 
         assert "bootstrap.min.css" in html, "Should include Bootstrap CSS"
-        assert "bootstrap.bundle.min.js" in html or "jquery" in html, (
-            "Should include Bootstrap JS or jQuery"
-        )
+        assert (
+            "bootstrap.bundle.min.js" in html or "jquery" in html
+        ), "Should include Bootstrap JS or jQuery"
     except TemplateNotFound:
         pytest.skip("Template not found")

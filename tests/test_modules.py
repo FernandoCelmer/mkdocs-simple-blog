@@ -52,9 +52,9 @@ def test_modules_are_valid_html(modules_dir):
             continue
 
         assert len(content) > 0, f"{module_path.name} should not be empty"
-        assert "{" in content or "<" in content, (
-            f"{module_path.name} should contain HTML or Jinja2 syntax"
-        )
+        assert (
+            "{" in content or "<" in content
+        ), f"{module_path.name} should contain HTML or Jinja2 syntax"
 
 
 def test_modules_can_be_loaded(modules_dir):
@@ -69,9 +69,9 @@ def test_modules_can_be_loaded(modules_dir):
     for module_path in modules:
         try:
             template = env.get_template(module_path.name)
-            assert template is not None, (
-                f"Should be able to load {module_path.name}"
-            )
+            assert (
+                template is not None
+            ), f"Should be able to load {module_path.name}"
         except Exception as e:
             pytest.fail(f"Failed to load {module_path.name}: {e}")
 
@@ -84,9 +84,9 @@ def test_header_module_structure(modules_dir):
         with open(header_path) as f:
             content = f.read()
 
-        assert "nav" in content.lower() or "navbar" in content.lower(), (
-            "header.html should contain navigation elements"
-        )
+        assert (
+            "nav" in content.lower() or "navbar" in content.lower()
+        ), "header.html should contain navigation elements"
 
 
 def test_footer_module_structure(modules_dir):
@@ -97,9 +97,9 @@ def test_footer_module_structure(modules_dir):
         with open(footer_path) as f:
             content = f.read()
 
-        assert "footer" in content.lower() or "copyright" in content.lower(), (
-            "footer.html should contain footer elements"
-        )
+        assert (
+            "footer" in content.lower() or "copyright" in content.lower()
+        ), "footer.html should contain footer elements"
 
 
 def test_sidebar_module_structure(modules_dir):
