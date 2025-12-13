@@ -26,7 +26,7 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "ttps://github.com/FernandoCelmer/mkdocs-simple-blog"
+Homepage = "https://github.com/FernandoCelmer/mkdocs-simple-blog"
 Issues = "https://github.com/FernandoCelmer/mkdocs-simple-blog/issues"
 Repository = "https://github.com/FernandoCelmer/mkdocs-simple-blog"
 Documentation = "https://fernandocelmer.github.io/mkdocs-simple-blog"
