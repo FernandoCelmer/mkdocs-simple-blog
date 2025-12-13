@@ -32,13 +32,25 @@ pip install mkdocs
 
 ## Installation theme
 
-Install the theme using PIP:
+### Using pip
+
+Install the theme using pip:
 
 ```bash
 pip install mkdocs-simple-blog
 ```
 
-Or install from source for development:
+### Using Poetry
+
+Install the theme using Poetry:
+
+```bash
+poetry add mkdocs-simple-blog
+```
+
+### Development Installation
+
+Install from source for development:
 
 ```bash
 git clone https://github.com/FernandoCelmer/mkdocs-simple-blog.git
@@ -46,7 +58,17 @@ cd mkdocs-simple-blog
 pip install -e ".[dev]"
 ```
 
-> **Note**: The `[dev]` extra includes development dependencies like pytest for running tests.
+Or using Poetry:
+
+```bash
+git clone https://github.com/FernandoCelmer/mkdocs-simple-blog.git
+cd mkdocs-simple-blog
+poetry install --with dev
+```
+
+> **Note**: The `[dev]` extra includes development dependencies like pytest, pytest-cov, and pytest-mock for running tests.
+
+> **Note**: For code quality tools (ruff, flake8, mypy), use `pip install -e ".[code-quality]"` or `poetry install --with code-quality`.
 
 ## Activating theme
 
@@ -56,6 +78,16 @@ After the theme is installed, edit your `mkdocs.yml` file and set the theme name
 theme:
     name: simple-blog
 ```
+
+## CI/CD Status
+
+This project uses GitHub Actions for continuous integration and deployment:
+
+- 🧪 **Tests**: Automatically run on every push and pull request across Python 3.9-3.14
+- 🔍 **Code Quality**: Ruff, Flake8, and MyPy checks ensure code standards
+- 📦 **Publishing**: Automatic publishing to TestPyPI and PyPI with dependency checks
+
+All workflows ensure that only tested and validated code is published.
 
 ## Getting Help
 

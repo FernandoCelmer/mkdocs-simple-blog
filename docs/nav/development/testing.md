@@ -1,6 +1,6 @@
 # Testing
 
-Last updated December 13, 2024
+Last updated February 4, 2025
 
 ---
 
@@ -41,10 +41,10 @@ def test_mkdocs_theme_yml_valid():
     """Test that mkdocs_theme.yml is valid YAML."""
     theme_dir = Path(__file__).parent.parent / 'mkdocs_simple_blog'
     theme_config = theme_dir / 'mkdocs_theme.yml'
-    
+
     with open(theme_config, 'r') as f:
         config = yaml.safe_load(f)
-    
+
     assert isinstance(config, dict)
 ```
 
@@ -64,7 +64,7 @@ def test_base_template_renders(template_env, mkdocs_config, mock_page):
     """Test that base.html template can be rendered."""
     template = template_env.get_template('base.html')
     html = template.render(**context)
-    
+
     assert '<html' in html
     assert '<head' in html
     assert '<body' in html
@@ -90,7 +90,7 @@ def test_required_modules_exist(modules_dir):
         'footer.html',
         # ... more modules
     ]
-    
+
     for module in required_modules:
         assert (modules_dir / module).exists()
 ```
@@ -115,7 +115,7 @@ def test_required_css_files_exist(assets_dir):
         'main.min.css',
         'root.min.css',
     ]
-    
+
     for css_file in required_css:
         assert (css_dir / css_file).exists()
 ```
@@ -197,20 +197,39 @@ When adding new features, follow these guidelines:
 def test_new_feature_works(theme_dir):
     """Test that new feature works correctly."""
     feature_file = theme_dir / 'new_feature.html'
-    
+
     assert feature_file.exists()
     # ... more assertions
 ```
 
 ## Continuous Integration
 
-Tests are automatically run on:
+Tests are automatically run via GitHub Actions on:
 
-- Every push to the repository
-- Every pull request
-- Scheduled runs (if configured)
+- Every push to `main`, `develop`, `master`, and `pypi` branches
+- Every pull request targeting these branches
+- Manual triggers via `workflow_dispatch`
+- As a dependency before package publication
 
-See `.github/workflows/test.yml` for CI configuration.
+### CI Test Matrix
+
+The CI pipeline tests the project across multiple Python versions:
+
+- Python 3.9
+- Python 3.10
+- Python 3.11
+- Python 3.12
+- Python 3.13
+- Python 3.14
+
+### CI Workflow Features
+
+- Automatic dependency caching for faster builds
+- Coverage reports generated for each run
+- Test summaries available in GitHub Actions
+- Parallel execution across Python versions
+
+See `.github/workflows/test.yml` for the complete CI configuration.
 
 ## Test Coverage
 
@@ -255,4 +274,3 @@ If tests fail due to missing files, ensure you're running tests from the project
 - [pytest Documentation](https://docs.pytest.org/)
 - [pytest-cov Documentation](https://pytest-cov.readthedocs.io/)
 - [Jinja2 Documentation](https://jinja.palletsprojects.com/)
-
