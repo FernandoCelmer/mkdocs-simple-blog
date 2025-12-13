@@ -1,6 +1,6 @@
 [project]
 name = "mkdocs-simple-blog"
-version = "0.3.0.dev1"
+version = "0.3.0.dev4"
 authors = [
   { name="Fernando Celmer", email="email@fernandocelmer.com" },
 ]
@@ -36,7 +36,7 @@ Changelog = "https://fernandocelmer.github.io/mkdocs-simple-blog/nav/development
 
 [tool.poetry]
 name = "mkdocs-simple-blog"
-version = "0.3.0.dev1"
+version = "0.3.0.dev4"
 description = "Mkdocs Blog Theme"
 authors = ["Fernando Celmer <email@fernandocelmer.com>"]
 license = "MIT"
