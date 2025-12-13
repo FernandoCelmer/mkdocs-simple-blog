@@ -20,11 +20,21 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           ref: ${{ github.event.release.target_commitish }}
 
+      - name: 🔍 Debug release info
+        run: |
+          echo "Release tag_name: ${{ github.event.release.tag_name }}"
+          echo "Release target_commitish: ${{ github.event.release.target_commitish }}"
+          echo "Release published_at: ${{ github.event.release.published_at }}"
+
       - name: 🔍 Extract version
         uses: ./.github/actions/extract-version
         id: extract_version
         with:
           tag: ${{ github.event.release.tag_name }}
+
+      - name: 🔍 Debug extracted version
+        run: |
+          echo "Extracted version: ${{ steps.extract_version.outputs.version }}"
 
       - name: 📝 Update version files
         uses: ./.github/actions/update-version
@@ -58,6 +68,30 @@ jobs:
     steps:
       - name: 📥 Checkout code
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.release.target_commitish }}
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🔄 Pull latest changes
+        run: |
+          git pull origin ${{ github.event.release.target_commitish }} || true
+
+      - name: 🔍 Verify version
+        run: |
+          echo "=== Expected version from tag ==="
+          VERSION="${{ github.event.release.tag_name }}"
+          VERSION="${VERSION#v}"
+          echo "Tag version: $VERSION"
+          echo ""
+          echo "=== LAST_VERSION ==="
+          cat LAST_VERSION
+          echo ""
+          echo "=== pyproject.toml version ==="
+          grep "^version = " pyproject.toml | head -2
+          echo ""
+          echo "=== __init__.py version ==="
+          grep "^__version__ = " mkdocs_simple_blog/__init__.py
 
       - name: 📦 Build Package
         uses: ./.github/actions/build-package
