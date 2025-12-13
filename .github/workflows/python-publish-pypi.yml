@@ -5,35 +5,64 @@ on:
     types: [published]
 
 permissions:
-  contents: read
+  contents: write
   id-token: write
 
 jobs:
+  update-version:
+    name: Update Version Files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.event.release.target_commitish }}
+
+      - name: 🔍 Extract version
+        uses: ./.github/actions/extract-version
+        id: extract_version
+        with:
+          tag: ${{ github.event.release.tag_name }}
+
+      - name: 📝 Update version files
+        uses: ./.github/actions/update-version
+        with:
+          version: ${{ steps.extract_version.outputs.version }}
+
+      - name: 💾 Commit and push
+        uses: ./.github/actions/commit-push
+        with:
+          message: "📦 PyPI: Update version to ${{ steps.extract_version.outputs.version }}"
+          files: "LAST_VERSION pyproject.toml mkdocs_simple_blog/__init__.py"
+          branch: ${{ github.event.release.target_commitish }}
+
   test:
     name: Run Tests
+    needs: [update-version]
     uses: ./.github/workflows/test.yml
     secrets: inherit
 
   code-quality:
     name: Code Quality Checks
+    needs: [update-version]
     uses: ./.github/workflows/code-quality.yml
     secrets: inherit
 
   deploy:
-    needs: [test, code-quality]
+    name: Deploy to PyPI
+    needs: [update-version, test, code-quality]
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: ⚙️ Set up Python 3.10
-      uses: actions/setup-python@v5
-      with:
-        python-version: "3.10"
-    - name: ⚙️ Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install build --no-cache-dir
-    - name: 📦 Build Package
-      run: python -m build
-    - name: 📦 Publish Package to PyPI
-      uses: pypa/gh-action-pypi-publish@release/v1
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 📦 Build Package
+        uses: ./.github/actions/build-package
+        with:
+          python-version: "3.10"
+
+      - name: 📦 Publish Package to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
