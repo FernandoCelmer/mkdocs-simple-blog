@@ -1,0 +1,59 @@
+# Ruff configuration
+# Modern and fast Python linter
+
+# Line length
+line-length = 79
+
+# Target Python version
+target-version = "py312"
+
+# Exclude patterns
+exclude = [
+    ".git",
+    "__pycache__",
+    ".venv",
+    "venv",
+    "build",
+    "dist",
+    "migrations",
+    "alembic",
+    "*.egg-info",
+]
+
+# Lint configuration
+[lint]
+# Enable specific rule sets
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+    "ARG", # flake8-unused-arguments
+    "SIM", # flake8-simplify
+]
+
+# Ignore specific rules
+ignore = [
+    "E501",  # Line too long (handled by formatter)
+    "B008",  # Do not perform function calls in argument defaults
+    "E203",  # Whitespace before ':' (flake8 compatibility - handled separately)
+]
+
+# Allowed configurations for specific rules
+[lint.per-file-ignores]
+"__init__.py" = ["F401"]  # Allow unused imports in __init__.py
+"tests/**" = ["ARG001", "S101"]  # Allow unused arguments and assert in tests
+
+# Import sorting (isort)
+[lint.isort]
+known-first-party = ["mkdocs_simple_blog"]
+force-single-line = false
+
+# Formatting (alternative to black)
+[format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
