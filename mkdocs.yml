@@ -19,8 +19,10 @@ nav:
       - nav/styles/favicon.md
       - nav/styles/colors.md
       - nav/styles/logo.md
+      - nav/styles/fonts.md
     - Development:
       - nav/development/development-guide.md
+      - nav/development/testing.md
       - nav/development/release-notes.md
 
 theme:
@@ -33,8 +35,6 @@ theme:
   sidebar: true
   navigation_depth: 2
   highlightjs: true
-    - yaml
-    - python
   colors:
     text: black
     title: black
@@ -46,6 +46,9 @@ theme:
     menu: true
     preview: true
     footer: true
+  hljs_languages:
+    - yaml
+    - python
 
 extra_javascript:
  - assets/custom.js
