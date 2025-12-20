@@ -17,6 +17,8 @@
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
                 <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/base16/grayscale-dark.min.css">
                 <script>hljs.highlightAll();</script>
+
+        <script>var base_url = '../../..';</script>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -31,6 +33,7 @@
             
                 
             
+          
     </head>
 
     <body>
@@ -106,7 +109,7 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="
+                            <a class=" active 
                             nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Styles]</a>
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
@@ -129,6 +132,11 @@
         <a href="../logo/" class="dropdown-item text-decoration-none ">Logo</a>
     </li>
 <!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="./" class="dropdown-item text-decoration-none  active ">Fonts</a>
+    </li>
+<!-- endblock -->
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -138,6 +146,11 @@
                                     <!-- block dropdown-menu -->
     <li>
         <a href="../../development/development-guide/" class="dropdown-item text-decoration-none ">Development guide</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../../development/testing/" class="dropdown-item text-decoration-none ">Testing</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
@@ -325,6 +338,19 @@
 
             
                     <!-- block preview -->
+    <div class="preview row row-cols-md-3 text-center pt-md-3" id="component-preview">
+        <div class="col themed-grid-col">
+            <a rel="prev" href="../logo/" class="nav-link">
+                <i class="fa fa-arrow-left"></i> Previous
+            </a>
+        </div>
+        <div class="col themed-grid-col"></div>
+        <div class="col themed-grid-col">
+            <a rel="next" href="../../development/development-guide/" class="nav-link">
+                Next <i class="fa fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
 <!-- endblock -->
             
 
@@ -351,7 +377,6 @@
             
         </div>
 
-            <script>var base_url = '../../..';</script>
             <script src="../../../assets/js/jquery-3.3.1.slim.min.js""></script>
             <script src="../../../assets/js/bootstrap.bundle.min.js""></script>
             <script src="../../../assets/js/main.min.js""></script>

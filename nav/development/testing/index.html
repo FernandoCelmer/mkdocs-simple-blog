@@ -1,14 +1,14 @@
 <!doctype html>
 <html data-bs-theme="light">
     <head>
-                <title>Release - MkDocs Simple Blog</title>
+                <title>Testing - MkDocs Simple Blog</title>
 
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
             
-            <link rel="canonical" href="https://www.fernandocelmer.com/nav/development/release-notes/">
+            <link rel="canonical" href="https://www.fernandocelmer.com/nav/development/testing/">
             
 
             
@@ -150,12 +150,12 @@
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../testing/" class="dropdown-item text-decoration-none ">Testing</a>
+        <a href="./" class="dropdown-item text-decoration-none  active ">Testing</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="./" class="dropdown-item text-decoration-none  active ">Release</a>
+        <a href="../release-notes/" class="dropdown-item text-decoration-none ">Release</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -251,53 +251,49 @@
     <div class="sidebar navbar-collapse collapse card">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#release" class="nav-link">Release</a>
+            <li class="nav-item" data-bs-level="1"><a href="#testing" class="nav-link">Testing</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#v030" class="nav-link">v0.3.0</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#v020" class="nav-link">v0.2.0</a>
+            <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#v010" class="nav-link">v0.1.0</a>
+            <li class="nav-item" data-bs-level="2"><a href="#quick-start" class="nav-link">Quick Start</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#v009" class="nav-link">v0.0.9</a>
+            <li class="nav-item" data-bs-level="2"><a href="#test-structure" class="nav-link">Test Structure</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#v008" class="nav-link">v0.0.8</a>
+            <li class="nav-item" data-bs-level="2"><a href="#running-tests" class="nav-link">Running Tests</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#v007" class="nav-link">v0.0.7</a>
+            <li class="nav-item" data-bs-level="2"><a href="#test-fixtures" class="nav-link">Test Fixtures</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#v006" class="nav-link">v0.0.6</a>
+            <li class="nav-item" data-bs-level="2"><a href="#writing-new-tests" class="nav-link">Writing New Tests</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#v005" class="nav-link">v0.0.5</a>
+            <li class="nav-item" data-bs-level="2"><a href="#continuous-integration" class="nav-link">Continuous Integration</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#v004" class="nav-link">v0.0.4</a>
+            <li class="nav-item" data-bs-level="2"><a href="#test-coverage" class="nav-link">Test Coverage</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#v003" class="nav-link">v0.0.3</a>
+            <li class="nav-item" data-bs-level="2"><a href="#troubleshooting" class="nav-link">Troubleshooting</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#v002" class="nav-link">v0.0.2</a>
+            <li class="nav-item" data-bs-level="2"><a href="#best-practices" class="nav-link">Best Practices</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#v001" class="nav-link">v0.0.1</a>
+            <li class="nav-item" data-bs-level="2"><a href="#additional-resources" class="nav-link">Additional Resources</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -316,82 +312,212 @@
             
             
         </header>
-        <p><h1 id="release">Release</h1>
-<p>December 13, 2025</p>
+        <p><h1 id="testing">Testing</h1>
+<p>Last updated February 4, 2025</p>
 <hr />
-<h2 id="v030">v0.3.0</h2>
+<h2 id="overview">Overview</h2>
+<p>The mkdocs-simple-blog theme includes a comprehensive test suite to ensure code quality, functionality, and maintainability. All tests are written using <a href="https://pytest.org/">pytest</a>.</p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="install-dependencies">Install Dependencies</h3>
+<pre><code class="language-bash">pip install -e &quot;.[dev]&quot;
+</code></pre>
+<h3 id="run-tests">Run Tests</h3>
+<pre><code class="language-bash">pytest
+</code></pre>
+<h2 id="test-structure">Test Structure</h2>
+<p>The test suite is organized into several modules:</p>
+<h3 id="test_theme_configpy">test_theme_config.py</h3>
+<p>Tests for theme configuration and metadata:</p>
 <ul>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.3.0">📦 PyPI - Build 0.3.0</a></li>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/49">📌 Extendable head section in base.html</a></li>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/50">📌 Issue/50</a></li>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/51">📌 Issue/51</a></li>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/commit/b4951f5">⚙️ FEATURE: Create reusable GitHub Actions for workflows</a></li>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/commit/0b512c4">⚙️ FEATURE: Add jinja2 and code quality dependencies</a></li>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/commit/462dd25">❤️️ TEST: Add comprehensive unit test suite</a></li>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/commit/7edd691">⬆️ CI/CD: Refactor workflows to use reusable actions</a></li>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/commit/035ee96">⬆️ CI/CD: Automate version update on release</a></li>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/commit/59cf3f7">⬆️ CI/CD: Simplify publish workflow</a></li>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/commit/c26dc5d">📝 PEP8: Add code quality configuration files</a></li>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/commit/3e8cbe7">📘 DOCS: Update documentation with CI/CD and testing information</a></li>
+<li>Validates <code>mkdocs_theme.yml</code> exists and is valid YAML</li>
+<li>Checks default theme configuration values</li>
+<li>Verifies theme plugin registration in <code>pyproject.toml</code></li>
 </ul>
-<h2 id="v020">v0.2.0</h2>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">def test_mkdocs_theme_yml_valid():
+    &quot;&quot;&quot;Test that mkdocs_theme.yml is valid YAML.&quot;&quot;&quot;
+    theme_dir = Path(__file__).parent.parent / 'mkdocs_simple_blog'
+    theme_config = theme_dir / 'mkdocs_theme.yml'
+
+    with open(theme_config, 'r') as f:
+        config = yaml.safe_load(f)
+
+    assert isinstance(config, dict)
+</code></pre>
+<h3 id="test_templatespy">test_templates.py</h3>
+<p>Tests for Jinja2 template rendering:</p>
 <ul>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.2.0">📦 PyPI - Build 0.2.0</a></li>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/47">📌 great product love it but</a></li>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/45">📌 Mobile First Sidebar</a></li>
+<li>Verifies all template files exist (base.html, main.html, search.html)</li>
+<li>Tests template rendering with mock data</li>
+<li>Validates inclusion of Bootstrap, Highlight.js, and other dependencies</li>
+<li>Checks template inheritance (main.html extends base.html)</li>
 </ul>
-<h2 id="v010">v0.1.0</h2>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">def test_base_template_renders(template_env, mkdocs_config, mock_page):
+    &quot;&quot;&quot;Test that base.html template can be rendered.&quot;&quot;&quot;
+    template = template_env.get_template('base.html')
+    html = template.render(**context)
+
+    assert '&lt;html' in html
+    assert '&lt;head' in html
+    assert '&lt;body' in html
+</code></pre>
+<h3 id="test_modulespy">test_modules.py</h3>
+<p>Tests for theme module files:</p>
 <ul>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.0.1">📦 PyPI - Build 0.1.0</a></li>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/35">📌 [Feature Request] Simple code syntax highlighting</a></li>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/39">📌 Software license update</a></li>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/23">📌 Is there a sidebar in this theme?</a></li>
+<li>Verifies all required module files exist</li>
+<li>Validates HTML structure in modules</li>
+<li>Tests module loading as Jinja2 templates</li>
+<li>Checks module-specific structures (header, footer, sidebar)</li>
 </ul>
-<h2 id="v009">v0.0.9</h2>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">def test_required_modules_exist(modules_dir):
+    &quot;&quot;&quot;Test that all required module files exist.&quot;&quot;&quot;
+    required_modules = [
+        'content.html',
+        'header.html',
+        'footer.html',
+        # ... more modules
+    ]
+
+    for module in required_modules:
+        assert (modules_dir / module).exists()
+</code></pre>
+<h3 id="test_assetspy">test_assets.py</h3>
+<p>Tests for theme assets (CSS, JS, images):</p>
 <ul>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.0.9">📦 PyPI - Build 0.0.9</a></li>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/27">📌 ISSUE-27 - Minify CSS and JS</a></li>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/26">📌 ISSUE-26 - Code indentation error</a></li>
+<li>Verifies asset directories exist (css/, js/, img/)</li>
+<li>Checks required files are present</li>
+<li>Validates files are not empty</li>
+<li>Tests for favicon and logo</li>
 </ul>
-<h2 id="v008">v0.0.8</h2>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">def test_required_css_files_exist(assets_dir):
+    &quot;&quot;&quot;Test that required CSS files exist.&quot;&quot;&quot;
+    css_dir = assets_dir / 'css'
+    required_css = [
+        'bootstrap.min.css',
+        'main.min.css',
+        'root.min.css',
+    ]
+
+    for css_file in required_css:
+        assert (css_dir / css_file).exists()
+</code></pre>
+<h3 id="test_packagepy">test_package.py</h3>
+<p>Tests for package structure and metadata:</p>
 <ul>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.0.8">📦 PyPI - Build 0.0.8</a></li>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/22">📌 ISSUE-22 - Search</a></li>
+<li>Validates package structure</li>
+<li>Checks version and author metadata</li>
+<li>Verifies required files and directories</li>
 </ul>
-<h2 id="v007">v0.0.7</h2>
+<h2 id="running-tests">Running Tests</h2>
+<h3 id="all-tests">All Tests</h3>
+<pre><code class="language-bash">pytest
+</code></pre>
+<h3 id="with-verbose-output">With Verbose Output</h3>
+<pre><code class="language-bash">pytest -v
+</code></pre>
+<h3 id="specific-test-file">Specific Test File</h3>
+<pre><code class="language-bash">pytest tests/test_templates.py
+</code></pre>
+<h3 id="specific-test-function">Specific Test Function</h3>
+<pre><code class="language-bash">pytest tests/test_templates.py::test_base_template_renders
+</code></pre>
+<h3 id="with-coverage-report">With Coverage Report</h3>
+<pre><code class="language-bash">pytest --cov=mkdocs_simple_blog --cov-report=html
+</code></pre>
+<p>Open <code>htmlcov/index.html</code> in your browser to view the coverage report.</p>
+<h3 id="watch-mode-with-pytest-watch">Watch Mode (with pytest-watch)</h3>
+<pre><code class="language-bash">pip install pytest-watch
+ptw
+</code></pre>
+<h2 id="test-fixtures">Test Fixtures</h2>
+<p>The test suite uses pytest fixtures defined in <code>tests/conftest.py</code>:</p>
 <ul>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.0.7">📦 PyPI - Build 0.0.7</a></li>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/21">📌 ISSUE-21 - Fix the extra_javascript include in base.html</a></li>
+<li><code>temp_dir</code>: Temporary directory for test files</li>
+<li><code>mkdocs_config</code>: Minimal MkDocs configuration</li>
+<li><code>mock_page</code>: Mock page object</li>
+<li><code>theme_dir</code>: Path to theme directory</li>
+<li><code>template_env</code>: Jinja2 environment for templates</li>
+<li><code>modules_dir</code>: Path to modules directory</li>
+<li><code>assets_dir</code>: Path to assets directory</li>
 </ul>
-<h2 id="v006">v0.0.6</h2>
+<h2 id="writing-new-tests">Writing New Tests</h2>
+<p>When adding new features, follow these guidelines:</p>
+<ol>
+<li><strong>Create test files</strong> following the naming convention: <code>test_*.py</code></li>
+<li><strong>Use descriptive test names</strong>: <code>test_feature_name_behavior</code></li>
+<li><strong>Use fixtures</strong> from <code>conftest.py</code> when possible</li>
+<li><strong>Keep tests focused</strong>: Each test should verify one specific behavior</li>
+<li><strong>Add docstrings</strong>: Document what each test verifies</li>
+</ol>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">def test_new_feature_works(theme_dir):
+    &quot;&quot;&quot;Test that new feature works correctly.&quot;&quot;&quot;
+    feature_file = theme_dir / 'new_feature.html'
+
+    assert feature_file.exists()
+    # ... more assertions
+</code></pre>
+<h2 id="continuous-integration">Continuous Integration</h2>
+<p>Tests are automatically run via GitHub Actions on:</p>
 <ul>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.0.6">📦 PyPI - Build 0.0.6</a></li>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/16">📌 ISSUE-16 - Include option to add and remove components</a></li>
+<li>Every push to <code>main</code>, <code>develop</code>, <code>master</code>, and <code>pypi</code> branches</li>
+<li>Every pull request targeting these branches</li>
+<li>Manual triggers via <code>workflow_dispatch</code></li>
+<li>As a dependency before package publication</li>
 </ul>
-<h2 id="v005">v0.0.5</h2>
+<h3 id="ci-test-matrix">CI Test Matrix</h3>
+<p>The CI pipeline tests the project across multiple Python versions:</p>
 <ul>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.0.5">📦 PyPI - Build 0.0.5</a></li>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/13">📌 ISSUE-13 - Inclusion option to preview next and previous post</a></li>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/7">📌 ISSUE-7 - Add additional theme settings</a></li>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/5">📌 ISSUE-5 - Adjust blog interface for mobile devices</a></li>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/2">📌 ISSUE-2 - Create dark mode and other color options</a></li>
+<li>Python 3.9</li>
+<li>Python 3.10</li>
+<li>Python 3.11</li>
+<li>Python 3.12</li>
+<li>Python 3.13</li>
+<li>Python 3.14</li>
 </ul>
-<h2 id="v004">v0.0.4</h2>
+<h3 id="ci-workflow-features">CI Workflow Features</h3>
 <ul>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.0.4">📦 PyPI - Build 0.0.4</a></li>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/1">📌 ISSUE-1 - Create custom menu</a></li>
+<li>Automatic dependency caching for faster builds</li>
+<li>Coverage reports generated for each run</li>
+<li>Test summaries available in GitHub Actions</li>
+<li>Parallel execution across Python versions</li>
 </ul>
-<h2 id="v003">v0.0.3</h2>
+<p>See <code>.github/workflows/test.yml</code> for the complete CI configuration.</p>
+<h2 id="test-coverage">Test Coverage</h2>
+<p>Current test coverage includes:</p>
 <ul>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.0.3">📦 PyPI - Build 0.0.3</a></li>
+<li>✅ Theme configuration validation</li>
+<li>✅ Template rendering</li>
+<li>✅ Module structure</li>
+<li>✅ Asset files</li>
+<li>✅ Package metadata</li>
 </ul>
-<h2 id="v002">v0.0.2</h2>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="import-errors">Import Errors</h3>
+<p>If you encounter import errors, ensure all dependencies are installed:</p>
+<pre><code class="language-bash">pip install -e &quot;.[dev]&quot;
+</code></pre>
+<h3 id="template-rendering-errors">Template Rendering Errors</h3>
+<p>Template tests require proper Jinja2 environment setup. The <code>template_env</code> fixture handles this automatically.</p>
+<h3 id="missing-files">Missing Files</h3>
+<p>If tests fail due to missing files, ensure you're running tests from the project root directory.</p>
+<h2 id="best-practices">Best Practices</h2>
+<ol>
+<li><strong>Run tests before committing</strong>: <code>pytest</code></li>
+<li><strong>Maintain high coverage</strong>: Aim for &gt;80% coverage</li>
+<li><strong>Fix failing tests immediately</strong>: Don't commit broken tests</li>
+<li><strong>Update tests with features</strong>: Add tests for new functionality</li>
+<li><strong>Keep tests fast</strong>: Use mocks for slow operations</li>
+</ol>
+<hr />
+<h2 id="additional-resources">Additional Resources</h2>
 <ul>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.0.2">📦 PyPI - Build 0.0.2</a></li>
-</ul>
-<h2 id="v001">v0.0.1</h2>
-<ul>
-<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.0.1">📦 PyPI - Build 0.0.1</a></li>
+<li><a href="https://docs.pytest.org/">pytest Documentation</a></li>
+<li><a href="https://pytest-cov.readthedocs.io/">pytest-cov Documentation</a></li>
+<li><a href="https://jinja.palletsprojects.com/">Jinja2 Documentation</a></li>
 </ul></p>
     </article>
 </section>
@@ -407,13 +533,13 @@
                     <!-- block preview -->
     <div class="preview row row-cols-md-3 text-center pt-md-3" id="component-preview">
         <div class="col themed-grid-col">
-            <a rel="prev" href="../testing/" class="nav-link">
+            <a rel="prev" href="../development-guide/" class="nav-link">
                 <i class="fa fa-arrow-left"></i> Previous
             </a>
         </div>
         <div class="col themed-grid-col"></div>
         <div class="col themed-grid-col">
-            <a rel="next" class="nav-link disabled">
+            <a rel="next" href="../release-notes/" class="nav-link">
                 Next <i class="fa fa-arrow-right"></i>
             </a>
         </div>

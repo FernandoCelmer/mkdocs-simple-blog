@@ -17,6 +17,8 @@
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
                 <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/base16/grayscale-dark.min.css">
                 <script>hljs.highlightAll();</script>
+
+        <script>var base_url = '../../..';</script>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -31,6 +33,7 @@
             
                 
             
+          
     </head>
 
     <body>
@@ -129,6 +132,11 @@
         <a href="../../styles/logo/" class="dropdown-item text-decoration-none ">Logo</a>
     </li>
 <!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../../styles/fonts/" class="dropdown-item text-decoration-none ">Fonts</a>
+    </li>
+<!-- endblock -->
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -138,6 +146,11 @@
                                     <!-- block dropdown-menu -->
     <li>
         <a href="./" class="dropdown-item text-decoration-none  active ">Development guide</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../testing/" class="dropdown-item text-decoration-none ">Testing</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
@@ -244,6 +257,18 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-bs-level="2"><a href="#running-unit-tests" class="nav-link">Running Unit Tests</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#code-quality" class="nav-link">Code Quality</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#publishing" class="nav-link">Publishing</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
             <li class="nav-item" data-bs-level="2"><a href="#commit-style" class="nav-link">Commit Style</a>
               <ul class="nav flex-column">
               </ul>
@@ -268,7 +293,7 @@
             
         </header>
         <p><h1 id="development-guide">Development guide</h1>
-<p>Last updated January 28, 2024</p>
+<p>Last updated February 4, 2025</p>
 <hr />
 <h2 id="how-to-test-the-local-package">How to test the local package?</h2>
 <h4 id="virtual-environment">Virtual environment</h4>
@@ -312,6 +337,135 @@
 <li>Now you can access the <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a></li>
 </ul>
 <hr />
+<h2 id="running-unit-tests">Running Unit Tests</h2>
+<p>The project includes a comprehensive test suite to ensure code quality and functionality.</p>
+<h3 id="install-test-dependencies">Install Test Dependencies</h3>
+<p>First, install the development dependencies:</p>
+<pre><code class="language-bash">pip install -e &quot;.[dev]&quot;
+</code></pre>
+<p>Or using poetry:</p>
+<pre><code class="language-bash">poetry install
+</code></pre>
+<h3 id="run-all-tests">Run All Tests</h3>
+<p>Execute all tests with:</p>
+<pre><code class="language-bash">pytest
+</code></pre>
+<h3 id="run-tests-with-coverage">Run Tests with Coverage</h3>
+<p>Generate a coverage report:</p>
+<pre><code class="language-bash">pytest --cov=mkdocs_simple_blog --cov-report=html
+</code></pre>
+<p>The HTML coverage report will be available in <code>htmlcov/index.html</code>.</p>
+<h3 id="run-specific-tests">Run Specific Tests</h3>
+<p>You can run specific test files or individual tests:</p>
+<pre><code class="language-bash"># Run only template tests
+pytest tests/test_templates.py
+
+# Run only configuration tests
+pytest tests/test_theme_config.py
+
+# Run a specific test
+pytest tests/test_templates.py::test_base_template_renders
+</code></pre>
+<h3 id="test-structure">Test Structure</h3>
+<p>The test suite is organized into the following modules:</p>
+<ul>
+<li><strong>test_theme_config.py</strong>: Tests for theme configuration and YAML files</li>
+<li><strong>test_templates.py</strong>: Tests for Jinja2 template rendering</li>
+<li><strong>test_modules.py</strong>: Tests for theme module files</li>
+<li><strong>test_assets.py</strong>: Tests for CSS, JS, and image assets</li>
+<li><strong>test_package.py</strong>: Tests for package structure and metadata</li>
+</ul>
+<h3 id="verbose-output">Verbose Output</h3>
+<p>For more detailed output, use the <code>-v</code> flag:</p>
+<pre><code class="language-bash">pytest -v
+</code></pre>
+<h3 id="continuous-integration">Continuous Integration</h3>
+<p>Tests are automatically run on every push and pull request via GitHub Actions. The CI pipeline:</p>
+<ul>
+<li>Runs tests on Python versions 3.9 through 3.14</li>
+<li>Generates coverage reports</li>
+<li>Executes on pushes to <code>main</code>, <code>develop</code>, <code>master</code>, and <code>pypi</code> branches</li>
+<li>Can be triggered manually via <code>workflow_dispatch</code></li>
+</ul>
+<p>See <code>.github/workflows/test.yml</code> for the CI configuration.</p>
+<hr />
+<h2 id="code-quality">Code Quality</h2>
+<p>The project uses several code quality tools to maintain high standards:</p>
+<h3 id="tools">Tools</h3>
+<ul>
+<li><strong>Ruff</strong>: Fast Python linter and formatter</li>
+<li><strong>Flake8</strong>: Style guide enforcement (PEP 8)</li>
+<li><strong>MyPy</strong>: Static type checking</li>
+</ul>
+<h3 id="running-code-quality-checks-locally">Running Code Quality Checks Locally</h3>
+<p>Install code quality dependencies:</p>
+<pre><code class="language-bash">poetry install --with code-quality
+</code></pre>
+<p>Or using pip:</p>
+<pre><code class="language-bash">pip install -e &quot;.[code-quality]&quot;
+</code></pre>
+<h3 id="ruff-linting-and-formatting">Ruff (Linting and Formatting)</h3>
+<p>Check for linting issues:</p>
+<pre><code class="language-bash">ruff check --config=.code_quality/ruff.toml mkdocs_simple_blog/ tests/
+</code></pre>
+<p>Format code:</p>
+<pre><code class="language-bash">ruff format --config=.code_quality/ruff.toml mkdocs_simple_blog/ tests/
+</code></pre>
+<h3 id="flake8">Flake8</h3>
+<p>Run Flake8 checks:</p>
+<pre><code class="language-bash">flake8 --config=.code_quality/.flake8 mkdocs_simple_blog/ tests/
+</code></pre>
+<h3 id="mypy-type-checking">MyPy (Type Checking)</h3>
+<p>Run type checking:</p>
+<pre><code class="language-bash">mypy --config-file=.code_quality/mypy.ini mkdocs_simple_blog/ tests/
+</code></pre>
+<h3 id="code-quality-in-cicd">Code Quality in CI/CD</h3>
+<p>Code quality checks are automatically run:</p>
+<ul>
+<li>On every push and pull request</li>
+<li>For Python versions 3.9 through 3.14</li>
+<li>Before package publication</li>
+</ul>
+<p>See <code>.github/workflows/code-quality.yml</code> for the CI configuration.</p>
+<h3 id="configuration-files">Configuration Files</h3>
+<p>All code quality configurations are in the <code>.code_quality/</code> directory:</p>
+<ul>
+<li><code>.code_quality/ruff.toml</code> - Ruff configuration</li>
+<li><code>.code_quality/.flake8</code> - Flake8 configuration</li>
+<li><code>.code_quality/mypy.ini</code> - MyPy configuration</li>
+</ul>
+<hr />
+<h2 id="publishing">Publishing</h2>
+<h3 id="publishing-to-testpypi">Publishing to TestPyPI</h3>
+<p>The package is automatically published to TestPyPI when changes are pushed to the <code>pypi</code> branch. The publishing workflow:</p>
+<ol>
+<li>Runs all tests (Python 3.9-3.14)</li>
+<li>Runs code quality checks</li>
+<li>Builds the package</li>
+<li>Publishes to TestPyPI</li>
+</ol>
+<p>See <code>.github/workflows/python-publish-pypi-test.yml</code> for the configuration.</p>
+<h3 id="publishing-to-pypi">Publishing to PyPI</h3>
+<p>The package is automatically published to PyPI when a new release is published on GitHub. The publishing workflow:</p>
+<ol>
+<li>Runs all tests (Python 3.9-3.14)</li>
+<li>Runs code quality checks</li>
+<li>Builds the package</li>
+<li>Publishes to PyPI</li>
+</ol>
+<p>See <code>.github/workflows/python-publish-pypi.yml</code> for the configuration.</p>
+<h3 id="manual-publishing">Manual Publishing</h3>
+<p>To publish manually:</p>
+<pre><code class="language-bash"># Build the package
+python -m build
+
+# Publish to TestPyPI
+twine upload --repository testpypi dist/*
+
+# Publish to PyPI
+twine upload dist/*
+</code></pre>
+<hr />
 <h2 id="commit-style">Commit Style</h2>
 <ul>
 <li>⚙️ FEATURE</li>
@@ -341,13 +495,13 @@
                     <!-- block preview -->
     <div class="preview row row-cols-md-3 text-center pt-md-3" id="component-preview">
         <div class="col themed-grid-col">
-            <a rel="prev" href="../../styles/logo/" class="nav-link">
+            <a rel="prev" href="../../styles/fonts/" class="nav-link">
                 <i class="fa fa-arrow-left"></i> Previous
             </a>
         </div>
         <div class="col themed-grid-col"></div>
         <div class="col themed-grid-col">
-            <a rel="next" href="../release-notes/" class="nav-link">
+            <a rel="next" href="../testing/" class="nav-link">
                 Next <i class="fa fa-arrow-right"></i>
             </a>
         </div>
@@ -378,7 +532,6 @@
             
         </div>
 
-            <script>var base_url = '../../..';</script>
             <script src="../../../assets/js/jquery-3.3.1.slim.min.js""></script>
             <script src="../../../assets/js/bootstrap.bundle.min.js""></script>
             <script src="../../../assets/js/main.min.js""></script>

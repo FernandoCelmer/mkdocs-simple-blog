@@ -17,6 +17,8 @@
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
                 <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/base16/grayscale-dark.min.css">
                 <script>hljs.highlightAll();</script>
+
+        <script>var base_url = '.';</script>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -31,6 +33,7 @@
             
                 
             
+          
     </head>
 
     <body>
@@ -129,6 +132,11 @@
         <a href="nav/styles/logo/" class="dropdown-item text-decoration-none ">Logo</a>
     </li>
 <!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="nav/styles/fonts/" class="dropdown-item text-decoration-none ">Fonts</a>
+    </li>
+<!-- endblock -->
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -138,6 +146,11 @@
                                     <!-- block dropdown-menu -->
     <li>
         <a href="nav/development/development-guide/" class="dropdown-item text-decoration-none ">Development guide</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="nav/development/testing/" class="dropdown-item text-decoration-none ">Testing</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
@@ -260,6 +273,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-bs-level="2"><a href="#cicd-status" class="nav-link">CI/CD Status</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
             <li class="nav-item" data-bs-level="2"><a href="#getting-help" class="nav-link">Getting Help</a>
               <ul class="nav flex-column">
               </ul>
@@ -309,20 +326,49 @@ docs/
 <pre><code class="language-bash">pip install mkdocs
 </code></pre>
 <h2 id="installation-theme">Installation theme</h2>
-<p>Install the theme using PIP:</p>
+<h3 id="using-pip">Using pip</h3>
+<p>Install the theme using pip:</p>
 <pre><code class="language-bash">pip install mkdocs-simple-blog
 </code></pre>
+<h3 id="using-poetry">Using Poetry</h3>
+<p>Install the theme using Poetry:</p>
+<pre><code class="language-bash">poetry add mkdocs-simple-blog
+</code></pre>
+<h3 id="development-installation">Development Installation</h3>
+<p>Install from source for development:</p>
+<pre><code class="language-bash">git clone https://github.com/FernandoCelmer/mkdocs-simple-blog.git
+cd mkdocs-simple-blog
+pip install -e &quot;.[dev]&quot;
+</code></pre>
+<p>Or using Poetry:</p>
+<pre><code class="language-bash">git clone https://github.com/FernandoCelmer/mkdocs-simple-blog.git
+cd mkdocs-simple-blog
+poetry install --with dev
+</code></pre>
+<blockquote>
+<p><strong>Note</strong>: The <code>[dev]</code> extra includes development dependencies like pytest, pytest-cov, and pytest-mock for running tests.</p>
+<p><strong>Note</strong>: For code quality tools (ruff, flake8, mypy), use <code>pip install -e ".[code-quality]"</code> or <code>poetry install --with code-quality</code>.</p>
+</blockquote>
 <h2 id="activating-theme">Activating theme</h2>
 <p>After the theme is installed, edit your <code>mkdocs.yml</code> file and set the theme name to <code>simple-blog</code>:</p>
 <pre><code class="language-yml">theme:
     name: simple-blog
 </code></pre>
+<h2 id="cicd-status">CI/CD Status</h2>
+<p>This project uses GitHub Actions for continuous integration and deployment:</p>
+<ul>
+<li>🧪 <strong>Tests</strong>: Automatically run on every push and pull request across Python 3.9-3.14</li>
+<li>🔍 <strong>Code Quality</strong>: Ruff, Flake8, and MyPy checks ensure code standards</li>
+<li>📦 <strong>Publishing</strong>: Automatic publishing to TestPyPI and PyPI with dependency checks</li>
+</ul>
+<p>All workflows ensure that only tested and validated code is published.</p>
 <h2 id="getting-help">Getting Help</h2>
 <p>We use GitHub issues for tracking bugs and feature requests and have limited bandwidth to address them. If you need anything, I ask you to please follow our templates for opening issues or discussions.</p>
 <ul>
 <li>🐛 <a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/new/choose">Bug Report</a></li>
 <li>📕 <a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/new/choose">Documentation Issue</a></li>
 <li>🚀 <a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/new/choose">Feature Request</a></li>
+<li>⚠️ <a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/new/choose">Security Request</a></li>
 <li>💬 <a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/new/choose">General Question</a></li>
 </ul>
 <h2 id="commit-style">Commit Style</h2>
@@ -391,7 +437,6 @@ docs/
             
         </div>
 
-            <script>var base_url = '.';</script>
             <script src="assets/js/jquery-3.3.1.slim.min.js""></script>
             <script src="assets/js/bootstrap.bundle.min.js""></script>
             <script src="assets/js/main.min.js""></script>
