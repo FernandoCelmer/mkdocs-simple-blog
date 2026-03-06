@@ -18,32 +18,11 @@ jobs:
       - name: 📥 Checkout code
         uses: actions/checkout@v4
 
-      - name: 🐍 Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
+      - name: 📦 Setup Poetry
+        uses: ./.github/actions/setup-poetry
         with:
           python-version: ${{ matrix.python-version }}
-          allow-prereleases: true
-
-      - name: 📦 Install Poetry
-        uses: snok/install-poetry@v1
-        with:
-          version: latest
-          virtualenvs-create: true
-          virtualenvs-in-project: true
-
-      - name: 💾 Cache Poetry dependencies
-        uses: actions/cache@v4
-        with:
-          path: |
-            .venv
-            ~/.cache/pypoetry
-          key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-poetry-
-
-      - name: ⚙️ Install dependencies
-        run: |
-          poetry install --with dev,code-quality --no-interaction --no-ansi
+          install-deps: dev,code-quality
 
       - name: 🔍 Ruff (Linting)
         run: |

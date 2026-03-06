@@ -1,0 +1,40 @@
+name: Update Version
+description: Update version in all version files
+
+inputs:
+  version:
+    description: Version to set
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: 📝 Update LAST_VERSION
+      shell: bash
+      run: |
+        echo "${{ inputs.version }}" > LAST_VERSION
+
+    - name: 📝 Update pyproject.toml
+      shell: bash
+      run: |
+        VERSION="${{ inputs.version }}"
+        sed -i '/^\[project\]/,/^\[/s/^version = ".*"/version = "'"$VERSION"'"/' pyproject.toml
+        sed -i '/^\[tool\.poetry\]/,/^\[/s/^version = ".*"/version = "'"$VERSION"'"/' pyproject.toml
+
+    - name: 📝 Update __init__.py
+      shell: bash
+      run: |
+        VERSION="${{ inputs.version }}"
+        sed -i "s/^__version__ = \".*\"/__version__ = \"$VERSION\"/" mkdocs_simple_blog/__init__.py
+
+    - name: 🔍 Verify changes
+      shell: bash
+      run: |
+        echo "=== LAST_VERSION ==="
+        cat LAST_VERSION
+        echo ""
+        echo "=== pyproject.toml version ==="
+        grep "^version = " pyproject.toml | head -2
+        echo ""
+        echo "=== __init__.py version ==="
+        grep "^__version__ = " mkdocs_simple_blog/__init__.py
