@@ -8,7 +8,7 @@ inputs:
   poetry-version:
     description: Poetry version to install
     required: false
-    default: latest
+    default: 1.8.3
   install-deps:
     description: Dependencies groups to install (e.g., dev,code-quality)
     required: false
