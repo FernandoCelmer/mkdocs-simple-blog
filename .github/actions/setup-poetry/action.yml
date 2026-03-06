@@ -40,6 +40,11 @@ runs:
         restore-keys: |
           ${{ runner.os }}-poetry-
 
+    - name: 🔒 Update lock file if needed
+      shell: bash
+      run: |
+        poetry lock --no-update || true
+
     - name: ⚙️ Install dependencies
       if: inputs.install-deps != ''
       shell: bash
