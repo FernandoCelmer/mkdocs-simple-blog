@@ -5,35 +5,139 @@ on:
     types: [published]
 
 permissions:
-  contents: read
+  contents: write
   id-token: write
 
 jobs:
+  update-version:
+    name: Update Version Files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🔍 Determine branch
+        id: get_branch
+        run: |
+          TARGET="${{ github.event.release.target_commitish }}"
+          BRANCH="${TARGET#refs/heads/}"
+          BRANCH="${BRANCH#refs/tags/}"
+
+          if git rev-parse --verify "$BRANCH"^{tag} >/dev/null 2>&1 2>&1 || [[ "$TARGET" == refs/tags/* ]]; then
+            git fetch --all --tags
+            TAG_NAME="${TARGET#refs/tags/}"
+            BRANCH=$(git branch -r --contains "$TAG_NAME" | grep -E "(main|master)" | head -1 | sed 's|origin/||' | xargs || \
+                     git branch -r --contains "$TAG_NAME" | head -1 | sed 's|origin/||' | xargs || \
+                     echo "master")
+          fi
+
+          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+          echo "Using branch: $BRANCH"
+
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ steps.get_branch.outputs.branch }}
+          fetch-depth: 0
+
+      - name: 🔍 Extract version from tag
+        id: extract_version
+        run: |
+          VERSION="${{ github.event.release.tag_name }}"
+          VERSION="${VERSION#v}"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Tag: ${{ github.event.release.tag_name }}"
+          echo "Version: $VERSION"
+
+      - name: 📝 Update LAST_VERSION
+        run: |
+          echo "${{ steps.extract_version.outputs.version }}" > LAST_VERSION
+
+      - name: 📝 Update pyproject.toml
+        run: |
+          VERSION="${{ steps.extract_version.outputs.version }}"
+          sed -i '/^\[project\]/,/^\[/s/^version = ".*"/version = "'"$VERSION"'"/' pyproject.toml
+          sed -i '/^\[tool\.poetry\]/,/^\[/s/^version = ".*"/version = "'"$VERSION"'"/' pyproject.toml
+
+      - name: 📝 Update __init__.py
+        run: |
+          VERSION="${{ steps.extract_version.outputs.version }}"
+          sed -i "s/^__version__ = \".*\"/__version__ = \"$VERSION\"/" mkdocs_simple_blog/__init__.py
+
+      - name: 💾 Commit and push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add LAST_VERSION pyproject.toml mkdocs_simple_blog/__init__.py
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "📦 PyPI: Update version to ${{ steps.extract_version.outputs.version }}"
+            git push origin ${{ steps.get_branch.outputs.branch }}
+          fi
+
   test:
     name: Run Tests
+    needs: [update-version]
     uses: ./.github/workflows/test.yml
     secrets: inherit
 
   code-quality:
     name: Code Quality Checks
+    needs: [update-version]
     uses: ./.github/workflows/code-quality.yml
     secrets: inherit
 
   deploy:
-    needs: [test, code-quality]
+    name: Deploy to PyPI
+    needs: [update-version, test, code-quality]
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: ⚙️ Set up Python 3.10
-      uses: actions/setup-python@v5
-      with:
-        python-version: "3.10"
-    - name: ⚙️ Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install build --no-cache-dir
-    - name: 📦 Build Package
-      run: python -m build
-    - name: 📦 Publish Package to PyPI
-      uses: pypa/gh-action-pypi-publish@release/v1
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🔍 Determine branch
+        id: get_branch_deploy
+        run: |
+          TARGET="${{ github.event.release.target_commitish }}"
+          BRANCH="${TARGET#refs/heads/}"
+          BRANCH="${BRANCH#refs/tags/}"
+
+          if [[ "$TARGET" == refs/tags/* ]] || git rev-parse --verify "$BRANCH"^{tag} >/dev/null 2>&1; then
+            TAG_NAME="${TARGET#refs/tags/}"
+            BRANCH=$(git branch -r --contains "$TAG_NAME" | grep -E "(main|master)" | head -1 | sed 's|origin/||' | xargs || \
+                     git branch -r --contains "$TAG_NAME" | head -1 | sed 's|origin/||' | xargs || \
+                     echo "master")
+          fi
+
+          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+          echo "Using branch: $BRANCH"
+
+      - name: 🔄 Checkout branch and pull latest
+        run: |
+          git checkout ${{ steps.get_branch_deploy.outputs.branch }}
+          git pull origin ${{ steps.get_branch_deploy.outputs.branch }}
+
+      - name: 🔍 Verify version
+        run: |
+          EXPECTED="${{ github.event.release.tag_name }}"
+          EXPECTED="${EXPECTED#v}"
+          echo "Expected version: $EXPECTED"
+          echo "LAST_VERSION: $(cat LAST_VERSION)"
+          echo "pyproject.toml: $(grep '^version = ' pyproject.toml | head -1)"
+          echo "__init__.py: $(grep '^__version__ = ' mkdocs_simple_blog/__init__.py)"
+
+          if [ "$(cat LAST_VERSION)" != "$EXPECTED" ]; then
+            echo "ERROR: Version mismatch!"
+            exit 1
+          fi
+
+      - name: 📦 Build Package
+        uses: ./.github/actions/build-package
+        with:
+          python-version: "3.10"
+
+      - name: 📦 Publish Package to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
