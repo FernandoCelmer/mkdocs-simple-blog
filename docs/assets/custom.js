@@ -94,26 +94,35 @@ document.addEventListener("DOMContentLoaded", function () {
   var sidebarTrue = document.getElementById("sidebar-true");
   if (sidebarTrue) {
     sidebarTrue.addEventListener("click", function () {
-      document.getElementById("component-sidebar").style.display = null;
-      document
-        .getElementById("component-sidebar")
-        .classList.replace("col-0", "col-3");
-      document
-        .getElementById("component-content")
-        .classList.replace("col-12", "col-9");
+      var sidebar = document.getElementById("component-sidebar");
+      var content = document.getElementById("component-content");
+      if (sidebar) {
+        sidebar.style.display = "";
+        sidebar.classList.remove("d-none");
+        sidebar.classList.add("d-md-block", "col-md-3");
+        sidebar.classList.remove("col-0");
+      }
+      if (content) {
+        content.classList.remove("col-12");
+        content.classList.add("col-md-9");
+      }
     });
   }
 
   var sidebarFalse = document.getElementById("sidebar-false");
   if (sidebarFalse) {
     sidebarFalse.addEventListener("click", function () {
-      document.getElementById("component-sidebar").style.display = "none";
-      document
-        .getElementById("component-sidebar")
-        .classList.replace("col-3", "col-0");
-      document
-        .getElementById("component-content")
-        .classList.replace("col-9", "col-12");
+      var sidebar = document.getElementById("component-sidebar");
+      var content = document.getElementById("component-content");
+      if (sidebar) {
+        sidebar.style.display = "none";
+        sidebar.classList.add("d-none");
+        sidebar.classList.remove("d-md-block", "col-md-3");
+      }
+      if (content) {
+        content.classList.remove("col-md-9");
+        content.classList.add("col-12");
+      }
     });
   }
 });
