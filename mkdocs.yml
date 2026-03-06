@@ -20,6 +20,7 @@ nav:
       - nav/styles/colors.md
       - nav/styles/logo.md
       - nav/styles/fonts.md
+      - nav/styles/metadata.md
     - Development:
       - nav/development/development-guide.md
       - nav/development/testing.md
