@@ -12,6 +12,10 @@ The sidebar displays the **Table of Contents (TOC)** of the current page, showin
 
 - Default: false
 
+### Configuration
+
+Configure the sidebar in your `mkdocs.yml`:
+
 ```yml
 theme:
   sidebar: false
@@ -32,6 +36,7 @@ theme:
 ```
 
 This means headings up to level 2 (`##`) will be shown. For example:
+
 - `# Heading 1` - Always shown
 - `## Heading 2` - Shown (if navigation_depth >= 2)
 - `### Heading 3` - Shown (if navigation_depth >= 3)
