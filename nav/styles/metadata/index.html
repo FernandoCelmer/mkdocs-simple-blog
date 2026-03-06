@@ -2,7 +2,7 @@
 <html data-bs-theme="light">
 
 <head>
-    <title>Highlightjs - MkDocs Simple Blog
+    <title>Page Metadata - MkDocs Simple Blog
     </title>
 
     <meta charset="utf-8">
@@ -11,7 +11,7 @@
 
     
     
-    <link rel="canonical" href="https://www.fernandocelmer.com/nav/styles/highlightjs/">
+    <link rel="canonical" href="https://www.fernandocelmer.com/nav/styles/metadata/">
     
 
     
@@ -118,7 +118,7 @@
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="./" class="dropdown-item text-decoration-none  active ">Highlightjs</a>
+        <a href="../highlightjs/" class="dropdown-item text-decoration-none ">Highlightjs</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
@@ -143,7 +143,7 @@
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../metadata/" class="dropdown-item text-decoration-none ">Page Metadata</a>
+        <a href="./" class="dropdown-item text-decoration-none  active ">Page Metadata</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -260,17 +260,33 @@
     <div class="sidebar navbar-collapse collapse card">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#highlightjs" class="nav-link">Highlightjs</a>
+            <li class="nav-item" data-bs-level="1"><a href="#page-metadata" class="nav-link">Page Metadata</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#enable-and-disable" class="nav-link">Enable and Disable</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#highlightjs-with-languages" class="nav-link">Highlightjs with languages</a>
+            <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#supported-languages" class="nav-link">Supported Languages</a>
+            <li class="nav-item" data-bs-level="2"><a href="#supported-metadata-fields" class="nav-link">Supported Metadata Fields</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#usage" class="nav-link">Usage</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#social-media-integration" class="nav-link">Social Media Integration</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#example" class="nav-link">Example</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#benefits" class="nav-link">Benefits</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#notes" class="nav-link">Notes</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -289,30 +305,81 @@
             
             
         </header>
-        <p><h1 id="highlightjs">Highlightjs</h1>
-<p>January 28, 2025</p>
+        <p><h1 id="page-metadata">Page Metadata</h1>
+<p>March 06, 2026</p>
 <hr />
-<h2 id="enable-and-disable">Enable and Disable</h2>
+<h2 id="overview">Overview</h2>
+<p>The theme supports page metadata through MkDocs' built-in <code>page.meta</code> property. This allows you to add metadata to your Markdown files using YAML frontmatter, which will be automatically rendered as meta tags in the HTML head section. This is particularly useful for social media previews and SEO.</p>
+<h2 id="supported-metadata-fields">Supported Metadata Fields</h2>
+<p>You can add the following metadata fields to your Markdown files:</p>
 <ul>
-<li>Default: false</li>
+<li><code>title</code> - Custom page title for meta tags</li>
+<li><code>description</code> - Page description for meta tags and social media previews</li>
+<li><code>author</code> - Author of the page</li>
+<li><code>date</code> - Publication date</li>
+<li><code>image</code> - Image URL for social media previews</li>
 </ul>
-<pre><code class="language-yml">theme:
-  highlightjs: false
+<h2 id="usage">Usage</h2>
+<p>Add YAML frontmatter to the top of your Markdown files:</p>
+<pre><code class="language-markdown">---
+title: My Amazing Article
+description: A detailed description of the article content
+author: John Doe
+date: 2025-01-15
+image: assets/article-image.png
+---
+
+# Article Content
+
+Your article content goes here...
 </code></pre>
-<h2 id="highlightjs-with-languages">Highlightjs with languages</h2>
-<pre><code class="language-yml">theme:
-  highlightjs: true
-  hljs_languages:
-    - yaml
-    - python
-</code></pre>
-<h2 id="supported-languages">Supported Languages</h2>
-<p>The theme supports syntax highlighting for multiple languages. Currently configured:</p>
+<h2 id="social-media-integration">Social Media Integration</h2>
+<p>The theme automatically generates meta tags for:</p>
+<h3 id="open-graph-facebook-linkedin">Open Graph (Facebook, LinkedIn)</h3>
 <ul>
-<li><strong>YAML</strong>: For configuration files</li>
-<li><strong>Python</strong>: For code examples and scripts</li>
+<li><code>og:title</code> - Article title</li>
+<li><code>og:description</code> - Article description</li>
+<li><code>og:image</code> - Preview image</li>
+<li><code>og:url</code> - Canonical URL</li>
+<li><code>og:type</code> - Set to "article"</li>
+<li><code>og:site_name</code> - Site name from config</li>
 </ul>
-<p>To add more languages, add them to the <code>hljs_languages</code> list in <code>mkdocs.yml</code>.</p></p>
+<h3 id="twitter-cards">Twitter Cards</h3>
+<ul>
+<li><code>twitter:title</code> - Article title</li>
+<li><code>twitter:description</code> - Article description</li>
+<li><code>twitter:image</code> - Preview image</li>
+<li><code>twitter:card</code> - Set to "summary_large_image"</li>
+</ul>
+<h2 id="example">Example</h2>
+<p>Here's a complete example of a Markdown file with metadata:</p>
+<pre><code class="language-markdown">---
+title: Getting Started with MkDocs Simple Blog
+description: Learn how to set up and customize the MkDocs Simple Blog theme for your documentation site
+author: Fernando Celmer
+date: 2025-01-15
+image: assets/getting-started.png
+---
+
+# Getting Started
+
+This guide will help you get started with the theme...
+</code></pre>
+<p>When this page is shared on social media, it will display a rich preview card with the title, description, and image you specified.</p>
+<h2 id="benefits">Benefits</h2>
+<ul>
+<li><strong>Better Social Media Previews</strong>: Links shared on Facebook, Twitter, and LinkedIn will show rich previews with your custom title, description, and image</li>
+<li><strong>Improved SEO</strong>: Search engines can better understand your content through structured metadata</li>
+<li><strong>Professional Appearance</strong>: Your shared links will look more polished and professional</li>
+<li><strong>Easy to Use</strong>: Simply add YAML frontmatter to your Markdown files - no additional configuration needed</li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>All metadata fields are optional - only include the fields you need</li>
+<li>Image paths are relative to your <code>docs</code> directory</li>
+<li>The <code>date</code> field should be in ISO format (YYYY-MM-DD) for best compatibility</li>
+<li>If <code>description</code> is not provided, the theme will use the site description from <code>mkdocs.yml</code> for the homepage only</li>
+</ul></p>
     </article>
 </section>
 <!-- endblock -->
@@ -327,13 +394,13 @@
         <!-- block preview -->
     <div class="preview row row-cols-md-3 text-center pt-md-3" id="component-preview">
         <div class="col themed-grid-col">
-            <a rel="prev" href="../../components/standard-title/" class="nav-link">
+            <a rel="prev" href="../fonts/" class="nav-link">
                 <i class="fa fa-arrow-left"></i> Previous
             </a>
         </div>
         <div class="col themed-grid-col"></div>
         <div class="col themed-grid-col">
-            <a rel="next" href="../favicon/" class="nav-link">
+            <a rel="next" href="../../development/development-guide/" class="nav-link">
                 Next <i class="fa fa-arrow-right"></i>
             </a>
         </div>
