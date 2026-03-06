@@ -4,6 +4,12 @@ December 13, 2025
 
 ---
 
+## v0.4.0
+
+- [📦 PyPI - Build 0.4.0](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.4.0)
+- [📌 Documentation for editing sidebar](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/52)
+- [📌 Add page metadata from builtin page.meta property inside template](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/53)
+
 ## v0.3.0
 
 - [📦 PyPI - Build 0.3.0](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.3.0)
