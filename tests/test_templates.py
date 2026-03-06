@@ -176,7 +176,7 @@ def test_base_template_bootstrap_included(template_env, mkdocs_config):
 
 
 def test_base_template_includes_page_metadata(template_env, mkdocs_config):
-    """Test that base.html includes page metadata tags when page.meta is present."""
+    """Test base.html includes page metadata tags when page.meta exists."""
     try:
         template = template_env.get_template("base.html")
 
@@ -212,24 +212,29 @@ def test_base_template_includes_page_metadata(template_env, mkdocs_config):
 
         html = template.render(**context)
 
-        # Check for basic meta tags
         assert 'name="title"' in html, "Should include title meta tag"
-        assert 'content="Custom Page Title"' in html, "Should include custom title"
-        assert 'name="description"' in html, "Should include description meta tag"
+        assert (
+            'content="Custom Page Title"' in html
+        ), "Should include custom title"
+        assert (
+            'name="description"' in html
+        ), "Should include description meta tag"
         assert 'name="author"' in html, "Should include author meta tag"
         assert 'content="John Doe"' in html, "Should include author content"
         assert 'name="date"' in html, "Should include date meta tag"
 
-        # Check for Open Graph tags
         assert 'property="og:title"' in html, "Should include og:title"
-        assert 'property="og:description"' in html, "Should include og:description"
+        assert (
+            'property="og:description"' in html
+        ), "Should include og:description"
         assert 'property="og:type"' in html, "Should include og:type"
         assert 'property="og:url"' in html, "Should include og:url"
         assert 'property="og:image"' in html, "Should include og:image"
 
-        # Check for Twitter Card tags
         assert 'name="twitter:title"' in html, "Should include twitter:title"
-        assert 'name="twitter:description"' in html, "Should include twitter:description"
+        assert (
+            'name="twitter:description"' in html
+        ), "Should include twitter:description"
         assert 'name="twitter:card"' in html, "Should include twitter:card"
         assert 'name="twitter:image"' in html, "Should include twitter:image"
     except TemplateNotFound:
