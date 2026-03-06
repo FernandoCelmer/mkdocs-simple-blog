@@ -9,6 +9,7 @@ December 13, 2025
 - [📦 PyPI - Build 0.4.0](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.4.0)
 - [📌 Documentation for editing sidebar](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/52)
 - [📌 Add page metadata from builtin page.meta property inside template](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/53)
+- [🪲 BUG: Fix top menu dropdown not working on internal pages](https://github.com/FernandoCelmer/mkdocs-simple-blog/commit/961605217bf0d06b12413e12362bccb8bc005f10)
 
 ## v0.3.0
 
