@@ -203,16 +203,16 @@
 
     {%- block scripts %}
 
-    <script src="{{ 'assets/js/jquery-3.3.1.slim.min.js"'|url }}"></script>
-            <script src="{{ ' assets/js/bootstrap.bundle.min.js"'|url }}"></script>
-    <script src="{{ 'assets/js/main.min.js"'|url }}"></script>
+    <script src="{{ 'assets/js/jquery-3.3.1.slim.min.js'|url }}"></script>
+    <script src="{{ 'assets/js/bootstrap.bundle.min.js'|url }}"></script>
+    <script src="{{ 'assets/js/main.min.js'|url }}"></script>
 
-            {%- for path in extra_javascript %}
-                <script src="{{ path }}" defer></script>
-            {%- endfor %}
+    {%- for path in extra_javascript %}
+    <script src="{{ path }}" defer></script>
+    {%- endfor %}
 
-        {%- endblock %}
+    {%- endblock %}
 
-    </body>
+</body>
 
 </html>
