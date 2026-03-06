@@ -173,3 +173,64 @@ def test_base_template_bootstrap_included(template_env, mkdocs_config):
         ), "Should include Bootstrap JS or jQuery"
     except TemplateNotFound:
         pytest.skip("Template not found")
+
+
+def test_base_template_includes_page_metadata(template_env, mkdocs_config):
+    """Test that base.html includes page metadata tags when page.meta is present."""
+    try:
+        template = template_env.get_template("base.html")
+
+        page_meta = {
+            "title": "Custom Page Title",
+            "description": "Custom page description",
+            "author": "John Doe",
+            "date": "2025-01-15",
+            "image": "assets/custom-image.png",
+        }
+        mock_page = type(
+            "Page",
+            (),
+            {
+                "title": "Test Page",
+                "is_homepage": False,
+                "canonical_url": "https://example.com/test/",
+                "meta": page_meta,
+            },
+        )()
+
+        config_dict = mkdocs_config.copy()
+        config_dict["extra"] = {}
+        config_obj = type("Config", (), config_dict)()
+
+        context = {
+            "config": config_obj,
+            "page": mock_page,
+            "base_url": ".",
+            "extra_css": [],
+            "extra_javascript": [],
+        }
+
+        html = template.render(**context)
+
+        # Check for basic meta tags
+        assert 'name="title"' in html, "Should include title meta tag"
+        assert 'content="Custom Page Title"' in html, "Should include custom title"
+        assert 'name="description"' in html, "Should include description meta tag"
+        assert 'name="author"' in html, "Should include author meta tag"
+        assert 'content="John Doe"' in html, "Should include author content"
+        assert 'name="date"' in html, "Should include date meta tag"
+
+        # Check for Open Graph tags
+        assert 'property="og:title"' in html, "Should include og:title"
+        assert 'property="og:description"' in html, "Should include og:description"
+        assert 'property="og:type"' in html, "Should include og:type"
+        assert 'property="og:url"' in html, "Should include og:url"
+        assert 'property="og:image"' in html, "Should include og:image"
+
+        # Check for Twitter Card tags
+        assert 'name="twitter:title"' in html, "Should include twitter:title"
+        assert 'name="twitter:description"' in html, "Should include twitter:description"
+        assert 'name="twitter:card"' in html, "Should include twitter:card"
+        assert 'name="twitter:image"' in html, "Should include twitter:image"
+    except TemplateNotFound:
+        pytest.skip("Template not found")
