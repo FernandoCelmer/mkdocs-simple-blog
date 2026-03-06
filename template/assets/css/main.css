@@ -638,6 +638,41 @@ footer {
   font-size: medium;
 }
 
+/* Hierarquia visual para níveis da sidebar */
+.sidebar .nav>li {
+  padding-left: 0;
+}
+
+.sidebar .nav .nav {
+  padding-left: 1.5rem;
+  margin-top: 0.25rem;
+}
+
+.sidebar .nav .nav .nav {
+  padding-left: 1.5rem;
+}
+
+.sidebar .nav .nav .nav .nav {
+  padding-left: 1.5rem;
+}
+
+/* Tamanho de fonte progressivo para níveis mais profundos */
+.sidebar .nav>li>a {
+  font-size: 1em;
+}
+
+.sidebar .nav .nav>li>a {
+  font-size: 0.95em;
+}
+
+.sidebar .nav .nav .nav>li>a {
+  font-size: 0.9em;
+}
+
+.sidebar .nav .nav .nav .nav>li>a {
+  font-size: 0.85em;
+}
+
 .quote {
   margin-top: 2rem !important;
   margin-bottom: 2rem !important;
