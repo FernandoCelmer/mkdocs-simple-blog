@@ -4,6 +4,11 @@ December 13, 2025
 
 ---
 
+## v0.4.1
+
+- [📦 PyPI - Build 0.4.1](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.4.1)
+- [📌 next & previous arrows not clickable](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/33)
+
 ## v0.4.0
 
 - [📦 PyPI - Build 0.4.0](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.4.0)
