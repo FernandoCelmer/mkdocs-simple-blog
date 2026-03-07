@@ -239,3 +239,81 @@ def test_base_template_includes_page_metadata(template_env, mkdocs_config):
         assert 'name="twitter:image"' in html, "Should include twitter:image"
     except TemplateNotFound:
         pytest.skip("Template not found")
+
+
+def test_preview_module_shows_arrows_only_when_pages_exist(template_env):
+    """Test preview.html only shows navigation arrows when pages exist."""
+    try:
+        template = template_env.get_template("modules/preview.html")
+
+        def url_filter(path):
+            """Simple URL filter for testing."""
+            if path.startswith("http"):
+                return path
+            return path.replace("\\", "/")
+
+        template.environment.filters["url"] = url_filter
+
+        mock_page_both = type(
+            "Page",
+            (),
+            {
+                "next_page": type("Page", (), {"url": "next/"})(),
+                "previous_page": type("Page", (), {"url": "prev/"})(),
+            },
+        )()
+        html_both = template.render(page=mock_page_both)
+        assert "Previous" in html_both, "Should show Previous when page exists"
+        assert "Next" in html_both, "Should show Next when page exists"
+        assert 'class="nav-link disabled"' not in html_both, (
+            "Should not have disabled links when pages exist"
+        )
+
+        mock_page_next = type(
+            "Page",
+            (),
+            {
+                "next_page": type("Page", (), {"url": "next/"})(),
+                "previous_page": None,
+            },
+        )()
+        html_next = template.render(page=mock_page_next)
+        assert "Previous" not in html_next, (
+            "Should not show Previous when page doesn't exist"
+        )
+        assert "Next" in html_next, "Should show Next when page exists"
+
+        mock_page_prev = type(
+            "Page",
+            (),
+            {
+                "next_page": None,
+                "previous_page": type("Page", (), {"url": "prev/"})(),
+            },
+        )()
+        html_prev = template.render(page=mock_page_prev)
+        assert "Previous" in html_prev, "Should show Previous when page exists"
+        assert "Next" not in html_prev, (
+            "Should not show Next when page doesn't exist"
+        )
+
+        mock_page_none = type(
+            "Page",
+            (),
+            {
+                "next_page": None,
+                "previous_page": None,
+            },
+        )()
+        html_none = template.render(page=mock_page_none)
+        assert "Previous" not in html_none, (
+            "Should not show Previous when page doesn't exist"
+        )
+        assert "Next" not in html_none, (
+            "Should not show Next when page doesn't exist"
+        )
+        assert "component-preview" not in html_none, (
+            "Should not render preview block when no pages exist"
+        )
+    except TemplateNotFound:
+        pytest.skip("Template not found")
