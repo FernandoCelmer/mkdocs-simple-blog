@@ -19,9 +19,17 @@ jobs:
           script: |
             const { issue, repository } = context.payload;
 
-            const prompt = `You are a project maintainer reviewing a GitHub issue. Analyze the issue below and produce a structured review in English with the following sections:
+            const availableLabels = [
+              'bug', 'documentation', 'duplicate', 'enhancement',
+              'good first issue', 'help wanted', 'invalid', 'question',
+              'wontfix', 'feature', 'feature-request', 'needs-triage', 'WIP'
+            ];
 
-            ## Issue Review: {title}
+            const prompt = `You are a project maintainer reviewing a GitHub issue. Analyze the issue below and produce:
+
+            1. A structured review in English with the following sections:
+
+            ## Issue Review: ${issue.title}
 
             **Summary**
             One paragraph describing what is being requested or reported.
@@ -37,12 +45,14 @@ jobs:
             **Recommendation**
             The preferred approach and why.
 
+            2. At the very end, on a new line, output ONLY a JSON array of labels to apply from this list: ${JSON.stringify(availableLabels)}
+            Format: LABELS: ["label1", "label2"]
+
             ---
 
             Issue title: ${issue.title}
             Issue body:
             ${issue.body || '(no description provided)'}
-            Labels: ${issue.labels.map(l => l.name).join(', ') || 'none'}
             `;
 
             const response = await fetch('https://api.anthropic.com/v1/messages', {
@@ -65,11 +75,27 @@ jobs:
               throw new Error(`Anthropic API error: ${JSON.stringify(data)}`);
             }
 
-            const review = data.content[0].text;
+            const fullText = data.content[0].text;
 
+            // Extract labels from response
+            const labelsMatch = fullText.match(/LABELS:\s*(\[.*?\])/s);
+            const labels = labelsMatch ? JSON.parse(labelsMatch[1]) : ['needs-triage'];
+
+            // Strip the LABELS line from the comment
+            const review = fullText.replace(/LABELS:\s*\[.*?\]/s, '').trim();
+
+            // Post comment
             await github.rest.issues.createComment({
               owner: repository.owner.login,
               repo: repository.name,
               issue_number: issue.number,
               body: review,
+            });
+
+            // Apply labels
+            await github.rest.issues.addLabels({
+              owner: repository.owner.login,
+              repo: repository.name,
+              issue_number: issue.number,
+              labels: labels,
             });
