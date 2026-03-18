@@ -1,0 +1,70 @@
+name: Review Issue
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+
+    steps:
+      - name: Review and comment on issue
+        uses: actions/github-script@v7
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        with:
+          script: |
+            const { issue, repository } = context.payload;
+
+            const prompt = `You are a project maintainer reviewing a GitHub issue. Analyze the issue below and produce a structured review in English with the following sections:
+
+            ## Issue Review: {title}
+
+            **Summary**
+            One paragraph describing what is being requested or reported.
+
+            **Analysis**
+            - Relevance: (High/Medium/Low) and why
+            - Complexity: (High/Medium/Low) and why
+            - Status: current state and any context
+
+            **Implementation Options**
+            List 2–4 concrete options with trade-offs.
+
+            **Recommendation**
+            The preferred approach and why.
+
+            ---
+
+            Issue title: ${issue.title}
+            Issue body:
+            ${issue.body || '(no description provided)'}
+            Labels: ${issue.labels.map(l => l.name).join(', ') || 'none'}
+            `;
+
+            const response = await fetch('https://api.anthropic.com/v1/messages', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'x-api-key': process.env.ANTHROPIC_API_KEY,
+                'anthropic-version': '2023-06-01',
+              },
+              body: JSON.stringify({
+                model: 'claude-sonnet-4-6',
+                max_tokens: 1024,
+                messages: [{ role: 'user', content: prompt }],
+              }),
+            });
+
+            const data = await response.json();
+            const review = data.content[0].text;
+
+            await github.rest.issues.createComment({
+              owner: repository.owner.login,
+              repo: repository.name,
+              issue_number: issue.number,
+              body: review,
+            });
