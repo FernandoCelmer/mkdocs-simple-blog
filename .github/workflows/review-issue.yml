@@ -60,6 +60,11 @@ jobs:
             });
 
             const data = await response.json();
+
+            if (!response.ok || !data.content || !data.content[0]) {
+              throw new Error(`Anthropic API error: ${JSON.stringify(data)}`);
+            }
+
             const review = data.content[0].text;
 
             await github.rest.issues.createComment({
