@@ -1,12 +1,12 @@
 <!-- block dropdown-menu -->
 {%- if not nav_item.children %}
     <li>
-        <a href="{{ nav_item.url|url }}" class="dropdown-item text-decoration-none {% if nav_item.active %} active {% endif %}">{{ nav_item.title }}</a>
+        <a href="{{ nav_item.url|url }}" class="menu__dropdown-link{% if nav_item.active %} active{% endif %}">{{ nav_item.title }}</a>
     </li>
 {%- else %}
-    <li>
-        <a class="dropdown-item text-decoration-none" href="#">{{ nav_item.title }} &raquo;</a>
-        <ul class="submenu dropdown-menu">
+    <li class="menu__item">
+        <a class="menu__dropdown-link" href="#">{{ nav_item.title }} &raquo;</a>
+        <ul class="menu__dropdown">
             {%- for nav_item in nav_item.children %}
                 {% include "modules/dropdown-menu.html" %}
             {%- endfor %}
