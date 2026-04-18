@@ -25,16 +25,6 @@
     <link rel="icon" type="image/x-icon" href="{{ 'assets/img/favicon.ico'|url }}">
     {% endif %}
 
-    {%- if config.theme.highlightjs %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/base16/grayscale-dark.min.css">
-
-    {%- for lang in config.hljs_languages %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/{{lang}}.min.js"></script>
-    {%- endfor %}
-    <script>hljs.highlightAll();</script>
-    {%- endif %}
-
     {%- endblock %}
 
     {%- block extrahead %}
@@ -77,8 +67,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="{{ 'assets/css/bootstrap.min.css'|url }}">
-    <link rel="stylesheet" href="{{ 'assets/css/root.min.css'|url }}">
+    <link rel="stylesheet" href="{{ 'assets/css/tokens.min.css'|url }}">
+    <link rel="stylesheet" href="{{ 'assets/css/style.min.css'|url }}">
     <link rel="stylesheet" href="{{ 'assets/css/main.min.css'|url }}">
     <link rel="stylesheet" href="{{ 'assets/css/media.min.css'|url }}">
     <link rel="stylesheet" href="{{ 'assets/css/mkdocstrings.min.css'|url }}">
@@ -151,60 +141,50 @@
 </head>
 
 <body>
-    <div class="container py-3">
-        <header>
-            {%- block header %}
-            {% include "/modules/header.html" %}
-            {%- endblock %}
-        </header>
+    <header class="site-header">
+        {%- block header %}
+        {% include "/modules/header.html" %}
+        {%- endblock %}
+    </header>
 
-        <main>
-            {%- block search_button %}
-            {%- if 'search' in config['plugins'] %}{%- include "modules/searchbox.html" %}{%- endif %}
-            {%- endblock %}
+    <sb-page-layout{% if not config.theme.sidebar %} no-sidebar{% endif %}>
+        {%- block search_button %}
+        {%- if 'search' in config['plugins'] %}{%- include "modules/searchbox.html" %}{%- endif %}
+        {%- endblock %}
 
-            {% if config.theme.sidebar %}
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 d-none d-md-block" id="component-sidebar">
-                        {%- block sidebar %}
-                        {% include "/modules/sidebar.html" %}
-                        {%- endblock %}
-                    </div>
-                    <div class="col-md-9 col-12" id="component-content">
-                        {%- block content_with_sidebar %}
-                        {% include "/modules/content.html" %}
-                        {%- endblock %}
-                    </div>
-                </div>
-            </div>
-            {% else %}
+        {% if config.theme.sidebar %}
+        <div slot="sidebar" id="component-sidebar">
+            {%- block sidebar %}
+            {% include "/modules/sidebar.html" %}
+            {%- endblock %}
+        </div>
+        {% endif %}
+
+        <div id="component-content">
             {%- block content %}
             {% include "/modules/content.html" %}
             {%- endblock %}
+
+            {% if config.theme.components and config.theme.components.preview == False %}
+            {% else %}
+            {%- block preview %}
+            {% include "/modules/preview.html" %}
+            {%- endblock %}
             {% endif %}
-
-        </main>
-
-        {% if config.theme.components and config.theme.components.preview == False %}
-        {% else %}
-        {%- block preview %}
-        {% include "/modules/preview.html" %}
-        {%- endblock %}
-        {% endif %}
+        </div>
 
         {% if config.theme.components and config.theme.components.footer == False %}
         {% else %}
-        {%- block footer %}
-        {% include "/modules/footer.html" %}
-        {%- endblock %}
+        <div slot="footer">
+            {%- block footer %}
+            {% include "/modules/footer.html" %}
+            {%- endblock %}
+        </div>
         {% endif %}
-    </div>
+    </sb-page-layout>
 
     {%- block scripts %}
 
-    <script src="{{ 'assets/js/jquery-3.3.1.slim.min.js'|url }}"></script>
-    <script src="{{ 'assets/js/bootstrap.bundle.min.js'|url }}"></script>
     <script src="{{ 'assets/js/main.min.js'|url }}"></script>
 
     {%- for path in extra_javascript %}
