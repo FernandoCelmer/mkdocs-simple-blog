@@ -56,6 +56,16 @@ class TestExtraCssCascade(unittest.TestCase):
 
     def test_extra_css_loads_after_theme_stylesheets(self):
         html = self._render(theme_style="dark")
+        self.assertIn(
+            'href="assets/css/root.min.css"',
+            html,
+            "root.min.css link not found in rendered HTML",
+        )
+        self.assertIn(
+            'href="assets/custom.css"',
+            html,
+            "extra_css link not found in rendered HTML",
+        )
         root_css_pos = html.index('href="assets/css/root.min.css"')
         extra_css_pos = html.index('href="assets/custom.css"')
         self.assertLess(
