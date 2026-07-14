@@ -54,10 +54,13 @@ class TestExtraCssCascade(unittest.TestCase):
         html = self._render()
         self.assertIn('<link href="assets/custom.css" rel="stylesheet">', html)
 
-    def test_extra_css_loads_after_dark_theme_colors(self):
+    def test_extra_css_loads_after_theme_stylesheets(self):
         html = self._render(theme_style="dark")
+        root_css_pos = html.index('href="assets/css/root.min.css"')
+        extra_css_pos = html.index('href="assets/custom.css"')
         self.assertLess(
-            html.index("--primary: white"),
-            html.index('href="assets/custom.css"'),
-            "extra_css must load after the hardcoded dark theme colors",
+            root_css_pos,
+            extra_css_pos,
+            "extra_css must load after root.min.css so it can override "
+            "CSS variables",
         )
