@@ -43,7 +43,9 @@ class TestCustomColors(unittest.TestCase):
 
     def setUp(self):
         env = Environment(loader=FileSystemLoader(str(THEME_DIR)))
-        env.filters["url"] = lambda p: p  # MkDocs registers this at runtime; stub required here
+        env.filters["url"] = lambda p: (
+            p
+        )  # MkDocs registers this at runtime; stub required here
         self.html = env.get_template("base.html").render(
             config=_config(),
             page=None,
@@ -65,5 +67,9 @@ class TestCustomColors(unittest.TestCase):
         self.assertIn("--background: var(--color-white);", self.html)
 
     def test_no_broken_brace_literal(self):
-        self.assertNotIn("{ {", self.html)  # original split-brace artifact from #68
-        self.assertNotIn("config.theme.colors", self.html)  # catch unevaluated Jinja refs
+        self.assertNotIn(
+            "{ {", self.html
+        )  # original split-brace artifact from #68
+        self.assertNotIn(
+            "config.theme.colors", self.html
+        )  # catch unevaluated Jinja refs
