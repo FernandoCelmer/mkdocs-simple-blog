@@ -83,10 +83,6 @@
     <link rel="stylesheet" href="{{ 'assets/css/media.min.css'|url }}">
     <link rel="stylesheet" href="{{ 'assets/css/mkdocstrings.min.css'|url }}">
 
-    {%- for path in extra_css %}
-    <link href="{{ path }}" rel="stylesheet">
-    {%- endfor %}
-
     {%- for path in extra_javascript %}
     <script src="{{ path }}"></script>
     {%- endfor %}
@@ -142,6 +138,10 @@
     </style> {% endif %}
     {% endif %}
     {% endif %}
+
+    {%- for path in extra_css %}
+    <link href="{{ path }}" rel="stylesheet">
+    {%- endfor %}
 
     {%- endblock %}
 
