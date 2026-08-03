@@ -36,11 +36,7 @@ Changelog = "https://fernandocelmer.github.io/mkdocs-simple-blog/nav/development
 
 [tool.poetry]
 name = "mkdocs-simple-blog"
-<<<<<<< HEAD
 version = "0.4.2"
-=======
-version = "0.4.2"
->>>>>>> develop
 description = "Mkdocs Blog Theme"
 authors = ["Fernando Celmer <email@fernandocelmer.com>"]
 license = "MIT"
