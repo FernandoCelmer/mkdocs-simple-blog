@@ -12,8 +12,19 @@ jobs:
       pull-requests: write
     steps:
     - name: 'Auto-assign issue'
+      if: github.event_name == 'issues'
       uses: pozil/auto-assign-issue@v1
       with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           assignees: FernandoCelmer
-          numOfAssignee: 1
+    - name: 'Auto-assign pull request'
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b
+      with:
+          script: |
+            github.rest.issues.addAssignees({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              assignees: ['FernandoCelmer']
+            });
