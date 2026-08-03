@@ -83,10 +83,6 @@
     <link rel="stylesheet" href="{{ 'assets/css/media.min.css'|url }}">
     <link rel="stylesheet" href="{{ 'assets/css/mkdocstrings.min.css'|url }}">
 
-    {%- for path in extra_css %}
-    <link href="{{ path }}" rel="stylesheet">
-    {%- endfor %}
-
     {%- for path in extra_javascript %}
     <script src="{{ path }}"></script>
     {%- endfor %}
@@ -106,42 +102,30 @@
     {% if config.theme.colors %}
     {% if config.theme.colors.text %} <style>
         :root {
-            --text: var(--color- {
-                        {
-                        config.theme.colors.text
-                    }
-                });
+            --text: var(--color-{{ config.theme.colors.text }});
         }
     </style> {% endif %}
     {% if config.theme.colors.title %} <style>
         :root {
-            --title: var(--color- {
-                        {
-                        config.theme.colors.title
-                    }
-                });
+            --title: var(--color-{{ config.theme.colors.title }});
         }
     </style> {% endif %}
     {% if config.theme.colors.primary %} <style>
         :root {
-            --primary: var(--color- {
-                        {
-                        config.theme.colors.primary
-                    }
-                });
+            --primary: var(--color-{{ config.theme.colors.primary }});
         }
     </style> {% endif %}
     {% if config.theme.colors.background %} <style>
         :root {
-            --background: var(--color- {
-                        {
-                        config.theme.colors.background
-                    }
-                });
+            --background: var(--color-{{ config.theme.colors.background }});
         }
     </style> {% endif %}
     {% endif %}
     {% endif %}
+
+    {%- for path in extra_css %}
+    <link href="{{ path }}" rel="stylesheet">
+    {%- endfor %}
 
     {%- endblock %}
 

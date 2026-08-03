@@ -4,6 +4,12 @@ December 13, 2025
 
 ---
 
+## v0.4.2
+
+- [📦 PyPI - Build 0.4.2](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.4.2)
+- [🪲 Code and Preformatted Text Blocks don't respect theming + extra_css does not work](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/66)
+- [🪲 Custom theme.colors never apply due to broken Jinja syntax](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/68)
+
 ## v0.4.1
 
 - [📦 PyPI - Build 0.4.1](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.4.1)
