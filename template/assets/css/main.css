@@ -753,6 +753,12 @@ details > * {
   border: 1px solid var(--primary);
 }
 
+.tabbed-set > input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .tabbed-labels {
   display: flex;
   flex-wrap: wrap;
@@ -770,7 +776,6 @@ details > * {
   font-size: 0.9em;
 }
 
-.tabbed-set input:checked + label,
 .tabbed-labels > label:hover {
   color: var(--background) !important;
   background-color: var(--primary);
@@ -780,15 +785,76 @@ details > * {
   padding: 1rem 1.2rem;
 }
 
+.tabbed-block {
+  display: none;
+}
+
 .tabbed-block > *:first-child {
   margin-top: 0;
 }
 
+.tabbed-set > input:nth-child(1):checked ~ .tabbed-labels > label:nth-child(1),
+.tabbed-set > input:nth-child(2):checked ~ .tabbed-labels > label:nth-child(2),
+.tabbed-set > input:nth-child(3):checked ~ .tabbed-labels > label:nth-child(3),
+.tabbed-set > input:nth-child(4):checked ~ .tabbed-labels > label:nth-child(4),
+.tabbed-set > input:nth-child(5):checked ~ .tabbed-labels > label:nth-child(5),
+.tabbed-set > input:nth-child(6):checked ~ .tabbed-labels > label:nth-child(6),
+.tabbed-set > input:nth-child(7):checked ~ .tabbed-labels > label:nth-child(7),
+.tabbed-set > input:nth-child(8):checked ~ .tabbed-labels > label:nth-child(8),
+.tabbed-set > input:nth-child(9):checked ~ .tabbed-labels > label:nth-child(9),
+.tabbed-set > input:nth-child(10):checked ~ .tabbed-labels > label:nth-child(10),
+.tabbed-set > input:nth-child(11):checked ~ .tabbed-labels > label:nth-child(11),
+.tabbed-set > input:nth-child(12):checked ~ .tabbed-labels > label:nth-child(12) {
+  color: var(--background) !important;
+  background-color: var(--primary);
+}
+
+.tabbed-set > input:nth-child(1):checked ~ .tabbed-content > .tabbed-block:nth-child(1),
+.tabbed-set > input:nth-child(2):checked ~ .tabbed-content > .tabbed-block:nth-child(2),
+.tabbed-set > input:nth-child(3):checked ~ .tabbed-content > .tabbed-block:nth-child(3),
+.tabbed-set > input:nth-child(4):checked ~ .tabbed-content > .tabbed-block:nth-child(4),
+.tabbed-set > input:nth-child(5):checked ~ .tabbed-content > .tabbed-block:nth-child(5),
+.tabbed-set > input:nth-child(6):checked ~ .tabbed-content > .tabbed-block:nth-child(6),
+.tabbed-set > input:nth-child(7):checked ~ .tabbed-content > .tabbed-block:nth-child(7),
+.tabbed-set > input:nth-child(8):checked ~ .tabbed-content > .tabbed-block:nth-child(8),
+.tabbed-set > input:nth-child(9):checked ~ .tabbed-content > .tabbed-block:nth-child(9),
+.tabbed-set > input:nth-child(10):checked ~ .tabbed-content > .tabbed-block:nth-child(10),
+.tabbed-set > input:nth-child(11):checked ~ .tabbed-content > .tabbed-block:nth-child(11),
+.tabbed-set > input:nth-child(12):checked ~ .tabbed-content > .tabbed-block:nth-child(12) {
+  display: block;
+}
+
 .footnote {
   margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--primary);
   font-size: 0.85em;
+  color: var(--text);
+}
+
+.footnote > hr {
+  border: none;
+  border-top: 1px solid var(--primary);
+  margin: 0 0 1rem;
+}
+
+.footnote ol {
+  padding-left: 1.6rem;
+}
+
+.footnote li {
+  margin-bottom: 0.4rem;
+}
+
+dl {
+  margin: 1.6rem 0;
+}
+
+dt {
+  font-weight: 700;
+  color: var(--title);
+}
+
+dd {
+  margin: 0.2rem 0 1rem 1.6rem;
   color: var(--text);
 }
 
