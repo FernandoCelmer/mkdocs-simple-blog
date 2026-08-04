@@ -24,6 +24,7 @@ nav:
     - Development:
       - nav/development/development-guide.md
       - nav/development/testing.md
+      - nav/testing-all.md
       - nav/development/release-notes.md
 
 theme:
@@ -50,6 +51,23 @@ theme:
   hljs_languages:
     - yaml
     - python
+
+markdown_extensions:
+  - admonition
+  - footnotes
+  - attr_list
+  - def_list
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:pymdownx.emoji.twemoji
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.mark
+  - pymdownx.keys
+  - pymdownx.superfences
 
 extra_javascript:
  - assets/custom.js
