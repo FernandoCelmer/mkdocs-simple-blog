@@ -1,8 +1,14 @@
 # Release
 
-December 13, 2025
+August 3, 2026
 
 ---
+
+## v0.4.3
+
+- [📦 PyPI - Build 0.4.3](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.4.3)
+- [⚠️ Fix Dependabot security alerts: black, pytest, Pygments](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/74)
+- [⚙️ Style pymdown-extensions elements with theme CSS](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/70)
 
 ## v0.4.2
 
