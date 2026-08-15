@@ -95,6 +95,9 @@
             --title: white;
             --primary: white;
             --background: black;
+            /* Keep code/pre blocks dark-on-dark (issue #66) */
+            --code-bg: #1a1a1a;
+            --code-fg: #f5f5f5;
         }
     </style>
     {% endif %}
@@ -126,6 +129,12 @@
     {%- for path in extra_css %}
     <link href="{{ path }}" rel="stylesheet">
     {%- endfor %}
+    {#- theme.extra_css is non-standard (MkDocs expects top-level extra_css); accept it as alias -#}
+    {%- if config.theme.extra_css is defined and config.theme.extra_css %}
+    {%- for path in config.theme.extra_css %}
+    <link href="{{ path }}" rel="stylesheet">
+    {%- endfor %}
+    {%- endif %}
 
     {%- endblock %}
 
