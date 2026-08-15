@@ -95,7 +95,9 @@ class TestDarkThemeCodeBlocks(unittest.TestCase):
         env.filters["url"] = lambda p: p
         self.template = env.get_template("base.html")
 
-    def _render(self, theme_style="dark", theme_extra_css=None, extra_css=None):
+    def _render(
+        self, theme_style="dark", theme_extra_css=None, extra_css=None
+    ):
         return self.template.render(
             config=_config(theme_style, extra_css_theme=theme_extra_css),
             page=None,
