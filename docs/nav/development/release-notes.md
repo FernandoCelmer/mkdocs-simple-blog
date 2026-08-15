@@ -4,6 +4,10 @@ August 3, 2026
 
 ---
 
+## Unreleased
+
+- [🪲 Code blocks stay dark in dark theme; accept theme.extra_css alias](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/66)
+
 ## v0.4.3
 
 - [📦 PyPI - Build 0.4.3](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.4.3)
