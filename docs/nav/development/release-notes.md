@@ -1,8 +1,13 @@
 # Release
 
-August 3, 2026
+August 16, 2026
 
 ---
+
+## v0.4.4
+
+- [📦 PyPI - Build 0.4.4](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.4.4)
+- [🪲 Code blocks stay dark in dark theme; accept theme.extra_css alias](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/66)
 
 ## v0.4.3
 

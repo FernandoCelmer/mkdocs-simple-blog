@@ -3,6 +3,9 @@
     --title: #000;
     --primary: #000;
     --background: #fff;
+    /* Code/pre blocks: inverted surface by default (light page → dark code) */
+    --code-bg: var(--primary);
+    --code-fg: var(--background);
     --color-black: #000;
     --color-white: #fff;
     --color-gray: #808080;
