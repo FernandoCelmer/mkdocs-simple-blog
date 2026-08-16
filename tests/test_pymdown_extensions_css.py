@@ -13,36 +13,36 @@ class TestPymdownExtensionsCss(unittest.TestCase):
         return (ROOT_DIR / relative_path).read_text()
 
     def test_admonition_uses_theme_variables(self):
-        css = self._read("template/assets/css/main.css")
+        css = self._read("assets/css/main.css")
         self.assertIn(".admonition {", css)
         self.assertIn("var(--primary)", css.split(".admonition {", 1)[1][:300])
 
     def test_details_selector_matches_pymdownx_details_markup(self):
-        css = self._read("template/assets/css/main.css")
+        css = self._read("assets/css/main.css")
         self.assertIn("details {", css)
         self.assertNotIn("details.admonition", css)
 
     def test_tabbed_set_styled(self):
-        css = self._read("template/assets/css/main.css")
+        css = self._read("assets/css/main.css")
         self.assertIn(".tabbed-set {", css)
         self.assertIn(".tabbed-labels {", css)
 
     def test_footnote_styled(self):
-        css = self._read("template/assets/css/main.css")
+        css = self._read("assets/css/main.css")
         self.assertIn(".footnote {", css)
         self.assertIn(".footnote-ref {", css)
 
     def test_task_list_checkbox_styled(self):
-        css = self._read("template/assets/css/main.css")
+        css = self._read("assets/css/main.css")
         self.assertIn(".task-list-item", css)
 
     def test_mark_and_kbd_styled(self):
-        css = self._read("template/assets/css/main.css")
+        css = self._read("assets/css/main.css")
         self.assertIn("mark {", css)
         self.assertIn("kbd {", css)
 
     def test_twemoji_styled(self):
-        css = self._read("template/assets/css/main.css")
+        css = self._read("assets/css/main.css")
         self.assertIn(".twemoji {", css)
 
     def test_shipped_minified_css_includes_admonition(self):

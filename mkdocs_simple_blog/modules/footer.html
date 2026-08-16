@@ -1,11 +1,7 @@
 <!-- block footer -->
-<footer class="pt-4 my-md-5 pt-md-5 border-top" id="component-footer">
-    <div class="row">
-        <div class="col-12 col-md">
-            {%- block footer %}
-                {% include "/modules/copyright.html" %}
-            {%- endblock %}
-        </div>
-    </div>
-</footer>
+<sb-footer id="component-footer">
+    {%- block copyright %}
+        {% include "/modules/copyright.html" %}
+    {%- endblock %}
+</sb-footer>
 <!-- endblock -->

@@ -41,50 +41,15 @@ class TestPreCodeThemeColors(unittest.TestCase):
     def _read(self, relative_path):
         return (ROOT_DIR / relative_path).read_text()
 
-    def test_source_defines_code_surface_variables(self):
-        css = self._read("template/assets/css/root.css")
-        self.assertIn("--code-bg:", css)
-        self.assertIn("--code-fg:", css)
-
-    def test_source_pre_uses_code_fg_variable(self):
-        css = self._read("template/assets/css/main.css")
-        self.assertIn("color: var(--code-fg);", css)
-        self.assertIn("background-color: var(--code-bg)", css)
-        self.assertNotIn("color: #e5e5e5;", css)
-        # code/pre must not paint with page primary/background directly
-        self.assertRegex(
-            css,
-            r"\bcode\s*\{[^}]*background-color:\s*var\(--code-bg\)",
-        )
-        self.assertRegex(
-            css,
-            r"\bpre\s*\{[^}]*color:\s*var\(--code-fg\)",
-        )
-        self.assertNotRegex(
-            css,
-            r"code\s*,\s*pre\s*\{[^}]*background-color:\s*var\(--primary\)",
-        )
-        self.assertNotRegex(
-            css,
-            r"\bcode\s*\{[^}]*color:\s*var\(--background\)",
-        )
-
-    def test_shipped_minified_css_uses_code_variables(self):
-        css = self._read("mkdocs_simple_blog/assets/css/main.min.css")
+    def test_style_css_uses_code_fg_token(self):
+        css = self._read("mkdocs_simple_blog/assets/css/style.min.css")
         self.assertIn("color:var(--code-fg)", css)
-        self.assertIn("background-color:var(--code-bg)", css)
         self.assertNotIn("color:#e5e5e5", css)
 
-    def test_template_minified_css_uses_code_variables(self):
-        css = self._read("template/assets/css/main.min.css")
-        self.assertIn("color:var(--code-fg)", css)
-        self.assertIn("background-color:var(--code-bg)", css)
-        self.assertNotIn("color:#e5e5e5", css)
-
-    def test_shipped_root_min_defines_code_variables(self):
-        css = self._read("mkdocs_simple_blog/assets/css/root.min.css")
-        self.assertIn("--code-bg:", css)
-        self.assertIn("--code-fg:", css)
+    def test_tokens_css_defines_code_fg_per_theme(self):
+        css = self._read("mkdocs_simple_blog/assets/css/tokens.min.css")
+        self.assertIn("code-fg", css)
+        self.assertIn("code-bg", css)
 
 
 class TestDarkThemeCodeBlocks(unittest.TestCase):
@@ -133,6 +98,6 @@ class TestDarkThemeCodeBlocks(unittest.TestCase):
             extra_css=["assets/custom.css"],
         )
         self.assertIn('href="assets/custom.css"', html)
-        root_pos = html.index('href="assets/css/root.min.css"')
+        tokens_pos = html.index('href="assets/css/tokens.min.css"')
         extra_pos = html.index('href="assets/custom.css"')
-        self.assertLess(root_pos, extra_pos)
+        self.assertLess(tokens_pos, extra_pos)

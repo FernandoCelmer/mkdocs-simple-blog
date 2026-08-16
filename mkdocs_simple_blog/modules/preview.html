@@ -1,21 +1,9 @@
 <!-- block preview -->
 {%- if page and (page.next_page or page.previous_page) %}
-    <div class="preview row row-cols-md-3 text-center pt-md-3" id="component-preview">
-        <div class="col themed-grid-col">
-            {%- if page.previous_page %}
-            <a rel="prev" href="{{ page.previous_page.url|url }}" class="nav-link">
-                <i class="fa fa-arrow-left"></i> Previous
-            </a>
-            {%- endif %}
-        </div>
-        <div class="col themed-grid-col"></div>
-        <div class="col themed-grid-col">
-            {%- if page.next_page %}
-            <a rel="next" href="{{ page.next_page.url|url }}" class="nav-link">
-                Next <i class="fa fa-arrow-right"></i>
-            </a>
-            {%- endif %}
-        </div>
-    </div>
+<sb-prev-next
+    id="component-preview"
+    {% if page.previous_page %}prev-href="{{ page.previous_page.url|url }}" prev-label="Previous"{% endif %}
+    {% if page.next_page %}next-href="{{ page.next_page.url|url }}" next-label="Next"{% endif %}
+></sb-prev-next>
 {%- endif %}
 <!-- endblock -->
