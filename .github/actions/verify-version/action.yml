@@ -1,0 +1,30 @@
+name: Verify Version
+description: Verify LAST_VERSION matches pyproject.toml and __init__.py
+
+inputs:
+  expected:
+    description: Expected version to check against (defaults to __init__.py version)
+    required: false
+    default: ""
+
+runs:
+  using: composite
+  steps:
+    - name: 🔍 Verify version
+      shell: bash
+      run: |
+        EXPECTED="${{ inputs.expected }}"
+        EXPECTED="${EXPECTED#v}"
+        if [ -z "$EXPECTED" ]; then
+          EXPECTED=$(grep -m1 '^__version__ = ' mkdocs_simple_blog/__init__.py | sed 's/^__version__ = "\(.*\)"/\1/')
+        fi
+
+        echo "Expected version: $EXPECTED"
+        echo "LAST_VERSION: $(cat LAST_VERSION)"
+        echo "pyproject.toml: $(grep '^version = ' pyproject.toml | head -1)"
+        echo "__init__.py: $(grep '^__version__ = ' mkdocs_simple_blog/__init__.py)"
+
+        if [ "$(cat LAST_VERSION)" != "$EXPECTED" ]; then
+          echo "ERROR: Version mismatch!"
+          exit 1
+        fi
