@@ -4,8 +4,13 @@ repo_url: https://github.com/FernandoCelmer/mkdocs-simple-blog
 site_url: https://www.fernandocelmer.com
 copyright: Fernando Celmer
 
+plugins:
+  - search
+  - simple-blog-posts
+
 nav:
     - Home: index.md
+    - Blog: blog.md
     - Getting Started: nav/getting-started.md
     - Components:
       - nav/components/sidebar.md
@@ -14,6 +19,8 @@ nav:
       - nav/components/footer.md
       - nav/components/site-name.md
       - nav/components/standard-title.md
+      - nav/components/blog-list.md
+      - nav/components/blog-sidebar.md
     - Styles:
       - nav/styles/highlightjs.md
       - nav/styles/favicon.md
