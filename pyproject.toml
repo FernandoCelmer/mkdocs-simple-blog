@@ -70,3 +70,6 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.plugins."mkdocs.themes"]
 simple-blog = "mkdocs_simple_blog"
+
+[tool.poetry.plugins."mkdocs.plugins"]
+simple-blog-posts = "mkdocs_simple_blog.plugin:BlogPlugin"
