@@ -68,6 +68,7 @@ def mock_page():
             "content": "# Test Page\n\nThis is a test page.",
             "url": "test/",
             "abs_url": "https://example.com/test/",
+            "meta": {},
         },
     )()
     return page
