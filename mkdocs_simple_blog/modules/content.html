@@ -9,5 +9,9 @@
         </header>
         <p>{{ page.content }}</p>
     </article>
+
+    {% if (page and page.meta.blog_list) or (config.theme.components and config.theme.components.blog_list) %}
+    {% include "modules/blog_list.html" %}
+    {% endif %}
 </section>
 <!-- endblock -->

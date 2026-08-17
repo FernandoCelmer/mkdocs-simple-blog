@@ -157,7 +157,7 @@
             {%- if 'search' in config['plugins'] %}{%- include "modules/searchbox.html" %}{%- endif %}
             {%- endblock %}
 
-            {% if config.theme.sidebar %}
+            {% if config.theme.sidebar or (page and page.meta.blog_sidebar) or (config.theme.components and config.theme.components.blog_sidebar) %}
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 d-none d-md-block" id="component-sidebar">
