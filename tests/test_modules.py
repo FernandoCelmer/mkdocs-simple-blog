@@ -2,6 +2,7 @@
 
 import pytest
 from jinja2 import Environment, FileSystemLoader
+from mkdocs.utils.templates import url_filter
 
 
 @pytest.fixture
@@ -63,6 +64,11 @@ def test_modules_can_be_loaded(modules_dir):
         loader=FileSystemLoader(str(modules_dir)),
         autoescape=True,
     )
+    # Modules use MkDocs' `url` filter (registered by mkdocs.theme.Theme at
+    # render time) to normalize hrefs -- register it here too, otherwise
+    # Jinja fails to compile any module that uses it outside a soft frame
+    # (an `if`/conditional expression), e.g. inside a `for` loop.
+    env.filters["url"] = url_filter
 
     modules = list(modules_dir.glob("*.html"))
 
