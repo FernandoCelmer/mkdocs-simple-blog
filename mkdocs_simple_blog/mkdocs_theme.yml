@@ -18,7 +18,7 @@ theme:
     blog_list: false
     blog_sidebar: false
   blog:
-    layout: featured
+    layout: compact
     cta_label: ""
     author: ""
     github: ""
