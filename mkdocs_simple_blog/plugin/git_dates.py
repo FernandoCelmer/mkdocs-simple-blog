@@ -60,6 +60,11 @@ class GitDatesResolver:
 
         lines = result.stdout.strip().splitlines()
         raw_date = lines[-1] if oldest else lines[0]
+        if raw_date.endswith("Z"):
+            # git's %aI emits "Z" for UTC, but datetime.fromisoformat()
+            # only accepts that suffix from Python 3.11 -- normalize it
+            # to an explicit offset so this also works on 3.9/3.10.
+            raw_date = raw_date[:-1] + "+00:00"
 
         try:
             parsed = datetime.datetime.fromisoformat(raw_date)
