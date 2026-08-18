@@ -48,7 +48,16 @@ class GitAuthorResolver:
         """
         try:
             result = subprocess.run(  # noqa: S603
-                ["git", "log", "-1", "--format=%an\x1f%ae", "--", path],  # noqa: S607
+                [  # noqa: S607
+                    "git",
+                    "-c",
+                    "safe.directory=*",
+                    "log",
+                    "-1",
+                    "--format=%an\x1f%ae",
+                    "--",
+                    os.path.basename(path),
+                ],
                 capture_output=True,
                 text=True,
                 cwd=os.path.dirname(path),
