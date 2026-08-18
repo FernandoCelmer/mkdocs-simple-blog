@@ -1,0 +1,7 @@
+<!-- block blog_list -->
+{% if config.theme.blog and config.theme.blog.layout == "compact" %}
+{% include "modules/blog_list_compact.html" %}
+{% else %}
+{% include "modules/blog_list_featured.html" %}
+{% endif %}
+<!-- endblock -->

@@ -3,8 +3,23 @@ language: en
 include_search_page: true
 search_index_only: false
 
-theme:
-  sidebar: false
-  navigation_depth: 2
-  highlightjs: false
-  hljs_languages: []
+sidebar: false
+navigation_depth: 2
+highlightjs: false
+hljs_languages: []
+components:
+  site_name: true
+  title: true
+  menu: true
+  preview: true
+  footer: true
+  page_dates: true
+  blog_list: false
+  blog_sidebar: false
+blog:
+  layout: compact
+  cta_label: ""
+  author: ""
+  github: ""
+  avatar: ""
+  git_author: true

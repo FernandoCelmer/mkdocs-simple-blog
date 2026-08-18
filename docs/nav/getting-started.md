@@ -1,9 +1,3 @@
-# Getting Started
-
-March 25, 2023
-
----
-
 ## Installation MkDocs
 
 To install MkDocs, run the following command from the command line:

@@ -1,0 +1,41 @@
+<!-- block blog_sidebar -->
+{% set bs = (page.meta.blog_sidebar if page else None) or (config.theme.components.blog_sidebar if config.theme.components else None) %}
+{% if bs %}
+<div class="blog-sidebar" id="component-blog-sidebar">
+
+    {% if bs.recent_posts and blog_posts %}
+    <div class="blog-sidebar-widget">
+        <h3 class="blog-sidebar-widget-title">Recent Posts</h3>
+        <ul class="blog-sidebar-list">
+            {% for post in blog_posts[:(bs.recent_count or 5)] %}
+            <li><a href="{{ post.url|url }}">{{ post.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    {% if bs.categories and blog_categories %}
+    <div class="blog-sidebar-widget">
+        <h3 class="blog-sidebar-widget-title">Categories</h3>
+        <ul class="blog-sidebar-list">
+            {% for name, url in blog_categories.items() %}
+            <li><a href="{{ url|url }}">{{ name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    {% if bs.tags and blog_tags %}
+    <div class="blog-sidebar-widget">
+        <h3 class="blog-sidebar-widget-title">Tags</h3>
+        <div class="blog-sidebar-tags">
+            {% for name, url in blog_tags.items() %}
+            <a class="blog-sidebar-tag" href="{{ url|url }}">{{ name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+</div>
+{% endif %}
+<!-- endblock -->

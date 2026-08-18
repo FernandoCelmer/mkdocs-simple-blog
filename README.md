@@ -36,6 +36,16 @@ theme:
     name: simple-blog
 ```
 
+## Screenshots
+
+**Blog List — featured layout**
+
+![Blog List featured layout](https://raw.githubusercontent.com/FernandoCelmer/mkdocs-simple-blog/develop/docs/assets/blog-list-featured.png)
+
+**Blog List — compact layout**
+
+![Blog List compact layout](https://raw.githubusercontent.com/FernandoCelmer/mkdocs-simple-blog/develop/docs/assets/blog-list-compact.png)
+
 ## Getting Help
 
 We use GitHub issues for tracking bugs and feature requests and have limited bandwidth to address them. If you need anything, I ask you to please follow our templates for opening issues or discussions.

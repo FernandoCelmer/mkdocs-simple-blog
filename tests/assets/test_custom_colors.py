@@ -5,7 +5,7 @@ from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader
 
-THEME_DIR = Path(__file__).parent.parent / "mkdocs_simple_blog"
+THEME_DIR = Path(__file__).parent.parent.parent / "mkdocs_simple_blog"
 
 
 def _config():

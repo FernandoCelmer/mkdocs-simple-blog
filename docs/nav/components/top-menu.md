@@ -1,8 +1,3 @@
-# Top Menu
-
-January 28, 2025
-
----
 ## Enable and Disable
 
 - Default: true

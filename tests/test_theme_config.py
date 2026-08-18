@@ -1,63 +1,81 @@
 """Tests for theme configuration."""
 
-from pathlib import Path
+from __future__ import annotations
+
+import unittest
 
 import yaml
+from mkdocs.theme import Theme
+
+from .fixtures import ROOT_DIR, THEME_DIR
+
+THEME_CONFIG_PATH = THEME_DIR / "mkdocs_theme.yml"
 
 
-def test_mkdocs_theme_yml_exists():
-    """Test that mkdocs_theme.yml exists."""
-    theme_dir = Path(__file__).parent.parent / "mkdocs_simple_blog"
-    theme_config = theme_dir / "mkdocs_theme.yml"
+class ThemeConfigFileTests(unittest.TestCase):
+    def test_mkdocs_theme_yml_exists(self) -> None:
+        self.assertTrue(THEME_CONFIG_PATH.exists())
 
-    assert theme_config.exists(), "mkdocs_theme.yml should exist"
+    def test_mkdocs_theme_yml_valid(self) -> None:
+        config = yaml.safe_load(THEME_CONFIG_PATH.read_text())
+        self.assertIsInstance(config, dict)
+        self.assertIn("sidebar", config)
 
+    def test_theme_default_config(self) -> None:
+        """Custom keys must sit at the file's root, not nested under a
+        `theme:` sub-key -- MkDocs' Theme loader merges the root dict
+        directly into `config.theme.*`, so a nested `theme:` key would
+        just become an inert `config.theme.theme` dict that nothing
+        reads, silently breaking every default below."""
+        config = yaml.safe_load(THEME_CONFIG_PATH.read_text())
 
-def test_mkdocs_theme_yml_valid():
-    """Test that mkdocs_theme.yml is valid YAML."""
-    theme_dir = Path(__file__).parent.parent / "mkdocs_simple_blog"
-    theme_config = theme_dir / "mkdocs_theme.yml"
-
-    with open(theme_config) as f:
-        config = yaml.safe_load(f)
-
-    assert isinstance(config, dict), "mkdocs_theme.yml should be a dictionary"
-    assert "theme" in config, "mkdocs_theme.yml should have 'theme' key"
-
-
-def test_theme_default_config():
-    """Test default theme configuration values."""
-    theme_dir = Path(__file__).parent.parent / "mkdocs_simple_blog"
-    theme_config = theme_dir / "mkdocs_theme.yml"
-
-    with open(theme_config) as f:
-        config = yaml.safe_load(f)
-
-    theme = config.get("theme", {})
-
-    assert "sidebar" in theme, "theme should have 'sidebar' key"
-    assert (
-        "navigation_depth" in theme
-    ), "theme should have 'navigation_depth' key"
-    assert "highlightjs" in theme, "theme should have 'highlightjs' key"
-    assert "hljs_languages" in theme, "theme should have 'hljs_languages' key"
+        self.assertNotIn("theme", config)
+        self.assertIn("sidebar", config)
+        self.assertIn("navigation_depth", config)
+        self.assertIn("highlightjs", config)
+        self.assertIn("hljs_languages", config)
 
 
-def test_theme_plugin_registration():
-    """Test that theme is registered as a plugin."""
-    pyproject = Path(__file__).parent.parent / "pyproject.toml"
+class ThemeRuntimeDefaultsTests(unittest.TestCase):
+    """A consumer who doesn't set `blog`/`components`/`sidebar` in their
+    own `mkdocs.yml` must still get this theme's defaults for them --
+    the actual regression behind moving these keys out of a nested
+    `theme:` sub-key in mkdocs_theme.yml."""
 
-    assert pyproject.exists(), "pyproject.toml should exist"
+    def setUp(self) -> None:
+        self.theme = Theme(name="simple-blog")
 
-    with open(pyproject) as f:
-        content = f.read()
+    def test_blog_default_is_exposed_directly(self) -> None:
+        blog = self.theme.get("blog")
+        self.assertIsNotNone(blog)
+        self.assertEqual(blog["layout"], "compact")
 
-    assert (
-        "mkdocs.themes" in content
-    ), "Should have mkdocs.themes plugin configuration"
-    assert (
-        "simple-blog" in content
-    ), "Theme should be registered as 'simple-blog'"
-    assert (
-        "mkdocs_simple_blog" in content
-    ), "Theme should point to 'mkdocs_simple_blog' package"
+    def test_components_default_is_exposed_directly(self) -> None:
+        components = self.theme.get("components")
+        self.assertIsNotNone(components)
+        self.assertTrue(components["page_dates"])
+
+    def test_sidebar_default_is_exposed_directly(self) -> None:
+        self.assertFalse(self.theme.get("sidebar"))
+
+    def test_locale_default_is_exposed_directly(self) -> None:
+        """`locale` is a reserved MkDocs Theme kwarg -- it's already
+        defaulted to 'en' and parsed into a Locale object by
+        `Theme.__init__` itself, regardless of what mkdocs_theme.yml
+        declares, so there's nothing for this theme to set here."""
+        self.assertEqual(str(self.theme.get("locale")), "en")
+
+    def test_nested_theme_key_is_not_present(self) -> None:
+        self.assertIsNone(self.theme.get("theme"))
+
+
+class ThemePluginRegistrationTests(unittest.TestCase):
+    def test_theme_plugin_registration(self) -> None:
+        pyproject = ROOT_DIR / "pyproject.toml"
+        self.assertTrue(pyproject.exists())
+
+        content = pyproject.read_text()
+
+        self.assertIn("mkdocs.themes", content)
+        self.assertIn("simple-blog", content)
+        self.assertIn("mkdocs_simple_blog", content)
