@@ -1,7 +1,3 @@
-# Testing All
-
-August 3, 2026
-
 ---
 
 Reference page for manually checking that `pymdown-extensions` elements follow the theme (issue #70).

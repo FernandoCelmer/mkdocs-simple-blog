@@ -1,7 +1,3 @@
-# Getting Started
-
-March 25, 2023
-
 ---
 
 ## Installation MkDocs

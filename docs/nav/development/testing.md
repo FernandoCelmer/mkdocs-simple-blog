@@ -1,7 +1,3 @@
-# Testing
-
-Last updated February 4, 2025
-
 ---
 
 ## Overview

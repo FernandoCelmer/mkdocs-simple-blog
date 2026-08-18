@@ -1,7 +1,3 @@
-# Page Metadata
-
-March 06, 2026
-
 ---
 
 ## Overview

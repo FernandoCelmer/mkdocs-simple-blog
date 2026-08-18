@@ -1,7 +1,3 @@
-# Sidebar
-
-January 28, 2025
-
 ---
 
 ## Overview

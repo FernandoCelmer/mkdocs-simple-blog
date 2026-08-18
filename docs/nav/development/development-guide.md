@@ -1,7 +1,3 @@
-# Development guide
-
-Last updated February 4, 2025
-
 ---
 
 ## How to test the local package?
@@ -63,83 +59,7 @@ mkdocs serve
 
 ## Running Unit Tests
 
-The project includes a comprehensive test suite to ensure code quality and functionality.
-
-### Install Test Dependencies
-
-First, install the development dependencies:
-
-```bash
-pip install -e ".[dev]"
-```
-
-Or using poetry:
-
-```bash
-poetry install
-```
-
-### Run All Tests
-
-Execute all tests with:
-
-```bash
-pytest
-```
-
-### Run Tests with Coverage
-
-Generate a coverage report:
-
-```bash
-pytest --cov=mkdocs_simple_blog --cov-report=html
-```
-
-The HTML coverage report will be available in `htmlcov/index.html`.
-
-### Run Specific Tests
-
-You can run specific test files or individual tests:
-
-```bash
-# Run only template tests
-pytest tests/test_templates.py
-
-# Run only configuration tests
-pytest tests/test_theme_config.py
-
-# Run a specific test
-pytest tests/test_templates.py::test_base_template_renders
-```
-
-### Test Structure
-
-The test suite is organized into the following modules:
-
-- **test_theme_config.py**: Tests for theme configuration and YAML files
-- **test_templates.py**: Tests for Jinja2 template rendering
-- **test_modules.py**: Tests for theme module files
-- **test_assets.py**: Tests for CSS, JS, and image assets
-- **test_package.py**: Tests for package structure and metadata
-
-### Verbose Output
-
-For more detailed output, use the `-v` flag:
-
-```bash
-pytest -v
-```
-
-### Continuous Integration
-
-Tests are automatically run on every push and pull request via GitHub Actions. The CI pipeline:
-
-- Runs tests on Python versions 3.9 through 3.14
-- Generates coverage reports
-- Executes on pushes to `main`, `develop`, `master`, and `pypi` branches
-- Can be triggered manually via `workflow_dispatch`
-
-See `.github/workflows/test.yml` for the CI configuration.
+See [Testing](testing.md) for the full test suite guide (structure, coverage, fixtures, CI).
 
 ---
 
