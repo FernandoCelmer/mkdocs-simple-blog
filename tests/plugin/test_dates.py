@@ -61,6 +61,24 @@ class FormatDateLocaleTests(unittest.TestCase):
             format_date(datetime.date(2024, 1, 5)), "January 5, 2024"
         )
 
+    def test_unrecognized_locale_falls_back_to_english_instead_of_raising(
+        self,
+    ) -> None:
+        """A bad `theme.locale` (e.g. "pt-BR" instead of "pt_BR") must not
+        crash the whole build -- babel raises ValueError for it."""
+        self.assertEqual(
+            format_date(datetime.date(2024, 1, 5), locale="pt-BR"),
+            "January 5, 2024",
+        )
+
+    def test_nonexistent_locale_falls_back_to_english_instead_of_raising(
+        self,
+    ) -> None:
+        self.assertEqual(
+            format_date(datetime.date(2024, 1, 5), locale="not-a-locale"),
+            "January 5, 2024",
+        )
+
 
 class FormatDateNoBabelTests(unittest.TestCase):
     """Simulates babel being unavailable (an optional mkdocs dependency),

@@ -5,6 +5,7 @@ from __future__ import annotations
 from typing import Any
 
 try:
+    from babel import UnknownLocaleError
     from babel.dates import format_date as _babel_format_date
 
     _HAS_BABEL = True
@@ -46,12 +47,17 @@ def format_date(value: Any, locale: str = "en") -> Any:
     "5 de janeiro de 2024" instead of "January 5, 2024". Falls back to
     a hardcoded English "Month D, YYYY" format if babel is somehow
     unavailable at runtime (mirrors `mkdocs.localization.has_babel`,
-    since babel is only an optional dependency of `mkdocs` itself).
+    since babel is only an optional dependency of `mkdocs` itself), or
+    if `locale` isn't a value babel recognizes -- a bad `theme.locale`
+    in a consumer's `mkdocs.yml` shouldn't crash the whole build.
     """
     if value is None or value == "":
         return value
     if not _is_date_like(value):
         return value
     if _HAS_BABEL:
-        return _babel_format_date(value, format="long", locale=locale)
+        try:
+            return _babel_format_date(value, format="long", locale=locale)
+        except (ValueError, UnknownLocaleError):
+            pass
     return f"{_MONTHS[value.month - 1]} {value.day}, {value.year}"
