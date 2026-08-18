@@ -1,3 +1,13 @@
+## v0.4.4
+
+- [📦 PyPI - Build 0.4.4](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.4.4)
+- [⚙️ Blog post-list component: `blog_list`/`blog_sidebar`, featured/compact layouts, category and tag listing pages, author/avatar resolution from front matter or git history](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/82)
+- [⚙️ Native `page_dates` component (Created on / Updated on) sourced from git history, no external plugin required](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/85)
+- [⚙️ Locale-aware date formatting via `theme.locale` and babel](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/85)
+- [🪲 Fix `mkdocs_theme.yml` defaults (`sidebar`, `components`, `blog`) being silently ignored due to a nested `theme:` key](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/85)
+- [🪲 Fix generic `a:hover` rule overriding hover color/underline on componentized links (buttons, pills, tags)](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/84)
+- [📦 Drop `mkdocs-git-revision-date-localized-plugin` dependency; add `babel` for locale-aware dates](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/82)
+
 ## v0.4.3
 
 - [📦 PyPI - Build 0.4.3](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.4.3)
