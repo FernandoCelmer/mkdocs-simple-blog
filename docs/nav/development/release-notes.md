@@ -1,3 +1,9 @@
+## v0.6.0
+
+- [📦 PyPI - Build 0.6.0](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.6.0)
+- [🪲 Fix page-dates divider duplicating blog_list's first-item border on pages with empty body content](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/92)
+- [⚠️ Fix Dependabot security alerts: pymdown-extensions, pytest -- drops Python 3.9 support (no 3.9-compatible patched release exists for either)](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/94)
+
 ## v0.5.0
 
 - [📦 PyPI - Build 0.5.0](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.5.0)
