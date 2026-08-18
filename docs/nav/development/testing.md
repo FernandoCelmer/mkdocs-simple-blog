@@ -1,5 +1,3 @@
----
-
 ## Overview
 
 The mkdocs-simple-blog theme includes a comprehensive test suite to ensure code quality, functionality, and maintainability. All tests are written using [pytest](https://pytest.org/).
