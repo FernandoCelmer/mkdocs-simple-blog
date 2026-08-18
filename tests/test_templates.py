@@ -5,6 +5,8 @@ from pathlib import Path
 import pytest
 from jinja2 import Environment, FileSystemLoader, TemplateNotFound
 
+from mkdocs_simple_blog.plugin.dates import format_date
+
 
 @pytest.fixture
 def template_env(theme_dir):
@@ -22,6 +24,7 @@ def template_env(theme_dir):
         autoescape=True,
     )
     env.filters["url"] = url_filter
+    env.filters["fmt_date"] = format_date
     return env
 
 
