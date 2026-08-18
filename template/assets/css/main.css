@@ -67,8 +67,6 @@ small {
 }
 
 a,
-a:focus,
-a:hover,
 p a {
   text-decoration: underline;
 }
