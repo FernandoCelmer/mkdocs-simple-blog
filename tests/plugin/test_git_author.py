@@ -25,11 +25,13 @@ class GitAuthorResolverTests(unittest.TestCase):
         )
         self.assertEqual(avatar, "https://github.com/FernandoCelmer.png")
 
-    def test_avatar_from_email_gitlab(self) -> None:
+    def test_avatar_from_email_gitlab_is_unsupported(self) -> None:
+        """GitLab has no stable by-username avatar URL, so it's not in
+        _PROVIDER_NOREPLY_PATTERNS -- use `avatar` in front matter instead."""
         avatar = self.resolver.avatar_from_email(
             "fernandocelmer@users.noreply.gitlab.com"
         )
-        self.assertEqual(avatar, "https://gitlab.com/fernandocelmer.png")
+        self.assertEqual(avatar, "")
 
     def test_avatar_from_email_bitbucket(self) -> None:
         avatar = self.resolver.avatar_from_email(

@@ -54,7 +54,7 @@ None of these fields are required. If a post doesn't set them, the plugin fills 
 
 1. The post's own front matter (`author`, `github`, `avatar`)
 2. `theme.blog.author` / `theme.blog.github` / `theme.blog.avatar` (site-wide default)
-3. The file's last git commit — author name, and an avatar built from the commit email if it matches a GitHub, GitLab, or Bitbucket no-reply address (no API call). Disable with `theme.blog.git_author: false`.
+3. The file's last git commit — author name, and an avatar built from the commit email if it matches a GitHub or Bitbucket no-reply address (no API call). GitLab has no stable by-username avatar URL, so a GitLab no-reply email resolves the author name but not an avatar — set `avatar` in front matter for that. Disable the whole git fallback with `theme.blog.git_author: false`.
 
 So a single-author blog can skip `author`/`github` on every post entirely and still get a correct byline and avatar, as long as the theme.blog default is set or posts are committed under the author's own git identity.
 

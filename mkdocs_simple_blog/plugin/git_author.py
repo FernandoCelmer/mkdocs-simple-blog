@@ -11,10 +11,15 @@ class GitAuthorResolver:
     """Derives a post's author name and avatar straight from git history,
     for posts whose front matter doesn't set `author`/`avatar`/`github`.
 
-    Avatar detection recognizes GitHub, GitLab and Bitbucket no-reply
-    commit emails and builds that provider's avatar-by-username URL
-    directly -- no API call, no extra dependency. Shells out to plain
-    `git` rather than adding a GitPython dependency for this one lookup.
+    Avatar detection recognizes GitHub and Bitbucket no-reply commit
+    emails and builds that provider's avatar-by-username URL directly --
+    no API call, no extra dependency. Shells out to plain `git` rather
+    than adding a GitPython dependency for this one lookup.
+
+    GitLab is intentionally not covered: it has no stable by-username
+    avatar URL like GitHub's `github.com/{username}.png`, so there's
+    nothing to build one from -- use the `avatar` front matter field
+    directly for GitLab authors.
     """
 
     _PROVIDER_NOREPLY_PATTERNS = [
@@ -24,12 +29,6 @@ class GitAuthorResolver:
                 re.IGNORECASE,
             ),
             "https://github.com/{username}.png",
-        ),
-        (
-            re.compile(
-                r"^([^@]+)@users\.noreply\.gitlab\.com$", re.IGNORECASE
-            ),
-            "https://gitlab.com/{username}.png",
         ),
         (
             re.compile(
