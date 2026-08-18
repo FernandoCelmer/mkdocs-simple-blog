@@ -1,5 +1,3 @@
----
-
 **NOTE**: Changes to the standard title will only appear if this component is activated. By default this component does not appear, you must mark it as `true`.
 
 ## Enable and Disable
