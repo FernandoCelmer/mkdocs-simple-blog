@@ -1,7 +1,3 @@
-# Blog Sidebar
-
-August 17, 2026
-
 ---
 
 ## Overview
