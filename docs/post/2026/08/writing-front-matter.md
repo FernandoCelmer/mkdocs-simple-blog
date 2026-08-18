@@ -1,7 +1,7 @@
 ---
 title: Writing Front Matter for Posts
 description: What title, date, category and tags do, and what happens when they're missing.
-date: 2024-06-03
+date: 2026-08-10
 category: Guides
 tags:
   - front-matter

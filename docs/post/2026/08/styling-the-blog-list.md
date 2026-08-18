@@ -1,7 +1,7 @@
 ---
 title: Styling the Blog List and Sidebar
 description: The CSS classes behind blog_list and blog_sidebar, for anyone overriding the look.
-date: 2025-01-22
+date: 2026-08-17
 category: Guides
 tags:
   - styling
