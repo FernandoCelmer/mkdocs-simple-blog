@@ -1,17 +1,7 @@
 <!-- block blog_list -->
-{% if blog_posts %}
-<div class="blog-list" id="component-blog-list">
-    {% for post in blog_posts %}
-    <article class="blog-list-item">
-        <h2 class="blog-list-item-title">
-            <a href="{{ post.url|url }}">{{ post.title }}</a>
-        </h2>
-        <p class="blog-list-item-meta">
-            {{ post.date }}{% if post.category %} · {{ post.category }}{% endif %}
-        </p>
-        <a class="blog-list-item-cta" href="{{ post.url|url }}">{{ config.theme.blog_list_cta_label or "Read more" }} &rarr;</a>
-    </article>
-    {% endfor %}
-</div>
+{% if config.theme.blog and config.theme.blog.layout == "compact" %}
+{% include "modules/blog_list_compact.html" %}
+{% else %}
+{% include "modules/blog_list_featured.html" %}
 {% endif %}
 <!-- endblock -->

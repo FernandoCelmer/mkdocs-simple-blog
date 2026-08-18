@@ -1,0 +1,30 @@
+<!-- block blog_list_featured -->
+{% if blog_posts %}
+<div class="blog-list" id="component-blog-list">
+    {% for post in blog_posts %}
+    <article class="blog-card">
+        <h2 class="blog-card-title">
+            <a href="{{ post.url|url }}">{{ post.title }}</a>
+        </h2>
+        <p class="blog-card-meta">
+            Published on {{ post.date }}
+            {%- if post.category %} — in {{ post.category }}{% endif %}
+            {%- if post.author %} — by
+                {%- if post.avatar_url %} <img class="blog-card-avatar" src="{{ post.avatar_url }}" alt="{{ post.author }}" loading="lazy">{% endif %}
+                {{ post.author }}
+            {%- endif %}
+        </p>
+        {% if post.image %}
+        <a class="blog-card-thumb" href="{{ post.url|url }}">
+            <img src="{{ post.image|url }}" alt="{{ post.title }}" loading="lazy">
+        </a>
+        {% endif %}
+        {% if post.description %}
+        <p class="blog-card-description">{{ post.description }}</p>
+        {% endif %}
+        <a class="blog-card-cta" href="{{ post.url|url }}">{{ (config.theme.blog.cta_label if config.theme.blog else None) or "Continue Reading" }} &hellip;</a>
+    </article>
+    {% endfor %}
+</div>
+{% endif %}
+<!-- endblock -->

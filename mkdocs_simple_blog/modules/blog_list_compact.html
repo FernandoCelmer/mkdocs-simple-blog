@@ -1,0 +1,32 @@
+<!-- block blog_list_compact -->
+{% if blog_posts %}
+<div class="blog-list" id="component-blog-list">
+    {% for post in blog_posts %}
+    <article class="blog-row">
+        {% if post.image %}
+        <a class="blog-row-thumb" href="{{ post.url|url }}">
+            <img src="{{ post.image|url }}" alt="{{ post.title }}" loading="lazy">
+        </a>
+        {% endif %}
+        <div class="blog-row-body">
+            <div class="blog-row-byline">
+                {% if post.avatar_url %}
+                <img class="blog-row-avatar" src="{{ post.avatar_url }}" alt="{{ post.author or post.github }}" loading="lazy">
+                {% endif %}
+                <h2 class="blog-row-title">
+                    <a href="{{ post.url|url }}">{{ post.title }}</a>
+                </h2>
+            </div>
+            <p class="blog-row-meta">
+                {{ post.date }}{% if post.category %} · {{ post.category }}{% endif %}{% if post.author %} · {{ post.author }}{% endif %}
+            </p>
+            {% if post.description %}
+            <p class="blog-row-description">{{ post.description }}</p>
+            {% endif %}
+            <a class="blog-row-cta" href="{{ post.url|url }}">{{ (config.theme.blog.cta_label if config.theme.blog else None) or "Read more" }} &rarr;</a>
+        </div>
+    </article>
+    {% endfor %}
+</div>
+{% endif %}
+<!-- endblock -->
