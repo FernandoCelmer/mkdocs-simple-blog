@@ -67,8 +67,6 @@ small {
 }
 
 a,
-a:focus,
-a:hover,
 p a {
   text-decoration: underline;
 }
@@ -188,10 +186,10 @@ a {
   color: var(--text) !important;
 }
 
-a:focus,
-a:hover {
+a:not([class]):focus,
+a:not([class]):hover {
   color: #5c5c5c;
-  color: var(--primary) !important;
+  color: var(--primary);
 }
 
 p {
