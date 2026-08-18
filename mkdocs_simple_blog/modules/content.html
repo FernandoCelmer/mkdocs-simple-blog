@@ -14,7 +14,9 @@
             {% if created %}Created on {{ created }}{% endif %}
             {% if updated and updated != created %} — updated on {{ updated }}{% endif %}
         </p>
+        {% if page.content and page.content.strip() %}
         <hr class="page-dates-divider">
+        {% endif %}
         {% endif %}
         <p>{{ page.content }}</p>
     </article>
