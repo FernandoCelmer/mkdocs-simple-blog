@@ -22,6 +22,7 @@ nav:
       - Footer: nav/components/footer.md
       - Site Name: nav/components/site-name.md
       - Standard Title: nav/components/standard-title.md
+      - Page Dates: nav/components/page-dates.md
     - Styles:
       - Highlight.js: nav/styles/highlightjs.md
       - Favicon: nav/styles/favicon.md
