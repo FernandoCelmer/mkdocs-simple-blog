@@ -1,5 +1,3 @@
----
-
 ## Overview
 
 Three widgets built from the same post collection [Blog List](blog-list.md) reads: **Recent Posts**, **Categories**, and **Tags**. Each is toggled independently. Requires the `simple-blog-posts` plugin.
@@ -33,10 +31,14 @@ theme:
 ## Widgets
 
 - **`recent_posts`** — links the `recent_count` most recent posts (default `5`)
-- **`categories`** — one link per distinct `category` value, pointing at the first post that used it
-- **`tags`** — one link per distinct tag, pointing at the first post that used it
+- **`categories`** — one link per distinct `category` value
+- **`tags`** — one link per distinct tag
 
 Any widget can be omitted or set to `false` to hide it independently of the others.
+
+## Categories and tags link to real listing pages
+
+Clicking a category or tag doesn't just jump to "some post that has it" — the plugin generates an actual page per value (e.g. `category/python/`, `tag/django/`) that renders **only the posts carrying that category or tag**, using the same [Blog List](blog-list.md) layout as everywhere else. See [Category and tag pages](blog-list.md#category-and-tag-pages) for how these are generated and configured.
 
 ## Coexistence with the Table of Contents sidebar
 
