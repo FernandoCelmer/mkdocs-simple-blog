@@ -2,6 +2,9 @@
 title: Welcome to Simple Blog
 description: A short intro to what mkdocs-simple-blog is for and who it's for.
 date: 2024-01-15
+author: Fernando Celmer
+github: FernandoCelmer
+image: assets/simple-blog.png
 category: Announcements
 tags:
   - meta
