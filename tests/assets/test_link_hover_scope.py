@@ -27,10 +27,10 @@ class LinkHoverScopeTests(unittest.TestCase):
         rule = css.split("a:not([class]):hover", 1)[1].split("}", 1)[0]
         self.assertNotIn("!important", rule)
 
-    def test_no_unscoped_a_hover_rule_with_important_remains(self) -> None:
-        """A bare `a:hover{...!important...}` (no class/attribute scoping)
-        would beat any `.btn:hover`/`.cta:hover`/`.tag:hover` component rule
-        on specificity even when both carry `!important` -- see issue #84.
+    def test_no_unscoped_a_hover_rule_remains(self) -> None:
+        """Bare `a:hover` (specificity 0,1,1) beats any `.btn:hover`/
+        `.cta:hover`/`.tag:hover` component rule (specificity 0,1,0) on
+        the type-selector tiebreaker alone -- even without `!important`.
         """
         for relative_path in (
             "template/assets/css/main.css",
@@ -38,16 +38,14 @@ class LinkHoverScopeTests(unittest.TestCase):
         ):
             css = self._read(relative_path)
             for match in re.finditer(r"([^{}]+)\{([^{}]*)\}", css):
-                selector, body = match.group(1), match.group(2)
-                if "!important" not in body:
-                    continue
+                selector = match.group(1)
                 for single_selector in selector.split(","):
                     single_selector = single_selector.strip()
                     if re.fullmatch(r"a(:focus|:hover)+", single_selector):
                         self.fail(
-                            f"Unscoped '{single_selector}' with !important "
-                            f"in {relative_path} will override componentized "
-                            "links (see issue #84)"
+                            f"Unscoped '{single_selector}' in {relative_path} "
+                            "will override componentized links via "
+                            "specificity (see issue #84)"
                         )
 
     def test_shipped_minified_css_scopes_generic_hover_rule(self) -> None:
