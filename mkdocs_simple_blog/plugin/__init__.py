@@ -18,11 +18,13 @@ from .collector import PostCollector
 from .dates import format_date
 from .filters import FilterPageGenerator
 from .git_author import GitAuthorResolver
+from .git_dates import GitDatesResolver
 
 __all__ = [
     "BlogPlugin",
     "BlogPluginConfig",
     "GitAuthorResolver",
+    "GitDatesResolver",
     "PostCollector",
 ]
 
@@ -50,6 +52,7 @@ class BlogPlugin(BasePlugin[BlogPluginConfig]):
     def on_files(self, files, config):
         blog_config = config.theme.get("blog") or {}
         collector = PostCollector(blog_config, GitAuthorResolver())
+        self.git_dates = GitDatesResolver()
 
         self.posts: list[dict[str, Any]] = []
         prefix = f"{self.config.posts_dir}/"
@@ -106,4 +109,21 @@ class BlogPlugin(BasePlugin[BlogPluginConfig]):
 
         context["blog_categories"] = self.blog_categories
         context["blog_tags"] = self.blog_tags
+
+        components = config.theme.get("components") or {}
+        path = getattr(getattr(page, "file", None), "abs_src_path", None)
+        if (
+            page is not None
+            and path
+            and components.get("page_dates") is not False
+        ):
+            meta.setdefault(
+                "git_creation_date_localized",
+                self.git_dates.created_date(path),
+            )
+            meta.setdefault(
+                "git_revision_date_localized",
+                self.git_dates.revision_date(path),
+            )
+
         return context
