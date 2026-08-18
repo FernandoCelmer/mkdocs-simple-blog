@@ -1,63 +1,42 @@
 """Tests for theme configuration."""
 
-from pathlib import Path
+from __future__ import annotations
+
+import unittest
 
 import yaml
 
+from .fixtures import ROOT_DIR, THEME_DIR
 
-def test_mkdocs_theme_yml_exists():
-    """Test that mkdocs_theme.yml exists."""
-    theme_dir = Path(__file__).parent.parent / "mkdocs_simple_blog"
-    theme_config = theme_dir / "mkdocs_theme.yml"
-
-    assert theme_config.exists(), "mkdocs_theme.yml should exist"
+THEME_CONFIG_PATH = THEME_DIR / "mkdocs_theme.yml"
 
 
-def test_mkdocs_theme_yml_valid():
-    """Test that mkdocs_theme.yml is valid YAML."""
-    theme_dir = Path(__file__).parent.parent / "mkdocs_simple_blog"
-    theme_config = theme_dir / "mkdocs_theme.yml"
+class ThemeConfigFileTests(unittest.TestCase):
+    def test_mkdocs_theme_yml_exists(self) -> None:
+        self.assertTrue(THEME_CONFIG_PATH.exists())
 
-    with open(theme_config) as f:
-        config = yaml.safe_load(f)
+    def test_mkdocs_theme_yml_valid(self) -> None:
+        config = yaml.safe_load(THEME_CONFIG_PATH.read_text())
+        self.assertIsInstance(config, dict)
+        self.assertIn("theme", config)
 
-    assert isinstance(config, dict), "mkdocs_theme.yml should be a dictionary"
-    assert "theme" in config, "mkdocs_theme.yml should have 'theme' key"
+    def test_theme_default_config(self) -> None:
+        config = yaml.safe_load(THEME_CONFIG_PATH.read_text())
+        theme = config.get("theme", {})
 
-
-def test_theme_default_config():
-    """Test default theme configuration values."""
-    theme_dir = Path(__file__).parent.parent / "mkdocs_simple_blog"
-    theme_config = theme_dir / "mkdocs_theme.yml"
-
-    with open(theme_config) as f:
-        config = yaml.safe_load(f)
-
-    theme = config.get("theme", {})
-
-    assert "sidebar" in theme, "theme should have 'sidebar' key"
-    assert (
-        "navigation_depth" in theme
-    ), "theme should have 'navigation_depth' key"
-    assert "highlightjs" in theme, "theme should have 'highlightjs' key"
-    assert "hljs_languages" in theme, "theme should have 'hljs_languages' key"
+        self.assertIn("sidebar", theme)
+        self.assertIn("navigation_depth", theme)
+        self.assertIn("highlightjs", theme)
+        self.assertIn("hljs_languages", theme)
 
 
-def test_theme_plugin_registration():
-    """Test that theme is registered as a plugin."""
-    pyproject = Path(__file__).parent.parent / "pyproject.toml"
+class ThemePluginRegistrationTests(unittest.TestCase):
+    def test_theme_plugin_registration(self) -> None:
+        pyproject = ROOT_DIR / "pyproject.toml"
+        self.assertTrue(pyproject.exists())
 
-    assert pyproject.exists(), "pyproject.toml should exist"
+        content = pyproject.read_text()
 
-    with open(pyproject) as f:
-        content = f.read()
-
-    assert (
-        "mkdocs.themes" in content
-    ), "Should have mkdocs.themes plugin configuration"
-    assert (
-        "simple-blog" in content
-    ), "Theme should be registered as 'simple-blog'"
-    assert (
-        "mkdocs_simple_blog" in content
-    ), "Theme should point to 'mkdocs_simple_blog' package"
+        self.assertIn("mkdocs.themes", content)
+        self.assertIn("simple-blog", content)
+        self.assertIn("mkdocs_simple_blog", content)
