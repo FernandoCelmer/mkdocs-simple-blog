@@ -18,7 +18,7 @@
                 </h2>
             </div>
             <p class="blog-row-meta">
-                {{ post.date }}{% if post.category %} · {{ post.category }}{% endif %}{% if post.author %} · {{ post.author }}{% endif %}
+                {{ post.date | fmt_date }}{% if post.category %} · {{ post.category }}{% endif %}{% if post.author %} · {{ post.author }}{% endif %}
             </p>
             {% if post.description %}
             <p class="blog-row-description">{{ post.description }}</p>
