@@ -46,7 +46,10 @@ class BlogPlugin(BasePlugin[BlogPluginConfig]):
     """
 
     def on_env(self, env, config, files):
-        env.filters["fmt_date"] = format_date
+        locale = config.theme.get("locale") or "en"
+        env.filters["fmt_date"] = lambda value: format_date(
+            value, locale=locale
+        )
         return env
 
     def on_files(self, files, config):
@@ -117,13 +120,14 @@ class BlogPlugin(BasePlugin[BlogPluginConfig]):
             and path
             and components.get("page_dates") is not False
         ):
+            locale = config.theme.get("locale") or "en"
             meta.setdefault(
                 "git_creation_date_localized",
-                self.git_dates.created_date(path),
+                self.git_dates.created_date(path, locale=locale),
             )
             meta.setdefault(
                 "git_revision_date_localized",
-                self.git_dates.revision_date(path),
+                self.git_dates.revision_date(path, locale=locale),
             )
 
         return context

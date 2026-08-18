@@ -30,6 +30,20 @@ class BlogPluginTests(unittest.TestCase):
     ) -> None:
         write_post(self.temp_dir, rel_path, front_matter, body)
 
+    def test_on_env_registers_fmt_date_filter_bound_to_theme_locale(
+        self,
+    ) -> None:
+        from mkdocs_simple_blog.plugin import dates as dates_module
+
+        if not dates_module._HAS_BABEL:
+            self.skipTest("babel not installed")
+
+        env = SimpleNamespace(filters={})
+        self.plugin.on_env(env, config=fake_config(locale="pt"), files=[])
+
+        formatted = env.filters["fmt_date"](datetime.date(2024, 1, 5))
+        self.assertEqual(formatted, "5 de janeiro de 2024")
+
     def _file(self, rel_path: str) -> File:
         return make_file(self.temp_dir, rel_path)
 
@@ -214,6 +228,24 @@ class BlogPluginTests(unittest.TestCase):
         today = format_date(datetime.date.today())
         self.assertEqual(page.meta["git_creation_date_localized"], today)
         self.assertEqual(page.meta["git_revision_date_localized"], today)
+
+    def test_on_page_context_honors_theme_locale_for_git_dates(self) -> None:
+        from mkdocs_simple_blog.plugin import dates as dates_module
+
+        if not dates_module._HAS_BABEL:
+            self.skipTest("babel not installed")
+
+        self._write("post/a.md", "title: A\ndate: 2024-01-01")
+        files = [self._file("post/a.md")]
+        self.plugin.on_files(files, config=fake_config())
+
+        page = SimpleNamespace(meta={}, file=self._file("post/a.md"))
+        self.plugin.on_page_context(
+            {}, page=page, config=fake_config(locale="pt"), nav=None
+        )
+
+        today = format_date(datetime.date.today(), locale="pt")
+        self.assertEqual(page.meta["git_creation_date_localized"], today)
 
     def test_on_page_context_skips_git_dates_when_page_dates_disabled(
         self,

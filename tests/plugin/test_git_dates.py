@@ -91,3 +91,13 @@ class GitDatesResolverInRepoTests(unittest.TestCase):
         untracked.write_text("content", encoding="utf-8")
         self.assertEqual(self.resolver.created_date(str(untracked)), TODAY)
         self.assertEqual(self.resolver.revision_date(str(untracked)), TODAY)
+
+    def test_created_date_honors_locale(self) -> None:
+        from mkdocs_simple_blog.plugin import dates
+
+        if not dates._HAS_BABEL:
+            self.skipTest("babel not installed")
+        self.assertEqual(
+            self.resolver.created_date(str(self.file_path), locale="pt"),
+            "5 de janeiro de 2024",
+        )

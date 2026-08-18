@@ -22,15 +22,21 @@ class GitDatesResolver:
     at all -- e.g. building from a source tarball.
     """
 
-    def created_date(self, path: str) -> str:
+    def created_date(self, path: str, locale: str = "en") -> str:
         """Return the formatted date of the file's first commit."""
-        return self._formatted_date(path, follow=True, oldest=True)
+        return self._formatted_date(
+            path, follow=True, oldest=True, locale=locale
+        )
 
-    def revision_date(self, path: str) -> str:
+    def revision_date(self, path: str, locale: str = "en") -> str:
         """Return the formatted date of the file's last commit."""
-        return self._formatted_date(path, follow=False, oldest=False)
+        return self._formatted_date(
+            path, follow=False, oldest=False, locale=locale
+        )
 
-    def _formatted_date(self, path: str, *, follow: bool, oldest: bool) -> str:
+    def _formatted_date(
+        self, path: str, *, follow: bool, oldest: bool, locale: str
+    ) -> str:
         command = ["git", "-c", "safe.directory=*", "log", "--format=%aI"]
 
         if follow:
@@ -48,9 +54,9 @@ class GitDatesResolver:
                 timeout=5,
             )
         except (OSError, subprocess.SubprocessError):
-            return self._build_date()
+            return self._build_date(locale)
         if result.returncode != 0 or not result.stdout.strip():
-            return self._build_date()
+            return self._build_date(locale)
 
         lines = result.stdout.strip().splitlines()
         raw_date = lines[-1] if oldest else lines[0]
@@ -58,8 +64,8 @@ class GitDatesResolver:
         try:
             parsed = datetime.datetime.fromisoformat(raw_date)
         except ValueError:
-            return self._build_date()
-        return format_date(parsed.date())
+            return self._build_date(locale)
+        return format_date(parsed.date(), locale=locale)
 
-    def _build_date(self) -> str:
-        return format_date(datetime.date.today())
+    def _build_date(self, locale: str) -> str:
+        return format_date(datetime.date.today(), locale=locale)
