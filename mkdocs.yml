@@ -60,6 +60,7 @@ theme:
     menu: true
     preview: true
     footer: true
+    page_dates: true
   hljs_languages:
     - yaml
     - python
