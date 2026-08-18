@@ -38,10 +38,6 @@ theme:
 
 ## Screenshots
 
-**Home page**
-
-![Home page](https://raw.githubusercontent.com/FernandoCelmer/mkdocs-simple-blog/develop/docs/assets/home-page.png)
-
 **Blog List — featured layout**
 
 ![Blog List featured layout](https://raw.githubusercontent.com/FernandoCelmer/mkdocs-simple-blog/develop/docs/assets/blog-list-featured.png)
