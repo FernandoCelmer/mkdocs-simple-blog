@@ -37,13 +37,13 @@ class GitDatesResolver:
     def _formatted_date(
         self, path: str, *, follow: bool, oldest: bool, locale: str
     ) -> str:
-        command = ["git", "log", "--format=%aI"]
+        command = ["git", "-c", "safe.directory=*", "log", "--format=%aI"]
 
         if follow:
             command.append("--follow")
         else:
             command.append("-1")
-        command += ["--", path]
+        command += ["--", os.path.basename(path)]
 
         try:
             result = subprocess.run(  # noqa: S603
