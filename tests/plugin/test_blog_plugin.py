@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import datetime
 import shutil
 import tempfile
 import unittest
@@ -11,6 +12,7 @@ from types import SimpleNamespace
 from mkdocs.structure.files import File
 
 from mkdocs_simple_blog.plugin import BlogPlugin, BlogPluginConfig
+from mkdocs_simple_blog.plugin.dates import format_date
 
 from ..fixtures import fake_config, make_file, write_post
 
@@ -196,3 +198,65 @@ class BlogPluginTests(unittest.TestCase):
         )
 
         self.assertEqual(context["blog_posts"], self.plugin.posts)
+
+    def test_on_page_context_fills_git_dates_falling_back_to_build_date(
+        self,
+    ) -> None:
+        self._write("post/a.md", "title: A\ndate: 2024-01-01")
+        files = [self._file("post/a.md")]
+        self.plugin.on_files(files, config=fake_config())
+
+        page = SimpleNamespace(meta={}, file=self._file("post/a.md"))
+        self.plugin.on_page_context(
+            {}, page=page, config=fake_config(), nav=None
+        )
+
+        today = format_date(datetime.date.today())
+        self.assertEqual(page.meta["git_creation_date_localized"], today)
+        self.assertEqual(page.meta["git_revision_date_localized"], today)
+
+    def test_on_page_context_skips_git_dates_when_page_dates_disabled(
+        self,
+    ) -> None:
+        self._write("post/a.md", "title: A\ndate: 2024-01-01")
+        files = [self._file("post/a.md")]
+        self.plugin.on_files(files, config=fake_config())
+
+        page = SimpleNamespace(meta={}, file=self._file("post/a.md"))
+        self.plugin.on_page_context(
+            {},
+            page=page,
+            config=fake_config(components={"page_dates": False}),
+            nav=None,
+        )
+
+        self.assertNotIn("git_creation_date_localized", page.meta)
+        self.assertNotIn("git_revision_date_localized", page.meta)
+
+    def test_on_page_context_does_not_override_existing_git_dates(
+        self,
+    ) -> None:
+        self._write("post/a.md", "title: A\ndate: 2024-01-01")
+        files = [self._file("post/a.md")]
+        self.plugin.on_files(files, config=fake_config())
+
+        page = SimpleNamespace(
+            meta={"git_creation_date_localized": "Already Set"},
+            file=self._file("post/a.md"),
+        )
+        self.plugin.on_page_context(
+            {}, page=page, config=fake_config(), nav=None
+        )
+
+        self.assertEqual(
+            page.meta["git_creation_date_localized"], "Already Set"
+        )
+
+    def test_on_page_context_handles_page_without_file(self) -> None:
+        self.plugin.on_files([], config=fake_config())
+        page = SimpleNamespace(meta={})
+        context = self.plugin.on_page_context(
+            {}, page=page, config=fake_config(), nav=None
+        )
+        self.assertNotIn("git_creation_date_localized", page.meta)
+        self.assertEqual(context["blog_posts"], [])
