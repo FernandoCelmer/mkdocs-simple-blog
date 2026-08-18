@@ -1,5 +1,3 @@
----
-
 ## Overview
 
 Renders every post under `docs/post/` as a card (thumbnail, author avatar, title, date, category, description, "Read more" link), sorted by date descending. Requires the `simple-blog-posts` plugin — it scans front matter and builds the collection this component reads.
