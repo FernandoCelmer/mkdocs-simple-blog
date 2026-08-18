@@ -7,11 +7,6 @@ copyright: Fernando Celmer
 plugins:
   - search
   - simple-blog-posts
-  - git-revision-date-localized:
-      type: date
-      locale: en
-      enable_creation_date: true
-      fallback_to_build_date: true
 
 nav:
     - Home: index.md
