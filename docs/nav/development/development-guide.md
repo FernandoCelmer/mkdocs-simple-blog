@@ -120,7 +120,7 @@ mypy --config-file=.code_quality/mypy.ini mkdocs_simple_blog/ tests/
 Code quality checks are automatically run:
 
 - On every push and pull request
-- For Python versions 3.9 through 3.14
+- For Python versions 3.10 through 3.14
 - Before package publication
 
 See `.github/workflows/code-quality.yml` for the CI configuration.
@@ -141,7 +141,7 @@ All code quality configurations are in the `.code_quality/` directory:
 
 The package is automatically published to TestPyPI when changes are pushed to the `pypi` branch. The publishing workflow:
 
-1. Runs all tests (Python 3.9-3.14)
+1. Runs all tests (Python 3.10-3.14)
 2. Runs code quality checks
 3. Builds the package
 4. Publishes to TestPyPI
@@ -152,7 +152,7 @@ See `.github/workflows/python-publish-pypi-test.yml` for the configuration.
 
 The package is automatically published to PyPI when a new release is published on GitHub. The publishing workflow:
 
-1. Runs all tests (Python 3.9-3.14)
+1. Runs all tests (Python 3.10-3.14)
 2. Runs code quality checks
 3. Builds the package
 4. Publishes to PyPI
