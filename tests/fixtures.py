@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import tempfile
 from pathlib import Path
 from types import SimpleNamespace
 from typing import Any
@@ -82,14 +83,21 @@ def make_file(docs_dir: Path, rel_path: str) -> File:
 def fake_config(
     blog: dict | None = None,
     components: dict | None = None,
-    site_dir: str = "/tmp/site",
+    site_dir: str | None = None,
 ) -> SimpleNamespace:
     """Minimal stand-in for MkDocs' real config object.
 
     `File.generated()` reads `.site_dir`, `.use_directory_urls` and
     `.plugins._current_plugin`; `config.theme` needs `.get()` the same
     way the real Theme (a MutableMapping) does.
+
+    `site_dir` defaults to a fresh `tempfile.mkdtemp()` rather than a
+    hardcoded `/tmp/site` -- on macOS, `/tmp` is a symlink to
+    `/private/tmp`, and some MkDocs internals resolve that symlink,
+    which can make path comparisons against a hardcoded literal flaky.
     """
+    if site_dir is None:
+        site_dir = tempfile.mkdtemp()
     theme: dict = {}
     if blog is not None:
         theme["blog"] = blog
