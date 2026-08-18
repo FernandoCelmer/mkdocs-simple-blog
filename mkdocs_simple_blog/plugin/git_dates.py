@@ -60,17 +60,21 @@ class GitDatesResolver:
 
         lines = result.stdout.strip().splitlines()
         raw_date = lines[-1] if oldest else lines[0]
-        if raw_date.endswith("Z"):
-            # git's %aI emits "Z" for UTC, but datetime.fromisoformat()
-            # only accepts that suffix from Python 3.11 -- normalize it
-            # to an explicit offset so this also works on 3.9/3.10.
-            raw_date = raw_date[:-1] + "+00:00"
 
         try:
-            parsed = datetime.datetime.fromisoformat(raw_date)
+            parsed = datetime.datetime.fromisoformat(
+                self._normalize_z(raw_date)
+            )
         except ValueError:
             return self._build_date(locale)
         return format_date(parsed.date(), locale=locale)
+
+    def _normalize_z(self, raw_date: str) -> str:
+        """`%aI` emits a trailing "Z" for UTC; `datetime.fromisoformat`
+        only accepts that suffix from Python 3.11 onward."""
+        if raw_date.endswith("Z"):
+            return raw_date[:-1] + "+00:00"
+        return raw_date
 
     def _build_date(self, locale: str) -> str:
         return format_date(datetime.date.today(), locale=locale)
