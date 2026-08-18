@@ -84,6 +84,7 @@ def fake_config(
     blog: dict | None = None,
     components: dict | None = None,
     site_dir: str | None = None,
+    locale: str | None = None,
 ) -> SimpleNamespace:
     """Minimal stand-in for MkDocs' real config object.
 
@@ -103,6 +104,8 @@ def fake_config(
         theme["blog"] = blog
     if components is not None:
         theme["components"] = components
+    if locale is not None:
+        theme["locale"] = locale
     return SimpleNamespace(
         theme=theme,
         site_dir=site_dir,
