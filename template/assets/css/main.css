@@ -912,38 +912,78 @@ kbd {
   margin-top: 2rem;
 }
 
-.blog-list-item {
-  padding: 2rem 0;
+/* Blog List layout: "featured" (default) -- big centered thumbnail,
+   centered title/meta, full-width CTA. Set via theme.blog_list_layout. */
+
+.blog-card {
+  padding: 2.5rem 0;
   border-top: 2px solid var(--primary);
+  text-align: center;
 }
 
-.blog-list #component-blog-list .blog-list-item:last-child {
+.blog-list #component-blog-list .blog-card:last-child {
   border-bottom: 2px solid var(--primary);
 }
 
-.blog-list-item-title {
+.blog-card-title {
   margin: 0 0 0.5rem;
-  font-size: 1.6rem;
+  font-size: 2rem;
   line-height: 1.25;
 }
 
-.blog-list-item-title a {
+.blog-card-title a {
   color: var(--text);
   text-decoration: none;
 }
 
-.blog-list-item-title a:hover {
+.blog-card-title a:hover {
   text-decoration: underline;
 }
 
-.blog-list-item-meta {
-  margin: 0 0 1.25rem;
-  font-size: 0.85rem;
+.blog-card-meta {
+  margin: 0 0 1.5rem;
+  font-size: 0.9rem;
   font-style: italic;
   color: var(--color-gray);
 }
 
-.blog-list-item-cta {
+.blog-card-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--primary);
+  object-fit: cover;
+  vertical-align: middle;
+  margin: 0 0.3rem 0 0.5rem;
+}
+
+.blog-card-thumb {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: 320px;
+  margin: 0 auto 1.5rem;
+  overflow: hidden;
+  border: 1px solid var(--primary);
+}
+
+.blog-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.blog-card-description {
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text);
+  text-align: left;
+}
+
+.blog-card-cta {
   display: inline-block;
   padding: 0.6rem 1.1rem;
   background-color: var(--primary);
@@ -956,9 +996,124 @@ kbd {
   transition: opacity 0.15s ease;
 }
 
-.blog-list-item-cta:hover {
+.blog-card-cta:hover {
   color: var(--background) !important;
   opacity: 0.75 !important;
+}
+
+@media (max-width: 600px) {
+  .blog-card-thumb {
+    height: 200px;
+  }
+}
+
+/* Blog List layout: "compact" -- small thumbnail beside title, dense row.
+   Set via theme.blog_list_layout: compact. */
+
+.blog-row {
+  display: flex;
+  gap: 1rem;
+  padding: 2rem 0;
+  border-top: 2px solid var(--primary);
+}
+
+.blog-list #component-blog-list .blog-row:last-child {
+  border-bottom: 2px solid var(--primary);
+}
+
+.blog-row-thumb {
+  flex: 0 0 auto;
+  display: block;
+  width: 200px;
+  height: 130px;
+  overflow: hidden;
+  border: 1px solid var(--primary);
+}
+
+.blog-row-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.blog-row-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.blog-row-byline {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.blog-row-avatar {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  border-radius: 50%;
+  border: 1px solid var(--primary);
+  object-fit: cover;
+}
+
+.blog-row-title {
+  margin: 0;
+  font-size: 1.6rem;
+  line-height: 1.25;
+}
+
+.blog-row-title a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.blog-row-title a:hover {
+  text-decoration: underline;
+}
+
+.blog-row-meta {
+  margin: 0.4rem 0 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--color-gray);
+}
+
+.blog-row-description {
+  margin: 0.75rem 0 1.25rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.blog-row-cta {
+  display: inline-block;
+  padding: 0.6rem 1.1rem;
+  background-color: var(--primary);
+  color: var(--background) !important;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  transition: opacity 0.15s ease;
+}
+
+.blog-row-cta:hover {
+  color: var(--background) !important;
+  opacity: 0.75 !important;
+}
+
+@media (max-width: 600px) {
+  .blog-row {
+    flex-direction: column;
+  }
+
+  .blog-row-thumb {
+    width: 100%;
+    height: 180px;
+  }
 }
 
 .blog-sidebar {
@@ -1020,4 +1175,99 @@ kbd {
   background-color: var(--primary) !important;
   color: var(--background) !important;
   opacity: 1 !important;
+}
+
+.style-swatch {
+  background: var(--color-white) !important;
+  color: #000000 !important;
+}
+
+.swatch-fill-black {
+  background: var(--color-black) !important;
+  color: #ffffff !important;
+}
+
+.swatch-fill-blue {
+  background: var(--color-blue) !important;
+  color: #ffffff !important;
+}
+
+.swatch-fill-green {
+  background: var(--color-green) !important;
+  color: #ffffff !important;
+}
+
+.swatch-fill-yellow {
+  background: var(--color-yellow) !important;
+  color: #000000 !important;
+}
+
+.swatch-fill-orange {
+  background: var(--color-orange) !important;
+  color: #000000 !important;
+}
+
+.swatch-fill-purple {
+  background: var(--color-purple) !important;
+  color: #ffffff !important;
+}
+
+.swatch-fill-red {
+  background: var(--color-red) !important;
+  color: #ffffff !important;
+}
+
+.swatch-fill-white {
+  background: var(--color-white) !important;
+  color: #000000 !important;
+}
+
+.swatch-outline-black {
+  background: var(--color-white) !important;
+  color: var(--color-black) !important;
+}
+
+.swatch-outline-blue {
+  background: var(--color-white) !important;
+  color: var(--color-blue) !important;
+}
+
+.swatch-outline-green {
+  background: var(--color-white) !important;
+  color: var(--color-green) !important;
+}
+
+.swatch-outline-yellow {
+  background: var(--color-white) !important;
+  color: var(--color-yellow) !important;
+}
+
+.swatch-outline-orange {
+  background: var(--color-white) !important;
+  color: var(--color-orange) !important;
+}
+
+.swatch-outline-purple {
+  background: var(--color-white) !important;
+  color: var(--color-purple) !important;
+}
+
+.swatch-outline-red {
+  background: var(--color-white) !important;
+  color: var(--color-red) !important;
+}
+
+.swatch-outline-white {
+  background: var(--color-white) !important;
+  color: #000000 !important;
+}
+
+.page-dates {
+  margin: 0 0 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  font-style: normal;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text);
 }
