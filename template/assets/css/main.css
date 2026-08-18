@@ -1271,3 +1271,9 @@ kbd {
   text-transform: uppercase;
   color: var(--text);
 }
+
+.page-dates-divider {
+  margin: 0 0 1.5rem;
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
