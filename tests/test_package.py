@@ -1,56 +1,47 @@
 """Tests for package structure and metadata."""
 
-from pathlib import Path
+from __future__ import annotations
+
+import unittest
+
+from .fixtures import THEME_DIR
 
 
-def test_package_init_exists():
-    """Test that __init__.py exists."""
-    package_dir = Path(__file__).parent.parent / "mkdocs_simple_blog"
-    init_file = package_dir / "__init__.py"
+class PackageStructureTests(unittest.TestCase):
+    def test_package_init_exists(self) -> None:
+        self.assertTrue((THEME_DIR / "__init__.py").exists())
 
-    assert init_file.exists(), "__init__.py should exist"
+    def test_package_structure(self) -> None:
+        required_files = [
+            "__init__.py",
+            "base.html",
+            "main.html",
+            "search.html",
+            "mkdocs_theme.yml",
+        ]
+        for file_name in required_files:
+            with self.subTest(file_name=file_name):
+                self.assertTrue((THEME_DIR / file_name).exists())
 
-
-def test_package_version():
-    """Test that package has a version defined."""
-    from mkdocs_simple_blog import __version__
-
-    assert __version__ is not None, "Package should have a version"
-    assert isinstance(__version__, str), "Version should be a string"
-    assert len(__version__) > 0, "Version should not be empty"
-
-
-def test_package_author():
-    """Test that package has an author defined."""
-    from mkdocs_simple_blog import __author__
-
-    assert __author__ is not None, "Package should have an author"
-    assert isinstance(__author__, str), "Author should be a string"
-    assert len(__author__) > 0, "Author should not be empty"
+        required_dirs = ["modules", "assets"]
+        for dir_name in required_dirs:
+            with self.subTest(dir_name=dir_name):
+                dir_path = THEME_DIR / dir_name
+                self.assertTrue(dir_path.exists())
+                self.assertTrue(dir_path.is_dir())
 
 
-def test_package_structure():
-    """Test that package has required structure."""
-    package_dir = Path(__file__).parent.parent / "mkdocs_simple_blog"
+class PackageMetadataTests(unittest.TestCase):
+    def test_package_version(self) -> None:
+        from mkdocs_simple_blog import __version__
 
-    required_files = [
-        "__init__.py",
-        "base.html",
-        "main.html",
-        "search.html",
-        "mkdocs_theme.yml",
-    ]
+        self.assertIsNotNone(__version__)
+        self.assertIsInstance(__version__, str)
+        self.assertGreater(len(__version__), 0)
 
-    required_dirs = [
-        "modules",
-        "assets",
-    ]
+    def test_package_author(self) -> None:
+        from mkdocs_simple_blog import __author__
 
-    for file_name in required_files:
-        file_path = package_dir / file_name
-        assert file_path.exists(), f"{file_name} should exist"
-
-    for dir_name in required_dirs:
-        dir_path = package_dir / dir_name
-        assert dir_path.exists(), f"{dir_name} directory should exist"
-        assert dir_path.is_dir(), f"{dir_name} should be a directory"
+        self.assertIsNotNone(__author__)
+        self.assertIsInstance(__author__, str)
+        self.assertGreater(len(__author__), 0)

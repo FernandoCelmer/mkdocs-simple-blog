@@ -1,9 +1,3 @@
-# Sidebar
-
-January 28, 2025
-
----
-
 ## Overview
 
 The sidebar displays the **Table of Contents (TOC)** of the current page, showing the page's heading structure. It does not display the site navigation (which appears in the top menu).

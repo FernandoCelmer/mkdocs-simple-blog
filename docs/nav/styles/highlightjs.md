@@ -1,9 +1,3 @@
-# Highlightjs
-
-January 28, 2025
-
----
-
 ## Enable and Disable
 
 - Default: false
@@ -13,7 +7,7 @@ theme:
   highlightjs: false
 ```
 
-## Highlightjs with languages
+## Highlight.js with languages
 
 ```yml
 theme:

@@ -45,7 +45,8 @@ ignore = [
 # Allowed configurations for specific rules
 [lint.per-file-ignores]
 "__init__.py" = ["F401"]  # Allow unused imports in __init__.py
-"tests/**" = ["ARG001", "S101"]  # Allow unused arguments and assert in tests
+"tests/**" = ["ARG001", "ARG002", "S101"]  # Allow unused arguments and assert in tests
+"mkdocs_simple_blog/plugin/__init__.py" = ["ARG002"]  # MkDocs event hooks receive a fixed signature (config/page/nav) regardless of use
 
 # Import sorting (isort)
 [lint.isort]

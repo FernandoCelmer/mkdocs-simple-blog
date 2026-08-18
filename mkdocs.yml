@@ -4,28 +4,36 @@ repo_url: https://github.com/FernandoCelmer/mkdocs-simple-blog
 site_url: https://www.fernandocelmer.com
 copyright: Fernando Celmer
 
+plugins:
+  - search
+  - simple-blog-posts
+
 nav:
     - Home: index.md
     - Getting Started: nav/getting-started.md
+    - Blog:
+      - Blog: blog.md
+      - Blog List: nav/components/blog-list.md
+      - Blog Sidebar: nav/components/blog-sidebar.md
     - Components:
-      - nav/components/sidebar.md
-      - nav/components/top-menu.md
-      - nav/components/preview.md
-      - nav/components/footer.md
-      - nav/components/site-name.md
-      - nav/components/standard-title.md
+      - Sidebar: nav/components/sidebar.md
+      - Top Menu: nav/components/top-menu.md
+      - Preview: nav/components/preview.md
+      - Footer: nav/components/footer.md
+      - Site Name: nav/components/site-name.md
+      - Standard Title: nav/components/standard-title.md
+      - Page Dates: nav/components/page-dates.md
     - Styles:
-      - nav/styles/highlightjs.md
-      - nav/styles/favicon.md
-      - nav/styles/colors.md
-      - nav/styles/logo.md
-      - nav/styles/fonts.md
-      - nav/styles/metadata.md
+      - Highlight.js: nav/styles/highlightjs.md
+      - Favicon: nav/styles/favicon.md
+      - Colors: nav/styles/colors.md
+      - Logo: nav/styles/logo.md
+      - Fonts: nav/styles/fonts.md
+      - Page Metadata: nav/styles/metadata.md
     - Development:
-      - nav/development/development-guide.md
-      - nav/development/testing.md
-      - nav/testing-all.md
-      - nav/development/release-notes.md
+      - Development Guide: nav/development/development-guide.md
+      - Testing: nav/development/testing.md
+      - Release Notes: nav/development/release-notes.md
 
 theme:
   name: simple-blog
@@ -37,6 +45,10 @@ theme:
   sidebar: true
   navigation_depth: 2
   highlightjs: true
+  blog:
+    layout: compact
+    author: Fernando Celmer
+    github: FernandoCelmer
   colors:
     text: black
     title: black
@@ -44,10 +56,11 @@ theme:
     background: white
   components:
     site_name: true
-    title: false
+    title: true
     menu: true
     preview: true
     footer: true
+    page_dates: true
   hljs_languages:
     - yaml
     - python

@@ -11,6 +11,7 @@
             </li>
         {%- endif %}
     {%- endmacro %}
+    {% if config.theme.sidebar %}
     <div class="sidebar navbar-collapse collapse card">
         <ul class="nav flex-column">
         {%- for item in page.toc %}
@@ -18,5 +19,9 @@
         {%- endfor %}
         </ul>
     </div>
+    {% endif %}
 </div>
+{% if (page and page.meta.blog_sidebar) or (config.theme.components and config.theme.components.blog_sidebar) %}
+{% include "modules/blog_sidebar.html" %}
+{% endif %}
 <!-- endblock -->
