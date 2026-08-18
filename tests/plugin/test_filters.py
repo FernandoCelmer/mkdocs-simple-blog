@@ -107,3 +107,40 @@ class FilterPageGeneratorTests(unittest.TestCase):
             label="Category",
         )
         self.assertIn("\n# Category: Python\n", files[0]._content)
+
+    def test_generate_disambiguates_colliding_slugs(self) -> None:
+        """Names that normalize to the same slug (e.g. "C++" and "C#" both
+        slugify to "c") must not collide on the same src_uri -- otherwise
+        MkDocs receives two generated files at the same path and either
+        aborts the build or silently drops one group's listing page."""
+        files: list[File] = []
+        urls = self.generator.generate(
+            files,
+            fake_config(),
+            {"C++": self.posts[:1], "C#": self.posts[1:2]},
+            base_dir="tag",
+            meta_key="blog_tag",
+            label="Tag",
+        )
+        self.assertEqual(len(files), 2)
+        self.assertEqual(
+            {f.src_uri for f in files}, {"tag/c.md", "tag/c-1.md"}
+        )
+        self.assertEqual(len(set(urls.values())), 2)
+
+    def test_generate_escapes_newlines_in_yaml_values(self) -> None:
+        """An unescaped newline inside a double-quoted YAML scalar breaks
+        the generated front matter and can inject bogus keys."""
+        files: list[File] = []
+        tricky_name = "Python\nmeta_key: injected"
+        self.generator.generate(
+            files,
+            fake_config(),
+            {tricky_name: self.posts[:1]},
+            base_dir="tag",
+            meta_key="blog_tag",
+            label="Tag",
+        )
+        content = files[0]._content
+        self.assertIn('blog_tag: "Python\\nmeta_key: injected"', content)
+        self.assertNotIn("\ninjected", content)

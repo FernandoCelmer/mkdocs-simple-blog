@@ -10,7 +10,13 @@ from .slug import slugify
 
 
 def _yaml_quote(value: str) -> str:
-    return '"' + value.replace("\\", "\\\\").replace('"', '\\"') + '"'
+    escaped = (
+        value.replace("\\", "\\\\")
+        .replace('"', '\\"')
+        .replace("\n", "\\n")
+        .replace("\r", "\\r")
+    )
+    return f'"{escaped}"'
 
 
 class FilterPageGenerator:
@@ -53,8 +59,16 @@ class FilterPageGenerator:
         )
 
         urls: dict[str, str] = {}
+        seen_slugs: dict[str, int] = {}
         for name in grouped:
-            src_uri = f"{base_dir}/{slugify(name)}.md"
+            base_slug = slugify(name)
+            if base_slug in seen_slugs:
+                seen_slugs[base_slug] += 1
+                slug = f"{base_slug}-{seen_slugs[base_slug]}"
+            else:
+                seen_slugs[base_slug] = 0
+                slug = base_slug
+            src_uri = f"{base_dir}/{slug}.md"
             title = _yaml_quote(f"{label}: {name}")
             heading = (
                 f"\n# {label}: {name}\n" if title_component_disabled else ""
