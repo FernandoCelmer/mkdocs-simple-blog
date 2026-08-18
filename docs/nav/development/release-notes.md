@@ -1,5 +1,3 @@
----
-
 ## v0.4.3
 
 - [📦 PyPI - Build 0.4.3](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.4.3)

@@ -1,5 +1,3 @@
----
-
 ## How to test the local package?
 
 #### Virtual environment

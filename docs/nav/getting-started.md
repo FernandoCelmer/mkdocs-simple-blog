@@ -1,5 +1,3 @@
----
-
 ## Installation MkDocs
 
 To install MkDocs, run the following command from the command line:

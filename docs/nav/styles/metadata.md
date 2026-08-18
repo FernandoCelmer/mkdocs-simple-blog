@@ -1,5 +1,3 @@
----
-
 ## Overview
 
 The theme supports page metadata through MkDocs' built-in `page.meta` property. This allows you to add metadata to your Markdown files using YAML frontmatter, which will be automatically rendered as meta tags in the HTML head section. This is particularly useful for social media previews and SEO.

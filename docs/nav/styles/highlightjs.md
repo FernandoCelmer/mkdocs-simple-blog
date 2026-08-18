@@ -1,5 +1,3 @@
----
-
 ## Enable and Disable
 
 - Default: false

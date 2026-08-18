@@ -1,5 +1,3 @@
----
-
 ## Changing the colors
 
 ### Color scheme

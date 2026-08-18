@@ -1,5 +1,3 @@
----
-
 ## Changing the logo
 
 ```yml

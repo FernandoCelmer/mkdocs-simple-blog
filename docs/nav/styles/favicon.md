@@ -1,5 +1,3 @@
----
-
 ## Changing the favicon
 
 ```yml

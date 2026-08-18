@@ -1,5 +1,3 @@
----
-
 Reference page for manually checking that `pymdown-extensions` elements follow the theme (issue #70).
 
 ## Admonitions

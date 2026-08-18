@@ -1,5 +1,3 @@
----
-
 ## Changing the fonts
 
 ### Site name style
