@@ -2,7 +2,7 @@
 <html data-bs-theme="light">
 
 <head>
-    <title>Highlightjs - MkDocs Simple Blog
+    <title>Highlight.js - MkDocs Simple Blog
     </title>
 
     <meta charset="utf-8">
@@ -20,6 +20,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/base16/grayscale-dark.min.css">
     <script>hljs.highlightAll();</script>
+    
+    
+    
+    
+    
+    
+    
+    <meta property="og:url" content="https://www.fernandocelmer.com/nav/styles/highlightjs/">
+    
+    
+    <meta property="og:site_name" content="MkDocs Simple Blog">
+    
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
     
 
     <script>var base_url = '../../..';</script>
@@ -78,6 +92,27 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="
+                            nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Blog]</a>
+                            <ul class="dropdown-menu">
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../../../blog/" class="dropdown-item text-decoration-none ">Blog</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../../components/blog-list/" class="dropdown-item text-decoration-none ">Blog List</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../../components/blog-sidebar/" class="dropdown-item text-decoration-none ">Blog Sidebar</a>
+    </li>
+<!-- endblock -->
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="
                             nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Components]</a>
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
@@ -107,7 +142,12 @@
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../../components/standard-title/" class="dropdown-item text-decoration-none ">Standard title</a>
+        <a href="../../components/standard-title/" class="dropdown-item text-decoration-none ">Standard Title</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../../components/page-dates/" class="dropdown-item text-decoration-none ">Page Dates</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -118,7 +158,7 @@
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="./" class="dropdown-item text-decoration-none  active ">Highlightjs</a>
+        <a href="./" class="dropdown-item text-decoration-none  active ">Highlight.js</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
@@ -154,7 +194,7 @@
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../../development/development-guide/" class="dropdown-item text-decoration-none ">Development guide</a>
+        <a href="../../development/development-guide/" class="dropdown-item text-decoration-none ">Development Guide</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
@@ -164,7 +204,7 @@
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../../development/release-notes/" class="dropdown-item text-decoration-none ">Release</a>
+        <a href="../../development/release-notes/" class="dropdown-item text-decoration-none ">Release Notes</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -257,28 +297,29 @@
                         <!-- block sidebar -->
 <div class="navbar-expand-md" role="complementary">
     
+    
     <div class="sidebar navbar-collapse collapse card">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#highlightjs" class="nav-link">Highlightjs</a>
-              <ul class="nav flex-column">
             <li class="nav-item" data-bs-level="2"><a href="#enable-and-disable" class="nav-link">Enable and Disable</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#highlightjs-with-languages" class="nav-link">Highlightjs with languages</a>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#highlightjs-with-languages" class="nav-link">Highlight.js with languages</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
             <li class="nav-item" data-bs-level="2"><a href="#supported-languages" class="nav-link">Supported Languages</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-              </ul>
-            </li>
         </ul>
     </div>
+    
 </div>
+
 <!-- endblock -->
                     </div>
                     <div class="col-md-9 col-12" id="component-content">
@@ -287,25 +328,34 @@
     <article>
         <header>
             
+                <h1 class="bold title" id="component-title">Highlight.js</h1>
             
         </header>
-        <p><h1 id="highlightjs">Highlightjs</h1>
-<p>January 28, 2025</p>
-<hr />
-<h2 id="enable-and-disable">Enable and Disable</h2>
+        
+        
+        
+        <p class="page-dates">
+            Created on January 28, 2025
+             — updated on August 18, 2026
+        </p>
+        
+        <hr class="page-dates-divider">
+        
+        
+        <p><h2 id="enable-and-disable">Enable and Disable</h2>
 <ul>
 <li>Default: false</li>
 </ul>
-<pre><code class="language-yml">theme:
+<div class="highlight"><pre><span></span><code>theme:
   highlightjs: false
-</code></pre>
-<h2 id="highlightjs-with-languages">Highlightjs with languages</h2>
-<pre><code class="language-yml">theme:
+</code></pre></div>
+<h2 id="highlightjs-with-languages">Highlight.js with languages</h2>
+<div class="highlight"><pre><span></span><code>theme:
   highlightjs: true
   hljs_languages:
     - yaml
     - python
-</code></pre>
+</code></pre></div>
 <h2 id="supported-languages">Supported Languages</h2>
 <p>The theme supports syntax highlighting for multiple languages. Currently configured:</p>
 <ul>
@@ -314,6 +364,8 @@
 </ul>
 <p>To add more languages, add them to the <code>hljs_languages</code> list in <code>mkdocs.yml</code>.</p></p>
     </article>
+
+    
 </section>
 <!-- endblock -->
                     </div>
@@ -327,7 +379,7 @@
         <!-- block preview -->
     <div class="preview row row-cols-md-3 text-center pt-md-3" id="component-preview">
         <div class="col themed-grid-col">
-            <a rel="prev" href="../../components/standard-title/" class="nav-link">
+            <a rel="prev" href="../../components/page-dates/" class="nav-link">
                 <i class="fa fa-arrow-left"></i> Previous
             </a>
         </div>

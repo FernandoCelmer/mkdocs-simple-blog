@@ -21,6 +21,20 @@
     <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/base16/grayscale-dark.min.css">
     <script>hljs.highlightAll();</script>
     
+    
+    
+    
+    
+    
+    
+    <meta property="og:url" content="https://www.fernandocelmer.com/nav/components/sidebar/">
+    
+    
+    <meta property="og:site_name" content="MkDocs Simple Blog">
+    
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    
 
     <script>var base_url = '../../..';</script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
@@ -77,6 +91,27 @@
                             nav-link text-gray text-decoration-none" href="../../getting-started/">[Getting Started]</a>
                         </li>
                         <li class="nav-item dropdown">
+                            <a class="
+                            nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Blog]</a>
+                            <ul class="dropdown-menu">
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../../../blog/" class="dropdown-item text-decoration-none ">Blog</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../blog-list/" class="dropdown-item text-decoration-none ">Blog List</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../blog-sidebar/" class="dropdown-item text-decoration-none ">Blog Sidebar</a>
+    </li>
+<!-- endblock -->
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
                             <a class=" active 
                             nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Components]</a>
                             <ul class="dropdown-menu">
@@ -107,7 +142,12 @@
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../standard-title/" class="dropdown-item text-decoration-none ">Standard title</a>
+        <a href="../standard-title/" class="dropdown-item text-decoration-none ">Standard Title</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../page-dates/" class="dropdown-item text-decoration-none ">Page Dates</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -118,7 +158,7 @@
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../../styles/highlightjs/" class="dropdown-item text-decoration-none ">Highlightjs</a>
+        <a href="../../styles/highlightjs/" class="dropdown-item text-decoration-none ">Highlight.js</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
@@ -154,7 +194,7 @@
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../../development/development-guide/" class="dropdown-item text-decoration-none ">Development guide</a>
+        <a href="../../development/development-guide/" class="dropdown-item text-decoration-none ">Development Guide</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
@@ -164,7 +204,7 @@
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../../development/release-notes/" class="dropdown-item text-decoration-none ">Release</a>
+        <a href="../../development/release-notes/" class="dropdown-item text-decoration-none ">Release Notes</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -257,40 +297,44 @@
                         <!-- block sidebar -->
 <div class="navbar-expand-md" role="complementary">
     
+    
     <div class="sidebar navbar-collapse collapse card">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#sidebar" class="nav-link">Sidebar</a>
-              <ul class="nav flex-column">
             <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
             <li class="nav-item" data-bs-level="2"><a href="#how-to-activate" class="nav-link">How to activate?</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
             <li class="nav-item" data-bs-level="2"><a href="#navigation-depth" class="nav-link">Navigation depth</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
             <li class="nav-item" data-bs-level="2"><a href="#how-it-works" class="nav-link">How it works</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
             <li class="nav-item" data-bs-level="2"><a href="#example" class="nav-link">Example</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
             <li class="nav-item" data-bs-level="2"><a href="#site-navigation-vs-sidebar" class="nav-link">Site Navigation vs Sidebar</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-              </ul>
-            </li>
         </ul>
     </div>
+    
 </div>
+
 <!-- endblock -->
                     </div>
                     <div class="col-md-9 col-12" id="component-content">
@@ -299,12 +343,21 @@
     <article>
         <header>
             
+                <h1 class="bold title" id="component-title">Sidebar</h1>
             
         </header>
-        <p><h1 id="sidebar">Sidebar</h1>
-<p>January 28, 2025</p>
-<hr />
-<h2 id="overview">Overview</h2>
+        
+        
+        
+        <p class="page-dates">
+            Created on January 28, 2025
+             — updated on August 18, 2026
+        </p>
+        
+        <hr class="page-dates-divider">
+        
+        
+        <p><h2 id="overview">Overview</h2>
 <p>The sidebar displays the <strong>Table of Contents (TOC)</strong> of the current page, showing the page's heading structure. It does not display the site navigation (which appears in the top menu).</p>
 <h2 id="how-to-activate">How to activate?</h2>
 <ul>
@@ -312,9 +365,9 @@
 </ul>
 <h3 id="configuration">Configuration</h3>
 <p>Configure the sidebar in your <code>mkdocs.yml</code>:</p>
-<pre><code class="language-yml">theme:
+<div class="highlight"><pre><span></span><code>theme:
   sidebar: false
-</code></pre>
+</code></pre></div>
 <p><button id="sidebar-true"><code>true</code></button>
 <button id="sidebar-false"><code>false</code></button></p>
 <h2 id="navigation-depth">Navigation depth</h2>
@@ -322,9 +375,9 @@
 <ul>
 <li>Default: 2</li>
 </ul>
-<pre><code class="language-yml">theme:
+<div class="highlight"><pre><span></span><code>theme:
   navigation_depth: 2
-</code></pre>
+</code></pre></div>
 <p>This means headings up to level 2 (<code>##</code>) will be shown. For example:</p>
 <ul>
 <li><code># Heading 1</code> - Always shown</li>
@@ -341,17 +394,17 @@
 </ol>
 <h2 id="example">Example</h2>
 <p>If your Markdown file has:</p>
-<pre><code class="language-markdown"># Main Title
+<div class="highlight"><pre><span></span><code><span class="gh"># Main Title</span>
 
-## Section 1
+<span class="gu">## Section 1</span>
 Content here...
 
-### Subsection 1.1
+<span class="gu">### Subsection 1.1</span>
 More content...
 
-## Section 2
+<span class="gu">## Section 2</span>
 More content...
-</code></pre>
+</code></pre></div>
 <p>With <code>navigation_depth: 2</code>, the sidebar will show:
 - Main Title
   - Section 1
@@ -368,6 +421,8 @@ More content...
 </ul>
 <p>If you want to customize the site navigation, edit the <code>nav</code> section in your <code>mkdocs.yml</code> file. The sidebar is automatically generated from page headings.</p></p>
     </article>
+
+    
 </section>
 <!-- endblock -->
                     </div>
@@ -381,7 +436,7 @@ More content...
         <!-- block preview -->
     <div class="preview row row-cols-md-3 text-center pt-md-3" id="component-preview">
         <div class="col themed-grid-col">
-            <a rel="prev" href="../../getting-started/" class="nav-link">
+            <a rel="prev" href="../blog-sidebar/" class="nav-link">
                 <i class="fa fa-arrow-left"></i> Previous
             </a>
         </div>

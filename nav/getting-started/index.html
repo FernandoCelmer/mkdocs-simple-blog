@@ -21,6 +21,20 @@
     <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/base16/grayscale-dark.min.css">
     <script>hljs.highlightAll();</script>
     
+    
+    
+    
+    
+    
+    
+    <meta property="og:url" content="https://www.fernandocelmer.com/nav/getting-started/">
+    
+    
+    <meta property="og:site_name" content="MkDocs Simple Blog">
+    
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    
 
     <script>var base_url = '../..';</script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
@@ -78,6 +92,27 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="
+                            nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Blog]</a>
+                            <ul class="dropdown-menu">
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../../blog/" class="dropdown-item text-decoration-none ">Blog</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../components/blog-list/" class="dropdown-item text-decoration-none ">Blog List</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../components/blog-sidebar/" class="dropdown-item text-decoration-none ">Blog Sidebar</a>
+    </li>
+<!-- endblock -->
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="
                             nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Components]</a>
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
@@ -107,7 +142,12 @@
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../components/standard-title/" class="dropdown-item text-decoration-none ">Standard title</a>
+        <a href="../components/standard-title/" class="dropdown-item text-decoration-none ">Standard Title</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../components/page-dates/" class="dropdown-item text-decoration-none ">Page Dates</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -118,7 +158,7 @@
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../styles/highlightjs/" class="dropdown-item text-decoration-none ">Highlightjs</a>
+        <a href="../styles/highlightjs/" class="dropdown-item text-decoration-none ">Highlight.js</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
@@ -154,7 +194,7 @@
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../development/development-guide/" class="dropdown-item text-decoration-none ">Development guide</a>
+        <a href="../development/development-guide/" class="dropdown-item text-decoration-none ">Development Guide</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
@@ -164,7 +204,7 @@
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../development/release-notes/" class="dropdown-item text-decoration-none ">Release</a>
+        <a href="../development/release-notes/" class="dropdown-item text-decoration-none ">Release Notes</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -257,28 +297,29 @@
                         <!-- block sidebar -->
 <div class="navbar-expand-md" role="complementary">
     
+    
     <div class="sidebar navbar-collapse collapse card">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#getting-started" class="nav-link">Getting Started</a>
-              <ul class="nav flex-column">
             <li class="nav-item" data-bs-level="2"><a href="#installation-mkdocs" class="nav-link">Installation MkDocs</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
             <li class="nav-item" data-bs-level="2"><a href="#installation-theme" class="nav-link">Installation theme</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
             <li class="nav-item" data-bs-level="2"><a href="#activating-theme" class="nav-link">Activating theme</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-              </ul>
-            </li>
         </ul>
     </div>
+    
 </div>
+
 <!-- endblock -->
                     </div>
                     <div class="col-md-9 col-12" id="component-content">
@@ -287,25 +328,36 @@
     <article>
         <header>
             
+                <h1 class="bold title" id="component-title">Getting Started</h1>
             
         </header>
-        <p><h1 id="getting-started">Getting Started</h1>
-<p>March 25, 2023</p>
-<hr />
-<h2 id="installation-mkdocs">Installation MkDocs</h2>
+        
+        
+        
+        <p class="page-dates">
+            Created on January 14, 2023
+             — updated on August 18, 2026
+        </p>
+        
+        <hr class="page-dates-divider">
+        
+        
+        <p><h2 id="installation-mkdocs">Installation MkDocs</h2>
 <p>To install MkDocs, run the following command from the command line:</p>
-<pre><code class="language-bash">pip install mkdocs
-</code></pre>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>mkdocs
+</code></pre></div>
 <h2 id="installation-theme">Installation theme</h2>
 <p>Install the theme using PIP:</p>
-<pre><code class="language-bash">pip install mkdocs-simple-blog
-</code></pre>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>mkdocs-simple-blog
+</code></pre></div>
 <h2 id="activating-theme">Activating theme</h2>
 <p>After the theme is installed, edit your <code>mkdocs.yml</code> file and set the theme name to <code>simple-blog</code>:</p>
-<pre><code class="language-yml">theme:
+<div class="highlight"><pre><span></span><code>theme:
     name: simple-blog
-</code></pre></p>
+</code></pre></div></p>
     </article>
+
+    
 </section>
 <!-- endblock -->
                     </div>
@@ -325,7 +377,7 @@
         </div>
         <div class="col themed-grid-col"></div>
         <div class="col themed-grid-col">
-            <a rel="next" href="../components/sidebar/" class="nav-link">
+            <a rel="next" href="../../blog/" class="nav-link">
                 Next <i class="fa fa-arrow-right"></i>
             </a>
         </div>

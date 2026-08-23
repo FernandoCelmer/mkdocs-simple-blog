@@ -2,7 +2,7 @@
 <html data-bs-theme="light">
 
 <head>
-    <title>Standard title - MkDocs Simple Blog
+    <title>Standard Title - MkDocs Simple Blog
     </title>
 
     <meta charset="utf-8">
@@ -20,6 +20,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/base16/grayscale-dark.min.css">
     <script>hljs.highlightAll();</script>
+    
+    
+    
+    
+    
+    
+    
+    <meta property="og:url" content="https://www.fernandocelmer.com/nav/components/standard-title/">
+    
+    
+    <meta property="og:site_name" content="MkDocs Simple Blog">
+    
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
     
 
     <script>var base_url = '../../..';</script>
@@ -77,6 +91,27 @@
                             nav-link text-gray text-decoration-none" href="../../getting-started/">[Getting Started]</a>
                         </li>
                         <li class="nav-item dropdown">
+                            <a class="
+                            nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Blog]</a>
+                            <ul class="dropdown-menu">
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../../../blog/" class="dropdown-item text-decoration-none ">Blog</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../blog-list/" class="dropdown-item text-decoration-none ">Blog List</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../blog-sidebar/" class="dropdown-item text-decoration-none ">Blog Sidebar</a>
+    </li>
+<!-- endblock -->
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
                             <a class=" active 
                             nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Components]</a>
                             <ul class="dropdown-menu">
@@ -107,7 +142,12 @@
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="./" class="dropdown-item text-decoration-none  active ">Standard title</a>
+        <a href="./" class="dropdown-item text-decoration-none  active ">Standard Title</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../page-dates/" class="dropdown-item text-decoration-none ">Page Dates</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -118,7 +158,7 @@
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../../styles/highlightjs/" class="dropdown-item text-decoration-none ">Highlightjs</a>
+        <a href="../../styles/highlightjs/" class="dropdown-item text-decoration-none ">Highlight.js</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
@@ -154,7 +194,7 @@
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../../development/development-guide/" class="dropdown-item text-decoration-none ">Development guide</a>
+        <a href="../../development/development-guide/" class="dropdown-item text-decoration-none ">Development Guide</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
@@ -164,7 +204,7 @@
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../../development/release-notes/" class="dropdown-item text-decoration-none ">Release</a>
+        <a href="../../development/release-notes/" class="dropdown-item text-decoration-none ">Release Notes</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -257,24 +297,24 @@
                         <!-- block sidebar -->
 <div class="navbar-expand-md" role="complementary">
     
+    
     <div class="sidebar navbar-collapse collapse card">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#standard-title" class="nav-link">Standard title</a>
-              <ul class="nav flex-column">
             <li class="nav-item" data-bs-level="2"><a href="#enable-and-disable" class="nav-link">Enable and Disable</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
             <li class="nav-item" data-bs-level="2"><a href="#changing-the-fonts" class="nav-link">Changing the fonts</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-              </ul>
-            </li>
         </ul>
     </div>
+    
 </div>
+
 <!-- endblock -->
                     </div>
                     <div class="col-md-9 col-12" id="component-content">
@@ -283,48 +323,36 @@
     <article>
         <header>
             
+                <h1 class="bold title" id="component-title">Standard Title</h1>
             
         </header>
-        <p><h1 id="standard-title">Standard title</h1>
-<p>January 28, 2025</p>
-<hr />
-<p><strong>NOTE</strong>: Changes to the standard title will only appear if this component is activated. By default this component does not appear, you must mark it as <code>true</code>.</p>
+        
+        
+        
+        <p class="page-dates">
+            Created on January 28, 2025
+             — updated on August 18, 2026
+        </p>
+        
+        <hr class="page-dates-divider">
+        
+        
+        <p><p><strong>NOTE</strong>: Changes to the standard title will only appear if this component is activated. By default this component does not appear, you must mark it as <code>true</code>.</p>
 <h2 id="enable-and-disable">Enable and Disable</h2>
 <ul>
 <li>Default: false</li>
 </ul>
-<pre><code class="language-yml">theme:
+<div class="highlight"><pre><span></span><code>theme:
   components:
     title: false
-</code></pre>
+</code></pre></div>
 <p><button component-id="component-title" status="false"><code>true</code></button>
 <button component-id="component-title" status="true"><code>false</code></button></p>
 <h2 id="changing-the-fonts">Changing the fonts</h2>
-<ul>
-<li>Default: bold</li>
-</ul>
-<pre><code class="language-yml">theme:
-  title_style: bold
-</code></pre>
-<p><button style-title="normal">
-    <code class="normal" style="background: var(--color-white) !important; color: #000000 !important;">normal</code>
-</button>
-<button style-title="bold">
-    <code class="bold" style="background: var(--color-white) !important; color: #000000 !important;">bold</code>
-</button>
-<button style-title="italic">
-    <code class="italic" style="background: var(--color-white) !important; color: #000000 !important;">italic</code>
-</button>
-<button style-title="scratched">
-    <code class="scratched" style="background: var(--color-white) !important; color: #000000 !important;">scratched</code>
-</button>
-<button style-title="underline">
-    <code class="underline" style="background: var(--color-white) !important; color: #000000 !important;">underline</code>
-</button>
-<button style-title="overline">
-    <code class="overline" style="background: var(--color-white) !important; color: #000000 !important;">overline</code>
-</button></p></p>
+<p>See <a href="../../styles/fonts/#title-style">Fonts</a> to style the title's text (<code>title_style</code>).</p></p>
     </article>
+
+    
 </section>
 <!-- endblock -->
                     </div>
@@ -344,7 +372,7 @@
         </div>
         <div class="col themed-grid-col"></div>
         <div class="col themed-grid-col">
-            <a rel="next" href="../../styles/highlightjs/" class="nav-link">
+            <a rel="next" href="../page-dates/" class="nav-link">
                 Next <i class="fa fa-arrow-right"></i>
             </a>
         </div>

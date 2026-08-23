@@ -21,6 +21,20 @@
     <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/base16/grayscale-dark.min.css">
     <script>hljs.highlightAll();</script>
     
+    
+    
+    
+    
+    
+    
+    <meta property="og:url" content="https://www.fernandocelmer.com/nav/components/preview/">
+    
+    
+    <meta property="og:site_name" content="MkDocs Simple Blog">
+    
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    
 
     <script>var base_url = '../../..';</script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
@@ -77,6 +91,27 @@
                             nav-link text-gray text-decoration-none" href="../../getting-started/">[Getting Started]</a>
                         </li>
                         <li class="nav-item dropdown">
+                            <a class="
+                            nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Blog]</a>
+                            <ul class="dropdown-menu">
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../../../blog/" class="dropdown-item text-decoration-none ">Blog</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../blog-list/" class="dropdown-item text-decoration-none ">Blog List</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../blog-sidebar/" class="dropdown-item text-decoration-none ">Blog Sidebar</a>
+    </li>
+<!-- endblock -->
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
                             <a class=" active 
                             nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Components]</a>
                             <ul class="dropdown-menu">
@@ -107,7 +142,12 @@
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../standard-title/" class="dropdown-item text-decoration-none ">Standard title</a>
+        <a href="../standard-title/" class="dropdown-item text-decoration-none ">Standard Title</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../page-dates/" class="dropdown-item text-decoration-none ">Page Dates</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -118,7 +158,7 @@
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../../styles/highlightjs/" class="dropdown-item text-decoration-none ">Highlightjs</a>
+        <a href="../../styles/highlightjs/" class="dropdown-item text-decoration-none ">Highlight.js</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
@@ -154,7 +194,7 @@
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../../development/development-guide/" class="dropdown-item text-decoration-none ">Development guide</a>
+        <a href="../../development/development-guide/" class="dropdown-item text-decoration-none ">Development Guide</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
@@ -164,7 +204,7 @@
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../../development/release-notes/" class="dropdown-item text-decoration-none ">Release</a>
+        <a href="../../development/release-notes/" class="dropdown-item text-decoration-none ">Release Notes</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -257,20 +297,19 @@
                         <!-- block sidebar -->
 <div class="navbar-expand-md" role="complementary">
     
+    
     <div class="sidebar navbar-collapse collapse card">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#preview" class="nav-link">Preview</a>
-              <ul class="nav flex-column">
             <li class="nav-item" data-bs-level="2"><a href="#enable-and-disable" class="nav-link">Enable and Disable</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-              </ul>
-            </li>
         </ul>
     </div>
+    
 </div>
+
 <!-- endblock -->
                     </div>
                     <div class="col-md-9 col-12" id="component-content">
@@ -279,22 +318,33 @@
     <article>
         <header>
             
+                <h1 class="bold title" id="component-title">Preview</h1>
             
         </header>
-        <p><h1 id="preview">Preview</h1>
-<p>January 28, 2025</p>
-<hr />
-<h2 id="enable-and-disable">Enable and Disable</h2>
+        
+        
+        
+        <p class="page-dates">
+            Created on January 28, 2025
+             — updated on August 18, 2026
+        </p>
+        
+        <hr class="page-dates-divider">
+        
+        
+        <p><h2 id="enable-and-disable">Enable and Disable</h2>
 <ul>
 <li>Default: true</li>
 </ul>
-<pre><code class="language-yml">theme:
+<div class="highlight"><pre><span></span><code>theme:
   components:
     preview: true
-</code></pre>
+</code></pre></div>
 <p><button component-id="component-preview" status="false"><code>true</code></button>
 <button component-id="component-preview" status="true"><code>false</code></button></p></p>
     </article>
+
+    
 </section>
 <!-- endblock -->
                     </div>

@@ -2,7 +2,7 @@
 <html data-bs-theme="light">
 
 <head>
-    <title>Site Name - MkDocs Simple Blog
+    <title>Page Dates - MkDocs Simple Blog
     </title>
 
     <meta charset="utf-8">
@@ -11,7 +11,7 @@
 
     
     
-    <link rel="canonical" href="https://www.fernandocelmer.com/nav/components/site-name/">
+    <link rel="canonical" href="https://www.fernandocelmer.com/nav/components/page-dates/">
     
 
     
@@ -27,7 +27,7 @@
     
     
     
-    <meta property="og:url" content="https://www.fernandocelmer.com/nav/components/site-name/">
+    <meta property="og:url" content="https://www.fernandocelmer.com/nav/components/page-dates/">
     
     
     <meta property="og:site_name" content="MkDocs Simple Blog">
@@ -137,7 +137,7 @@
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="./" class="dropdown-item text-decoration-none  active ">Site Name</a>
+        <a href="../site-name/" class="dropdown-item text-decoration-none ">Site Name</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
@@ -147,7 +147,7 @@
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../page-dates/" class="dropdown-item text-decoration-none ">Page Dates</a>
+        <a href="./" class="dropdown-item text-decoration-none  active ">Page Dates</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -301,12 +301,22 @@
     <div class="sidebar navbar-collapse collapse card">
         <ul class="nav flex-column">
             
+            <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
             <li class="nav-item" data-bs-level="2"><a href="#enable-and-disable" class="nav-link">Enable and Disable</a>
               <ul class="nav flex-column">
               </ul>
             </li>
             
-            <li class="nav-item" data-bs-level="2"><a href="#changing-the-fonts" class="nav-link">Changing the fonts</a>
+            <li class="nav-item" data-bs-level="2"><a href="#date-resolution-order" class="nav-link">Date resolution order</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#localized-date-format" class="nav-link">Localized date format</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -323,32 +333,51 @@
     <article>
         <header>
             
-                <h1 class="bold title" id="component-title">Site Name</h1>
+                <h1 class="bold title" id="component-title">Page Dates</h1>
             
         </header>
         
         
         
         <p class="page-dates">
-            Created on January 28, 2025
-             — updated on August 18, 2026
+            Created on August 18, 2026
+            
         </p>
         
         <hr class="page-dates-divider">
         
         
-        <p><h2 id="enable-and-disable">Enable and Disable</h2>
+        <p><h2 id="overview">Overview</h2>
+<p>Renders a "Created on DATE" / "— updated on DATE" line below the page title, sourced from front matter or straight from git history — no extra plugin required.</p>
+<h2 id="enable-and-disable">Enable and Disable</h2>
 <ul>
 <li>Default: true</li>
 </ul>
 <div class="highlight"><pre><span></span><code>theme:
   components:
-    site_name: true
+    page_dates: true
 </code></pre></div>
-<p><button component-id="component-site-name" status="false"><code>true</code></button>
-<button component-id="component-site-name" status="true"><code>false</code></button></p>
-<h2 id="changing-the-fonts">Changing the fonts</h2>
-<p>See <a href="../../styles/fonts/#site-name-style">Fonts</a> to style the site name's text (<code>site_name_style</code>).</p></p>
+<p><button component-id="component-page-dates" status="false"><code>true</code></button>
+<button component-id="component-page-dates" status="true"><code>false</code></button></p>
+<h2 id="date-resolution-order">Date resolution order</h2>
+<p>For both the "created" and "updated" date, front matter always wins:</p>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2024-01-05</span><span class="w">      </span><span class="c1"># created</span>
+<span class="nt">updated</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2024-06-15</span><span class="w">   </span><span class="c1"># updated</span>
+<span class="nn">---</span>
+</code></pre></div>
+<ul>
+<li><strong><code>date</code></strong> / <strong><code>updated</code></strong> — optional, set directly in front matter</li>
+<li>Falls back to the file's git history when the matching field isn't set: first commit date for "created", last commit date for "updated". Shells out to plain <code>git log</code>, no extra plugin or dependency needed.</li>
+<li>If the file has no git history yet (untracked, uncommitted) or isn't inside a git repository at all (e.g. building from a source tarball), falls back to the build date — today's date, at the time the site is built.</li>
+<li>"Updated on" only renders when it differs from "Created on", so a page with a single commit doesn't show the same date twice.</li>
+</ul>
+<h2 id="localized-date-format">Localized date format</h2>
+<p>The rendered date follows <code>theme.locale</code>:</p>
+<div class="highlight"><pre><span></span><code>theme:
+  locale: pt
+</code></pre></div>
+<p><code>locale: en</code> (MkDocs' own default) renders "January 5, 2024"; <code>locale: pt</code> renders "5 de janeiro de 2024" — same for any locale <a href="https://babel.pocoo.org/">babel</a> supports. This applies to <code>date</code>/<code>updated</code> front matter values and the git-derived fallback alike, and also to the <code>fmt_date</code> Jinja filter used elsewhere in the theme (e.g. blog post cards).</p></p>
     </article>
 
     
@@ -365,13 +394,13 @@
         <!-- block preview -->
     <div class="preview row row-cols-md-3 text-center pt-md-3" id="component-preview">
         <div class="col themed-grid-col">
-            <a rel="prev" href="../footer/" class="nav-link">
+            <a rel="prev" href="../standard-title/" class="nav-link">
                 <i class="fa fa-arrow-left"></i> Previous
             </a>
         </div>
         <div class="col themed-grid-col"></div>
         <div class="col themed-grid-col">
-            <a rel="next" href="../standard-title/" class="nav-link">
+            <a rel="next" href="../../styles/highlightjs/" class="nav-link">
                 Next <i class="fa fa-arrow-right"></i>
             </a>
         </div>

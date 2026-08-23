@@ -2,7 +2,7 @@
 <html data-bs-theme="light">
 
 <head>
-    <title>Site Name - MkDocs Simple Blog
+    <title>Blog List - MkDocs Simple Blog
     </title>
 
     <meta charset="utf-8">
@@ -11,7 +11,7 @@
 
     
     
-    <link rel="canonical" href="https://www.fernandocelmer.com/nav/components/site-name/">
+    <link rel="canonical" href="https://www.fernandocelmer.com/nav/components/blog-list/">
     
 
     
@@ -27,7 +27,7 @@
     
     
     
-    <meta property="og:url" content="https://www.fernandocelmer.com/nav/components/site-name/">
+    <meta property="og:url" content="https://www.fernandocelmer.com/nav/components/blog-list/">
     
     
     <meta property="og:site_name" content="MkDocs Simple Blog">
@@ -91,7 +91,7 @@
                             nav-link text-gray text-decoration-none" href="../../getting-started/">[Getting Started]</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="
+                            <a class=" active 
                             nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Blog]</a>
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
@@ -101,7 +101,7 @@
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../blog-list/" class="dropdown-item text-decoration-none ">Blog List</a>
+        <a href="./" class="dropdown-item text-decoration-none  active ">Blog List</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
@@ -112,7 +112,7 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class=" active 
+                            <a class="
                             nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Components]</a>
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
@@ -137,7 +137,7 @@
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="./" class="dropdown-item text-decoration-none  active ">Site Name</a>
+        <a href="../site-name/" class="dropdown-item text-decoration-none ">Site Name</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
@@ -301,12 +301,42 @@
     <div class="sidebar navbar-collapse collapse card">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="2"><a href="#enable-and-disable" class="nav-link">Enable and Disable</a>
+            <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
               <ul class="nav flex-column">
               </ul>
             </li>
             
-            <li class="nav-item" data-bs-level="2"><a href="#changing-the-fonts" class="nav-link">Changing the fonts</a>
+            <li class="nav-item" data-bs-level="2"><a href="#how-to-activate" class="nav-link">How to activate?</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#front-matter-contract" class="nav-link">Front matter contract</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#author-and-avatar-resolution-order" class="nav-link">Author and avatar resolution order</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#where-it-renders" class="nav-link">Where it renders</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#themeblog-config" class="nav-link">theme.blog config</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#category-and-tag-pages" class="nav-link">Category and tag pages</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#custom-posts-directory" class="nav-link">Custom posts directory</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -323,32 +353,109 @@
     <article>
         <header>
             
-                <h1 class="bold title" id="component-title">Site Name</h1>
+                <h1 class="bold title" id="component-title">Blog List</h1>
             
         </header>
         
         
         
         <p class="page-dates">
-            Created on January 28, 2025
+            Created on August 17, 2026
              — updated on August 18, 2026
         </p>
         
         <hr class="page-dates-divider">
         
         
-        <p><h2 id="enable-and-disable">Enable and Disable</h2>
+        <p><h2 id="overview">Overview</h2>
+<p>Renders every post under <code>docs/post/</code> as a card (thumbnail, author avatar, title, date, category, description, "Read more" link), sorted by date descending. Requires the <code>simple-blog-posts</code> plugin — it scans front matter and builds the collection this component reads.</p>
+<h2 id="how-to-activate">How to activate?</h2>
 <ul>
-<li>Default: true</li>
+<li>Default: false</li>
 </ul>
-<div class="highlight"><pre><span></span><code>theme:
+<h3 id="configuration">Configuration</h3>
+<div class="highlight"><pre><span></span><code>plugins:
+  - search
+  - simple-blog-posts
+
+theme:
+  name: simple-blog
   components:
-    site_name: true
+    blog_list: true
 </code></pre></div>
-<p><button component-id="component-site-name" status="false"><code>true</code></button>
-<button component-id="component-site-name" status="true"><code>false</code></button></p>
-<h2 id="changing-the-fonts">Changing the fonts</h2>
-<p>See <a href="../../styles/fonts/#site-name-style">Fonts</a> to style the site name's text (<code>site_name_style</code>).</p></p>
+<p><button component-id="component-blog-list" status="false"><code>true</code></button>
+<button component-id="component-blog-list" status="true"><code>false</code></button></p>
+<h2 id="front-matter-contract">Front matter contract</h2>
+<p>Only files under <code>docs/post/</code> with both <code>title</code> and <code>date</code> are collected. Everything else in <code>docs/post/</code> is skipped — a post missing <code>date</code>, or a non-post file that happens to live in that directory, is not an error.</p>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Yes Hello!</span>
+<span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2023-12-17</span>
+<span class="nt">category</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Geral</span>
+<span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">pessoal</span><span class="p p-Indicator">]</span>
+<span class="nt">author</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Fernando Celmer</span>
+<span class="nt">github</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FernandoCelmer</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Why saying a simple &#39;hi&#39; still matters.</span>
+<span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assets/yes-hello-cover.png</span>
+<span class="nn">---</span>
+</code></pre></div>
+<ul>
+<li><code>title</code>, <code>date</code> — required</li>
+<li><code>category</code> — optional, also generates a <a href="#category-and-tag-pages">category listing page</a></li>
+<li><code>tags</code> — optional list, each tag also generates a <a href="#category-and-tag-pages">listing page</a></li>
+<li><code>author</code> — optional, shown in the card's meta line</li>
+<li><code>github</code> — optional GitHub username; when set, the card shows the author's GitHub avatar (<code>https://github.com/{username}.png</code>) next to the title. No API call, no token needed — GitHub serves that path directly for any username.</li>
+<li><code>avatar</code> — optional direct image URL, for any provider that isn't GitHub (GitLab, Bitbucket, Gravatar, a custom CDN, ...). GitLab and Bitbucket don't have a stable "avatar by username" URL the way GitHub does, so there's no equivalent shortcut field for them — paste the direct URL instead. Takes priority over <code>github</code> when both are set.</li>
+<li><code>description</code> — optional excerpt shown below the meta line. This is the same field already used for the page's SEO <code>&lt;meta name="description"&gt;</code> (see <a href="../../styles/metadata/">Page Metadata</a>) — one field, two uses.</li>
+<li><code>image</code> — optional thumbnail, path relative to <code>docs/</code> (e.g. <code>assets/cover.png</code>). Also reused as the page's <code>og:image</code>/<code>twitter:image</code> if set (see <a href="../../styles/metadata/">Page Metadata</a>).</li>
+</ul>
+<h2 id="author-and-avatar-resolution-order">Author and avatar resolution order</h2>
+<p>None of these fields are required. If a post doesn't set them, the plugin fills them in, in this order:</p>
+<ol>
+<li>The post's own front matter (<code>author</code>, <code>github</code>, <code>avatar</code>)</li>
+<li><code>theme.blog.author</code> / <code>theme.blog.github</code> / <code>theme.blog.avatar</code> (site-wide default)</li>
+<li>The file's last git commit — author name, and an avatar built from the commit email if it matches a GitHub or Bitbucket no-reply address (no API call). GitLab has no stable by-username avatar URL, so a GitLab no-reply email resolves the author name but not an avatar — set <code>avatar</code> in front matter for that. Disable the whole git fallback with <code>theme.blog.git_author: false</code>.</li>
+</ol>
+<p>So a single-author blog can skip <code>author</code>/<code>github</code> on every post entirely and still get a correct byline and avatar, as long as the theme.blog default is set or posts are committed under the author's own git identity.</p>
+<h2 id="where-it-renders">Where it renders</h2>
+<p><code>blog_list</code> renders inside <code>modules/content.html</code>, after the page body — so <code>index.md</code> can still have its own intro text above the auto-generated card list.</p>
+<h2 id="themeblog-config"><code>theme.blog</code> config</h2>
+<p>All blog-wide settings live under one <code>theme.blog</code> block instead of separate top-level keys:</p>
+<div class="highlight"><pre><span></span><code>theme:
+  blog:
+    layout: featured        # or: compact -- default: featured
+    author: Fernando Celmer # site-wide default author
+    github: FernandoCelmer  # site-wide default GitHub username
+    avatar: &quot;&quot;              # site-wide default avatar URL (any provider)
+    cta_label: Continue Reading
+    git_author: true        # fall back to git history when a post sets none of the above
+</code></pre></div>
+<ul>
+<li><strong><code>layout</code></strong> — <code>featured</code> is a WordPress-style card: centered title, centered "Published on DATE — in CATEGORY — by AUTHOR" meta line, large centered thumbnail (700×320), left-aligned description, full-width black CTA button. <code>compact</code> is a dense row: small 200×130 thumbnail beside the content, avatar next to the title, one-line meta, inline CTA button — better when a page lists many posts. Both read the exact same post data; switching doesn't require touching front matter.</li>
+<li><strong><code>author</code></strong> / <strong><code>github</code></strong> / <strong><code>avatar</code></strong> — used for any post whose own front matter doesn't set the matching field. A post's own front matter always wins when present, so a guest post can still override the site default. See <a href="#author-and-avatar-resolution-order">resolution order</a> above.</li>
+<li><strong><code>cta_label</code></strong> — text on the "Read more" button (defaults differ per layout: "Continue Reading" for <code>featured</code>, "Read more" for <code>compact</code>).</li>
+<li><strong><code>git_author</code></strong> — set to <code>false</code> to turn off the git-history fallback entirely (a post with no <code>author</code> then just shows no byline, instead of the commit author's name).</li>
+</ul>
+<h2 id="category-and-tag-pages">Category and tag pages</h2>
+<p>Every distinct <code>category</code> and <code>tag</code> value gets its own generated listing page — e.g. <code>category/python/</code>, <code>tag/django/</code> — that renders only the posts carrying that value, using this same <code>blog_list</code> component. Nothing needs to be written by hand: the pages are created during the build from whatever categories/tags already exist in front matter, and the <a href="../blog-sidebar/">Blog Sidebar</a>'s Categories/Tags widgets link straight to them.</p>
+<h3 id="configuration_1">Configuration</h3>
+<ul>
+<li>Default: <code>category</code> and <code>tag</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code>plugins:
+  - simple-blog-posts:
+      category_dir: category
+      tag_dir: tag
+</code></pre></div>
+<p>Change these if <code>category/</code> or <code>tag/</code> collides with an existing top-level page or directory in <code>docs/</code>.</p>
+<h2 id="custom-posts-directory">Custom posts directory</h2>
+<ul>
+<li>Default: <code>post</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code>plugins:
+  - simple-blog-posts:
+      posts_dir: articles
+</code></pre></div>
+<p>Scans <code>docs/articles/**/*.md</code> instead of <code>docs/post/**/*.md</code>.</p></p>
     </article>
 
     
@@ -365,13 +472,13 @@
         <!-- block preview -->
     <div class="preview row row-cols-md-3 text-center pt-md-3" id="component-preview">
         <div class="col themed-grid-col">
-            <a rel="prev" href="../footer/" class="nav-link">
+            <a rel="prev" href="../../../blog/" class="nav-link">
                 <i class="fa fa-arrow-left"></i> Previous
             </a>
         </div>
         <div class="col themed-grid-col"></div>
         <div class="col themed-grid-col">
-            <a rel="next" href="../standard-title/" class="nav-link">
+            <a rel="next" href="../blog-sidebar/" class="nav-link">
                 Next <i class="fa fa-arrow-right"></i>
             </a>
         </div>

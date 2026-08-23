@@ -21,6 +21,20 @@
     <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/base16/grayscale-dark.min.css">
     <script>hljs.highlightAll();</script>
     
+    
+    
+    
+    
+    
+    
+    <meta property="og:url" content="https://www.fernandocelmer.com/nav/development/testing/">
+    
+    
+    <meta property="og:site_name" content="MkDocs Simple Blog">
+    
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    
 
     <script>var base_url = '../../..';</script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
@@ -78,6 +92,27 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="
+                            nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Blog]</a>
+                            <ul class="dropdown-menu">
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../../../blog/" class="dropdown-item text-decoration-none ">Blog</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../../components/blog-list/" class="dropdown-item text-decoration-none ">Blog List</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../../components/blog-sidebar/" class="dropdown-item text-decoration-none ">Blog Sidebar</a>
+    </li>
+<!-- endblock -->
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="
                             nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Components]</a>
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
@@ -107,7 +142,12 @@
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../../components/standard-title/" class="dropdown-item text-decoration-none ">Standard title</a>
+        <a href="../../components/standard-title/" class="dropdown-item text-decoration-none ">Standard Title</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../../components/page-dates/" class="dropdown-item text-decoration-none ">Page Dates</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -118,7 +158,7 @@
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../../styles/highlightjs/" class="dropdown-item text-decoration-none ">Highlightjs</a>
+        <a href="../../styles/highlightjs/" class="dropdown-item text-decoration-none ">Highlight.js</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
@@ -154,7 +194,7 @@
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../development-guide/" class="dropdown-item text-decoration-none ">Development guide</a>
+        <a href="../development-guide/" class="dropdown-item text-decoration-none ">Development Guide</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
@@ -164,7 +204,7 @@
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../release-notes/" class="dropdown-item text-decoration-none ">Release</a>
+        <a href="../release-notes/" class="dropdown-item text-decoration-none ">Release Notes</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -257,60 +297,69 @@
                         <!-- block sidebar -->
 <div class="navbar-expand-md" role="complementary">
     
+    
     <div class="sidebar navbar-collapse collapse card">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#testing" class="nav-link">Testing</a>
-              <ul class="nav flex-column">
             <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
             <li class="nav-item" data-bs-level="2"><a href="#quick-start" class="nav-link">Quick Start</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
             <li class="nav-item" data-bs-level="2"><a href="#test-structure" class="nav-link">Test Structure</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
             <li class="nav-item" data-bs-level="2"><a href="#running-tests" class="nav-link">Running Tests</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
             <li class="nav-item" data-bs-level="2"><a href="#test-fixtures" class="nav-link">Test Fixtures</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
             <li class="nav-item" data-bs-level="2"><a href="#writing-new-tests" class="nav-link">Writing New Tests</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
             <li class="nav-item" data-bs-level="2"><a href="#continuous-integration" class="nav-link">Continuous Integration</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
             <li class="nav-item" data-bs-level="2"><a href="#test-coverage" class="nav-link">Test Coverage</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
             <li class="nav-item" data-bs-level="2"><a href="#troubleshooting" class="nav-link">Troubleshooting</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
             <li class="nav-item" data-bs-level="2"><a href="#best-practices" class="nav-link">Best Practices</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
             <li class="nav-item" data-bs-level="2"><a href="#additional-resources" class="nav-link">Additional Resources</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-              </ul>
-            </li>
         </ul>
     </div>
+    
 </div>
+
 <!-- endblock -->
                     </div>
                     <div class="col-md-9 col-12" id="component-content">
@@ -319,20 +368,29 @@
     <article>
         <header>
             
+                <h1 class="bold title" id="component-title">Testing</h1>
             
         </header>
-        <p><h1 id="testing">Testing</h1>
-<p>Last updated February 4, 2025</p>
-<hr />
-<h2 id="overview">Overview</h2>
+        
+        
+        
+        <p class="page-dates">
+            Created on December 13, 2025
+             — updated on August 18, 2026
+        </p>
+        
+        <hr class="page-dates-divider">
+        
+        
+        <p><h2 id="overview">Overview</h2>
 <p>The mkdocs-simple-blog theme includes a comprehensive test suite to ensure code quality, functionality, and maintainability. All tests are written using <a href="https://pytest.org/">pytest</a>.</p>
 <h2 id="quick-start">Quick Start</h2>
 <h3 id="install-dependencies">Install Dependencies</h3>
-<pre><code class="language-bash">pip install -e &quot;.[dev]&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[dev]&quot;</span>
+</code></pre></div>
 <h3 id="run-tests">Run Tests</h3>
-<pre><code class="language-bash">pytest
-</code></pre>
+<div class="highlight"><pre><span></span><code>pytest
+</code></pre></div>
 <h2 id="test-structure">Test Structure</h2>
 <p>The test suite is organized into several modules:</p>
 <h3 id="test_theme_configpy">test_theme_config.py</h3>
@@ -343,16 +401,16 @@
 <li>Verifies theme plugin registration in <code>pyproject.toml</code></li>
 </ul>
 <p><strong>Example:</strong></p>
-<pre><code class="language-python">def test_mkdocs_theme_yml_valid():
-    &quot;&quot;&quot;Test that mkdocs_theme.yml is valid YAML.&quot;&quot;&quot;
-    theme_dir = Path(__file__).parent.parent / 'mkdocs_simple_blog'
-    theme_config = theme_dir / 'mkdocs_theme.yml'
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_mkdocs_theme_yml_valid</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Test that mkdocs_theme.yml is valid YAML.&quot;&quot;&quot;</span>
+    <span class="n">theme_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s1">&#39;mkdocs_simple_blog&#39;</span>
+    <span class="n">theme_config</span> <span class="o">=</span> <span class="n">theme_dir</span> <span class="o">/</span> <span class="s1">&#39;mkdocs_theme.yml&#39;</span>
 
-    with open(theme_config, 'r') as f:
-        config = yaml.safe_load(f)
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">theme_config</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 
-    assert isinstance(config, dict)
-</code></pre>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
+</code></pre></div>
 <h3 id="test_templatespy">test_templates.py</h3>
 <p>Tests for Jinja2 template rendering:</p>
 <ul>
@@ -362,15 +420,15 @@
 <li>Checks template inheritance (main.html extends base.html)</li>
 </ul>
 <p><strong>Example:</strong></p>
-<pre><code class="language-python">def test_base_template_renders(template_env, mkdocs_config, mock_page):
-    &quot;&quot;&quot;Test that base.html template can be rendered.&quot;&quot;&quot;
-    template = template_env.get_template('base.html')
-    html = template.render(**context)
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_base_template_renders</span><span class="p">(</span><span class="n">template_env</span><span class="p">,</span> <span class="n">mkdocs_config</span><span class="p">,</span> <span class="n">mock_page</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Test that base.html template can be rendered.&quot;&quot;&quot;</span>
+    <span class="n">template</span> <span class="o">=</span> <span class="n">template_env</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s1">&#39;base.html&#39;</span><span class="p">)</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="o">**</span><span class="n">context</span><span class="p">)</span>
 
-    assert '&lt;html' in html
-    assert '&lt;head' in html
-    assert '&lt;body' in html
-</code></pre>
+    <span class="k">assert</span> <span class="s1">&#39;&lt;html&#39;</span> <span class="ow">in</span> <span class="n">html</span>
+    <span class="k">assert</span> <span class="s1">&#39;&lt;head&#39;</span> <span class="ow">in</span> <span class="n">html</span>
+    <span class="k">assert</span> <span class="s1">&#39;&lt;body&#39;</span> <span class="ow">in</span> <span class="n">html</span>
+</code></pre></div>
 <h3 id="test_modulespy">test_modules.py</h3>
 <p>Tests for theme module files:</p>
 <ul>
@@ -380,18 +438,18 @@
 <li>Checks module-specific structures (header, footer, sidebar)</li>
 </ul>
 <p><strong>Example:</strong></p>
-<pre><code class="language-python">def test_required_modules_exist(modules_dir):
-    &quot;&quot;&quot;Test that all required module files exist.&quot;&quot;&quot;
-    required_modules = [
-        'content.html',
-        'header.html',
-        'footer.html',
-        # ... more modules
-    ]
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_required_modules_exist</span><span class="p">(</span><span class="n">modules_dir</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Test that all required module files exist.&quot;&quot;&quot;</span>
+    <span class="n">required_modules</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;content.html&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;header.html&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;footer.html&#39;</span><span class="p">,</span>
+        <span class="c1"># ... more modules</span>
+    <span class="p">]</span>
 
-    for module in required_modules:
-        assert (modules_dir / module).exists()
-</code></pre>
+    <span class="k">for</span> <span class="n">module</span> <span class="ow">in</span> <span class="n">required_modules</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="p">(</span><span class="n">modules_dir</span> <span class="o">/</span> <span class="n">module</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+</code></pre></div>
 <h3 id="test_assetspy">test_assets.py</h3>
 <p>Tests for theme assets (CSS, JS, images):</p>
 <ul>
@@ -401,18 +459,18 @@
 <li>Tests for favicon and logo</li>
 </ul>
 <p><strong>Example:</strong></p>
-<pre><code class="language-python">def test_required_css_files_exist(assets_dir):
-    &quot;&quot;&quot;Test that required CSS files exist.&quot;&quot;&quot;
-    css_dir = assets_dir / 'css'
-    required_css = [
-        'bootstrap.min.css',
-        'main.min.css',
-        'root.min.css',
-    ]
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_required_css_files_exist</span><span class="p">(</span><span class="n">assets_dir</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Test that required CSS files exist.&quot;&quot;&quot;</span>
+    <span class="n">css_dir</span> <span class="o">=</span> <span class="n">assets_dir</span> <span class="o">/</span> <span class="s1">&#39;css&#39;</span>
+    <span class="n">required_css</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;bootstrap.min.css&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;main.min.css&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;root.min.css&#39;</span><span class="p">,</span>
+    <span class="p">]</span>
 
-    for css_file in required_css:
-        assert (css_dir / css_file).exists()
-</code></pre>
+    <span class="k">for</span> <span class="n">css_file</span> <span class="ow">in</span> <span class="n">required_css</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="p">(</span><span class="n">css_dir</span> <span class="o">/</span> <span class="n">css_file</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+</code></pre></div>
 <h3 id="test_packagepy">test_package.py</h3>
 <p>Tests for package structure and metadata:</p>
 <ul>
@@ -422,25 +480,25 @@
 </ul>
 <h2 id="running-tests">Running Tests</h2>
 <h3 id="all-tests">All Tests</h3>
-<pre><code class="language-bash">pytest
-</code></pre>
+<div class="highlight"><pre><span></span><code>pytest
+</code></pre></div>
 <h3 id="with-verbose-output">With Verbose Output</h3>
-<pre><code class="language-bash">pytest -v
-</code></pre>
+<div class="highlight"><pre><span></span><code>pytest<span class="w"> </span>-v
+</code></pre></div>
 <h3 id="specific-test-file">Specific Test File</h3>
-<pre><code class="language-bash">pytest tests/test_templates.py
-</code></pre>
+<div class="highlight"><pre><span></span><code>pytest<span class="w"> </span>tests/test_templates.py
+</code></pre></div>
 <h3 id="specific-test-function">Specific Test Function</h3>
-<pre><code class="language-bash">pytest tests/test_templates.py::test_base_template_renders
-</code></pre>
+<div class="highlight"><pre><span></span><code>pytest<span class="w"> </span>tests/test_templates.py::test_base_template_renders
+</code></pre></div>
 <h3 id="with-coverage-report">With Coverage Report</h3>
-<pre><code class="language-bash">pytest --cov=mkdocs_simple_blog --cov-report=html
-</code></pre>
+<div class="highlight"><pre><span></span><code>pytest<span class="w"> </span>--cov<span class="o">=</span>mkdocs_simple_blog<span class="w"> </span>--cov-report<span class="o">=</span>html
+</code></pre></div>
 <p>Open <code>htmlcov/index.html</code> in your browser to view the coverage report.</p>
 <h3 id="watch-mode-with-pytest-watch">Watch Mode (with pytest-watch)</h3>
-<pre><code class="language-bash">pip install pytest-watch
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>pytest-watch
 ptw
-</code></pre>
+</code></pre></div>
 <h2 id="test-fixtures">Test Fixtures</h2>
 <p>The test suite uses pytest fixtures defined in <code>tests/conftest.py</code>:</p>
 <ul>
@@ -462,13 +520,13 @@ ptw
 <li><strong>Add docstrings</strong>: Document what each test verifies</li>
 </ol>
 <p><strong>Example:</strong></p>
-<pre><code class="language-python">def test_new_feature_works(theme_dir):
-    &quot;&quot;&quot;Test that new feature works correctly.&quot;&quot;&quot;
-    feature_file = theme_dir / 'new_feature.html'
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_new_feature_works</span><span class="p">(</span><span class="n">theme_dir</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Test that new feature works correctly.&quot;&quot;&quot;</span>
+    <span class="n">feature_file</span> <span class="o">=</span> <span class="n">theme_dir</span> <span class="o">/</span> <span class="s1">&#39;new_feature.html&#39;</span>
 
-    assert feature_file.exists()
-    # ... more assertions
-</code></pre>
+    <span class="k">assert</span> <span class="n">feature_file</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+    <span class="c1"># ... more assertions</span>
+</code></pre></div>
 <h2 id="continuous-integration">Continuous Integration</h2>
 <p>Tests are automatically run via GitHub Actions on:</p>
 <ul>
@@ -480,7 +538,6 @@ ptw
 <h3 id="ci-test-matrix">CI Test Matrix</h3>
 <p>The CI pipeline tests the project across multiple Python versions:</p>
 <ul>
-<li>Python 3.9</li>
 <li>Python 3.10</li>
 <li>Python 3.11</li>
 <li>Python 3.12</li>
@@ -507,8 +564,8 @@ ptw
 <h2 id="troubleshooting">Troubleshooting</h2>
 <h3 id="import-errors">Import Errors</h3>
 <p>If you encounter import errors, ensure all dependencies are installed:</p>
-<pre><code class="language-bash">pip install -e &quot;.[dev]&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[dev]&quot;</span>
+</code></pre></div>
 <h3 id="template-rendering-errors">Template Rendering Errors</h3>
 <p>Template tests require proper Jinja2 environment setup. The <code>template_env</code> fixture handles this automatically.</p>
 <h3 id="missing-files">Missing Files</h3>
@@ -529,6 +586,8 @@ ptw
 <li><a href="https://jinja.palletsprojects.com/">Jinja2 Documentation</a></li>
 </ul></p>
     </article>
+
+    
 </section>
 <!-- endblock -->
                     </div>

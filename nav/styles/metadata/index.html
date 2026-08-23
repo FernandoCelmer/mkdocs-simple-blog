@@ -21,6 +21,20 @@
     <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/base16/grayscale-dark.min.css">
     <script>hljs.highlightAll();</script>
     
+    
+    
+    
+    
+    
+    
+    <meta property="og:url" content="https://www.fernandocelmer.com/nav/styles/metadata/">
+    
+    
+    <meta property="og:site_name" content="MkDocs Simple Blog">
+    
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    
 
     <script>var base_url = '../../..';</script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
@@ -78,6 +92,27 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="
+                            nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Blog]</a>
+                            <ul class="dropdown-menu">
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../../../blog/" class="dropdown-item text-decoration-none ">Blog</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../../components/blog-list/" class="dropdown-item text-decoration-none ">Blog List</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../../components/blog-sidebar/" class="dropdown-item text-decoration-none ">Blog Sidebar</a>
+    </li>
+<!-- endblock -->
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="
                             nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Components]</a>
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
@@ -107,7 +142,12 @@
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../../components/standard-title/" class="dropdown-item text-decoration-none ">Standard title</a>
+        <a href="../../components/standard-title/" class="dropdown-item text-decoration-none ">Standard Title</a>
+    </li>
+<!-- endblock -->
+                                    <!-- block dropdown-menu -->
+    <li>
+        <a href="../../components/page-dates/" class="dropdown-item text-decoration-none ">Page Dates</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -118,7 +158,7 @@
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../highlightjs/" class="dropdown-item text-decoration-none ">Highlightjs</a>
+        <a href="../highlightjs/" class="dropdown-item text-decoration-none ">Highlight.js</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
@@ -154,7 +194,7 @@
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../../development/development-guide/" class="dropdown-item text-decoration-none ">Development guide</a>
+        <a href="../../development/development-guide/" class="dropdown-item text-decoration-none ">Development Guide</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
@@ -164,7 +204,7 @@
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../../development/release-notes/" class="dropdown-item text-decoration-none ">Release</a>
+        <a href="../../development/release-notes/" class="dropdown-item text-decoration-none ">Release Notes</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -257,44 +297,49 @@
                         <!-- block sidebar -->
 <div class="navbar-expand-md" role="complementary">
     
+    
     <div class="sidebar navbar-collapse collapse card">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#page-metadata" class="nav-link">Page Metadata</a>
-              <ul class="nav flex-column">
             <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
             <li class="nav-item" data-bs-level="2"><a href="#supported-metadata-fields" class="nav-link">Supported Metadata Fields</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
             <li class="nav-item" data-bs-level="2"><a href="#usage" class="nav-link">Usage</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
             <li class="nav-item" data-bs-level="2"><a href="#social-media-integration" class="nav-link">Social Media Integration</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
             <li class="nav-item" data-bs-level="2"><a href="#example" class="nav-link">Example</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
             <li class="nav-item" data-bs-level="2"><a href="#benefits" class="nav-link">Benefits</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
             <li class="nav-item" data-bs-level="2"><a href="#notes" class="nav-link">Notes</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-              </ul>
-            </li>
         </ul>
     </div>
+    
 </div>
+
 <!-- endblock -->
                     </div>
                     <div class="col-md-9 col-12" id="component-content">
@@ -303,12 +348,21 @@
     <article>
         <header>
             
+                <h1 class="bold title" id="component-title">Page Metadata</h1>
             
         </header>
-        <p><h1 id="page-metadata">Page Metadata</h1>
-<p>March 06, 2026</p>
-<hr />
-<h2 id="overview">Overview</h2>
+        
+        
+        
+        <p class="page-dates">
+            Created on March 6, 2026
+             — updated on August 18, 2026
+        </p>
+        
+        <hr class="page-dates-divider">
+        
+        
+        <p><h2 id="overview">Overview</h2>
 <p>The theme supports page metadata through MkDocs' built-in <code>page.meta</code> property. This allows you to add metadata to your Markdown files using YAML frontmatter, which will be automatically rendered as meta tags in the HTML head section. This is particularly useful for social media previews and SEO.</p>
 <h2 id="supported-metadata-fields">Supported Metadata Fields</h2>
 <p>You can add the following metadata fields to your Markdown files:</p>
@@ -321,18 +375,18 @@
 </ul>
 <h2 id="usage">Usage</h2>
 <p>Add YAML frontmatter to the top of your Markdown files:</p>
-<pre><code class="language-markdown">---
+<div class="highlight"><pre><span></span><code>---
 title: My Amazing Article
 description: A detailed description of the article content
 author: John Doe
 date: 2025-01-15
-image: assets/article-image.png
----
+<span class="gu">image: assets/article-image.png</span>
+<span class="gu">---</span>
 
-# Article Content
+<span class="gh"># Article Content</span>
 
 Your article content goes here...
-</code></pre>
+</code></pre></div>
 <h2 id="social-media-integration">Social Media Integration</h2>
 <p>The theme automatically generates meta tags for:</p>
 <h3 id="open-graph-facebook-linkedin">Open Graph (Facebook, LinkedIn)</h3>
@@ -353,18 +407,18 @@ Your article content goes here...
 </ul>
 <h2 id="example">Example</h2>
 <p>Here's a complete example of a Markdown file with metadata:</p>
-<pre><code class="language-markdown">---
+<div class="highlight"><pre><span></span><code>---
 title: Getting Started with MkDocs Simple Blog
 description: Learn how to set up and customize the MkDocs Simple Blog theme for your documentation site
 author: Fernando Celmer
 date: 2025-01-15
-image: assets/getting-started.png
----
+<span class="gu">image: assets/getting-started.png</span>
+<span class="gu">---</span>
 
-# Getting Started
+<span class="gh"># Getting Started</span>
 
 This guide will help you get started with the theme...
-</code></pre>
+</code></pre></div>
 <p>When this page is shared on social media, it will display a rich preview card with the title, description, and image you specified.</p>
 <h2 id="benefits">Benefits</h2>
 <ul>
@@ -381,6 +435,8 @@ This guide will help you get started with the theme...
 <li>If <code>description</code> is not provided, the theme will use the site description from <code>mkdocs.yml</code> for the homepage only</li>
 </ul></p>
     </article>
+
+    
 </section>
 <!-- endblock -->
                     </div>

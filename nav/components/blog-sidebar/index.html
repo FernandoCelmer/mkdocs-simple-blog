@@ -2,7 +2,7 @@
 <html data-bs-theme="light">
 
 <head>
-    <title>Site Name - MkDocs Simple Blog
+    <title>Blog Sidebar - MkDocs Simple Blog
     </title>
 
     <meta charset="utf-8">
@@ -11,7 +11,7 @@
 
     
     
-    <link rel="canonical" href="https://www.fernandocelmer.com/nav/components/site-name/">
+    <link rel="canonical" href="https://www.fernandocelmer.com/nav/components/blog-sidebar/">
     
 
     
@@ -27,7 +27,7 @@
     
     
     
-    <meta property="og:url" content="https://www.fernandocelmer.com/nav/components/site-name/">
+    <meta property="og:url" content="https://www.fernandocelmer.com/nav/components/blog-sidebar/">
     
     
     <meta property="og:site_name" content="MkDocs Simple Blog">
@@ -91,7 +91,7 @@
                             nav-link text-gray text-decoration-none" href="../../getting-started/">[Getting Started]</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="
+                            <a class=" active 
                             nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Blog]</a>
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
@@ -106,13 +106,13 @@
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../blog-sidebar/" class="dropdown-item text-decoration-none ">Blog Sidebar</a>
+        <a href="./" class="dropdown-item text-decoration-none  active ">Blog Sidebar</a>
     </li>
 <!-- endblock -->
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class=" active 
+                            <a class="
                             nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Components]</a>
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
@@ -137,7 +137,7 @@
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="./" class="dropdown-item text-decoration-none  active ">Site Name</a>
+        <a href="../site-name/" class="dropdown-item text-decoration-none ">Site Name</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
@@ -301,12 +301,32 @@
     <div class="sidebar navbar-collapse collapse card">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="2"><a href="#enable-and-disable" class="nav-link">Enable and Disable</a>
+            <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
               <ul class="nav flex-column">
               </ul>
             </li>
             
-            <li class="nav-item" data-bs-level="2"><a href="#changing-the-fonts" class="nav-link">Changing the fonts</a>
+            <li class="nav-item" data-bs-level="2"><a href="#how-to-activate" class="nav-link">How to activate?</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#widgets" class="nav-link">Widgets</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#categories-and-tags-link-to-real-listing-pages" class="nav-link">Categories and tags link to real listing pages</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#coexistence-with-the-table-of-contents-sidebar" class="nav-link">Coexistence with the Table of Contents sidebar</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#data-source" class="nav-link">Data source</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -323,32 +343,56 @@
     <article>
         <header>
             
-                <h1 class="bold title" id="component-title">Site Name</h1>
+                <h1 class="bold title" id="component-title">Blog Sidebar</h1>
             
         </header>
         
         
         
         <p class="page-dates">
-            Created on January 28, 2025
+            Created on August 17, 2026
              — updated on August 18, 2026
         </p>
         
         <hr class="page-dates-divider">
         
         
-        <p><h2 id="enable-and-disable">Enable and Disable</h2>
+        <p><h2 id="overview">Overview</h2>
+<p>Three widgets built from the same post collection <a href="../blog-list/">Blog List</a> reads: <strong>Recent Posts</strong>, <strong>Categories</strong>, and <strong>Tags</strong>. Each is toggled independently. Requires the <code>simple-blog-posts</code> plugin.</p>
+<p>Unlike the <a href="../sidebar/">Sidebar</a> (which shows the current page's table of contents), the Blog Sidebar shows data aggregated across every post.</p>
+<h2 id="how-to-activate">How to activate?</h2>
 <ul>
-<li>Default: true</li>
+<li>Default: false — each widget is off unless listed</li>
 </ul>
-<div class="highlight"><pre><span></span><code>theme:
+<h3 id="configuration">Configuration</h3>
+<div class="highlight"><pre><span></span><code>plugins:
+  - search
+  - simple-blog-posts
+
+theme:
+  name: simple-blog
   components:
-    site_name: true
+    blog_sidebar:
+      recent_posts: true
+      categories: true
+      tags: true
+      recent_count: 5
 </code></pre></div>
-<p><button component-id="component-site-name" status="false"><code>true</code></button>
-<button component-id="component-site-name" status="true"><code>false</code></button></p>
-<h2 id="changing-the-fonts">Changing the fonts</h2>
-<p>See <a href="../../styles/fonts/#site-name-style">Fonts</a> to style the site name's text (<code>site_name_style</code>).</p></p>
+<p><button component-id="component-blog-sidebar" status="false"><code>true</code></button>
+<button component-id="component-blog-sidebar" status="true"><code>false</code></button></p>
+<h2 id="widgets">Widgets</h2>
+<ul>
+<li><strong><code>recent_posts</code></strong> — links the <code>recent_count</code> most recent posts (default <code>5</code>)</li>
+<li><strong><code>categories</code></strong> — one link per distinct <code>category</code> value</li>
+<li><strong><code>tags</code></strong> — one link per distinct tag</li>
+</ul>
+<p>Any widget can be omitted or set to <code>false</code> to hide it independently of the others.</p>
+<h2 id="categories-and-tags-link-to-real-listing-pages">Categories and tags link to real listing pages</h2>
+<p>Clicking a category or tag doesn't just jump to "some post that has it" — the plugin generates an actual page per value (e.g. <code>category/python/</code>, <code>tag/django/</code>) that renders <strong>only the posts carrying that category or tag</strong>, using the same <a href="../blog-list/">Blog List</a> layout as everywhere else. See <a href="../blog-list/#category-and-tag-pages">Category and tag pages</a> for how these are generated and configured.</p>
+<h2 id="coexistence-with-the-table-of-contents-sidebar">Coexistence with the Table of Contents sidebar</h2>
+<p>Setting <code>theme.components.blog_sidebar</code> puts the theme into its two-column layout (same one used by <code>theme.sidebar: true</code>) even if <code>theme.sidebar</code> itself is left at its default <code>false</code>. If both are enabled, the page's table of contents renders above the blog widgets in the same sidebar column.</p>
+<h2 id="data-source">Data source</h2>
+<p>Both this component and <a href="../blog-list/">Blog List</a> read from the same collection built by the <code>simple-blog-posts</code> plugin — see its <a href="../blog-list/#front-matter-contract">front matter contract</a>.</p></p>
     </article>
 
     
@@ -365,13 +409,13 @@
         <!-- block preview -->
     <div class="preview row row-cols-md-3 text-center pt-md-3" id="component-preview">
         <div class="col themed-grid-col">
-            <a rel="prev" href="../footer/" class="nav-link">
+            <a rel="prev" href="../blog-list/" class="nav-link">
                 <i class="fa fa-arrow-left"></i> Previous
             </a>
         </div>
         <div class="col themed-grid-col"></div>
         <div class="col themed-grid-col">
-            <a rel="next" href="../standard-title/" class="nav-link">
+            <a rel="next" href="../sidebar/" class="nav-link">
                 Next <i class="fa fa-arrow-right"></i>
             </a>
         </div>
