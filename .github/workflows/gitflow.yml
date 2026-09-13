@@ -1,0 +1,12 @@
+name: Git-flow
+
+on:
+  pull_request:
+    branches: ["main", "master", "develop"]
+
+jobs:
+  gitflow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actionplatform/ci-github/gitflow@v1
