@@ -1,0 +1,13 @@
+[project]
+name = "mkdocs-simple-blog"
+type = "library"
+ci = "github"
+language = "python"
+
+[source_host]
+kind = "github"
+repo = "FernandoCelmer/mkdocs-simple-blog"
+
+[release]
+strategy = "semver"
+changelog = "conventional"

@@ -1,0 +1,30 @@
+name: Trivy
+
+on:
+  pull_request:
+    branches: ["main", "master"]
+  schedule:
+    - cron: "0 6 * * 1"
+
+permissions:
+  contents: read
+  actions: read
+  security-events: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          severity: CRITICAL,HIGH
+          ignore-unfixed: true
+          format: sarif
+          output: trivy.sarif
+      - uses: github/codeql-action/upload-sarif@v4
+        if: always()
+        with:
+          sarif_file: trivy.sarif
