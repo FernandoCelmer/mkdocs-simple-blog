@@ -31,10 +31,16 @@ class ThemeExtraCssTests(unittest.TestCase):
             "extra_css": ["top.css"],
             "theme": {
                 "name": "simple-blog",
-                "extra_css": ["theme.css", "top.css", "https://cdn.example.com/x.css"],
+                "extra_css": [
+                    "theme.css",
+                    "top.css",
+                    "https://cdn.example.com/x.css",
+                ],
             },
         }
-        (root / "mkdocs.yml").write_text(yaml.safe_dump(config), encoding="utf-8")
+        (root / "mkdocs.yml").write_text(
+            yaml.safe_dump(config), encoding="utf-8"
+        )
         subprocess.run(
             [sys.executable, "-m", "mkdocs", "build", "--strict", "-q"],
             cwd=root,
@@ -47,17 +53,23 @@ class ThemeExtraCssTests(unittest.TestCase):
         self.assertIn("theme.css", css)
 
     def test_alias_paths_resolve_on_nested_page(self) -> None:
-        css = _stylesheets((self.site / "sub" / "page" / "index.html").read_text())
+        css = _stylesheets(
+            (self.site / "sub" / "page" / "index.html").read_text()
+        )
         self.assertIn("../../theme.css", css)
         self.assertNotIn("theme.css", css)
 
     def test_alias_does_not_duplicate_top_level_entry(self) -> None:
-        css = _stylesheets((self.site / "sub" / "page" / "index.html").read_text())
+        css = _stylesheets(
+            (self.site / "sub" / "page" / "index.html").read_text()
+        )
         self.assertEqual(css.count("../../top.css"), 1)
         self.assertNotIn("top.css", css)
 
     def test_absolute_urls_are_kept(self) -> None:
-        css = _stylesheets((self.site / "sub" / "page" / "index.html").read_text())
+        css = _stylesheets(
+            (self.site / "sub" / "page" / "index.html").read_text()
+        )
         self.assertIn("https://cdn.example.com/x.css", css)
 
 
