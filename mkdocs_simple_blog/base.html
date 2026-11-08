@@ -92,8 +92,11 @@
     <link rel="stylesheet" href="{{ 'assets/css/media.min.css'|url }}">
     <link rel="stylesheet" href="{{ 'assets/css/mkdocstrings.min.css'|url }}">
 
-    {%- for path in extra_javascript %}
-    <script src="{{ path }}"></script>
+    {%- for script in config.extra_javascript %}
+    <script src="{{ (script.path if script.path is defined else script) | url }}"
+        {%- if script.type %} type="{{ script.type }}"{% endif %}
+        {%- if script.defer %} defer{% endif %}
+        {%- if script.async_ %} async{% endif %}></script>
     {%- endfor %}
 
     {% if config.theme.theme_style == 'dark' %}
