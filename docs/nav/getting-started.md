@@ -42,4 +42,8 @@ theme:
 {% endblock %}
 ```
 
-Set `site_url` so the 404 page links and assets resolve from any URL.
+Set `site_url` when the site is served from a subpath (for example
+`https://user.github.io/repo/`), so the 404 page links and assets resolve.
+
+A static `docs/404.html` is replaced by the theme's 404 page. Move it to
+`overrides/404.html` as shown above to keep it.
