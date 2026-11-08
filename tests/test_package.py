@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import importlib
 import unittest
 
 from .fixtures import THEME_DIR
@@ -45,3 +46,34 @@ class PackageMetadataTests(unittest.TestCase):
         self.assertIsNotNone(__author__)
         self.assertIsInstance(__author__, str)
         self.assertGreater(len(__author__), 0)
+
+
+class PackagingConfigTests(unittest.TestCase):
+    def setUp(self) -> None:
+        try:
+            tomllib = importlib.import_module("tomllib")
+        except ModuleNotFoundError:
+            self.skipTest("tomllib requires Python 3.11+")
+        self.root = THEME_DIR.parent
+        with open(self.root / "pyproject.toml", "rb") as handle:
+            self.pyproject = tomllib.load(handle)
+
+    def test_pyproject_is_the_only_build_config(self) -> None:
+        for legacy in ("setup.py", "setup.cfg", "MANIFEST.in"):
+            with self.subTest(file=legacy):
+                self.assertFalse((self.root / legacy).exists())
+
+    def test_pyproject_declares_theme_and_plugin_entry_points(self) -> None:
+        plugins = self.pyproject["tool"]["poetry"]["plugins"]
+        self.assertEqual(
+            plugins["mkdocs.themes"]["simple-blog"], "mkdocs_simple_blog"
+        )
+        self.assertEqual(
+            plugins["mkdocs.plugins"]["simple-blog-posts"],
+            "mkdocs_simple_blog.plugin:BlogPlugin",
+        )
+
+    def test_pyproject_version_matches_package(self) -> None:
+        from mkdocs_simple_blog import __version__
+
+        self.assertEqual(self.pyproject["project"]["version"], __version__)
