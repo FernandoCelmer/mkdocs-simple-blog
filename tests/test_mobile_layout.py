@@ -8,6 +8,7 @@ import unittest
 from .fixtures import THEME_DIR
 
 MEDIA_CSS = THEME_DIR / "assets" / "css" / "media.min.css"
+TEMPLATE_CSS = THEME_DIR.parent / "template" / "assets" / "css"
 MOBILE_QUERY = r"@media only screen and \(max-width:780px\)\{[^@]*?"
 
 
@@ -30,6 +31,17 @@ class MobileLayoutCssTests(unittest.TestCase):
     def test_mobile_row_reset_has_no_stray_braces(self) -> None:
         self.assertEqual(self.css.count("{"), self.css.count("}"))
         self.assertIsNotNone(re.search(r"\.container>\.row\{", self.css))
+
+    def test_template_min_css_matches_theme(self) -> None:
+        template_css = (TEMPLATE_CSS / "media.min.css").read_text()
+        self.assertEqual(template_css, self.css)
+
+    def test_template_source_css_has_row_reset(self) -> None:
+        source = (TEMPLATE_CSS / "media.css").read_text()
+        self.assertRegex(
+            source,
+            r"\.container > \.row \{\s*margin-left: 0;\s*margin-right: 0;",
+        )
 
 
 if __name__ == "__main__":
