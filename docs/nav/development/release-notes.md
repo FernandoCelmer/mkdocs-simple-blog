@@ -1,3 +1,19 @@
+## v0.6.2
+
+- [📦 PyPI - Build 0.6.2](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.6.2)
+- [⚙️ `remote_assets` option to stop loading Google Fonts, FontAwesome and Highlight.js from CDNs, with overridable `fonts`/`icons` blocks](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/100)
+- [🪲 `theme.hljs_languages` now injects the Highlight.js language scripts (the template read the wrong config key)](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/102)
+- [🪲 `theme.colors` now apply with `theme_style: light`; `dark` keeps its own palette. Sites that set both will now see their colors](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/103)
+- [🪲 `extra_javascript` entries load once, blocking in `<head>`, instead of twice (head + deferred body copy)](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/104)
+- [⚙️ Built-in `404.html` page, registered as a static template so `custom_dir` overrides render too. A static `docs/404.html` is now replaced; move it to `overrides/404.html`](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/105)
+- [🪲 `theme.extra_css` alias paths resolve on nested pages and no longer duplicate top-level `extra_css` entries](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/106)
+- [🪲 Fix 2-6px horizontal scroll on mobile caused by `.row` gutters inside the reduced-padding container](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/107)
+- [🪲 Fix duplicate `id="component-content"` with the sidebar layout. The layout column is now `#component-main`; update custom CSS/JS that targeted the column through `#component-content`](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/108)
+- [🪲 `<html lang>` follows `theme.locale` (`pt_BR` → `pt-BR`), `data-bs-theme` defaults to `light`, and the unused `language` default is replaced by `locale`](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/109)
+- [🪲 `remote_assets: false` no longer loads shields.io badges, and the header search icon falls back to an inline SVG so search stays reachable](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/110)
+- [📦 Remove stale `setup.py` and `MANIFEST.in`; `pyproject.toml` is the only build config](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/111)
+- [🪲 Header search is shown only when the `search` plugin is enabled and `include_search_page` is not `false`, instead of linking to a 404 or a missing search box](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/112)
+
 ## v0.6.1
 
 - [📦 PyPI - Build 0.6.1](https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.6.1)
