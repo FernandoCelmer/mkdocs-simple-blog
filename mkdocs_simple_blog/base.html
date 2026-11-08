@@ -163,7 +163,7 @@
 
         <main>
             {%- block search_button %}
-            {%- if 'search' in config['plugins'] %}{%- include "modules/searchbox.html" %}{%- endif %}
+            {%- if 'search' in config['plugins'] and config.theme.include_search_page is not sameas false %}{%- include "modules/searchbox.html" %}{%- endif %}
             {%- endblock %}
 
             {% if config.theme.sidebar or (page and page.meta.blog_sidebar) or (config.theme.components and config.theme.components.blog_sidebar) %}

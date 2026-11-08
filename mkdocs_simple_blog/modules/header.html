@@ -24,6 +24,7 @@
                 </li>
                 <!-- endblock -->
 
+                {%- if 'search' in config['plugins'] and config.theme.include_search_page is not sameas false %}
                 <!-- block search -->
                 <li class="nav-item">
                     <a class="collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -33,6 +34,7 @@
                     </a>
                 </li>
                 <!--  endblock -->
+                {%- endif %}
 
                 <!-- block source -->
                 <li class="nav-item">
