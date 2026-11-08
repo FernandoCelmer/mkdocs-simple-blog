@@ -26,3 +26,7 @@ The theme supports syntax highlighting for multiple languages. Currently configu
 
 To add more languages, add them to the `hljs_languages` list in `mkdocs.yml`.
 
+## Remote loading
+
+Highlight.js is loaded from cdnjs and unpkg. Setting
+`remote_assets: false` disables it, see [Fonts](fonts.md#remote-fonts-and-icons).

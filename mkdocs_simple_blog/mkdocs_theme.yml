@@ -5,6 +5,7 @@ search_index_only: false
 
 sidebar: false
 navigation_depth: 2
+remote_assets: true
 highlightjs: false
 hljs_languages: []
 components:
