@@ -1,0 +1,13 @@
+{% extends "main.html" %}
+
+{%- block htmltitle %}
+<title>Page not found - {{ config.site_name }}</title>
+{%- endblock %}
+
+{% block content %}
+{% include "modules/not_found.html" %}
+{% endblock %}
+
+{% block content_with_sidebar %}
+{% include "modules/not_found.html" %}
+{% endblock %}
