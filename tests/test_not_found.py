@@ -13,7 +13,11 @@ import yaml
 from .fixtures import THEME_DIR
 
 
-def _build(theme: dict, overrides: dict[str, str] | None = None) -> Path:
+def _build(
+    theme: dict,
+    overrides: dict[str, str] | None = None,
+    site_url: str | None = None,
+) -> Path:
     root = Path(tempfile.mkdtemp())
     (root / "docs").mkdir()
     (root / "docs" / "index.md").write_text("# Home\n", encoding="utf-8")
@@ -23,6 +27,8 @@ def _build(theme: dict, overrides: dict[str, str] | None = None) -> Path:
             (root / "overrides" / name).write_text(content, encoding="utf-8")
         theme = {**theme, "custom_dir": "overrides"}
     config = {"site_name": "Test", "theme": {"name": "simple-blog", **theme}}
+    if site_url:
+        config["site_url"] = site_url
     (root / "mkdocs.yml").write_text(yaml.safe_dump(config), encoding="utf-8")
     subprocess.run(
         [sys.executable, "-m", "mkdocs", "build", "--strict", "-q"],
@@ -55,6 +61,17 @@ class NotFoundTemplateTests(unittest.TestCase):
         html = (_build({}, {"404.html": custom}) / "404.html").read_text()
         self.assertIn('id="mine"', html)
         self.assertNotIn('id="component-not-found"', html)
+
+    def test_404_links_are_not_protocol_relative(self) -> None:
+        html = (_build({}) / "404.html").read_text()
+        self.assertIn('action="/search.html"', html)
+        self.assertNotIn('"//', html)
+
+    def test_404_links_respect_site_url_subpath(self) -> None:
+        site = _build({}, site_url="https://example.com/blog/")
+        html = (site / "404.html").read_text()
+        self.assertIn('action="/blog/search.html"', html)
+        self.assertNotIn("/blog//", html)
 
 
 if __name__ == "__main__":
