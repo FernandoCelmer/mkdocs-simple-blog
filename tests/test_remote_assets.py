@@ -113,6 +113,7 @@ def _render_module(name: str, **theme_overrides: Any) -> str:
     config_dict["theme"] = type("Theme", (), theme_config)()
     config_dict["repo_url"] = "https://github.com/owner/repo"
     config_dict["repo_name"] = "owner/repo"
+    config_dict["plugins"] = ["search"]
     config_obj = type("Config", (), config_dict)()
     return (
         _env()
