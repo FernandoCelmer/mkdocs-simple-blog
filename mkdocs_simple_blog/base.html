@@ -96,7 +96,6 @@
     <script src="{{ path }}"></script>
     {%- endfor %}
 
-    {% if config.theme.theme_style %}
     {% if config.theme.theme_style == 'dark' %}
     <style>
         :root {
@@ -109,9 +108,7 @@
             --code-fg: #f5f5f5;
         }
     </style>
-    {% endif %}
-    {% else %}
-    {% if config.theme.colors %}
+    {% elif config.theme.colors %}
     {% if config.theme.colors.text %} <style>
         :root {
             --text: var(--color-{{ config.theme.colors.text }});
@@ -132,7 +129,6 @@
             --background: var(--color-{{ config.theme.colors.background }});
         }
     </style> {% endif %}
-    {% endif %}
     {% endif %}
 
     {#- theme.extra_css is non-standard (MkDocs expects top-level extra_css); accept it as alias -#}
