@@ -95,7 +95,9 @@ document.addEventListener("DOMContentLoaded", function () {
   if (sidebarTrue) {
     sidebarTrue.addEventListener("click", function () {
       var sidebar = document.getElementById("component-sidebar");
-      var content = document.getElementById("component-content");
+      var content =
+        document.getElementById("component-main") ||
+        document.getElementById("component-content");
       if (sidebar) {
         sidebar.style.display = "";
         sidebar.classList.remove("d-none");
@@ -113,7 +115,9 @@ document.addEventListener("DOMContentLoaded", function () {
   if (sidebarFalse) {
     sidebarFalse.addEventListener("click", function () {
       var sidebar = document.getElementById("component-sidebar");
-      var content = document.getElementById("component-content");
+      var content =
+        document.getElementById("component-main") ||
+        document.getElementById("component-content");
       if (sidebar) {
         sidebar.style.display = "none";
         sidebar.classList.add("d-none");

@@ -164,6 +164,35 @@ class BaseTemplateRenderTests(unittest.TestCase):
         self.assertIn('name="twitter:card"', html)
         self.assertIn('name="twitter:image"', html)
 
+    def test_sidebar_layout_has_unique_ids(self) -> None:
+        try:
+            template = self.env.get_template("base.html")
+        except TemplateNotFound:
+            self.skipTest("Template not found")
+
+        config_dict = mkdocs_config()
+        theme_config = config_dict["theme"].copy()
+        theme_config["sidebar"] = True
+        config_dict["theme"] = type("Theme", (), theme_config)()
+        config_dict["extra"] = {}
+        config_obj = type("Config", (), config_dict)()
+
+        html = template.render(
+            config=config_obj,
+            page=mock_page(),
+            base_url=".",
+            extra_css=[],
+            extra_javascript=[],
+        )
+
+        import re
+
+        ids = re.findall(r'id=["\']([^"\']+)["\']', html)
+        duplicates = [x for x in ids if ids.count(x) > 1]
+        self.assertEqual(len(ids), len(set(ids)), f"Duplicate IDs found: {duplicates}")
+        self.assertIn('id="component-main"', html)
+        self.assertIn('id="component-content"', html)
+
 
 class SearchTemplateRenderTests(unittest.TestCase):
     def setUp(self) -> None:
