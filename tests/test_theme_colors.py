@@ -9,7 +9,12 @@ from jinja2 import Environment, FileSystemLoader
 
 from .fixtures import THEME_DIR, mkdocs_config
 
-COLORS = {"text": "blue", "title": "red", "primary": "green", "background": "yellow"}
+COLORS = {
+    "text": "blue",
+    "title": "red",
+    "primary": "green",
+    "background": "yellow",
+}
 
 
 def _render(**theme_overrides: Any) -> str:
