@@ -47,3 +47,19 @@ Set `site_url` when the site is served from a subpath (for example
 
 A static `docs/404.html` is replaced by the theme's 404 page. Move it to
 `overrides/404.html` as shown above to keep it.
+
+## Extra JavaScript
+
+Scripts listed in `extra_javascript` load once, in `<head>`, before the page
+content. That way inline `<script>` blocks in your pages can use them. Scripts
+that touch the page or use the theme's jQuery/Bootstrap at load time should be
+deferred, with MkDocs' per-script options:
+
+```yml
+extra_javascript:
+  - js/plotly.min.js
+  - path: js/my-widgets.js
+    defer: true
+  - path: js/app.mjs
+    type: module
+```
