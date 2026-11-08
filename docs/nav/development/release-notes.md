@@ -13,6 +13,7 @@
 - [🪲 `remote_assets: false` no longer loads shields.io badges, and the header search icon falls back to an inline SVG so search stays reachable](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/110)
 - [📦 Remove stale `setup.py` and `MANIFEST.in`; `pyproject.toml` is the only build config](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/111)
 - [🪲 Header search is shown only when the `search` plugin is enabled and `include_search_page` is not `false`, instead of linking to a 404 or a missing search box](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/112)
+- [🪲 Inline code inside links is readable again (it rendered black on black)](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/127)
 
 ## v0.6.1
 
