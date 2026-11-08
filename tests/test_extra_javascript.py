@@ -35,16 +35,20 @@ class ExtraJavascriptTests(unittest.TestCase):
         for path in SCRIPTS:
             self.assertEqual(self.html.count(f'src="{path}"'), 1, path)
 
-    def test_scripts_are_deferred_in_body(self) -> None:
+    def test_scripts_load_blocking_in_head(self) -> None:
         head, body = self.html.split("</head>", 1)
         for path in SCRIPTS:
-            self.assertNotIn(path, head)
-            self.assertIn(f'<script src="{path}" defer></script>', body)
+            self.assertIn(f'<script src="{path}"></script>', head)
+            self.assertNotIn(path, body)
 
-    def test_scripts_load_after_theme_bundle(self) -> None:
+    def test_scripts_are_not_deferred(self) -> None:
+        for path in SCRIPTS:
+            self.assertNotIn(f'<script src="{path}" defer>', self.html)
+
+    def test_scripts_run_before_page_content(self) -> None:
         self.assertLess(
-            self.html.index("bootstrap.bundle.min.js"),
             self.html.index(SCRIPTS[0]),
+            self.html.index('id="component-content"'),
         )
 
 
