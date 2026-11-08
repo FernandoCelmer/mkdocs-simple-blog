@@ -25,7 +25,7 @@
     <link rel="icon" type="image/x-icon" href="{{ 'assets/img/favicon.ico'|url }}">
     {% endif %}
 
-    {%- if config.theme.highlightjs %}
+    {%- if config.theme.highlightjs and config.theme.remote_assets is not sameas false %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/base16/grayscale-dark.min.css">
 
@@ -74,8 +74,17 @@
     <script>var base_url = '{{ base_url }}';</script>
 
     {%- block styles %}
+    {%- block fonts %}
+    {%- if config.theme.remote_assets is not sameas false %}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
+    {%- endif %}
+    {%- endblock %}
+
+    {%- block icons %}
+    {%- if config.theme.remote_assets is not sameas false %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {%- endif %}
+    {%- endblock %}
 
     <link rel="stylesheet" href="{{ 'assets/css/bootstrap.min.css'|url }}">
     <link rel="stylesheet" href="{{ 'assets/css/root.min.css'|url }}">
