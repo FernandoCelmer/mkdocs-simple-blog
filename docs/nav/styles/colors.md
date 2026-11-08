@@ -16,6 +16,9 @@ theme:
     <code class="swatch-fill-black">dark</code>
 </button>
 
+The `colors` options below apply with `theme_style: light` (or when it is
+unset). `theme_style: dark` uses its own palette and ignores `colors`.
+
 ### Primary color
 
 - Default: black
