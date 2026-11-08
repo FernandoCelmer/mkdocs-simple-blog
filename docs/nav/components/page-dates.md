@@ -41,3 +41,5 @@ theme:
 ```
 
 `locale: en` (MkDocs' own default) renders "January 5, 2024"; `locale: pt` renders "5 de janeiro de 2024" — same for any locale [babel](https://babel.pocoo.org/) supports. This applies to `date`/`updated` front matter values and the git-derived fallback alike, and also to the `fmt_date` Jinja filter used elsewhere in the theme (e.g. blog post cards).
+
+`theme.locale` also sets the page's `<html lang>` attribute (`pt_BR` → `lang="pt-BR"`) and the search index language. Use `locale`, not `language`.

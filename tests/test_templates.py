@@ -82,7 +82,6 @@ class BaseTemplateRenderTests(unittest.TestCase):
         theme_config["highlightjs"] = True
         theme_config["hljs_languages"] = ["python", "yaml"]
         config_dict["theme"] = type("Theme", (), theme_config)()
-        config_dict["hljs_languages"] = theme_config["hljs_languages"]
         config_dict["extra"] = {}
         config_obj = type("Config", (), config_dict)()
 
@@ -96,6 +95,8 @@ class BaseTemplateRenderTests(unittest.TestCase):
 
         self.assertIn("highlight.js", html)
         self.assertIn("hljs.highlightAll()", html)
+        self.assertIn("highlight.js/11.9.0/languages/python.min.js", html)
+        self.assertIn("highlight.js/11.9.0/languages/yaml.min.js", html)
 
     def test_base_template_bootstrap_included(self) -> None:
         try:

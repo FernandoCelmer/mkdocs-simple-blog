@@ -1,5 +1,5 @@
 <!doctype html>
-<html data-bs-theme="{{ config.theme.theme_style }}">
+<html lang="{{ ((config.theme.locale | string) or 'en') | replace('_', '-') }}" data-bs-theme="{{ config.theme.theme_style or 'light' }}">
 
 <head>
     {%- block site_meta %}
@@ -29,7 +29,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/base16/grayscale-dark.min.css">
 
-    {%- for lang in config.hljs_languages %}
+    {%- for lang in config.theme.hljs_languages or [] %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/{{lang}}.min.js"></script>
     {%- endfor %}
     <script>hljs.highlightAll();</script>
@@ -92,7 +92,10 @@
     <link rel="stylesheet" href="{{ 'assets/css/media.min.css'|url }}">
     <link rel="stylesheet" href="{{ 'assets/css/mkdocstrings.min.css'|url }}">
 
-    {% if config.theme.theme_style %}
+    {%- for path in extra_javascript %}
+    <script src="{{ path }}"></script>
+    {%- endfor %}
+
     {% if config.theme.theme_style == 'dark' %}
     <style>
         :root {
@@ -105,9 +108,7 @@
             --code-fg: #f5f5f5;
         }
     </style>
-    {% endif %}
-    {% else %}
-    {% if config.theme.colors %}
+    {% elif config.theme.colors %}
     {% if config.theme.colors.text %} <style>
         :root {
             --text: var(--color-{{ config.theme.colors.text }});
@@ -129,13 +130,13 @@
         }
     </style> {% endif %}
     {% endif %}
-    {% endif %}
 
     {#- theme.extra_css is non-standard (MkDocs expects top-level extra_css); accept it as alias -#}
     {%- set _all_css = extra_css | list %}
     {%- if config.theme.extra_css is defined and config.theme.extra_css %}
     {%- for path in config.theme.extra_css %}
-    {%- if path not in _all_css %}{% set _ = _all_css.append(path) %}{% endif %}
+    {%- set _href = path|url %}
+    {%- if _href not in _all_css %}{% set _ = _all_css.append(_href) %}{% endif %}
     {%- endfor %}
     {%- endif %}
     {%- for path in _all_css %}
@@ -159,7 +160,7 @@
 
         <main>
             {%- block search_button %}
-            {%- if 'search' in config['plugins'] %}{%- include "modules/searchbox.html" %}{%- endif %}
+            {%- if 'search' in config['plugins'] and config.theme.include_search_page is not sameas false %}{%- include "modules/searchbox.html" %}{%- endif %}
             {%- endblock %}
 
             {% if config.theme.sidebar or (page and page.meta.blog_sidebar) or (config.theme.components and config.theme.components.blog_sidebar) %}
@@ -170,7 +171,7 @@
                         {% include "/modules/sidebar.html" %}
                         {%- endblock %}
                     </div>
-                    <div class="col-md-9 col-12" id="component-content">
+                    <div class="col-md-9 col-12" id="component-main">
                         {%- block content_with_sidebar %}
                         {% include "/modules/content.html" %}
                         {%- endblock %}
