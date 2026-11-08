@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import unittest
 from types import SimpleNamespace
+from typing import Any
 
 from jinja2 import Environment, FileSystemLoader, TemplateNotFound
 
@@ -192,6 +193,51 @@ class SearchTemplateRenderTests(unittest.TestCase):
             self.skipTest(f"Template rendering needs more context: {exc}")
 
         self.assertTrue("<html" in html or "<!doctype" in html)
+
+
+class SearchVisibilityTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.env = _template_env()
+
+    def _render_base(
+        self, plugins: list[str] | None = None, **theme_overrides: Any
+    ) -> str:
+        template = self.env.get_template("base.html")
+        config_dict = mkdocs_config()
+        theme_dict = config_dict["theme"].copy()
+        theme_dict.update(theme_overrides)
+        config_dict["theme"] = type("Theme", (), theme_dict)()
+        if plugins is not None:
+            config_dict["plugins"] = plugins
+        config_dict["extra"] = {}
+        config_obj = type("Config", (), config_dict)()
+        return template.render(
+            config=config_obj,
+            page=mock_page(),
+            base_url=".",
+            extra_css=[],
+            extra_javascript=[],
+        )
+
+    def test_search_rendered_by_default_when_search_plugin_present(self) -> None:
+        html = self._render_base(plugins=["search"])
+        self.assertIn('class="md-search-icon"', html)
+        self.assertIn('id="rtd-search-form"', html)
+
+    def test_search_omitted_when_search_plugin_not_present(self) -> None:
+        html = self._render_base(plugins=[])
+        self.assertNotIn('class="md-search-icon"', html)
+        self.assertNotIn('id="rtd-search-form"', html)
+
+    def test_search_omitted_when_include_search_page_is_false(self) -> None:
+        html = self._render_base(plugins=["search"], include_search_page=False)
+        self.assertNotIn('class="md-search-icon"', html)
+        self.assertNotIn('id="rtd-search-form"', html)
+
+    def test_search_omitted_when_search_index_only_is_true(self) -> None:
+        html = self._render_base(plugins=["search"], search_index_only=True)
+        self.assertNotIn('class="md-search-icon"', html)
+        self.assertNotIn('id="rtd-search-form"', html)
 
 
 class PreviewModuleTests(unittest.TestCase):

@@ -1,3 +1,4 @@
+{% if 'search' in config['plugins'] and config.theme.include_search_page is not false and not config.theme.search_index_only %}
 <!-- block search -->
 <div class="collapse" id="collapseExample">
     <div role="search" class="search-box">
@@ -8,3 +9,4 @@
     </div>
 </div>
 <!-- endblock -->
+{% endif %}
