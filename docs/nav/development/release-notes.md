@@ -15,6 +15,7 @@
 - [🪲 Header search is shown only when the `search` plugin is enabled and `include_search_page` is not `false`, instead of linking to a 404 or a missing search box](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/112)
 - [🪲 Inline code inside links is readable again (it rendered black on black)](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/127)
 - [⚠️ Fix Dependabot security alert: bump black to 26.10.1 (dev-only, not shipped in the package)](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/131)
+- [⬆️ CI/CD: git-flow, Conventional Commits and Trivy security scan checks on pull requests, plus `AGENTS.md`/`platform.toml` project config](https://github.com/FernandoCelmer/mkdocs-simple-blog/pull/98)
 
 ## v0.6.1
 
