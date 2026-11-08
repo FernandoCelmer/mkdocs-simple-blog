@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .getElementById("component-sidebar")
         .classList.replace("col-0", "col-3");
       document
-        .getElementById("component-content")
+        .getElementById("component-main")
         .classList.replace("col-12", "col-9");
     });
   }
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .getElementById("component-sidebar")
         .classList.replace("col-3", "col-0");
       document
-        .getElementById("component-content")
+        .getElementById("component-main")
         .classList.replace("col-9", "col-12");
     });
   }
