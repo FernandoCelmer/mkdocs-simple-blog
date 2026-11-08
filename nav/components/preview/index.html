@@ -1,5 +1,5 @@
 <!doctype html>
-<html data-bs-theme="light">
+<html lang="en" data-bs-theme="light">
 
 <head>
     <title>Preview - MkDocs Simple Blog
@@ -19,6 +19,8 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/base16/grayscale-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/yaml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
     <script>hljs.highlightAll();</script>
     
     
@@ -49,7 +51,26 @@
     <script src="../../../search/main.js"></script>
 
     
-    
+     <style>
+        :root {
+            --text: var(--color-black);
+        }
+    </style> 
+     <style>
+        :root {
+            --title: var(--color-black);
+        }
+    </style> 
+     <style>
+        :root {
+            --primary: var(--color-black);
+        }
+    </style> 
+     <style>
+        :root {
+            --background: var(--color-white);
+        }
+    </style> 
     
     
 </head>
@@ -214,10 +235,9 @@
 <!-- endblock -->
                 </li>
                 <!-- endblock -->
-
                 <!-- block search -->
                 <li class="nav-item">
-                    <a class="collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <a class="collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" aria-label="Search">
                         <div class="md-search-icon">
                             <i class="fa fa-search" aria-hidden="true"></i>
                         </div>
@@ -239,7 +259,6 @@
     <a href="https://github.com/FernandoCelmer/mkdocs-simple-blog" class="md-source">
         FernandoCelmer/mkdocs-simple-blog
     </a>
-
     <ul class="md-source-repo-text">
       <li>
         <i class="fa fa-tag" aria-hidden="true"></i>
@@ -312,8 +331,9 @@
 
 <!-- endblock -->
                     </div>
-                    <div class="col-md-9 col-12" id="component-content">
-                        <!-- block content -->
+                    <div class="col-md-9 col-12" id="component-main">
+                        
+            <!-- block content -->
 <section class="container post" id="component-content">
     <article>
         <header>
@@ -398,8 +418,6 @@
     <script src="../../../assets/js/jquery-3.3.1.slim.min.js"></script>
     <script src="../../../assets/js/bootstrap.bundle.min.js"></script>
     <script src="../../../assets/js/main.min.js"></script>
-    <script src="../../../assets/custom.js" defer></script>
-    <script src="../../../search/main.js" defer></script>
 
 </body>
 

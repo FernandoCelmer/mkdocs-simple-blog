@@ -1,5 +1,5 @@
 <!doctype html>
-<html data-bs-theme="light">
+<html lang="en" data-bs-theme="light">
 
 <head>
     <title>Release Notes - MkDocs Simple Blog
@@ -19,6 +19,8 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/base16/grayscale-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/yaml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
     <script>hljs.highlightAll();</script>
     
     
@@ -49,7 +51,26 @@
     <script src="../../../search/main.js"></script>
 
     
-    
+     <style>
+        :root {
+            --text: var(--color-black);
+        }
+    </style> 
+     <style>
+        :root {
+            --title: var(--color-black);
+        }
+    </style> 
+     <style>
+        :root {
+            --primary: var(--color-black);
+        }
+    </style> 
+     <style>
+        :root {
+            --background: var(--color-white);
+        }
+    </style> 
     
     
 </head>
@@ -214,10 +235,9 @@
 <!-- endblock -->
                 </li>
                 <!-- endblock -->
-
                 <!-- block search -->
                 <li class="nav-item">
-                    <a class="collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <a class="collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" aria-label="Search">
                         <div class="md-search-icon">
                             <i class="fa fa-search" aria-hidden="true"></i>
                         </div>
@@ -239,7 +259,6 @@
     <a href="https://github.com/FernandoCelmer/mkdocs-simple-blog" class="md-source">
         FernandoCelmer/mkdocs-simple-blog
     </a>
-
     <ul class="md-source-repo-text">
       <li>
         <i class="fa fa-tag" aria-hidden="true"></i>
@@ -300,6 +319,11 @@
     
     <div class="sidebar navbar-collapse collapse card">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="2"><a href="#v062" class="nav-link">v0.6.2</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
             
             <li class="nav-item" data-bs-level="2"><a href="#v061" class="nav-link">v0.6.1</a>
               <ul class="nav flex-column">
@@ -402,8 +426,9 @@
 
 <!-- endblock -->
                     </div>
-                    <div class="col-md-9 col-12" id="component-content">
-                        <!-- block content -->
+                    <div class="col-md-9 col-12" id="component-main">
+                        
+            <!-- block content -->
 <section class="container post" id="component-content">
     <article>
         <header>
@@ -416,13 +441,32 @@
         
         <p class="page-dates">
             Created on January 13, 2023
-             — updated on August 23, 2026
+             — updated on November 8, 2026
         </p>
         
         <hr class="page-dates-divider">
         
         
-        <p><h2 id="v061">v0.6.1</h2>
+        <p><h2 id="v062">v0.6.2</h2>
+<ul>
+<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.6.2">📦 PyPI - Build 0.6.2</a></li>
+<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/100">⚙️ <code>remote_assets</code> option to stop loading Google Fonts, FontAwesome and Highlight.js from CDNs, with overridable <code>fonts</code>/<code>icons</code> blocks</a></li>
+<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/102">🪲 <code>theme.hljs_languages</code> now injects the Highlight.js language scripts (the template read the wrong config key)</a></li>
+<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/103">🪲 <code>theme.colors</code> now apply with <code>theme_style: light</code>; <code>dark</code> keeps its own palette. Sites that set both will now see their colors</a></li>
+<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/104">🪲 <code>extra_javascript</code> entries load once, in <code>&lt;head&gt;</code>, instead of twice (head + deferred body copy), and honour MkDocs' <code>defer</code>/<code>async</code>/<code>type</code> options. Scripts that touch the DOM or use jQuery at load time need <code>defer: true</code></a></li>
+<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/105">⚙️ Built-in <code>404.html</code> page, registered as a static template so <code>custom_dir</code> overrides render too. Overriding <code>{% block content %}</code> now also applies in the sidebar layout. A static <code>docs/404.html</code> is now replaced; move it to <code>overrides/404.html</code></a></li>
+<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/106">🪲 <code>theme.extra_css</code> alias paths resolve on nested pages and no longer duplicate top-level <code>extra_css</code> entries</a></li>
+<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/107">🪲 Fix 2-6px horizontal scroll on mobile caused by <code>.row</code> gutters inside the reduced-padding container</a></li>
+<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/108">🪲 Fix duplicate <code>id="component-content"</code> with the sidebar layout. The layout column is now <code>#component-main</code>; update custom CSS/JS that targeted the column through <code>#component-content</code></a></li>
+<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/109">🪲 <code>&lt;html lang&gt;</code> follows <code>theme.locale</code> (<code>pt_BR</code> → <code>pt-BR</code>), <code>data-bs-theme</code> defaults to <code>light</code>, and the unused <code>language</code> default is replaced by <code>locale</code></a></li>
+<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/110">🪲 <code>remote_assets: false</code> no longer loads shields.io badges, and the header search icon falls back to an inline SVG so search stays reachable</a></li>
+<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/111">📦 Remove stale <code>setup.py</code> and <code>MANIFEST.in</code>; <code>pyproject.toml</code> is the only build config</a></li>
+<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/112">🪲 Header search is shown only when the <code>search</code> plugin is enabled and <code>include_search_page</code> is not <code>false</code>, instead of linking to a 404 or a missing search box</a></li>
+<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/127">🪲 Inline code inside links is readable again (it rendered black on black)</a></li>
+<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/131">⚠️ Fix Dependabot security alert: bump black to 26.10.1 (dev-only, not shipped in the package)</a></li>
+<li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/pull/98">⬆️ CI/CD: git-flow, Conventional Commits and Trivy security scan checks on pull requests, plus <code>AGENTS.md</code>/<code>platform.toml</code> project config</a></li>
+</ul>
+<h2 id="v061">v0.6.1</h2>
 <ul>
 <li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/releases/tag/v0.6.1">📦 PyPI - Build 0.6.1</a></li>
 <li><a href="https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/96">🪲 Fix crash on any page with a date front matter field when simple-blog-posts isn't installed</a></li>
@@ -592,8 +636,6 @@
     <script src="../../../assets/js/jquery-3.3.1.slim.min.js"></script>
     <script src="../../../assets/js/bootstrap.bundle.min.js"></script>
     <script src="../../../assets/js/main.min.js"></script>
-    <script src="../../../assets/custom.js" defer></script>
-    <script src="../../../search/main.js" defer></script>
 
 </body>
 

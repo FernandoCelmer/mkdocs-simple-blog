@@ -1,5 +1,5 @@
 <!doctype html>
-<html data-bs-theme="light">
+<html lang="en" data-bs-theme="light">
 
 <head>
     <title>Fonts - MkDocs Simple Blog
@@ -19,6 +19,8 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/base16/grayscale-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/yaml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
     <script>hljs.highlightAll();</script>
     
     
@@ -49,7 +51,26 @@
     <script src="../../../search/main.js"></script>
 
     
-    
+     <style>
+        :root {
+            --text: var(--color-black);
+        }
+    </style> 
+     <style>
+        :root {
+            --title: var(--color-black);
+        }
+    </style> 
+     <style>
+        :root {
+            --primary: var(--color-black);
+        }
+    </style> 
+     <style>
+        :root {
+            --background: var(--color-white);
+        }
+    </style> 
     
     
 </head>
@@ -214,10 +235,9 @@
 <!-- endblock -->
                 </li>
                 <!-- endblock -->
-
                 <!-- block search -->
                 <li class="nav-item">
-                    <a class="collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <a class="collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" aria-label="Search">
                         <div class="md-search-icon">
                             <i class="fa fa-search" aria-hidden="true"></i>
                         </div>
@@ -239,7 +259,6 @@
     <a href="https://github.com/FernandoCelmer/mkdocs-simple-blog" class="md-source">
         FernandoCelmer/mkdocs-simple-blog
     </a>
-
     <ul class="md-source-repo-text">
       <li>
         <i class="fa fa-tag" aria-hidden="true"></i>
@@ -305,6 +324,11 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#remote-fonts-and-icons" class="nav-link">Remote fonts and icons</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
         </ul>
     </div>
     
@@ -312,8 +336,9 @@
 
 <!-- endblock -->
                     </div>
-                    <div class="col-md-9 col-12" id="component-content">
-                        <!-- block content -->
+                    <div class="col-md-9 col-12" id="component-main">
+                        
+            <!-- block content -->
 <section class="container post" id="component-content">
     <article>
         <header>
@@ -326,7 +351,7 @@
         
         <p class="page-dates">
             Created on January 18, 2023
-             — updated on August 18, 2026
+             — updated on November 8, 2026
         </p>
         
         <hr class="page-dates-divider">
@@ -382,7 +407,45 @@
 </button>
 <button style-title="overline">
     <code class="overline style-swatch">overline</code>
-</button></p></p>
+</button></p>
+<h2 id="remote-fonts-and-icons">Remote fonts and icons</h2>
+<p>By default the theme loads Fira Mono from Google Fonts and FontAwesome 4.7
+from cdnjs. Highlight.js, when enabled, is loaded from cdnjs and unpkg.</p>
+<ul>
+<li>Default: true</li>
+</ul>
+<div class="highlight"><pre><span></span><code>theme:
+  remote_assets: true
+</code></pre></div>
+<p>Set <code>remote_assets: false</code> to stop every request to these third-party
+servers. Text falls back to the browser's <code>monospace</code> font, FontAwesome
+icons are not rendered and Highlight.js is skipped even if <code>highlightjs</code>
+is <code>true</code>. The repository widget hides its shields.io badges (tag, stars,
+forks), and the header search button switches to a built-in SVG icon so
+search stays reachable.</p>
+<div class="highlight"><pre><span></span><code>theme:
+  remote_assets: false
+</code></pre></div>
+<h3 id="serving-your-own-copies">Serving your own copies</h3>
+<p>The font and icon stylesheets live in their own <code>fonts</code> and <code>icons</code>
+template blocks, so you can replace them without copying the rest of the
+theme. Put the files under <code>docs/</code> and override the blocks from a
+<code>custom_dir</code>:</p>
+<div class="highlight"><pre><span></span><code>theme:
+  name: simple-blog
+  custom_dir: overrides
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c">{# overrides/main.html #}</span>
+<span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;base.html&quot;</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">fonts</span> <span class="cp">%}</span>
+<span class="x">&lt;link rel=&quot;stylesheet&quot; href=&quot;</span><span class="cp">{{</span> <span class="s1">&#39;assets/fonts/fira-mono.css&#39;</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">icons</span> <span class="cp">%}</span>
+<span class="x">&lt;link rel=&quot;stylesheet&quot; href=&quot;</span><span class="cp">{{</span> <span class="s1">&#39;assets/font-awesome/css/font-awesome.min.css&#39;</span><span class="o">|</span><span class="nf">url</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</code></pre></div></p>
     </article>
 
     
@@ -439,8 +502,6 @@
     <script src="../../../assets/js/jquery-3.3.1.slim.min.js"></script>
     <script src="../../../assets/js/bootstrap.bundle.min.js"></script>
     <script src="../../../assets/js/main.min.js"></script>
-    <script src="../../../assets/custom.js" defer></script>
-    <script src="../../../search/main.js" defer></script>
 
 </body>
 

@@ -1,5 +1,5 @@
 <!doctype html>
-<html data-bs-theme="light">
+<html lang="en" data-bs-theme="light">
 
 <head>
     <title>Getting Started - MkDocs Simple Blog
@@ -19,6 +19,8 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/base16/grayscale-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/yaml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
     <script>hljs.highlightAll();</script>
     
     
@@ -49,7 +51,26 @@
     <script src="../../search/main.js"></script>
 
     
-    
+     <style>
+        :root {
+            --text: var(--color-black);
+        }
+    </style> 
+     <style>
+        :root {
+            --title: var(--color-black);
+        }
+    </style> 
+     <style>
+        :root {
+            --primary: var(--color-black);
+        }
+    </style> 
+     <style>
+        :root {
+            --background: var(--color-white);
+        }
+    </style> 
     
     
 </head>
@@ -214,10 +235,9 @@
 <!-- endblock -->
                 </li>
                 <!-- endblock -->
-
                 <!-- block search -->
                 <li class="nav-item">
-                    <a class="collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <a class="collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" aria-label="Search">
                         <div class="md-search-icon">
                             <i class="fa fa-search" aria-hidden="true"></i>
                         </div>
@@ -239,7 +259,6 @@
     <a href="https://github.com/FernandoCelmer/mkdocs-simple-blog" class="md-source">
         FernandoCelmer/mkdocs-simple-blog
     </a>
-
     <ul class="md-source-repo-text">
       <li>
         <i class="fa fa-tag" aria-hidden="true"></i>
@@ -315,6 +334,16 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#404-page" class="nav-link">404 page</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#extra-javascript" class="nav-link">Extra JavaScript</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
         </ul>
     </div>
     
@@ -322,8 +351,9 @@
 
 <!-- endblock -->
                     </div>
-                    <div class="col-md-9 col-12" id="component-content">
-                        <!-- block content -->
+                    <div class="col-md-9 col-12" id="component-main">
+                        
+            <!-- block content -->
 <section class="container post" id="component-content">
     <article>
         <header>
@@ -336,7 +366,7 @@
         
         <p class="page-dates">
             Created on January 14, 2023
-             — updated on August 18, 2026
+             — updated on November 8, 2026
         </p>
         
         <hr class="page-dates-divider">
@@ -354,6 +384,35 @@
 <p>After the theme is installed, edit your <code>mkdocs.yml</code> file and set the theme name to <code>simple-blog</code>:</p>
 <div class="highlight"><pre><span></span><code>theme:
     name: simple-blog
+</code></pre></div>
+<h2 id="404-page">404 page</h2>
+<p>The theme ships a <code>404.html</code> page. To replace it, create <code>overrides/404.html</code>
+and point <code>custom_dir</code> to that folder:</p>
+<div class="highlight"><pre><span></span><code>theme:
+    name: simple-blog
+    custom_dir: overrides
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;base.html&quot;</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span>
+<span class="x">&lt;h1&gt;Page not found&lt;/h1&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</code></pre></div>
+<p>Set <code>site_url</code> when the site is served from a subpath (for example
+<code>https://user.github.io/repo/</code>), so the 404 page links and assets resolve.</p>
+<p>A static <code>docs/404.html</code> is replaced by the theme's 404 page. Move it to
+<code>overrides/404.html</code> as shown above to keep it.</p>
+<h2 id="extra-javascript">Extra JavaScript</h2>
+<p>Scripts listed in <code>extra_javascript</code> load once, in <code>&lt;head&gt;</code>, before the page
+content. That way inline <code>&lt;script&gt;</code> blocks in your pages can use them. Scripts
+that touch the page or use the theme's jQuery/Bootstrap at load time should be
+deferred, with MkDocs' per-script options:</p>
+<div class="highlight"><pre><span></span><code>extra_javascript:
+  - js/plotly.min.js
+  - path: js/my-widgets.js
+    defer: true
+  - path: js/app.mjs
+    type: module
 </code></pre></div></p>
     </article>
 
@@ -411,8 +470,6 @@
     <script src="../../assets/js/jquery-3.3.1.slim.min.js"></script>
     <script src="../../assets/js/bootstrap.bundle.min.js"></script>
     <script src="../../assets/js/main.min.js"></script>
-    <script src="../../assets/custom.js" defer></script>
-    <script src="../../search/main.js" defer></script>
 
 </body>
 
