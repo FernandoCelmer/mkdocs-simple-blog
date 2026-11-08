@@ -62,6 +62,27 @@ class NotFoundTemplateTests(unittest.TestCase):
         self.assertIn('id="mine"', html)
         self.assertNotIn('id="component-not-found"', html)
 
+    def test_content_override_also_applies_with_sidebar(self) -> None:
+        custom = '{% extends "base.html" %}{% block content %}<h1 id="mine">Gone</h1>{% endblock %}'
+        site = _build({"sidebar": True}, {"404.html": custom})
+        html = (site / "404.html").read_text()
+        self.assertIn('id="component-sidebar"', html)
+        self.assertIn('id="mine"', html)
+        self.assertNotIn('id="component-title"></h1>', html)
+
+    def test_sidebar_pages_render_content_once(self) -> None:
+        html = (_build({"sidebar": True}) / "index.html").read_text()
+        self.assertEqual(html.count('id="component-content"'), 1)
+
+    def test_home_link_points_to_site_root(self) -> None:
+        self.assertIn(
+            'href="/">Back to home', (_build({}) / "404.html").read_text()
+        )
+        site = _build({}, site_url="https://example.com/blog/")
+        self.assertIn(
+            'href="/blog/">Back to home', (site / "404.html").read_text()
+        )
+
     def test_404_links_are_not_protocol_relative(self) -> None:
         html = (_build({}) / "404.html").read_text()
         self.assertIn('action="/search.html"', html)
