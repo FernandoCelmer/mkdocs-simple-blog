@@ -34,7 +34,9 @@ def _build(theme: dict, overrides: dict[str, str] | None = None) -> Path:
 
 class NotFoundTemplateTests(unittest.TestCase):
     def test_theme_registers_404_as_static_template(self) -> None:
-        theme_config = yaml.safe_load((THEME_DIR / "mkdocs_theme.yml").read_text())
+        theme_config = yaml.safe_load(
+            (THEME_DIR / "mkdocs_theme.yml").read_text()
+        )
         self.assertIn("404.html", theme_config["static_templates"])
 
     def test_build_generates_404_page(self) -> None:
