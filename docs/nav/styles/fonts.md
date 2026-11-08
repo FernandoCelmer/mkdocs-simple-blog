@@ -55,3 +55,51 @@ theme:
 <button style-title="overline">
     <code class="overline style-swatch">overline</code>
 </button>
+
+## Remote fonts and icons
+
+By default the theme loads Fira Mono from Google Fonts and FontAwesome 4.7
+from cdnjs. Highlight.js, when enabled, is loaded from cdnjs and unpkg.
+
+- Default: true
+
+```yml
+theme:
+  remote_assets: true
+```
+
+Set `remote_assets: false` to stop every request to these third-party
+servers. Text falls back to the browser's `monospace` font, FontAwesome
+icons are not rendered and Highlight.js is skipped even if `highlightjs`
+is `true`.
+
+```yml
+theme:
+  remote_assets: false
+```
+
+### Serving your own copies
+
+The font and icon stylesheets live in their own `fonts` and `icons`
+template blocks, so you can replace them without copying the rest of the
+theme. Put the files under `docs/` and override the blocks from a
+`custom_dir`:
+
+```yml
+theme:
+  name: simple-blog
+  custom_dir: overrides
+```
+
+```jinja
+{# overrides/main.html #}
+{% extends "base.html" %}
+
+{% block fonts %}
+<link rel="stylesheet" href="{{ 'assets/fonts/fira-mono.css'|url }}">
+{% endblock %}
+
+{% block icons %}
+<link rel="stylesheet" href="{{ 'assets/font-awesome/css/font-awesome.min.css'|url }}">
+{% endblock %}
+```
