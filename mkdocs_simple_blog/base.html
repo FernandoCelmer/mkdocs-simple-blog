@@ -139,7 +139,8 @@
     {%- set _all_css = extra_css | list %}
     {%- if config.theme.extra_css is defined and config.theme.extra_css %}
     {%- for path in config.theme.extra_css %}
-    {%- if path not in _all_css %}{% set _ = _all_css.append(path) %}{% endif %}
+    {%- set _href = path|url %}
+    {%- if _href not in _all_css %}{% set _ = _all_css.append(_href) %}{% endif %}
     {%- endfor %}
     {%- endif %}
     {%- for path in _all_css %}
