@@ -58,7 +58,7 @@ pymdown-extensions = "^11.0.1"
 ruff = "^0.6.0"
 flake8 = "^7.0.0"
 mypy = "^1.8.0"
-black = "^26.3.1"
+black = "^26.10.1"
 isort = "^5.13.0"
 
 [build-system]
