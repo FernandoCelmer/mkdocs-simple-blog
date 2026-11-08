@@ -4,7 +4,7 @@
 - [⚙️ `remote_assets` option to stop loading Google Fonts, FontAwesome and Highlight.js from CDNs, with overridable `fonts`/`icons` blocks](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/100)
 - [🪲 `theme.hljs_languages` now injects the Highlight.js language scripts (the template read the wrong config key)](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/102)
 - [🪲 `theme.colors` now apply with `theme_style: light`; `dark` keeps its own palette. Sites that set both will now see their colors](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/103)
-- [🪲 `extra_javascript` entries load once, blocking in `<head>`, instead of twice (head + deferred body copy)](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/104)
+- [🪲 `extra_javascript` entries load once, in `<head>`, instead of twice (head + deferred body copy), and honour MkDocs' `defer`/`async`/`type` options. Scripts that touch the DOM or use jQuery at load time need `defer: true`](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/104)
 - [⚙️ Built-in `404.html` page, registered as a static template so `custom_dir` overrides render too. A static `docs/404.html` is now replaced; move it to `overrides/404.html`](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/105)
 - [🪲 `theme.extra_css` alias paths resolve on nested pages and no longer duplicate top-level `extra_css` entries](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/106)
 - [🪲 Fix 2-6px horizontal scroll on mobile caused by `.row` gutters inside the reduced-padding container](https://github.com/FernandoCelmer/mkdocs-simple-blog/issues/107)
