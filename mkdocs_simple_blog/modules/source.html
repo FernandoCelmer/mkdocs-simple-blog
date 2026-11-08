@@ -9,6 +9,7 @@
         {{ config.repo_name }}
     </a>
 
+    {%- if config.theme.remote_assets is not sameas false %}
     <ul class="md-source-repo-text">
       <li>
         <i class="fa fa-tag" aria-hidden="true"></i>
@@ -34,6 +35,7 @@
         />
       </li>
     </ul>
+    {%- endif %}
   </div>
 </div>
 <!--  endblock -->

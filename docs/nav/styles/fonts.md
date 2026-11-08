@@ -71,7 +71,9 @@ theme:
 Set `remote_assets: false` to stop every request to these third-party
 servers. Text falls back to the browser's `monospace` font, FontAwesome
 icons are not rendered and Highlight.js is skipped even if `highlightjs`
-is `true`.
+is `true`. The repository widget hides its shields.io badges (tag, stars,
+forks), and the header search button switches to a built-in SVG icon so
+search stays reachable.
 
 ```yml
 theme:

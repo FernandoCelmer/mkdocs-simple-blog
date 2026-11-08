@@ -103,6 +103,52 @@ class RemoteAssetsDisabledTests(unittest.TestCase):
         self.assertIn("assets/css/main.min.css", self.html)
 
 
+SHIELDS = "img.shields.io"
+
+
+def _render_module(name: str, **theme_overrides: Any) -> str:
+    config_dict = mkdocs_config()
+    theme_config = config_dict["theme"].copy()
+    theme_config.update(theme_overrides)
+    config_dict["theme"] = type("Theme", (), theme_config)()
+    config_dict["repo_url"] = "https://github.com/owner/repo"
+    config_dict["repo_name"] = "owner/repo"
+    config_dict["plugins"] = ["search"]
+    config_obj = type("Config", (), config_dict)()
+    return (
+        _env()
+        .get_template(f"modules/{name}")
+        .render(config=config_obj, nav=[])
+    )
+
+
+class RemoteAssetsModulesTests(unittest.TestCase):
+    def test_source_badges_load_by_default(self) -> None:
+        self.assertIn(
+            SHIELDS, _render_module("source.html", remote_assets=True)
+        )
+
+    def test_source_badges_skipped_when_disabled(self) -> None:
+        html = _render_module("source.html", remote_assets=False)
+        self.assertNotIn(SHIELDS, html)
+        self.assertIn("owner/repo", html)
+
+    def test_search_toggle_uses_font_awesome_by_default(self) -> None:
+        html = _render_module("header.html", remote_assets=True)
+        self.assertIn('class="fa fa-search"', html)
+        self.assertNotIn("<svg", html)
+
+    def test_search_toggle_falls_back_to_inline_svg(self) -> None:
+        html = _render_module("header.html", remote_assets=False)
+        self.assertNotIn('class="fa fa-search"', html)
+        self.assertIn("<svg", html)
+
+    def test_search_toggle_has_accessible_label(self) -> None:
+        for enabled in (True, False):
+            html = _render_module("header.html", remote_assets=enabled)
+            self.assertIn('aria-label="Search"', html)
+
+
 class FontAndIconBlockOverrideTests(unittest.TestCase):
     def setUp(self) -> None:
         self.html = _render("child.html")
