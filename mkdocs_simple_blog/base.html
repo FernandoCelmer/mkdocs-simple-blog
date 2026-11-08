@@ -1,5 +1,5 @@
 <!doctype html>
-<html data-bs-theme="{{ config.theme.theme_style }}">
+<html lang="{{ ((config.theme.locale | string) or 'en') | replace('_', '-') }}" data-bs-theme="{{ config.theme.theme_style or 'light' }}">
 
 <head>
     {%- block site_meta %}
